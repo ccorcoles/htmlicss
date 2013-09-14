@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Posicionament estàtic i relatiu en CSS</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -52,7 +47,6 @@
 <li>36.3.1. <a href="#multicolumnlayout">Disposició de múltiples columnes amb requisits d'ordre en el codi font</a>
 <ul class="index">
 <li><a href="#makingcolumns">Crear columnes</a></li>
-<li><a href="#iequirks">Solucionar els problemes amb l'Internet Explorer</a></li>
 </ul></li>
 <li>36.3.2. <a href="#otherusesforrelative">Altres usos del posicionament relatiu</a></li>
 </ul></li>
@@ -171,11 +165,10 @@
 <ol>
 <li><p>Copieu el següent codi HTML en un document nou de l'editor de textos que més us agradi i guardeu-lo amb el nom <code>relative.html</code>.</p>
 
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
    &lt;head&gt;
-      &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+      &lt;meta charset=utf-8"&gt;
       &lt;title&gt;Relative Positioning&lt;/title&gt;
    &lt;/head&gt;
    &lt;body&gt;
@@ -264,11 +257,10 @@ span {
 <ol>
 <li><p>Copieu el codi següent al vostre editor de textos i guardeu l'arxiu amb el nom <code>layout.html</code>.</p>
 
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
-   "http://www.w3.org/TR/html4/strict.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
    &lt;html lang="en"&gt;
    &lt;head&gt;
-      &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+      &lt;meta charset="utf-8"&gt;
       &lt;title&gt;Static and Relative Positioning&lt;/title&gt;
       &lt;link rel="stylesheet" type="text/css" href="layout.css"&gt;
    &lt;/head&gt;
@@ -337,7 +329,7 @@ span {
 <div class="note">
 <h3>Nota</h3>
 
-<p>Si utilitzeu la versió 6 o anterior del Microsoft Internet Explorer no podreu veure els efectes de cap limitació de l'amplada. Això és així perquè aquestes versions de l'IE no accepten amplades (o altures) mínimes i màximes. Al final de l'exemple veurem una manera de solucionar aquest problema. De fet, al llarg de tot aquest exemple anireu veient uns resultats estranys, fins i tot amb l'IE7, perquè l'Internet Explorer té molts errors de representació. En aquest exemple em centraré en la manera de fer les coses conforme amb els estàndards, i al final ja veurem les solucions. </p>
+<p>Si seguiu els exemples amb versions d'Internet Explorer fins a la 8 veureu uns resultats estranys, perquè l'Internet Explorer tenia molts errors de representació. En aquest exemple em centraré en la manera de fer les coses conforme amb els estàndards.</p>
 </div>
 
 <p>Si observeu el codi amb atenció veureu que les amplades estan fixades a 13 em i 11 em en lloc de 14 em i 12 em. Això és així perquè necessitem una mica de separació horitzontal; no volem que el contingut d'aquestes columnes toqui les vores, ja que no quedaria gaire bé. La separació s'afegeix a l'amplada, amb la qual cosa 13 em + 0,5 em + 0,5 em sumen un total de 14 em, que és el que volem.</p>
@@ -407,4 +399,20 @@ span {
    <strong>margin-left:  -14em;</strong>
 }</code></pre></li>
 
-<li><p>Guardeu, torneu a carregar i veureu que la barra lateral es troba ara a la mateixa alçada vertical que la columna del contingut. Amb un marge esquerre negatiu igual a l'amplada de l
+<li><p>Guardeu, torneu a carregar i veureu que la barra lateral es troba ara a la mateixa alçada vertical que la columna del contingut. Amb un marge esquerre negatiu igual a l'amplada de la barra lateral, estem movent l'element cap a l'interior de l'embolcall i ja no es desplaça cap avall. El problema és que queda sobre el contingut.</p></li>
+
+<li><p>Haureu de desplaçar-la cap al marge sense que torni a anar cap avall, i aquí és on entra finalment en joc el posicionament relatiu. Aquest fa precisament el que volem:  desplaça la caixa generada sense moure l'element en si. Afegiu les propietats destacades del codi següent a la regla per a <code>#sidebar</code>:</p>
+
+<pre><code>#sidebar {
+   float: left;
+   width: 13em;
+   padding: 0 0.5em;
+   background-color: #ff6;
+   margin-left: -14em;
+   <strong>position: relative;</strong>
+   <strong>left: 15em;</strong>
+}</code></pre>
+
+<p>Observeu que hem hagut de desplaçar l'element 15 em, i no 14 em, això és així perquè a l'embolcall hi ha 1 em de separació a la dreta que cal que superem. La barra lateral ja es troba al lloc on ha de ser: cap al marge, al costat de la columna del contingut i ben alineada amb les vores dretes de la capçalera i el peu de pàgina.</p></li>
+
+<li><p>Ara heu de fer el mateix amb 

@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Estils de llistes i enllaços</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -428,7 +423,7 @@ li {
    display:-moz-inline-box;
 }</code></pre>
 
-<p>A la majoria de navegadors, amb això n'hi haurà prou per crear l'efecte de la columna, però haureu d'especificar que l'IE faci "flotar" els elements de la llista a l'esquerra. Utilitzem un estil condicional per a totes les versions fins a l'IE7 (ja que encara no sabem què faran les futures versions).</p>
+<p>A la majoria de navegadors, amb això n'hi haurà prou per crear l'efecte de la columna, però haureu d'especificar que l'IE faci "flotar" els elements de la llista a l'esquerra. Utilitzem un estil condicional per a totes les versions fins a l'IE7.</p>
 
 <pre><code>&lt;!--[if lte IE 7]&gt;
    &lt;style type="text/css"&gt;
@@ -477,7 +472,7 @@ li {
 
 <li><p>Visitat. L'estat d'un enllaç que l'usuari ja ha visitat.</p></li>
 
-<li><p>Seleccionat. S'aplica mentre l'enllaç està seleccionat, per exemple quan el cursor de l'usuari del teclat es troba sobre l'enllaç. Actualment, l'IE no accepta l'estat seleccionat i només fa servir <code>active</code> (actiu) en lloc de <code>focus</code> (seleccionat).</p></li>
+<li><p>Seleccionat. S'aplica mentre l'enllaç està seleccionat, per exemple quan el cursor de l'usuari del teclat es troba sobre l'enllaç.</p></li>
 
 <li><p>Per sobre ('hover'). S'aplica quan un usuari té el punter del ratolí per sobre de l'enllaç però encara no l'ha clicat.</p></li>
 
@@ -519,4 +514,14 @@ li {
 
 <li><p>Els usuaris esperen que els enllaços <strong>canviïn</strong> després de visitar-los.</p></li>
 
-<li><p>Als usuaris els agrada la <strong>consistència</strong> dels estils dels enllaços de l
+<li><p>Als usuaris els agrada la <strong>consistència</strong> dels estils dels enllaços de la mateixa funció per així saber què han de clicar.</p></li>
+
+<li><p>Els usuaris esperen que el text subratllat sigui un enllaç, així que no subratlleu una altra cosa.</p></li>
+</ul>
+
+<p>Sempre heu de complir aquestes normes bàsiques perquè contribueixen al fet que els usuaris puguin identificar i utilitzar els enllaços ràpidament. Heu de crear estils que no obliguin la gent a dubtar de quines parts del text són enllaços.</p>
+
+<p>Aquestes expectatives es tradueixen en unes normes de codificació molt senzilles:</p>
+<ul>
+<li><p>definir estils per a tots els estats d'enllaç,</p></li>
+<li><p>fer servir e

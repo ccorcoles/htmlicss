@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Introducció al món dels estàndards web - El model d'estàndards web: HTML, CSS i JavaScript</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -55,14 +50,14 @@
 <h2 id="whyseparate">4.1. Per què separar?</h2>
 <p>Aquesta és generalment la primera pregunta que es fa sobre els estàndards web. Es pot fer el contingut, l'estil i el format només utilitzant HTML: elements de tipus de lletra per a l'estil i taules HTML per al format, de manera que, perquè preocupar-se d'aquest assumpte d'XHTML/CSS? L'ús de taules pel format, etc., és com se solia fer en els mals temps del disseny web, i molta gent encara ho fa d'aquesta manera (encara que no s'hauria de fer) i, de fet, és un dels motius pels quals hem creat aquest curs. En aquest curs no tractarem aquests mètodes. Aquestes són les raons més importants per utilitzar CSS i HTML en comptes de mètodes obsolets: </p>
 <ol>
-<li><p><strong>Eficiència del codi</strong>: Com més grans són els arxius, més trigaran a descarregar-se i més diners els costarà a algunes persones (algunes persones encara paguen per megabyte descarregat). Per tant, no s'ha de malbaratar l'amplada de banda amb pàgines grans atapeïdes d'informació d'estil i de format a cada arxiu HTML. Una alternativa molt millor és que els arxius HTML siguin desglossats i nets, i incloure la informació d'estil i de format només una vegada en un arxiu CSS independent o en diversos. </p>
+<li><p><strong>Eficiència del codi</strong>: Com més grans són els arxius, més trigaran a descarregar-se i més diners els costarà a algunes persones (algunes persones encara paguen per megabyte descarregat, i les tarifes mòbils acostumen a tenir límits mensuals prou estrictes). Per tant, no s'ha de malbaratar l'amplada de banda amb pàgines grans atapeïdes d'informació d'estil i de format a cada arxiu HTML. Una alternativa molt millor és que els arxius HTML siguin desglossats i nets, i incloure la informació d'estil i de format només una vegada en un arxiu CSS independent o en diversos. </p>
 <div class="exemple">
 	<h3>Eficiència del codi</h3>
 <p>Per a veure un cas real d'aquest fet en acció, vegeu l'article sobre reescriptura Slashdot de <a href="http://www.alistapart.com/articles/slashdot" hreflang="en">A List Apart Slashdot</a> on l'autor va agafar una pàgina web molt popular i la va reescriure en XHTML/CSS. </p>
 </div></li>
 <li><p><strong>Facilitat de manteniment</strong>: En relació amb el darrer punt, si la informació d'estil i format només s'especifica a un lloc, això vol dir que només caldrà fer actualitzacions a un lloc si es vol canviar l'aspecte de la pàgina web. Preferiríeu haver d'actualitzar aquesta informació a cada pàgina del vostre web? No ho crec. </p></li>
 <li><p><strong>Accessibilitat</strong>: Els usuaris del web amb problemes visuals poden utilitzar una peça de programari coneguda com a "lector de pantalla" per a accedir a la informació mitjançant el so en comptes de la vista; literalment els llegeix la pàgina. A més, el programari d'introducció de dades mitjançant la veu que utilitzen les persones amb problemes de mobilitat també es beneficia de les pàgines web amb una semàntica ben construïda. De manera molt semblant al lector de pantalla que utilitza les instruccions del teclat per navegar pels encapçalaments, enllaços i formularis, un usuari que faci les entrades per veu utilitzarà instruccions amb la veu. Els documents web marcats semànticament en comptes de fer-ho presentacionalment poden resultar més fàcils de navegar-hi i la informació que contenen és més fàcil de trobar per a l'usuari.  En altres paraules, com més ràpidament "entri en matèria" (el contingut), millor. Els lectors de pantalla no poden accedir al text ocult per imatges i troben confusos alguns usos de JavaScript. Assegureu-vos que el contingut més important està disponible per a tothom. </p></li>
-<li><p><strong>Compatibilitat de dispositius</strong>: Com que la vostra pàgina XHTML és simplement etiquetatge normal, sense informació d'estil, es pot reformatar per diferents dispositius amb atributs àmpliament variats (p. ex. la mida de pantalla) simplement aplicant un full d'estils alternatiu; podeu fer-ho de diverses maneres. Vegeu els <a href="http://dev.opera.com/articles/mobile/" hreflang="en">articles de dev.opera.com</a> per a obtenir recursos sobre això. CSS també permet especificar fulls d'estil diferents a nivell natiu per a diversos mètodes de presentació o tipus de suport (p. ex., visualització en pantalla, impressió, visualització en un dispositiu mòbil, etc.). </p></li>
+<li><p><strong>Compatibilitat de dispositius</strong>: Com que la vostra pàgina HTML és simplement etiquetatge normal, sense informació d'estil, es pot reformatar per diferents dispositius amb atributs àmpliament variats (p. ex. la mida de pantalla) simplement aplicant un full d'estils alternatiu; podeu fer-ho de diverses maneres. Vegeu els <a href="http://dev.opera.com/articles/mobile/" hreflang="en">articles de dev.opera.com</a> per a obtenir recursos sobre això. CSS també permet especificar fulls d'estil diferents a nivell natiu per a diversos mètodes de presentació o tipus de suport (p. ex., visualització en pantalla, impressió, visualització en un dispositiu mòbil, etc.). </p></li>
 <li><p><strong>Motors de cerca al web</strong>: Probablement us interessarà que les vostres pàgines web siguin fàcils de trobar en cercar a Google o a d'altres motors de cerca. Un motor de cerca utilitza un "crawler" o aranya web, que és una peça de programari especialitzada per a llegir les vostres pàgines. Si aquesta aranya tingués problemes per trobar el contingut de les vostres pàgines o interpretés malament el que és important perquè no heu definit els encapçalaments com a encapçalaments, etc, aleshores de ben segur que la vostra posició als resultats de cerca es veurà afectada. </p></li>
 <li><p><strong>És simplement una bona pràctica</strong>: Es tracta d'un motiu una mica del tipus "perquè ho dic jo", però parleu amb qualsevol desenvolupador o dissenyador web professional conscient dels estàndards i segur que us diu que separar el contingut, l'estil i el comportament és la millor manera de desenvolupar una aplicació.</p></li>
 </ol>
@@ -93,20 +88,20 @@
 	</tfoot>
 	<tbody>
 	<tr><td>Els elements i atributs no distingeixen entre majúscules i minúscules, <code>&lt;h1&gt;</code> és el mateix que <code>&lt;H1&gt;</code>.</td>
-			<td>Els elements i atributs distingeixen entre majúscules i minúscules; tots són en minúscules.</td>
+	<td>Els elements i atributs distingeixen entre majúscules i minúscules; tots són en minúscules.</td>
 	</tr>
 	<tr><td>Alguns elements no necessiten una etiqueta de tancament (p. ex., paràgrafs, <code>&lt;p&gt;</code>), mentre que d'altres (anomenats "elements buits") prohibeixen la marca de tancament (p. ex., les imatges, <code>&lt;img&gt;</code>).</td>
-			<td>Tots els elements s'han de tancar clarament (p. ex., <code>&lt;p&gt;A paragraph&lt;/p&gt;</code>). Els elements sense contingut es poden tancar utilitzant una barra inclinada a la marca inicial (p. ex., <code>&lt;hr&gt;&lt;/hr&gt;</code> i <code>&lt;hr/&gt;</code> volen dir el mateix).<br />
-			Si entregueu el text XHTML com a  <code>text/html</code>, haureu d'utilitzar la sintaxi abreviada a tots els <a href="http://www.cs.tut.fi/~jkorpela/html/empty.html" hreflang="en">elements que estan definits com a "buits"</a> i col·locar un espai abans de la barra inclinada. Hauríeu de fer servir la forma llarga (amb marques inicial i final independents) a qualsevol element que no estigui definit com a buit, encara que no tingui cap contingut.</td>
+	<td>Tots els elements s'han de tancar clarament (p. ex., <code>&lt;p&gt;A paragraph&lt;/p&gt;</code>). Els elements sense contingut es poden tancar utilitzant una barra inclinada a la marca inicial (p. ex., <code>&lt;hr&gt;&lt;/hr&gt;</code> i <code>&lt;hr/&gt;</code> volen dir el mateix).<br />
+	Si entregueu el text XHTML com a <code>text/html</code>, haureu d'utilitzar la sintaxi abreviada a tots els <a href="http://www.cs.tut.fi/~jkorpela/html/empty.html" hreflang="en">elements que estan definits com a "buits"</a> i col·locar un espai abans de la barra inclinada. Hauríeu de fer servir la forma llarga (amb marques inicial i final independents) a qualsevol element que no estigui definit com a buit, encara que no tingui cap contingut.</td>
 	</tr>
 	<tr><td>Alguns valors d'atributs poden estar escrits sense estar entre cometes.</td>
-			<td>Els valors dels atributs s'han d'incloure entre cometes.</td>
+	<td>Els valors dels atributs s'han d'incloure entre cometes.</td>
 	</tr>
 	<tr><td>Alguns atributs es poden abreujar (p. ex., <code>&lt;option selected&gt;</code>).</td>
-			<td>S'ha d'utilitzar la forma d'atribut sencera per a tots els atributs (p. ex., <code>&lt;option selected="selected"&gt;</code>).</td>
+	<td>S'ha d'utilitzar la forma d'atribut sencera per a tots els atributs (p. ex., <code>&lt;option selected="selected"&gt;</code>).</td>
 	</tr>
 	<tr><td>Els servidors haurien de subministrar l'HTML al client amb un tipus de suport <code>text/html</code>.</td>
-			<td>L'XHTML hauria de fer servir el tipus de suport <code>application/xhtml+xml</code> però es pot utilitzar <code>application/xml</code>,  text/xml o <code>text/html</code>. Si s'utilitza <code>text/html</code>, s'haurien de seguir les <a href="http://www.w3.org/TR/xhtml1/guidelines.html" hreflang="en">directrius de compatibilitat d'HTML</a> perquè els navegadors ho tractaran com a HTML (i utilitzar la recuperació d'errors per a representar les diferències entre idiomes).</td>
+	<td>L'XHTML hauria de fer servir el tipus de suport <code>application/xhtml+xml</code> però es pot utilitzar <code>application/xml</code>,  text/xml o <code>text/html</code>. Si s'utilitza <code>text/html</code>, s'haurien de seguir les <a href="http://www.w3.org/TR/xhtml1/guidelines.html" hreflang="en">directrius de compatibilitat d'HTML</a> perquè els navegadors ho tractaran com a HTML (i utilitzar la recuperació d'errors per a representar les diferències entre idiomes).</td>
 	</tr>
 	</tbody>
 </table>
@@ -148,8 +143,8 @@
 	<li><p><strong>Definició d'una ID</strong>. Podeu donar-li a un element un atribut <code>id</code> per identificar-lo de manera única en una pàgina (cada ID es pot utilitzar només una vegada per pàgina), per exemple <code>id="navigation_menu"</code>. Això us permet un control més precís sobre el format d'una pàgina.</p>
 <div class="exemple">
 	<h3>Exemple de definició d'una ID</h3>
-<p>Si només voleu que un paràgraf determinat sigui a doble espai i destacat amb text verd, assigneu-hi una ID. </p>
-<pre><code>&lt;p id="highlight"&gt;Paragraph content&lt;/p&gt;</code></pre>
+<p>Si només voleu que un paràgraf determinat sigui a doble espai i destacat amb text verd, assigneu-hi una ID.</p>
+<pre><code>&lt;p id="highlight"&gt;Contingut del paràgraf&lt;/p&gt;</code></pre>
 <p>I aleshores apliqueu-hi una regla CSS, tal com s'indica a continuació:</p>
 <pre><code>#highlight {
   line-height: 2;
@@ -161,8 +156,8 @@
 <div class="exemple">
 	<h3>Exemple de definició d'una classe</h3>
 <p>Seguint amb el nostre exemple de doble espai, si voleu que els dos primers paràgrafs d'una pàgina siguin a doble espai i estiguin destacats, els hauríeu d'afegir classes, com ara: </p>
-<pre><code>&lt;p class="highlight"&gt;Paragraph content&lt;/p&gt;
-&lt;p class="highlight"&gt;The content of the second paragraph&lt;/p&gt;</code></pre>
+<pre><code>&lt;p class="highlight"&gt;Contingut del paràgraf&lt;/p&gt;
+&lt;p class="highlight"&gt;El contingut del segon paràgraf&lt;/p&gt;</code></pre>
 <p>I aleshores apliqueu-los una regla CSS com s'indica a continuació:</p>
 <pre><code>highlight {
   line-height: 2;
@@ -195,13 +190,11 @@
 <p>L'exemple que presento a continuació és una pàgina de referències que es pot fer servir per a citar referències al final de, posem per cas, un assaig psicològic sobre la dinàmica de grup d'un equip de desenvolupament web, o un informe per a treballar sobre l'ús d'Internet de banda ampla als Estats Units. Tingueu en compte que si sou molt estrictes amb la redacció acadèmica canònica, aquest exemple mostra el format APA (n'havia de triar un). <a href="http://dev.opera.com/articles/view/4-the-web-standards-model-html-css-a/article4_examples.zip" hreflang="en">Descarregueu-vos el codi</a>.</p>
 
 <h3 id="index">4.5.1. <code>index.html</code></h3>
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 
-&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+&lt;html&gt;
 &lt;head&gt;
-  &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"/&gt;
-
+  &lt;meta charset="utf-8" /&gt;
   &lt;title&gt;References&lt;/title&gt;
   &lt;style type="text/css"&gt;
     @import url("styles.css");
@@ -232,13 +225,13 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 <p>No faré una dissecció d'aquest arxiu línia per línia, ja que veureu molts exemples en futurs apartats; tanmatexi, tot seguit s'indiquen alguns elements importants que cal tenir en compte. </p>
-<p>La línia 1 és el que s'anomena <em>declaració de tipus de document</em> o "doctype". En aquest cas, la pàgina és "XHTML 1.0 Transitional". El tipus de document especifica una sèrie de regles que ha de seguir l'etiquetatge i gràcies a les quals se'l pot validar. </p>
+<p>La línia 1 és el que s'anomena <em>declaració de tipus de document</em> o "doctype". En aquest cas, la pàgina és "HTML5" (tot i que no explota totes les característiques d'HTML5). El tipus de document especifica una sèrie de regles que ha de seguir l'etiquetatge i gràcies a les quals se'l pot validar. </p>
 <div class="vegeu_tambe">
 	<h3>Vegeu també</h3>
 <p>Vegeu l'apartat 14 del mòdul "Fonaments d'HTML" per a trobar més informació sobre tipus de documents. </p>
 </div>
 <p>Les línies 5 a 7 importen un arxiu CSS a la pàgina: els estils continguts en aquest arxiu s'aplicaran als diferents elements de la pàgina. Al següent subapartat veureu el contingut de l'arxiu CSS que tracta tot el format de la pàgina.</p>
-<p>He assignat una classe diferent a cadascun dels diferents tipus de referència. Fer-ho d'aquesta manera em permet aplicar un estil diferent a cada tipus de referència, per exemple, en el nostre exemple he posat un color diferent a la dreta de cada referència perquè sigui més fàcil analitzar la llista. </p>
+<p>He assignat una classe diferent a cadascun dels diferents tipus de referència. Fer-ho d'aquesta manera em permet aplicar un estil diferent a cada tipus de referència, per exemple, en el nostre exemple he posat un color diferent a la dreta de cada referència perquè sigui més fàcil analitzar la llista.</p>
 <p>Ara fem una ullada al CSS que aplica estil a l'HTML. </p>
 
 
@@ -322,8 +315,8 @@ h1 {
 </div>
 
 <h2 id="summary">Resum</h2>
-<p>L'XHTML, el CSS i JavaScript no tenen res de complicat. Són simplement una evolució del web. Si ja heu tingut una mica de contacte amb l'HTML, ho podeu aprofitar perfectament. Tot el que sabeu segueix sent vàlid, només cal tractar alguns conceptes de manera diferent (i tenir una mica més de compte amb l'etiquetatge). </p>
-<p>Apart de tenir la satisfacció d'una feina ben feta, el desenvolupament dels estàndards web és totalment lògic. Els arguments en contra del desenvolupament amb estàndards són que s'ha d'invertir molt de temps i és molt pesat fer que un disseny funcioni en diversos navegadors. Es podria utilitzar l'argument contrari per a fer que un format no basat en estàndards funcioni en diferents dispositius i amb futures versions de navegadors. Com es pot tenir la certesa que un etiquetatge que s'aguanta amb agulles es veurà bé a Opera 12.0, Firefox 5.0 i IE 10.0? No es pot, tret que se segueixin algunes regles. </p>
+<p>L'(X)HTML, el CSS i JavaScript no tenen res de complicat. Són simplement una evolució del web. Si ja heu tingut una mica de contacte amb l'HTML, ho podeu aprofitar perfectament. Tot el que sabeu segueix sent vàlid, només cal tractar alguns conceptes de manera diferent (i tenir una mica més de compte amb l'etiquetatge). </p>
+<p>Apart de tenir la satisfacció d'una feina ben feta, el desenvolupament dels estàndards web és totalment lògic. Els arguments en contra del desenvolupament amb estàndards són que s'ha d'invertir molt de temps i és molt pesat fer que un disseny funcioni en diversos navegadors. Es podria utilitzar l'argument contrari per a fer que un format no basat en estàndards funcioni en diferents dispositius i amb futures versions de navegadors. Com es pot tenir la certesa que un etiquetatge que s'aguanta amb agulles es veurà bé a Opera 87, Firefox 100 i IE 14? No es pot, tret que se segueixin algunes regles. </p>
 
 
 <h2 id="exercises">Preguntes de repàs</h2>

@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Conceptes de disseny web - La tipografia al web</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -59,8 +54,8 @@
 </ul>
 
 <h2 id="limitations">11.1. Limitacions de la tipografia del web</h2>
-<p>Els dissenyadors de la impremta tradicional tenen tot un munt de possibilitats a la seva disposició pel que fa a la tipografia, que inclouen tota la gran quantitat de tipus de lletres disponibles i moltes opcions per a la distribució del text. La tipografia del web és molt més limitada, ja que cal fer el disseny utilitzant tipus de lletres, distribucions de text, etc., que sabem d'entrada que estaran disponibles als ordinadors de tots els usuaris que naveguin per Internet. No serveix de res dissenyar el web pensant només en un mateix!</p>
-<p>Algunes de les limitacions de la tipografia del web són:</p>
+<p>Fins fa relativament poc els dissenyadors web miraven els dissenyadors de la impremta tradicional amb una certa enveja, donat que aquests tenien tot un munt més de possibilitats a la seva disposició pel que fa a la tipografia, que incloien tota la gran quantitat de tipus de lletres disponibles i moltes opcions per a la distribució del text. Tot i que la tipografia del web continua sent molt més limitada, aquestes diferències han minvat notablement durant els darrers anys.</p>
+<p>Algunes de les limitacions tradicionals de la tipografia del web són:</p>
 
 <ul>
 	<li><p>Poca varietat de tipus de lletra.</p></li>
@@ -94,6 +89,11 @@
 <p>Si especifiqueu qualsevol dels tipus de lletres anteriors, tindreu moltes possibilitats que també el tinguin la majoria de les persones que us visitin. Microsoft va crear sis tipus de lletres nous dissenyats per al seu ús en pantalla en el Windows Vista i XP els noms dels quals, curiosament, comencen per la lletra C. Si els voleu fer servir, són Cambria, Calibri, Candara, Consolas, Constantia i Corbel. Tanmateix, jo no n'aconsellaria l'ús perquè és molt probable que no estiguin disponibles en les plataformes Mac o Linux.</p>
 <p>Per tant, en comparació amb els milers de tipus de lletres disponibles per als dissenyadors gràfics, els dissenyadors de llocs web només poden seleccionar entre poc més d'una dotzena. Però es tracta d'una limitació problemàtica? La tipografia és molt més que el fet de seleccionar un tipus de lletra atractiu; també cal tenir en compte les longituds de línia, l'interlletratge i l'espai en blanc. Recordeu que els tipògrafs anteriors a les fonts electròniques també s'havien d'enfrontar a unes limitacions similars.</p>
 
+<div class="exemple">
+<h3>Actualització</h3>
+<p>De fet, el principal problema per a l'ús d'altres tipografies al web té més a veure amb les limitacions de la propietat intelectual que amb les limitacions tecnològiques. L'ús de <code>@font-face</code> per a distribuir altres tipografies té un suport molt estés entre els navegadors, tant els "d'escriptori" com els de dispositius mòbils (totes les versions de Chrome, Safari des de la 3.2, Opera des de la 10, Firefox des de la 3.5 i IE des de la 8, i cal remarcar que existeixen solucions per fer-ho també fins i tot amb IE6). Fins no fa massa, però, era pràcticament impossible trobar tipografies que permetessin el seu ús legal al web. En els darrers anys n'han aparegut moltes, que podeu trobar en repositoris gratuïts com <a href="http://www.fontsquirrel.com/" hreflang="en">fontsquirrel.com</a> o <a href="https://www.google.com/fonts/" hreflang="en">Google Fonts</a> o serveis comercials com ara <a href="https://typekit.com/" hreflang="en">Typekit</a>.</p>
+</div>
+
 <h3 id="hyphenation">11.1.2. Partició de mots</h3>
 <p>Quan es tracta d'alinear el text dins l'espai disponible hi ha quatre opcions: alineat a l'esquerra, alineat a la dreta, centrat i justificat. El text justificat, en el qual els marges esquerre i dret del bloc estan alineats amb els costats verticals de l'espai que el conté, pot tenir un aspecte més atractiu que el text amb un marge "irregular" i es pot veure molt en revistes i llibres. Al web, però, això és problemàtic a causa de la manca de la partició de mots automàtica, que en altres suports trenca les paraules en els punts apropiats per tal que encaixin millor dins la línia. Per tal de justificar el bloc de text, l'única cosa que pot fer el navegador és ajustar l'espai entre les paraules, la qual cosa pot fer que apareguin "rius d'espai en blanc" que flueixen verticalment pel bloc de text; això sol passar normalment quan la longitud de línia del bloc de text és massa curta i no hi ha prou espai per a realitzar uns ajustaments subtils, tal com mostra la figura 2. </p>
 <div class="imagen">
@@ -102,6 +102,10 @@
 </div>
 <p>Tal com podeu veure en aquesta figura, el fet que no es parteixin les paraules per a tallar-les en els punts naturals fa que l'espaiat entre algunes paraules arribi a tenir unes dimensions inacceptables. Per a evitar-ho, al web la majoria de les vegades cal fer servir el text alineat a l'esquerra.</p>
 
+<div class="exemple">
+<h3>Actualització</h3>
+<p>De fet, alguns navegadors ja permeten la partició de mots, fent servir la propietat experimental de CSS3 <a href="http://www.w3.org/TR/css3-text/#hyphenation" hreflang="en"><code>hyphens</code></a>. Actualment es tracta de Firefox (des de la versió 6), Safari (des de la 5.1) i IE (des de la versió 10). Chrome i Opera no suporten aquesta propietat en el moment d'escriure aquestes paraules.</p>
+</div>
 
 <h3 id="kerning">11.1.3. Interlletratge</h3>
 <p>L'interlletratge és el procés d'ajustar l'espaiat entre parelles de lletres concretes quan el tipus de lletra utilitzat és proporcional (com ara Times New Roman, en el qual l'espai entre els caràcters varia segons el caràcter de què es tracti) i no d'amplada fixa (com ara Courier, en el qual l'espai entre els caràcters és sempre el mateix). L'interlletratge s'utilitza en impremta per a ajustar l'espai entre lletres que s'alineen d'una manera natural, com per exemple una W seguida d'una A, i pot donar un aspecte més professional al text. Els tipus de lletres més professionals ja incorporen instruccions d'interlletratge per tal de donar informació sobre l'espaiat al dispositiu que hagi de reproduir el tipus. La figura 3 mostra la diferència que representa l'ús de l'interlletratge.</p>
@@ -117,6 +121,11 @@
 </div>
 
 <p>A la figura anterior s'ha augmentat l'espaiat entre cadascun dels caràcters en la mateixa mesura. Això ha servit per a separar la A i la S, però ara l'espai entre la W i A és massa gran. A causa d'aquesta característica de tot o res, és molt difícil utilitzar l'espaiat de lletra amb CSS d'una manera adient; és per això que cal utilitzar-lo amb molta moderació.</p>
+
+<div class="exemple">
+<h3>Actualització</h3>
+<p>La propietat experimental de CSS3 <a href="http://docs.webplatform.org/wiki/css/properties/font-feature-settings" hreflang="en">font-feature-settings</a> permet aplicar l'interlletratge especificat en fonts que l'especifiquin (així com altres característiques avançades de les tipografies, com ara lligadures o versaletes autèntiques). Actualment tots els navegadors moderns tenen suport complert per a la propietat (Firefox, a partir de la versió 15, Chrome, a partir de la 21, Safari, a partir de la 7, Opera a partir de la 15 i IE a partir de la 11).</p>
+</div>
 
 <h3 id="lackofcontrol">11.1.4. Manca de control</h3>
 <p>Després de totes aquestes explicacions sobre el món de la impremta, hi ha una cosa molt important que cal tenir sempre en compte, i és que <strong><em>el web no és una impremta</em></strong>. Així, doncs, el dissenyador gràfic no s'ha de preocupar de si la persona que veu el seu treball redimensiona el text, de si no té els tipus de lletres necessaris o de si no ha activat l'aliàsing. Nosaltres, però, sí que ens n'hem de preocupar, i normalment caiem en la temptació de forçar un disseny concret per a l'espectador, per exemple, definim un text d'una mida rígida, encabim el text en un espai d'una amplada i una alçada fixes o fins i tot substituïm fragments de text per imatges. </p>

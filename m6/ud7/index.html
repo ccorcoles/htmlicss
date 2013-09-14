@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Estils de les taules</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -68,11 +63,6 @@
 <ul class="index">
 <li><a href="#inner-grids">Graelles interiors amb:lastchild</a></li>
 </ul></li>
-</ul></li>
-<li>33.4. <a href="#commonbugs" accesskey="4">Dos errors comuns</a>
-<ul class="index">
-<li>33.4.1. <a href="#bordercollapse">Error de superposició de les vores</a></li>
-<li>33.4.2. <a href="#margincaption">Error de marge/<code>caption</code></a></li>
 </ul></li>
 <li class="especial"><a href="#summary">Resum</a></li>
 <li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
@@ -314,7 +304,7 @@ caption {
 
 <h3 id="captionplacement">33.2.5. Col·locació del <code>caption</code></h3>
 
-<p>Fins ara el <code>caption</code> ha estat sempre a la part superior de la taula. Tanmateix, pot ser que vulgueu moure'l a un altre lloc. Per desgràcia, en l'IE no es pot fer, però en tots els altres navegadors podeu canviar-ne la posició fent servir la propietat <code>caption-side</code>. Les opcions possibles són: <code>top</code> (superior), <code>bottom</code> (inferior), <code>left</code> (esquerra) i <code>right</code> (dreta). Ara el posarem a la part inferior:</p>
+<p>Fins ara el <code>caption</code> ha estat sempre a la part superior de la taula. Tanmateix, pot ser que vulgueu moure'l a un altre lloc. Per desgràcia, en l'IE no es pot fer fins a la versió 8, però en tots els altres navegadors podeu canviar-ne la posició fent servir la propietat <code>caption-side</code>. Les opcions possibles són: <code>top</code> (superior), <code>bottom</code> (inferior), <code>left</code> (esquerra) i <code>right</code> (dreta). Ara el posarem a la part inferior:</p>
 
 <pre><code>table {
    width: 100%;
@@ -338,14 +328,6 @@ caption {
 <div class="imagen">
 <img src="06510_m6_74.gif" alt="Captura de pantalla del títol a la part inferior."/>
 <p>Figura 8. Taula amb el <code>caption</code> mogut a la part inferior</p>
-</div>
-
-<p>Si voleu canviar la posició del <code>caption</code>, recordeu que cap canvi de costat no funcionarà amb l'IE. Per exemple, si voleu afegir tres vores per fer que el títol "s'uneixi" a la part inferior de la taula, a l'IE no quedarà així perquè el títol seguirà quedant a la part superior. Haureu de fer servir <a href="http://dev.opera.com/articles/view/supporting-ie-with-conditional-comments/" hreflang="en">comentaris condicionals</a> per reaplicar l'estil a la taula per a l'IE.</p>
-
-<div class="vegeu_tambe">
-<h3>Vegeu també</h3>
-
-<p>Per saber-ne més, vegeu també el subapartat 33.2.7.</p>
 </div>
 
 <p>Per a la resta d'exemples deixaré el <code>caption</code> a la part superior.</p>
@@ -403,11 +385,11 @@ td, th {
 <p>Figura 10. Taula amb una imatge de fons amb gradació de colors que es veu entre les cel·les.</p>
 </div>
 
-<p>Per defecte, amb l'IE no es veurà tant el fons perquè no reconeix <code>border-spacing</code>. Tanmateix, s'aconsegueix el mateix efecte, tal com s'observa a la figura 11:</p>
+<p>Per defecte, amb les versions anteriors a la 8 d'IE no es veurà tant el fons perquè no reconeix <code>border-spacing</code>. Tanmateix, s'aconsegueix el mateix efecte, tal com s'observa a la figura 11:</p>
 
 <div class="imagen">
 <img src="06510_m6_77.gif" alt="Captura de pantalla que mostra un espai més petit a l'IE."/>
-<p>Figura 11. L'IE proporciona menys espai entre vores.</p>
+<p>Figura 11. Les versions anteriors a la 8 d'IE proporcionen menys espai entre vores.</p>
 </div>
 
 <p>Depenent de les circumstàncies, pot ser que us conformeu amb aquesta diferència de representació entre navegadors. Lògicament, però, això no sempre és possible, per exemple quan un client especifica que vol que un disseny quedi exactament igual a tots els navegadors. </p>
@@ -668,23 +650,44 @@ th {
    width: 25%;
 }</code></pre>
 
-<p>Això ja funciona actualment a les darreres versions d'Opera, Firefox i Safari.</p>
+<p>Això ja funciona actualment a les darreres versions de tots els navegadors (el darrer navegador significatiu que no ho suporta és la versió 8 d'IE).</p>
 
-<h2 id="commonbugs">33.4. Dos errors comuns</h2>
+<h2 id="summary">Resum</h2>
 
-<p>En aquest últim subapartat parlaré de dos errors realment molt habituals perquè estigueu preparats per quan us els trobeu. Tenen a veure amb les vores i els títols.</p>
+<p>A hores d'ara ja hauríeu de dominar les opcions d'estil bàsiques per a taules. Hi ha certs límits que imposen les inconsistències dels navegadors, però en general hauríeu de poder crear taules clares i llegibles sense cap problema. Només heu de fixar-vos bé en les vores, donar-li al text una mica d'espai perquè pugui respirar i anar amb compte amb els fons.</p>
 
-<h3 id="bordercollapse">33.4.1. Error de superposició de les vores</h3>
+<h2 id="exercises">Preguntes de repàs</h2>
 
-<p>Quan definiu la taula amb <code>border-collapse: collapse;</code> descobrireu que Firefox i Safari no mostren correctament l'amplada dels elements de la taula. Per exemple, si establiu una vora d'1 píxel per a la taula, les cel·les i el títol, Firefox mostrarà el títol 1 píxel més curt per la banda esquerra, tal com es veu a la figura 17:</p>
+<p>Preguntes que hauríeu de poder respondre:</p>
 
-<div class="imagen">
-<img src="06510_m6_83.gif" alt="Captura de pantalla de la manca d'1 píxel."/>
-<p>Figura 17. L'error de border-collapse afecta Firefox i Safari.</p>
-</div>
+<ol>
+<li><p>Com es controla l'espai entre la taula i les vores de les cel·les?</p></li>
 
-<p>Safari fa el mateix, però a la banda dreta. Aquest error es basa en una qüestió d'arrodoniment que es redueix al problema de com representar un "mig píxel". Es podria afirmar que no es tracta d'un error <span lang="la">per se</span>, però els navegadors no hi estan d'acord, de manera que en la pràctica, sí que es tracta d'un error.</p>
+<li><p>Què passa quan <code>table</code> (taula) té un color de fons, les cel·les <code>th</code> i <code>td</code> tenen un altre color de fons i <code>border-collapse</code> (superposició de vores) està establert en <code>collapse</code> (superposició)?</p></li>
 
-<p>Com es pot solucionar? Si voleu fer servir una vora d'1 píxel i un fons de títol, no hi ha cap altra solució a part d'acceptar-ho. És una diferència molt petita i no es tracta d'un problema greu. És a dir, la taula segueix sent perfectament llegible. Per tant, molta gent opta per acceptar les diferències entre navegadors. El web té aquestes coses. </p>
+<li><p>Com poden establir-se amplades diferents per a cada columna?</p></li>
+</ol>
 
-<p>Si no us fa res utilitzar una vora més gran, com per exemple de
+<h2 id="furtherreading">Lectures complementàries</h2>
+
+
+<ul>
+           
+<li><p><cite><a href="http://www.w3.org/TR/REC-CSS2/tables.html" hreflang="en">W3C: CSS2 Tables</a></cite>, sobretot l'apartat que parla sobre les capes de fons de taula de CSS2.</p></li>
+           
+<li><p>"<a href="http://www.alistapart.com/articles/dao/" hreflang="en">A Dao of Web Design - Let the web be the web</a>". <cite>A List Apart</cite>. Un article clàssic que explica per què una diferència d'1 píxel entre navegadors no és realment important. </p></li>
+                 
+<li><p>"<a href="http://www.alistapart.com/articles/zebratables/" hreflang="en">Zebra Tables</a>" i "<a href="http://www.alistapart.com/articles/zebrastripingdoesithelp/" hreflang="en">Zebra striping: Does it Really Help?</a>". A: <cite>A List Apart</cite>.</p></li>
+  
+<li><p>"<a href="http://dev.opera.com/articles/view/zebra-striping-tables-with-css3/" hreflang="en">Zebra striping tables with CSS3</a>"</p></li>
+	
+<li><p>"<a href="http://dev.opera.com/articles/view/supporting-ie-with-conditional-comments/" hreflang="en">Supporting IE with conditional comments</a>"</p></li>
+                 
+<li><p>"<a href="http://veerle.duoh.com/blog/comments/a_css_styled_table/" hreflang="en">A CSS styled table</a>" i "<a href="http://veerle.duoh.com/index.php/blog/comments/a_css_styled_calendar/" hreflang="en">A CSS styled calendar</a>". A: <cite>Veerle's blog</cite></p></li>
+                 
+<li><p>"<a href="http://icant.co.uk/csstablegallery/index.php" hreflang="en">CSS Table Gallery</a>" mostra una sèrie de dissenys per a taules (tot i que cal tenir en compte que moltes no compleixen les <a href="http://www.w3.org/TR/AERT#color">recomanacions de contrast de color del W3C</a>).</p></li>
+                 
+</ul>
+
+ </div>
+ <div><a rel="license" href

@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Posicionament absolut i fix amb CSS</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -127,11 +122,10 @@
 <ol>
 <li><p>Copieu el codi següent al vostre editor de text i guardeu el document com <code>absolute.html</code>.</p>
 
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
-   "http://www.w3.org/TR/html4/strict.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
    &lt;html&gt;
    &lt;head&gt;
-      &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+      &lt;meta charset="utf-8"&gt;
       &lt;title&gt;Absolute Positioning&lt;/title&gt;
       &lt;link rel="stylesheet" type="text/css" href="absolute.css"&gt;
    &lt;/head&gt;
@@ -430,4 +424,8 @@
 <li><p>Guardeu i recarregueu. Ara, tant el quadrat gris com el quadrat blau estableixen contexts d'apilament local, de manera que es creen dos sobres. A la part inferior de la pila hi ha un sobre amb el nivell de pila 1 que inclou dos sobres interiors (el quadrat blau i el quadrat cian). A la part superior de la pila hi ha un sobre amb el nivell de pila 2 que inclou dos sobres interiors (el quadrat gris i el quadrat groc). En el primer sobre, el quadrat blau té un nivell de pila local 0 i, per tant, es mostra darrera del quadrat cian, que té un nivell de pila local 3. En el segon sobre, el quadrat gris té un nivell de pila local 0, de manera que apareix darrera del quadrat groc amb nivell de pila local 4.</p></li>
 </ol>
 
-<p>La figura 1 mostra els quatre quadres i els dos contexts d'apilament local des del lateral, al llarg de 
+<p>La figura 1 mostra els quatre quadres i els dos contexts d'apilament local des del lateral, al llarg de l'eix Z.</p>
+
+<div class="imagen">
+<img src="06510_m6_98.gif" alt="El quadre blau està a sota de tot, seguit pel quadre cian, el gris i el groc."/>
+<p>Figura 1. Il·lustració de diferents contexts d'apilament. Els elements que apareixen dins de "2" sempre apareixeran davant de tots els elements dins de "1". Després, dins de cada context d'apilament, els elements amb un número d'índex z més gran apareixen davant dels elements amb un número d'índex z més petit. Si dos elements tenen el mateix número d'índex z, el que apareix més t

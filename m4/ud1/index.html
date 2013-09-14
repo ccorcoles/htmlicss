@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El text central d'HTML - Etiquetar contingut textual en HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -150,7 +145,6 @@
   <p>Sovint, els articles, els apunts de blocs i els documents de referència citen totalment o parcialment algun altre document. En l'HTML, aquestes cites es marquen amb l'element <code>blockquote</code> per a cites llargues, com ara frases senceres, paràgrafs, llistes o similars.</p>
   </div>
   
-  <p>Un element <code>blockquote</code> no pot contenir text, sinó que ha de tenir en el seu interior un altre element de bloc. Hauríeu de fer servir el mateix element de bloc que en el document original. Si citeu un paràgraf de text, utilitzeu un paràgraf; quan citeu una llista, utilitzeu els elements per a llistes; i així successivament.</p>
   <p>Si la cita és d'una altra pàgina web, podeu indicar-ho utilitzant l'atribut <code>cite</code>.</p>
   
   <p>Com en l'exemple següent:</p>
@@ -171,7 +165,7 @@
   <h3 id="preformatted">15.2.4. Text preformatat</h3>
   
   <div class="text-clau">
-  <p>Qualsevol text en el qual el format i l'espai en blanc (vegeu més amunt) siguin importants s'haurien d'etiquetar amb l'element<code>pre</code>.</p>
+  <p>Qualsevol text en el qual el format i l'espai en blanc (vegeu més amunt) siguin importants s'haurien d'etiquetar amb l'element <code>pre</code>.</p>
   </div>
   
   <p>En la majoria dels navegadors web, el text marcat com a preformatat es mostrarà a l'usuari tal com aparegui en el codi font, algunes vegades fent servir un tipus de lletra d'amplada fixa, la qual cosa dóna al text l'aspecte d'haver estat escrit amb una màquina d'escriure. Aquest ús de tipus de lletres d'amplada fixa és un dels primers recursos que van fer servir els programadors per al text preformatat.</p>
@@ -237,7 +231,7 @@ sub slurp {
   <p>L'HTML conté dos mètodes per a indicar que el text del seu interior ha d'aparèixer emfasitzat davant l'usuari, com per exemple els missatges d'error, les advertències o les notes. </p>
   
   <div class="text-clau">
-  <p>En els navegadors visuals això significa normalment l'aplicació d'un color o un tipus de lletra diferent o la visualització del text en negreta o cursiva. Per als usuaris de lectors de pantalla, el resultat pot ser una veu diferent o algun altre efecte acústic. Per a presentar text amb èmfasi cal utilitzar l'element <code>em</code>.</p>
+  <p>En els navegadors visuals això significa normalment l'aplicació d'un color o un tipus de lletra diferent o la visualització del text en negreta o cursiva. Per als usuaris de lectors de pantalla, el resultat pot ser una veu diferent o algun altre efecte acústic. Per a presentar text amb èmfasi cal utilitzar l'element <code>em</code>, que habitualment es presenta als navegadors com a text en cursiva.</p>
   </div>
   
   <p>Com l'exemple següent:</p>
@@ -246,30 +240,42 @@ sub slurp {
 
   <p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#em" hreflang="en">Emphasis example</a>"</p>
   
-  <p>Si cal emfasitzar tota una frase però una part concreta d'aquesta s'ha d'emfasitzar d'una manera encara més important, s'ha d'utilitzar l'element <code>strong</code> per a indicar un èmfasi més fort del normal com en l'exemple següent:</p>
+  <p>Si cal emfasitzar tota una frase però una part concreta d'aquesta s'ha d'emfasitzar d'una manera encara més important, podem imbricar elements <code>em</code> per a indicar un èmfasi més fort del normal, com en l'exemple següent:</p>
                       
-  <pre><code>&lt;p&gt;&lt;em&gt;Please note: the kettle &lt;strong&gt;must&lt;/strong&gt; be unplugged every evening,
- otherwise it will explode - &lt;strong&gt;killing us all&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;</code></pre>  
+  <pre><code>&lt;p&gt;&lt;em&gt;Please note: the kettle &lt;em&gt;must&lt;/em&gt; be unplugged every evening,
+ otherwise it will explode - &lt;em&gt;killing us all&lt;/em&gt;&lt;/em&gt;.&lt;/p&gt;</code></pre>  
 
   <p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#emstrong" hreflang="en">Emphasis and strong example</a>"</p>
+  
+  <p>De la mateixa manera, podeu fer servir l'element <code>strong</code>, que indica la importància del text que envolta i que s'acostuma a mostrar als navegadors com a text en negreta.</p>
 
   <h3 id="italics">15.3.3. Text en cursiva</h3>
   
-  <p>Normalment es creu que "cursiva" no descriu el significat i que, per tant, l'element <code>i</code> no s'ha d'utilitzar (igual que molts altres elements presentacionals descrits al subapartat següent).</p>
-  
-  <div class="text-clau">
-  <p>Hi ha un parell de casos en els quals és correcte descriure el contingut com a cursiva. Ja s'ha comentat que alguns conceptes es descriuen millor com a "cursiva" en lloc d'haver de crear alguns elements molt específics i no utilitzats. Aquests inclouen coses com ara el noms de vaixells, els títols de sèries de televisió, pel·lícules i llibres, alguns termes tècnics i altres designacions taxonòmiques.</p>
-  </div>
-  
-  <p>La raó és que la cursiva indica que el text és especial i el context indica en quin sentit ho és, d'especial. </p>
+  <p>Originalment l'element <code>i</code> era purament presentacional: significava exclusivament que el text que rodejava s'havia de mostrar en lletra cursiva. L'especificació d'HTML5, però, diu:</p>
   
   <blockquote>
-  <p>De fet, això ja queda reflectit a l'esborrany de l'especificació de l'HTML 5:</p>
-  
-  <p>"L'element i representa un text en una veu o un mode alternatiu, o que d'alguna manera queda fora de la prosa normal [...] L'element i s'ha d'utilitzar com a últim recurs quan no hi ha cap altre element que sigui més apropiat."</p>
+  <p>"L'element <code>i</code> representa un text en una veu o un mode alternatiu, o que d'alguna manera queda fora de la prosa normal."</p>
   </blockquote>
   
-  <p>Com que el CSS pot modificar l'element i per tal que no sigui cursiva, en aquest context cal interpretar el significat de "cursiva" fonamentalment com a "alguna cosa una mica diferent". Jo no ho trobo correcte, personalment parlant, però hi ha precedents suficients per a utilitzar-ho d'aquesta manera.</p>
+  <p>L'especificació també diu explícitament que els autors han de considerar si hi ha d'altres elements més aplicables, com ara <code>em</code>, que semànticament s'ajustin millor al que vulguin expressar.</p>
+  
+  <p>Un ús habitual de <code>i</code> és per a marcar termes en altres idiomes. En aquest cas usarem l'atribut <code>lang</code> per especificar aquest idioma:</p>
+  
+  <pre><code>Com diuen els francesos, &lt;i lang="fr"&gt;c'est la vie&lt;/i&gt;</code>...</pre>
+  
+  <p>També s'aconsella l'ús de l'element <code>class</code> per a indicar quin és l'ús especific que estem fent servir (i d'aquesta manera poder presentar de maneres diferents usos diferents mitjançant el CSS). Cal remarcar que tot i que la presentació per defecte de <code>i</code> és la lletra cursiva, amb el CSS podrem definir qualsevol altra presentació (com ara, amb fons groc, com si haguéssim marcat el text amb un retolador).</p>
+  
+  <h3 id="bold">15.3.4 Text en negreta</h3>
+  
+  <p>De la mateixa manera que <code>i</code>, <code>b</code> era inicialment un element presentacional que indicava l'ús de negreta. Però l'especificació d'HTML5 diu:</p>
+  
+  <blockquote><p>L'element <code>b</code> representa una seqüència de text a la què es vol dirigir atenció per motius utilitaris sense donar-li cap importància extra i sense implicar una veu o mode alternatius, com, per exemple, paraules clau en el resum d'un documento, noms de productes en una crítica, paraules sobre les què es pot actuar en un joc de texto, o l'entradeta d'un article.</p></blockquote>
+  
+  <p>Com en el cas d'<code>i</code>, és convenient usar classes per a indentificar perquè s'está utilitzant l'elemento i aplicar els estils corresponents.</p>
+  
+  <p>L'especificació és dura quant a l'us de <code>b</code>:</p>
+  
+  <blockquote><p>...s'hauria d'usar com a darrer recurs quan cap altre element sigui més adient. En particular, els encapçalaments haurien d'usar els elements <code>h1</code> a <code>h6</code>, l'émfasi hauria d'usar l'element <code>em</code>, la importància hauria de notar-se amb <code>strong</code> i el texto marcat o destacat hauria d'usar l'element <code>mark</code>.</p></blockquote>
                        
   <h2 id="presentational">15.4. Elements presentacionals: no els heu de fer servir mai</h2>
   
@@ -288,19 +294,13 @@ sub slurp {
   <ul>
 		<li><p><code>font face="..." size="..."</code>. El navegador mostrarà el text en aquests elements utilitzant un tipus de lletra diferent del tipus per defecte; els tipus de lletra, però, s'han de definir amb el CSS.</p></li>
   
-  <li><p>b. El text apareix en negreta; gairebé sempre significa que el text té algun tipus d'èmfasi, i per tant caldria utilitzar <code>em</code> o <code>strong</code> tal com s'ha explicat abans.</p>
-  </li>
-  
-  <li><p><code>s</code> i <code>strike</code>. El text apareix ratllat amb una línia que el travessa; si és només un efecte presentacional, aquest efecte s'hauria d'aconseguir amb el CSS. També, si el text es vol marcar com a suprimit o no desitjat, s'hauria d'etiquetar amb l'element del que es descriu més endavant.</p>
-  </li>
-  
-  <li><p>u. El text es subratlla; és quasi sempre un efecte visual i s'hauria d'aconseguir amb el CSS.</p>
+  <li><p><code>strike</code>. El text apareix ratllat amb una línia que el travessa; si és només un efecte presentacional, aquest efecte s'hauria d'aconseguir amb el CSS. També, si el text es vol marcar com a suprimit o no desitjat, s'hauria d'etiquetar amb l'element <code>del</code> que es descriu més endavant.</p>
   </li>
   
   <li><p>tt. El text es presenta en un tipus de lletra de "teletip" o d'amplada fixa; aquest efecte s'hauria d'aconseguir amb el CSS o amb algun element semàntic més apropiat com per exemple pre, tal com s'ha vist anteriorment.</p>
   </li>
   
-  <li><p><code>big</code> i <code>small</code>. S'ajusta la mida del text; s'hauria d'aconseguir amb el CSS.</p>
+  <li><p><code>big</code>. S'ajusta la mida del text; s'hauria d'aconseguir amb el CSS.</p>
   </li>
 	</ul>
 	

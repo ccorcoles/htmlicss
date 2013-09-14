@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Fonaments d'HTML - Conceptes bàsics d'HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -86,30 +81,31 @@
   
   <p>Més tard en aquell mateix any va aparèixer un esborrany d'HTML 3.0, però es va deixar de treballar en aquesta versió a causa de la manca de suport per part dels creadors de navegadors quant a la direcció que s'havia de seguir. HTML 3.2 va suprimir moltes de les funcions noves de la versió 3.0 i, en lloc d'aquestes, va adoptar moltes de les creacions dels navegadors més populars d'aleshores: Mosaic i Netscape Navigator.</p>
   
-  <p>L'any 1997, W3C va publicar l'HTML 4.0 com a recomanació que adoptava més extensions específiques de navegadors, però que també intentava racionalitzar i perfeccionar l'HTML. Això es va fer marcant diversos elements com a desaprovats, la qual cosa significa que els elements són obsolets i que, tot i que encara apareixen en aquesta versió, s'eliminaran en una revisió posterior. Això es va fer per impulsar un ús millor i més semàntic de l'HTML en documents.</p>
+  <p>L'any 1997, W3C va publicar l'HTML 4.0 com a recomanació que adoptava més extensions específiques de navegadors, però que també intentava racionalitzar i perfeccionar l'HTML. Això es va fer marcant diversos elements com a desaprovats (<span lang="en">deprecated</span>), la qual cosa significa que els elements són obsolets i que, tot i que encara apareixen en aquesta versió, s'eliminaran en una revisió posterior. Això es va fer per impulsar un ús millor i més semàntic de l'HTML en documents.</p>
   
   <div class="vegeu_tambe">
   <h3>Vegeu també</h3>
   <p>Vegeu l'evolució de l'HTML a l'apartat 4 del mòdul "Introducció al món dels estàndards web".</p>
   </div>
   
-  <p>L'any 1999 es va publicar l'HTML 4.01, amb algunes errates corregides l'any 2001. Aquesta és l'última versió d'HTML, tot i que actualment s'està treballant en la versió HTML 5.</p>
+  <p>L'any 1999 es va publicar l'HTML 4.01, amb algunes errates corregides l'any 2001. L'any 2000, el W3C també va publicar l'especificació XHTML 1.0, que era l'HTML reestructurat per ser un document XML vàlid.</p>
   
-  <p>L'any 2000, el W3C també va publicar l'especificació XHTML 1.0, que era l'HTML reestructurat per ser un document XML vàlid.</p>             
+<p>L'any 2004 el <span lang="en">Web Hypertext Application Technology Working Group</span> (<a href="http://www.whatwg.org/" hreflang="en">WHATWG</a>) va iniciar el treball per desenvolupar l'especificació d'HTML5. El gener de 2008 es va publicar el primer <a href="http://www.w3.org/TR/html5/" hreflang="en">"esborrany de treball" d'HTML5</a>, que posteriorment assoliria l'estatus de "<span lang="en">candidate recommendation</span>" el desembre de 2012. El document és mantingut pel <a href="http://www.w3.org/html/wg/" hreflang="en"><span lang="en">HTML Working Group</span></a> del W3C.</p>
                      
   <h2 id="htmlstructure">12.4. L'estructura d'un document HTML</h2>
   
-  <p>El document HTML vàlid més petit possible seria alguna cosa similar a això:</p>
+  <p>El document HTML5 vàlid més petit possible seria alguna cosa similar a això:</p>
   
   
-<pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
-&lt;html&gt;
-   &lt;head&gt;
-      &lt;title&gt;Pàgina d'exemple&lt;/title&gt;
-   &lt;/head&gt;
-   &lt;body&gt;
-      &lt;h1&gt;Hola a tothom&lt;/h1&gt;
-   &lt;/body&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ca"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Pàgina d'exemple&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hola món&lt;/h1&gt;
+  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
   
   <p>El document comença amb un element de tipus de document o doctype. Aquest element descriu el tipus d'HTML que s'utilitza per tal que els agents d'usuari puguin determinar com cal interpretar el document i saber si segueix les normes que diu que seguirà.</p>
@@ -124,7 +120,7 @@
   <p>Dintre de l'element <code>html</code> hi ha l'element <code>head</code>. Aquest és un element que conté informació sobre el document (les metadades). Aquest element es descriu més detalladament en el següent apartat. A la capçalera hi ha l'element
 <code>title</code>, que defineix el títol "Pàgina d'exemple" de la barra del menú.</p>
   
-  <p>Després de l'element <code>head</code> hi ha l'element <code>body</code>, que és l'element que inclou el contingut real de la pàgina; en aquest cas només hi ha un element d'encapçalament de nivell u (<code>h1</code>), que conté el text "Hola a tothom.". I aquest és tot el nostre document.</p>
+  <p>Després de l'element <code>head</code> hi ha l'element <code>body</code>, que és l'element que inclou el contingut real de la pàgina; en aquest cas només hi ha un element d'encapçalament de nivell u (<code>h1</code>), que conté el text "Hola món". I aquest és tot el nostre document.</p>
   
   <p>Tal com es pot veure, sovint els elements contenen altres elements. El cos del document inclourà inevitablement molts altres elements. Les divisions de pàgina creen l'estructura general del document i contindran subdivisions. Aquestes contindran títols, paràgrafs, llistes, etc. Els paràgrafs poden contenir elements que creïn enllaços cap a altres documents, cites, èmfasi... A mesura que aneu avançant en aquesta sèrie anireu sabent més coses sobre aquests elements.</p>
 
@@ -142,9 +138,9 @@
   
   <p>En aquest exemple hi ha un element <code>div</code> (divisió de pàgina, una manera de partir els documents en blocs lògics) amb un atribut <code>id</code> afegit que té el valor de <code>masthead</code>. L'element <code>div</code> conté un element  <code>h1</code> (encapçalament de primer nivell o més important), que alhora conté text. Part d'aquest text està inclòs en un element <code>abbr</code> (que s'utilitza per a especificar l'expansió de les sigles), que té l'atribut <code>title</code>, el valor del qual està definit com a <em>llenguatge de marcat d'hipertext</em>.</p>
   
-  <p>Molts dels atributs d'HTML són comuns per a tots els elements, tot i que alguns són específics d'un o diversos elements concrets. Aquests tenen sempre la forma <code>keyword="value"</code>. El valor ha d'aparèixer sempre entre cometes senzilles o dobles (en algunes circumstàncies es poden ometre les cometes, però això no és una pràctica recomanable pel que fa a la predictibilitat, la comprensió i la claredat; s'han de posar <em>sempre</em> els valors entre cometes).</p>
+  <p>Molts dels atributs d'HTML són comuns per a tots els elements, tot i que alguns són específics d'un o diversos elements concrets. Aquests tenen sempre la forma <code>paraulaclau="valor"</code>. El valor ha d'aparèixer sempre entre cometes senzilles o dobles (en algunes circumstàncies es poden ometre les cometes, però això no és una pràctica recomanable pel que fa a la predictibilitat, la comprensió i la claredat; s'han de posar <em>sempre</em> els valors entre cometes).</p>
   
-  <p>La majoria dels <a href="http://www.w3.org/TR/html401/index/attributes.html" hreflang="en">atributs i els seus valors possibles</a> estan definits per les especificacions HTML; no és possible crear atributs propis sense invalidar l'HTML, ja que això podria confondre els agents d'usuari i provocar problemes a l'hora d'interpretar correctament la pàgina web. Les úniques excepcions reals són els atributs <code>id</code> i <code>class</code>; els seus valors estan totalment sota el vostre control, ja que serveixen per a afegir significat i semàntica propis als vostres documents.</p>
+  <p>La majoria dels atributs i els seus valors possibles estan definits per les especificacions HTML; no és possible crear atributs propis sense invalidar l'HTML, ja que això podria confondre els agents d'usuari i provocar problemes a l'hora d'interpretar correctament la pàgina web. Les úniques excepcions reals són els atributs <code>id</code> i <code>class</code>; els seus valors estan totalment sota el vostre control, ja que serveixen per a afegir significat i semàntica propis als vostres documents.</p>
   
   <p>Un element que es troba dintre d'un altre element es coneix com un "fill" d'aquest element. Així, doncs, en l'exemple anterior, <code>abbr</code> és un fill de l'element <code>h1</code>, que alhora és un fill de <code>div</code>. I a la inversa, l'element <code>div</code> seria un "pare" de l'element <code>h1</code>. Aquest concepte de pare/fill és molt important, ja que és la base de CSS i es fa servir molt en JavaScript.</p>
 
@@ -162,7 +158,7 @@
   <p>Els <strong>elements en línia</strong> són aquells que es troben inclosos en els elements estructurals de bloc i que inclouen només parts petites del contingut del document, i no paràgrafs sencers ni grups de contingut. </p>
   </div>
   
-  <p>Un element inserit no farà que aparegui una línia nova en el document; són els tipus d'elements que apareixen dins un paràgraf de text. Alguns elements en línia comuns inclouen els vincles d'hipertext, les paraules o frases destacades o les cites curtes.</p>            
+  <p>Un element en línia no farà que aparegui una línia nova en el document; són els tipus d'elements que apareixen dins un paràgraf de text. Alguns elements en línia comuns inclouen els vincles d'hipertext, les paraules o frases destacades o les cites curtes.</p>            
 
   <h2 id="characterreferences">12.7. Referències de caràcter</h2>
   

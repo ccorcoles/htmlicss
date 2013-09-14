@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El text central d'HTML - Elements semàntics menys coneguts</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -34,7 +29,7 @@
   
   <p class="by"><a href="../../index.html#francis">Mark Norman Francis</a>. 8 de juliol del 2008 · Publicat a: adreça, sub, sup, samp, abbr </p>
 
-  <p>En aquest apartat presentaré alguns dels elements semàntics de l'HTML més obscurs i menys coneguts i utilitzats. Parlaré de l'etiquetatge del codi de programació, la interacció amb ordinadors, les cites i les abreviatures, la visualització dels canvis realitzats en els documents i més. Acabaré comentant algunes de les propostes d'elements semàntics nous que s'han fet en l'esborrany d'HTML 5.</p>
+  <p>En aquest apartat presentaré alguns dels elements semàntics de l'HTML més obscurs i menys coneguts i utilitzats. Parlaré de l'etiquetatge del codi de programació, la interacció amb ordinadors, les cites i les abreviatures, la visualització dels canvis realitzats en els documents i més.</p>
   
   <div class="note">
   <h3>Nota</h3>
@@ -55,8 +50,7 @@
   <li>21.8. <a href="#supsub">Superíndex i subíndex</a></li>
   <li>21.9. <a href="#linebreaks">Salts de línia</a></li>
   <li>21.10. <a href="#horizontal">Línies horitzontals</a></li>
-  <li>21.11. <a href="#insdel">Canvis en els documents (inserir i suprimir)</a></li>
-  <li>21.12. <a href="#futurehtml">Alguns elements HTML futurs</a></li>                                
+  <li>21.11. <a href="#insdel">Canvis en els documents (inserir i suprimir)</a></li>                              
   <li class="especial"><a href="#summary">Resum</a></li> 
   </ul>
                               
@@ -66,7 +60,7 @@
   <p>L'element <code>address</code> és probablement el que té el nom més equivocat i el més mal entès de l'HTML. A primera vista, amb un nom com "address" (adreça) semblaria que es fa servir per a encapsular adreces, ja siguin electròniques o postals, o coses similars. Això només és així en part.</p>
   
   <div class="text-clau">
-  <p>El significat real d'<code>address</code> és oferir informació de contacte <em>de l'autor o els autors</em> de la pàgina, o de la secció principal de la pàgina, en què apareix. Aquesta informació pot ser un nom, una adreça electrònica, una adreça postal o un enllaç a una altra pàgina amb més informació de contacte. </p>
+  <p>El significat real d'<code>address</code> és oferir la informació de contacte corresponent al <code>article</code> que el conté. Cas que no estigui contingut en cap <code>article</code>, s'ha d'interpretar com la informació de contacte de la pàgina. Aquesta informació pot ser un nom, una adreça electrònica, una adreça postal o un enllaç a una altra pàgina amb més informació de contacte. </p>
   </div>
   
   <p>Per exemple:</p>
@@ -124,7 +118,7 @@
   <p>Vegeu l'apartat 15 d'aquest mòdul.</p>
   </div>
   
-  <p>Tot i que no hi ha cap mètode definit per a indicar el llenguatge de programació o el codi informàtic dintre de l'element <code>code</code>, podeu utilitzar l'atribut <code>class</code>. Una pràctica molt habitual (que es menciona en l'esborrany d'HTML 5) és utilitzar el prefix <code>language-</code> (llenguatge) i llavors afegir-hi el nom del llenguatge. </p>
+  <p>Tot i que no hi ha cap mètode definit per a indicar el llenguatge de programació o el codi informàtic dintre de l'element <code>code</code>, podeu utilitzar l'atribut <code>class</code>. Una pràctica molt habitual (que es menciona en l'especificació d'HTML5) és utilitzar el prefix <code>language-</code> (llenguatge) i llavors afegir-hi el nom del llenguatge. </p>
   
   <p>Així, doncs, l'exemple anterior es convertiria en:</p>
                      
@@ -183,22 +177,18 @@ my &lt;var&gt;$welcome&lt;/var&gt; = "Hello world!";
   <h2 id="citations">21.5. Cites</h2>
   
   <div class="text-clau">
-  <p>L'element <code>cite</code> (cita) s'utilitza per a indicar d'on procedeix el contingut proper; quan se cita una persona, un llibre o una altra publicació, o es remet el visitant de manera general a una altra font, aquesta font hauria de trobar-se dintre d'un element <code>cite</code>. </p>
+  <p>L'element <code>cite</code> (cita) representa el títol d'una obra. <code>cite</code> no s'ha d'utilitzar per referenciar noms de persona.</p>
   </div>
   
   <p>Per exemple:</p>
                         
-  <pre><code>&lt;p&gt;The saying &lt;q&gt;Everything should be made as simple as possible, but
-not simpler&lt;/q&gt; is often attributed to &lt;cite&gt;Albert Einstein&lt;/cite&gt;,
-but it is actually a paraphrasing of a quote which is much less easy
-to understand.&lt;/p&gt;</code></pre>   
-
-<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#citations" hreflang="en">Citations example</a>"</p>
+  <pre><code>&lt;p&gt;La frase &lt;q&gt;El meu regne per un cavall&lt;/q&gt;, com moltes d'altres, la va escriure
+  Shakespeare al seu &lt;cite&gt;Ricard III&lt;/cite&gt;.&lt;/p&gt;</code></pre>   
 
   <h2 id="abbreviations">21.6. Abreviatures</h2>
   
   <div class="text-clau">
-  <p>Els elements <code>abbr</code> i <code>acronym</code> s'utilitzen per a indicar on hi ha abreviatures i ofereixen un mètode per a desenvolupar-les sense interrompre innecessàriament el flux del document.</p>
+  <p>L'element <code>abbr</code> s'utilitzen per a indicar on hi ha abreviatures i ofereix un mètode per a desenvolupar-les sense interrompre innecessàriament el flux del document.</p>
   </div>
   
   <p>El text de l'abreviatura es troba dintre de l'element <code>abbr</code> i la versió completa se situa dintre de l'atribut
@@ -210,14 +200,6 @@ documents using &lt;abbr title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt;.&lt;
 
 
 <p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#abbreviations" hreflang="en">Abbreviations example</a>"</p>
-  
-  <p>Un acrònim és un tipus d'abreviatura, amb la diferència que el resultat és acceptat com si fos una paraula i es llegeix com a tal. Un exemple podria ser radar, que és una paraula formada a partir de la frase <span lang="en">RAdio Detecting And Ranging</span> 'detecció i mesura de la distància per ràdio'. Tot i que l'especificació HTML 4.01 accepta els elements <code>abbr</code> i <code>acronym</code>, la veritat és que no sempre queda perfectament clar quin és el que cal utilitzar...</p>
-  
-  <p>Internet Explorer (abans de la versió 7, i la 7 no posa el subratllat de punts sota les abreviatures igual que fan altres navegadors) no reconeix l'element <code>abbr</code>, però sí <code>acronym</code>. Desafortunadament, els acrònims són un subgrup d'abreviatures i és incorrecte etiquetar alguna cosa com ara "HTML" amb l'element <code>acronym</code>.</p>
-  
-  <p>Per altra banda, a l'esborrany de l'HTML 5, l'element <code>acronym</code> ha desaparegut i es proposa estandarditzar  <code>abbr</code> per a ambdós casos, ja que qualsevol acrònim no deixa de ser una abreviatura vàlida.</p>
-  
-  <p>El millor que es pot fer és evitar utilitzar <code>acronym</code> i fer servir sempre <code>abbr</code> en tot el codi. Si heu d'aplicar algun estil visual a <code>abbr</code>, podeu posar un <code>span</code> en el seu interior i aplicar-lo a aquest en lloc d'aplicar-lo a <code>abbr</code>, amb la qual cosa tots els navegadors aplicaran aquests estils visuals. </p>
   
   <div class="vegeu_tambe">
   <h3>Vegeu també</h3>
@@ -350,27 +332,6 @@ NO-0175 OSLO,&lt;br&gt;NORWAY
   evil&lt;/q&gt;.&lt;/p&gt;</code></pre>    
 
 <p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#insdelexample" hreflang="en">Inserting and deleting example</a>"</p>
-
-  <h2 id="futurehtml">21.12. Alguns elements HTML futurs</h2>
-  
-  <p>Tal com ja s'ha comentat diverses vegades en aquest i en altres apartats, la <a href="http://www.w3.org/html/wg/html5/" hreflang="en">versió 5 d'HTML</a> encara s'està redactant. Aquesta versió serà l'actualització més radical d'HTML des de la seva aparició. Estudiant els patrons d'ús real de l'HTML a Internet en lloc de limitar-se a pensar en què podria ser útil, és més que probable que la semàntica dels documents, que actualment és poc més que una convenció, s'insereixi directament a l'especificació.</p>            
-  
-  <p>Alguns elements d'exemple que probablement s'introduiran en l'HTML i que podrien representar una millora significativa en la manera de codificar i utilitzar els documents inclouen:</p>
-  
-  <ul>
-		<li><p><code>header</code>: conté l'encapçalament (masthead) de la pàgina; normalment consisteix en un logotip i un títol, potser una petita secció "Sobre" i alguna navegació global del lloc, com per exemple enllaços per a iniciar sessió/sortir/perfil.</p></li>    
-  
-  <li><p><code>footer</code>: conté el peu de pàgina, que normalment inclou altres enllaços dintre del lloc, el copyright i altra informació legal.</p></li>    
-  
-  <li><p><code>nav</code>: conté els enllaços de navegació principals d'una pàgina.</p></li>    
-  
-  <li><p><code>article</code>: conté la part d'una pàgina que és l'àrea de contingut principal i exclou tots els altres elements de la pàgina com per exemple la navegació, l'encapçalament i el peu de pàgina.</p></li>    
-  
-  <li><p><code>aside</code>: conté la informació de la barra lateral d'una àrea concreta de la pàgina; també es pot utilitzar per a destacats o notes dintre del contingut principal.</p></li>
-	</ul>
-  
-  <p>N'hi ha més, que podeu trobar a l'<a href="http://www.whatwg.org/specs/web-apps/current-work/" hreflang="en">especificació HTML 5</a>.</p>                                                                                                     
-
   
   
         <h2 id="summary">Resum</h2> 

@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El text central d'HTML - Contenidors genèrics: els elements div i span</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -50,7 +45,6 @@
   <li>22.7. <a href="#inappropriatesemantics" accesskey="7">Semàntica inadequada</a>
 	<ul class="index">
   <li>22.7.1. <a href="#genericparagraphs">"Paràgrafs" genèrics</a></li>
-  <li>22.7.2. <a href="#presentationalelements">Elements presentacionals</a></li>
   </ul></li>
   <li class="especial"><a href="#summary">Resum</a></li> 
   <li class="especial"><a href="#exercises">Preguntes de repàs</a></li> 
@@ -58,13 +52,7 @@
                               
   <h2 id="semanticallyneutral">22.1. Semànticament neutres</h2>
   
-  <p>La majoria dels elements d'HTML existeixen per a descriure el contingut, com per exemple les imatges, les llistes o els títols, o per  a ajudar a compondre el document, com per exemple head, body, link, meta, etc. Hi ha dos elements, però, que no tenen cap significat assignat. </p>
-  
-  <blockquote>
-  <p>De l'especificació de l'HTML:</p>
-  
-  <p>Els elements<code> div</code> i <code>span</code>, juntament amb els atributs <code>id</code> i <code>class</code>, ofereixen un mecanisme genèric per a afegir estructura als documents.</p>
-  </blockquote>
+  <p>La majoria dels elements d'HTML existeixen per a descriure el contingut, com per exemple les imatges, les llistes o els títols, o per  a ajudar a compondre el document, com per exemple <code>head</code>, <code>body</code>, <code>link</code>, <code>meta</code>, etc. Hi ha dos elements, però, que no tenen cap significat assignat: Els elements <code>div</code> i <code>span</code>, juntament amb els atributs <code>id</code> i <code>class</code>, ofereixen un mecanisme genèric per a afegir estructura als documents.</p>
   
   <p>Aquests dos elements es poden considerar com la bastida d'HTML. Donen la possibilitat d'agrupar el contingut i d'afegir informació addicional relativa al contingut i lligams per a incorporar-hi estils i interactivitat. Però no afegeixen cap significat semàntic nou al document, ni en si mateixos ni d'ells mateixos.</p>
 
@@ -227,24 +215,6 @@
   </blockquote>
   
   <p>L'element correcte per a envoltar el contingut textual inconnex que no té cap altra relació semàntica coberta per altres elements de l'HTML és <code>div</code> o <code>span</code> (segons la posició exacta).</p>
-
-  <h3 id="presentationalelements">22.7.2. Elements presentacionals</h3>
-  
-  <p>Un consell especialment dolent que es pot trobar algunes vegades a Internet és el d'utilitzar elements presentacionals curts, com <code>b</code> o <code>i</code>, com a contenidors genèrics en lloc de <code>span</code>. La raó aportada és normalment una de les dues següents:</p>
-       
-	<ul>
-  <li><p>Els elements són tres bytes més curts, amb la qual cosa estalvien amplada de banda tant en l'HTML com el CSS.</p>
-  </li>
-  
-  <li><p>Els estils necessaris són només per a l'aspecte, i per tant l'ús d'elements "presentacionals" és correcte en aquestes circumstàncies.</p></li>
-	</ul>
-  
-  <p>La primera raó és correcta, però l'estalvi és pràcticament insignificant (si no és que utilitzeu una quantitat increïble d'efectes presentacionals), especialment si tenim en compte la compressió moderna aplicada pels servidors web als documents abans d'enviar-los a través d'Internet al navegador. Això fa que els documents siguin molt més curts del que pot aconseguir qualsevol sistema de taquigrafia humana.</p>
-  
-  <p>La segona raó revela una manca de comprensió del que significa realment "presentacional" en el context de l'HTML. Els elements presentacionals descriuen l'aspecte que ha de tenir el seu contingut (<code>b</code> significa simplement "el text de l'interior és en negreta"). No representen cap lligam genèric per a l'estil del seu interior.</p>
-  
-  <p>Si s'ha d'aplicar un estil a una secció petita de text dintre d'un paràgraf, o si el JavaScript l'ha de definir com un destí i no hi ha cap element semàntic aplicable per a envoltar-la, l'únic element correcte que es pot utilitzar és
-<code>span</code>.</p>
   
   
         <h2 id="summary">Resum</h2> 

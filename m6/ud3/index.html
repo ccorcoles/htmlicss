@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Creació d'estils de text amb CSS</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -267,18 +262,18 @@
 
 <pre><code>1,143em = 114,3% diferent de 16px = 12pt</code></pre>
 
-<h3 id="CSS21TRNote">Breu comentari sobre la recomanació oficial de CSS 2.1</h3>
+<h3 id="CSS21TRNote">Breu comentari sobre la recomanació oficial de CSS</h3>
 
-<p>De vegades us diran que consulteu la recomanació candidata o <em><a href="http://www.w3.org/TR/CSS21/" hreflang="en">Candidate Recommendation</a></em> del <em>World Wide Web Consortium</em> per a l'especificació CSS 2.1. Com totes les recomanacions del W3C, aquest document pot considerar-se la definició d'un estàndard web; alguns es segueixen més que d'altres, tant per fabricants de navegadors com per desenvolupadors de webs.</p>
+<p>De vegades us diran que consulteu la recomanació candidata o <span lang="en"><a href="http://www.w3.org/TR/css-2010/" hreflang="en">Candidate Recommendation</a></span> del <span lang="en">World Wide Web Consortium</span> per a l'especificació CSS. Com totes les recomanacions del W3C, aquest document pot considerar-se la definició d'un estàndard web; alguns es segueixen més que d'altres, tant per fabricants de navegadors com per desenvolupadors de webs.</p>
 
 
-<p>Tot i que va bé conèixer de dalt a baix les recomanacions del W3C, aquest curs s'ha dissenyat per proporcionar una introducció concisa i fàcil d'assimilar al disseny/desenvolupament del web i les recomanacions del W3C poden ser una mica farragoses. En tots els casos en què se us demani visitar la recomanació de CSS 2.1, se us dirigirà cap a un material massa confús com per justificar una explicació acurada en aquest apartat.</p>
+<p>Tot i que va bé conèixer de dalt a baix les recomanacions del W3C, aquest curs s'ha dissenyat per proporcionar una introducció concisa i fàcil d'assimilar al disseny/desenvolupament del web i les recomanacions del W3C poden ser una mica farragoses. En tots els casos en què se us demani visitar la recomanació de CSS, se us dirigirà cap a un material massa confús com per justificar una explicació acurada en aquest apartat.</p>
 
 <h3 id="sizekeywords">Paraules clau de mida</h3>
 
 <p>També es poden fer servir paraules clau de mida tal, com s'ha mencionat anteriorment. N'hi ha set, des de <code>xx-small</code> fins a <code>xx-large</code>, i <code>medium</code> és el valor mig (i predeterminat). La llista completa dels set valors es mostra més endavant a la Taula 3, que inclou totes les paraules clau que accepten les diverses propietats de CSS mencionades en aquest apartat.</p>
 
-<p>La recomanació de CSS 2.1 ofereix una gran quantitat d'informació addicional sobre les <a href="http://www.w3.org/TR/CSS21/fonts.html#font-size-props" hreflang="en">paraules clau de <code>font-size</code></a>.</p>
+<p>La recomanació de CSS ofereix una gran quantitat d'informació addicional sobre les <a href="http://www.w3.org/TR/CSS21/fonts.html#font-size-props" hreflang="en">paraules clau de <code>font-size</code></a>.</p>
 
 <h3>Demostració 1</h3>
 <p>De tant en tant, aquest text enllaçarà amb un document de demostració cada vegada amb més estil que mostrarà les propietats CSS de què parlem en el seu ús real. Aquest primer exemple mostra el document HTML de mostra sense cap mena d'estil aplicat.</p>
@@ -312,7 +307,7 @@ h1 { font-size: x-large; }
 <img src="06510_m6_05.gif" alt="Tipografia genèrica per defecte de MacOs 10.5."/>
 <p>Figura 1. Les tipografies "genèriques" predeterminades de MacOS 10.5 tal com queden representades a 24 píxels al Safari 3.1.</p>
 </div>        
-<p>A la recomanació del CSS 2.1 s'enumeren <a href="http://www.w3.org/TR/CSS21/fonts.html#generic-font-families" hreflang="en">diverses tipografies més que poden aplicar-se a cada família genèrica</a>.</p>
+<p>A la recomanació del CSS s'enumeren <a href="http://www.w3.org/TR/CSS21/fonts.html#generic-font-families" hreflang="en">diverses tipografies més que poden aplicar-se a cada família genèrica</a>.</p>
 
 <h3>Demostració 2</h3>
 
@@ -334,7 +329,7 @@ blockquote { font-family: Helvetica,Arial,sans-serif; }</code></pre>
 
 <h3 id="whyfontstyle">Per què cal fer servir la propietat <code>font-style</code> quan els elements "em" i "i" ja semblen prou adients?</h3>
 
-<p>Cadascun d'aquests elements té usos específics: el de l'em és proporcionar èmfasi i el de i ser l'alternativa de <code>&lt;span style="font-style: italic;"&gt;...&lt;/span&gt;</code> en els pocs casos que el seu ús seria poc adequat. En general, <code>&lt;i&gt;</code> no és gens adequat perquè és un element presentacional, però hi ha determinades parts del text central que s'escriuen en cursiva per convenció, com ara els títols dels llibres (encara que això és discutible, ja que hi ha qui creu que l'element <code>cite</code> és més adequat per als títols de llibre, així que feu el que us sembli adequat). <code>&lt;em&gt;</code> acostuma a ser més apropiat perquè especifica l'èmfasi com a concepte en lloc de com la cursiva com a estil específic: l'aparença real de l'èmfasi pot variar entre diferents navegadors.</p>
+<p>Com ja hem vist, cadascun d'aquests elements té usos específics. A més a més, l'aparença real del text marcat amb <code>em</code>, <code>i</code>, o qualsevol altre element, pot variar entre diferents navegadors.</p>
 
 <p>Hi ha situacions en què l'ús d'<code>em</code> i el seu germà <code>strong</code> poden requerir un punt de vista diferent. Per exemple, suposem que voleu donar èmfasi al text fent-lo més gran. El que caldria fer per donar un bon èmfasi seria afegir cursiva, la qual cosa donaria lloc a regles com les següents:</p>
 
@@ -348,10 +343,6 @@ strong {
 	font-style: italic;
 }</code></pre>
 
-<p>Les regles del full d'estil precedent donarien uns resultats semblants als següents:</p>
-<div class="exemple">
-<p>The <strong><em>quick</em></strong> red fox jumped over the <strong>lazy</strong> brown dog.</p>
-</div>
 <h3>Demostració 3</h3>
 
 <p>Al text de demostració no hi ha paraules ni fragments en cursiva, i les atribucions ja contenen la cursiva necessària gràcies a l'ús de l'element <code>cite</code>. Tenint en compte la manca d'opcions, el títol és el millor candidat per estar en cursiva.</p>
@@ -382,7 +373,7 @@ strong {
 <h3 id="fontweightboldness">29.2.5. <code>font-weight</code>: negreta i la manca d'aquesta</h3>
 
 <p>La propietat <code>font-weight</code> (pes de la font) permet modificar el nivell de negreta de qualsevol fragment de text al qual s'apliqui.</p>
-<p>Els valors habituals de la propietat <code>font-weight</code> són <code>normal</code> i <code>bold</code>. Mentre que la recomanació CSS 2.1 proporciona <a href="http://www.w3.org/TR/CSS21/fonts.html#font-boldness" hreflang="en">diversos valors</a>, l'estat actual de compatibilitat amb la tipografia web fa que els altres valors no tinguin valor funcional tret de per als usuaris especialistes.</p>
+<p>Els valors habituals de la propietat <code>font-weight</code> són <code>normal</code> i <code>bold</code>. La recomanació CSS proporciona <a href="http://www.w3.org/TR/CSS21/fonts.html#font-boldness" hreflang="en">els diversos valors possibles</a>.</p>
 
 <h3>Demostració 5</h3>
 
@@ -492,4 +483,24 @@ strong {
 
 <h3>Demostració 6</h3>
 
-<p>Com que la demostració es basa en un fragment de text de ficció extret d'un llibre, per què no li apliquem la
+<p>Com que la demostració es basa en un fragment de text de ficció extret d'un llibre, per què no li apliquem la justificació?</p>
+
+<pre><code>p { text-align: justify; }
+blockquote p { text-align: left; }</code></pre>
+
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/copy_example7.html" hreflang="en">Pàgina amb justificació completa del text central del fragment</a>"</p>
+
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/text_06.css" hreflang="en">Full d'estil de la demostració 6</a>"</p>
+
+
+<h3 id="changingtracking">29.3.2. Modificar l'espaiat: Les propietats <code>letter-spacing</code> i <code>word-spacing</code></h3>
+
+<p>El mateix nom ja ho diu tot, és a dir, aquestes propietats permeten modificar la quantitat d'espai en blanc entre lletres i paraules, respectivament.</p>
+
+<p>L'ús més habitual de letter-spacing (espaiat de lletra) és per donar un èmfasi subtil semblant a l'efecte que proporciona <code>font-variant: small-caps;</code> també pot fer-se servir per modificar subtilment la composició d'elements d'interfície.</p>
+
+<p>La propietat <code>word-spacing</code> (espaiat de paraules) és millor fer-la servir per modificar deliberadament la quantitat de paraules que és probable que apareguin en una única línia de text. Per exemple, pot fer-se servir si teniu un bloc de text de l'amplada habitual però de mida de font atípica.</p>
+
+<p>Qua

@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El text central d'HTML - Imatges en HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -50,8 +45,7 @@
   <ul class="index"> 
 	<li>17.3.1. <a href="#alt">Oferir una alternativa de text amb l'atribut <code>alt</code></a></li>
   <li>17.3.2. <a href="#title">Afegir informació pertinent amb l'atribut <code>title</code></a></li>
-  <li>17.3.3. <a href="#longdesc">Utilitzar <code>longdesc</code> per oferir una alternativa a les imatges complexes</a></li>
-  <li>17.3.4. <a href="#widthheight">Visualització més ràpida de les imatges definint-ne les dimensions amb <code>width</code> i <code>height</code></a></li>
+  <li>17.3.3. <a href="#widthheight">Visualització més ràpida de les imatges definint-ne les dimensions amb <code>width</code> i <code>height</code></a></li>
 	</ul></li>
   <li>17.4. <a href="#somuchforinline" accesskey="4">Les imatges en línia</a></li>
   <li>17.5. <a href="#cssimages" accesskey="5">Imatges de fons amb CSS</a>
@@ -104,8 +98,7 @@
   
   <p>El document inlineimageexample.html de l'arxiu zip mostra la fotografia balconyview.jpg en un navegador (sempre que tingueu la imatge a la mateixa carpeta que l'arxiu HTML.) </p>
                       
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Example of an inline image&lt;/title&gt;
@@ -131,8 +124,7 @@
   
   <p>Per tal que la imatge sigui comprensible per a tothom, cal que hi afegiu un text alternatiu adequat; en aquest cas, per exemple, "View from my balcony, showing a row of houses, trees and a castle" (vista des del meu balcó, des d'on es veu una filera de cases, arbres i un castell).</p>
 
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Example of an inline image&lt;/title&gt;
@@ -145,7 +137,7 @@
 <p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/17-images-in-html/inlineimageexamplealt.html" hreflang="en">inlineimageexamplealt.html</a>"</p> 
 
   <div class="text-clau">
-  <p>L'atribut <code>alt</code> conté el text que apareixerà quan la imatge no estigui disponible. La informació de l'atribut  <code>alt</code> no hauria d'aparèixer quan la imatge es carregui correctament; Internet Explorer ho fa malament i mostra aquest text com si fos un indicador de funció en posar el punter del ratolí sobre la imatge durant uns moments. Això és un error, ja que fa que molta gent utilitzi l'atribut <code>alt</code> per afegir informació addicional sobre la imatge. Si voleu afegir informació addicional heu d'utilitzar l'atribut <code>title</code>, que explicaré en el subapartat següent. </p>
+  <p>L'atribut <code>alt</code> conté el text que apareixerà quan la imatge no estigui disponible. La informació de l'atribut  <code>alt</code> no hauria d'aparèixer quan la imatge es carregui correctament; algunes versions antigues d'Internet Explorer ho fan malament i mostren aquest text com si fos un indicador de funció en posar el punter del ratolí sobre la imatge durant uns moments. Això és un error, ja que fa que molta gent utilitzi l'atribut <code>alt</code> per afegir informació addicional sobre la imatge. Si voleu afegir informació addicional heu d'utilitzar l'atribut <code>title</code>, que explicaré en el subapartat següent. </p>
   </div>              
 
   <h3 id="title">17.3.2. Afegir informació pertinent amb l'atribut <code>title</code></h3>
@@ -156,8 +148,7 @@
   
   <p>L'atribut <code>title</code> pot ser molt útil, però no és una manera segura d'oferir informació crucial. En canvi, sí que és una bona manera, per exemple, per a escriure les sensacions que provoca la imatge o el significat que té dins el context. </p>
                               
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Example of an inline image with alternative text and title&lt;/title&gt;
@@ -177,78 +168,14 @@
 		<p>Figura 2. En molts navegadors, els atributs <code>title</code> apareixen com si fossin indicadors de funció.</p>
 	</div>
 
-  <h3 id="longdesc">17.3.3. Utilitzar <code>longdesc</code> per oferir una alternativa a les imatges complexes</h3>
-  
-  <div class="text-clau">
-  <p>Si la imatge és molt complexa, com per exemple un gràfic, podeu oferir-ne una descripció més llarga amb l'atribut
-<code>longdesc</code> per tal que les persones que utilitzin lectors de pantalla o naveguin amb les imatges desactivades puguin seguir accedint a la informació que transmet la imatge.</p>
-  </div>
-  
-  <p>Aquest atribut conté una URL que porta a un document que conté la mateixa informació. Per exemple, si teniu un gràfic que mostra una sèrie de dades, podeu vincular-lo a una taula de dades que contingui la mateixa informació utilitzant
-<code>longdesc</code>: </p>
-                       
 
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Example of an inline image with longdesc&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;img src="chart.png" width="450" height="150" alt="Chart showing the fruit
- consumption amongst under 15 year olds. Most children ate Pineapples,
- followed by Pears" longdesc="fruitconsumption.html"&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>  
-<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/17-images-in-html/inlineimagelongdesc.html" hreflang="en">inlineimagelongdesc.html</a>"</p>
-
-  <p>L'arxiu "fruitconsumption.html" conté una taula molt senzilla que representa les mateixes dades: </p>
-                       
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Fruit consumption&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;table summary="Fruit Consumption of under 15 year olds, March 2007"&gt;
-  &lt;caption&gt;Fruit Consumption&lt;/caption&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;&lt;th scope="col"&gt;Fruit&lt;/th&gt;&lt;th scope="col"&gt;Amount&lt;/th&gt;&lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;&lt;td&gt;Apples&lt;/td&gt;&lt;td&gt;10&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Oranges&lt;/td&gt;&lt;td&gt;58&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Pineapples&lt;/td&gt;&lt;td&gt;95&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Bananas&lt;/td&gt;&lt;td&gt;30&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Raisins&lt;/td&gt;&lt;td&gt;8&lt;/td&gt;&lt;/tr&gt;
-    &lt;tr&gt;&lt;td&gt;Pears&lt;/td&gt;&lt;td&gt;63&lt;/td&gt;&lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;a href="inlineimagelongdesc.html"&gt;Back to article&lt;/a&gt;&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/17-images-in-html/fruitconsumption.html" hreflang="en">fruitconsumption.html</a>"</p>
-
-  <p>Les dues representacions d'aquestes dades, l'una al costat de l'altra, apareixen tal com es pot veure a la figura 3. </p>
-                         
-	<div class="imagen">
-		<img src="06510_m4_08.gif" alt="Un document i el seu resultat de longdesc" />
-		<p>Figura 3. Podeu vincular un document amb dades complexes a una imatge mitjançant l'atribut
-<code>longdesc</code>.</p>
-	</div>        
-	
-  <p>Observeu que no hi ha cap indicació visual i que hi ha un arxiu de descripció llarg connectat a aquesta imatge. No obstant això, les tecnologies d'assistència permetran que els seus usuaris sàpiguen que hi ha una alternativa disponible. </p>
-
-
-  <h3 id="widthheight">17.3.4. Visualització més ràpida de les imatges definint-ne les dimensions amb <code>width</code> i  <code>height</code></h3>
+  <h3 id="widthheight">17.3.3. Visualització més ràpida de les imatges definint-ne les dimensions amb <code>width</code> i  <code>height</code></h3>
   
   <div class="text-clau">
   <p>Quan l'agent d'usuari troba un element <code>img</code> en l'HTML, comença a carregar la imatge assenyalada per l'atribut <code>src</code>. Per defecte, aquest no sap quines són les dimensions de la imatge, per la qual cosa es limitarà a mostrar tot el text apilonat i desplaçarà la resta del document quan finalment es carreguin i apareguin les imatges. Això pot fer que la càrrega de la pàgina sigui més lenta i genera confusió entre les persones que visiten la pàgina. Per tal que això no ocorri, podeu indicar a l'agent d'usuari que assigni l'espai adequat a les imatges abans que aquestes es carreguin especificant-li les dimensions de la imatge amb els atributs <code>width</code> i <code>height</code>.</p>
   </div>
                        
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Example of an inline image with dimensions&lt;/title&gt;
@@ -316,7 +243,6 @@ background-color:#eee;</code></pre>
 			<li><p><code>src</code> per a la ubicació de l'arxiu de la imatge</p></li>
       <li><p><code>alt</code> per al text que ha d'estar disponible quan la imatge no es carrega o no es pot veure</p></li>
       <li><p><code>title</code> per a la informació addicional interessant (però no essencial)</p></li>
-      <li><p><code>longdesc</code> per a indicar un arxiu extern que conté una representació textual alternativa de les dades que apareixen a la imatge quan aquesta és, per exemple, un gràfic complex</p></li>
       <li><p><code>width</code> i <code>height</code> per a indicar al navegador les dimensions de la imatge i, per tant, l'espai que li ha d'assignar</p></li>
     </ol></li>
     <li><p>Els conceptes bàsics de les imatges de fons del CSS </p>
@@ -331,7 +257,7 @@ background-color:#eee;</code></pre>
   <ol>
 		<li><p>Per què és important afegir un bon text a una imatge en un atribut <code>alt</code> i per què és necessari? </p></li>
     <li><p>Si teniu una imatge de 1.280 &times; 786 píxels i voleu presentar una miniatura de 40 &times; 30 píxels, podeu fer-ho amb HTML i és aconsellable fer-ho? </p></li>
-    <li><p>Què fa l'atribut <code>longdesc</code>, i com ho mostren els navegadors? </p></li>
+    <li><p>Busqueu informació sobre l'atribut <code>longdesc</code>, que era vàlid en HTML 4 i no ho és en HTML5. Què fa, i com el mostren els navegadors? </p></li>
     <li><p>Què fan els atributs <code>valign</code> i <code>align</code> i per què no els hem explicat aquí?</p></li>
     <li><p>On es col·loquen per defecte les imatges de fons del CSS en un element i quin és el patró de repetició per defecte? </p></li>
   </ol>

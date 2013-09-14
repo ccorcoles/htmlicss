@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - Elements flotants i clearing</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -107,12 +102,10 @@ p i la caixa en línia generada per l'element <code>em</code>.</p>
 <ol>
 <li><p>Creeu un arxiu nou, copieu-hi el codi següent i guardeu el document com a <code>float.html</code>.</p>
 
-<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd"&gt;
+<pre><code>&lt;!DOCTYPE html &gt;
    &lt;html&gt;
       &lt;head&gt;
-         &lt;meta http-equiv="Content-Type" content="text/html;
-          charset=utf-8"&gt;
+         &lt;meta charset=utf-8"&gt;
          &lt;title&gt;Floating&lt;/title&gt;
       &lt;/head&gt;
    &lt;body&gt;
@@ -499,4 +492,16 @@ In nisi augue, aliquam eget, convallis vel, malesuada quis, libero.&lt;/p&gt;
    overflow: hidden;
 }</code></pre></li>
 
-<li><p>De fet, encara hi ha un altre problema. Si ho obriu amb l'Internet Explorer veureu que encara no funciona del tot bé. La manera de solucionar-ho és fent flotar la llista mateixa, però només a l'Internet Explorer, ja que en altres navegadors quedaria tre
+<li><p>De fet, encara hi ha un altre problema. Si ho obriu amb l'Internet Explorer veureu que encara no funciona del tot bé. La manera de solucionar-ho és fent flotar la llista mateixa, però només a l'Internet Explorer, ja que en altres navegadors quedaria trencada. Podeu solucionar-ho utilitzant un petit truc que garanteix que aquesta regla només s'aplicarà a l'Internet Explorer.</p>
+
+<p>Afegiu la regla següent al vostre full d'estils:</p>
+
+<pre><code>* html #menu {
+   float: left;
+}</code></pre></li>
+</ol>
+
+
+<h2 id="bugs">35.8. Errors!</h2>
+
+<p>Els elements flotants i el <span lang="en">clearing</span> són molt útils, però desafortunadament la majoria dels navegadors (de fet, quasi tots) aplica aquestes propietats d'una manera errònia. L'Internet Explorer 6 presenta una sèrie increïble de compo

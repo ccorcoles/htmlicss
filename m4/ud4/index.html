@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>El text central d'HTML - Enllaços HTML: construïm un web!</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -76,11 +71,10 @@
   
   <p>Per exemple, en el següent document HTML el text <code>Yahoo Developer Network</code> es converteix en un enllaç.</p>
                       
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta charset=utf-8"&gt;
 &lt;title&gt;Link Example&lt;/title&gt;
 &lt;link rel="stylesheet" href="styles.css"&gt;
 &lt;/head&gt;
@@ -88,7 +82,9 @@
   &lt;h1&gt;A link to the YDN&lt;/h1&gt;
   &lt;p&gt;&lt;a href="http://developer.yahoo.com"&gt;Yahoo Developer Network&lt;/a&gt;&lt;/p&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre> 
+&lt;/html&gt;</code></pre>
+  
+<meta charset="utf-8" />
 
 <p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/linkexample.html" hreflang="en">linkexample.html</a>"</p>
 
@@ -124,11 +120,10 @@
   
   <p>El següent bloc de codi HTML conté exemples de tots els tipus diferents d'enllaços:</p>                                                                                          
 
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta charset=utf-8"&gt;
 &lt;title&gt;Different Link Example&lt;/title&gt;
 &lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
 &lt;/head&gt;
@@ -191,7 +186,7 @@
   <p>Per a recapitular: </p>
   
   <ul>
-		<li><p>Els enllaços d'àncora poden tenir un identificador de fragment com a valor de l'atribut <code>ref</code>; aquest identificador de fragment ha de començar amb un coixinet (<code>#</code>).</p></li>
+		<li><p>Els enllaços d'àncora poden tenir un identificador de fragment com a valor de l'atribut <code>href</code>; aquest identificador de fragment ha de començar amb un coixinet (<code>#</code>).</p></li>
   
   <li><p>En activar-lo, aquest enllaç portarà cap a qualsevol element HTML amb un <code>id</code> d'aquest valor. Aquests ID de cada pàgina han de ser únics.</p></li>
   
@@ -214,11 +209,10 @@
   <p>Per exemple, podeu escriure una petita introducció al contingut i la ubicació del document enllaçat:</p>
                       
 
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta charset=utf-8"&gt;
 &lt;title&gt;Adding extra information with a title attribute&lt;/title&gt;
 &lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
 &lt;/head&gt;
@@ -261,10 +255,10 @@
   
   <p>Aquí trobareu alguns exemples:</p>
   
-  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+  <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;meta charset=utf-8"&gt;
 &lt;title&gt;Linking non-HTML resources&lt;/title&gt;
 &lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
 &lt;/head&gt;
@@ -399,4 +393,12 @@
   
   <ol>
 		<li><p>Quin problema té l'enllaç següent: <code>&lt;a href="report.pdf" title="report as PDF, 2.3MB"&gt;get our latest report&lt;/a&gt;</code>?</p></li>
-    <li><p>Per a què serveix l'atribut <code>target</code> en els enllaços? Es pot fer servir d'alguna manera positiva?</p
+    <li><p>Per a què serveix l'atribut <code>target</code> en els enllaços? Es pot fer servir d'alguna manera positiva?</p></li>
+    <li><p>He parlat sobre les relacions dels enllaços i les connexions entre els enllaços i les àncores. Hi ha algun atribut per als enllaços que descrigui també les relacions entre documents?</p></li>
+    <li><p>Com es pot escriure un enllaç que enviï els visitants cap a un element que hi ha més avall de la pàgina en clicar-lo? Què cal comprovar per endavant?</p></li>
+	</ol>
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_auto

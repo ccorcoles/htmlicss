@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Fonaments d'HTML - L'element &lt;head&gt; de l'HTML</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -56,7 +51,7 @@
       
       <p>Una part de la informació sobre el document es troba a l'element pare de <code>head</code>, que és l'element <code>html</code>. Aquí es defineix l'idioma natural principal del document. Quan parlo d'idioma natural m'estic referint a un idioma <em>humà</em>, com per exemple el francès, el tailandès o l'anglès. Això és de gran ajuda per als lectors de pantalla, ja que, per exemple, la paraula "six" es pronuncia d'una manera molt diferent en francès i en anglès; també pot ser de molta ajuda per als motors de cerca. És molt aconsellable definir l'idioma principal d'un document, sobretot si esteu escrivint pàgines pensades per a un públic internacional, tot i que hi ha moltes pàgines que no ho fan. S'ha de definir de la següent manera:</p>
       
-<pre><code>&lt;html lang="en-GB"&gt;
+<pre><code>&lt;html lang="en"&gt;
    ...
 &lt;/html&gt;</code></pre>
       
@@ -65,23 +60,13 @@
       <p>Tingueu en compte que també podeu definir l'idioma de subseccions del vostre document utilitzant l'atribut lang en altres elements, com per exemple <code>&lt;span lang="fr"&gt;Bonjour&lt;/span&gt;</code>.</p>
       </div>
       
-      <p>Els atributs que utilitzeu per a definir l'idioma depenen del <code>DOCTYPE</code> del vostre document.</p>
-
-      <blockquote>
-      <p>El <a href="http://www.w3.org/TR/i18n-html-tech-lang/#ri20040429.092928424" hreflang="en">W3C</a> diu:</p>
-      
-      <p>"Per a HTML cal utilitzar només l'atribut <code>lang</code>; per a XHTML 1.0 servit com a <code>text/html</code> cal utilitzar els atributs <code>lang</code> i <code>xml:lang</code>; i per a XHTML servit com a XML cal utilitzar només l'atribut <code>xml:lang</code>."</p>
-      
-      </blockquote>
-      
       <p>Els codis d'idioma poden ser codis de dues lletres, com per exemple <code>en</code> per a l'anglès, o bé codis de quatre lletres com ara <code>en-US</code> per a l'anglès americà o d'altres codis menys habituals. Els codis de dues lletres estan definits a <a href="http://en.wikipedia.org/wiki/ISO_639-1" hreflang="en">ISO 639-1</a>, tot i que les millors pràctiques actuals exigeixen l'<a href="http://www.w3.org/International/articles/language-tags/" hreflang="en">ús del registre de subetiquetes de la IANA per a les definicions dels codis d'idioma</a>.</p>
 
       <h2 id="title">13.3. Jutjar un document pel seu títol</h2>
       
       <p>Un dels elements més importants de <code>head</code> és <code>title</code>. El text inclòs en el <code>title</code> apareix en la majoria dels agents d'usuari/navegadors dins de la barra del títol de l'aplicació (la barra que hi ha a la part superior de la finestra del navegador). És el primer que veuran els usuaris del web quan visitin el vostre lloc; per tant és realment important.  A més a més, les tecnologies d'assistència com per exemple els lectors de pantalla (programari que llegeix en veu alta les pàgines web per als usuaris amb alguna discapacitat visual) el llegeixen per donar una primera idea sobre el que els visitants poden esperar del document, i també hi ha molts motors de cerca que funcionen d'una manera similar. Així, doncs, si utilitzeu un bon títol que sigui llegible per a les persones i que contingui les paraules clau adequades tindreu moltíssimes més possibilitats que us trobin en el web. Ara agafarem el document HTML <code><a href="http://devfiles.myopera.com/articles/360/headexample.html" hreflang="en">headexample.html</a></code> i l'obrirem en el navegador. </p>
                          
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;I am a title example&lt;/title&gt;
@@ -104,8 +89,7 @@
       
       <p>El següent que s'ha de fer pot semblar d'entrada superflu, ja que les persones que visitin el vostre lloc web no ho veuran mai: afegir una descripció i paraules clau. L'una i les altres s'han d'afegir a <code>head</code> dins dels elements <code>meta</code>, tal com es pot veure en <a href="http://devfiles.myopera.com/articles/360/headwithmeta.html" hreflang="en">l'exemple</a> següent del web de Yahoo! Eurosport: </p>
                          
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Yahoo! UK &amp; Ireland Eurosport&#8211;Sports News | Live Scores | Sport&lt;/title&gt;
@@ -141,8 +125,7 @@
       
       <p>L'altre element que podeu afegir al <code>head</code> d'un document són les normes per als estils, que es defineixen en fulls d'estil en cascada (CSS, de l'anglès <span lang="en">Cascading Style Sheets</span>). Els podeu integrar directament a <code>head</code> fent servir un element <code>style</code>, com per exemple (<a href="http://devfiles.myopera.com/articles/360/headinlinestylesmedia.html" hreflang="en">headinlinestyles.html</a>): </p>
                           
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
@@ -189,6 +172,11 @@
 				<p>Figura 4. Un full d'estils de pantalla i d'impressió.</p>
 			</div>
 
+<div class="exemple">
+<h3>Actualització</h3>
+<p>HTML4 i CSS2 feien servir <code>media</code> <em>exclusivament</em> amb tipus de mitjans. Amb HTML5 i CSS3 podem estendre aquesta funcionalitat a travès de <span lang="en">media queries</span>. Una <span lang="en">media query</span> consisteix d'un mitjà, com els vistos anteriorment, i, si ho volem, diferents expressions que comproven característiques com ara la resolució de pantalla del navegador.</p>
+</div>
+			
       <h2 id="javascripthead">13.6. Afegir funcions dinàmiques amb JavaScript</h2>
       
       <p>Un altre element que podeu afegir a <code>head</code> són <span lang="en">scripts</span> que executarà el navegador, i que per això es coneixen com a "<span lang="en">scripts</span> de client", escrits en JavaScript. Tal com ja hem vist, JavaScript afegeix un comportament dinàmic a l'HTML estàtic, com per exemple efectes d'animació, validació de dades de formularis o altres coses que passen quan l'usuari realitza determinades accions.</p>
@@ -201,8 +189,7 @@
       </div>
                           
 
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
@@ -238,7 +225,7 @@ Test!
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
       
-      <p>Si obriu aquest exemple en el vostre navegador web i cliqueu l'enllaç, se us demanarà que confirmeu l'acció. Aquest és només un exemple molt ràpid d'un script, però queda molt lluny de les millors pràctiques actuals. Els altres tutorials que trobareu més endavant en aquest mateix curs expliquen les millors pràctiques de JavaScript i ensenyen les tècniques de JavaScript en profunditat, però de moment no cal que us en preocupeu. </p>
+      <p>Si obriu aquest exemple en el vostre navegador web i cliqueu l'enllaç, se us demanarà que confirmeu l'acció. Aquest és només un exemple molt ràpid d'un script, però queda molt lluny de les millors pràctiques actuals. D'altres assignatures del grau de Multimèdia expliquen les millors pràctiques de JavaScript i ensenyen les tècniques de JavaScript en profunditat, però de moment no cal que us en preocupeu. </p>
   
       <h2 id="externalfileshead">13.7. Un moment! L'ús de CSS integrat i JavaScript no és precisament la millor idea</h2>
       
@@ -246,8 +233,7 @@ Test!
       
       <p>És molt millor posar els estils i scripts en arxius externs i importar-los cap als arxius HTML quan sigui necessari; d'aquesta manera, quan s'hagin de fer canvis només caldrà actualitzar-los en un lloc. Per al vostre JavaScript, això és fa utilitzant elements <code>script</code> que no tenen cap <code>script</code> en el seu interior, sinó un enllaç a un arxiu extern utilitzant un atribut <code>src</code>, tal com podeu veure en el codi següent (<a href="http://devfiles.myopera.com/articles/360/externaljs.html" hreflang="en">externaljs.html</a>): </p>
       
-      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
- html4/strict.dtd"&gt;
+      <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
   &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;

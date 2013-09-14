@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>Conceptes de disseny web - Combinacions de color i models de disseny</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -97,10 +92,6 @@
 <p>Si ens fixem en les imatges anteriors veurem que no tots els tipus es creen de la mateixa manera, encara que es creïn a la mateixa mida de punt. La mida de punt és l'alçada d'una lletra, i algunes fonts seran més altes a 18 punts que unes altres. També hi ha altres variacions, com els espais entre lletres i paraules, o el fet que alguns tipus de lletra, com Jokewood, no tenen lletres minúscules. Però podeu veure com la Jokewood i l'Staccato, la cal·ligràfica, serien difícils de llegir com a text central. Aquestes lletres cal·ligràfiques podrien fer-se servir en zones petites com els títols o en anuncis.</p>
 <p>Un punt a tenir en compte és que és possible que aquestes fonts no es vegin igual a tots els navegadors, perquè els navegadors diferents són bàsicament incompatibles. És possible que hàgiu captat el meu comentari anterior sobre que "no tots els navegadors mostren les mateixes fonts". El motiu d'aquest problema és que no tots els sistemes operatius admeten les mateixes fonts. O bé, és possible que admetin les mateixes fonts però la variant, pes i altres factors poden mostrar-se de manera diferent d'un navegador a un altre. Per aquest motiu, podeu escollir utilitzar una <a href="http://www.upsdell.com/BrowserNews/res_fonts.htm" hreflang="en">font genèrica</a>, o simplement un tipus "serif" o "sans-serif" per a mostrar la tipografia del web. O bé, podeu utilitzar tant el nom genèric com el nom de la font que escolliu i creuar els dits, perquè els usuaris també tenen la possibilitat de canviar la seva font o el seu aspecte en alguns casos.</p>
 
-<div class="exemple">
-	<h3>Reflexió</h3>
-<p>L'única manera de poder utilitzar un tipus de lletra específic en un estil, variant o pes específic, o que s'adapti a tots els navegadors, és crear un gràfic amb aquesta font en un programa gràfic. Tanmateix, no és recomanable fer-ho per molts motius, incloent-hi que el text és inaccessible (un lector de pantalla no pot llegir el text ocult a l'interior d'un gràfic), que és més difícil de canviar la mida (no tots els navegadors admeten el canvi de mida a pantalla completa) i que és més difícils de mantenir (s'ha de tornar a crear el gràfic cada vegada que es vol canviar el text). Creieu-me, no seguiu per aquesta via.</p>
-</div>
 <p>És per aquest motiu que, com a dissenyadors web, heu d'aprendre a acceptar el fet que el web és, per a tots els propòsits i finalitats, bàsicament un format mal·leable. En el disseny d'un web teniu control sobre moltes coses. El tipus de lletra és un element sobre el qual teniu control, però només si el manteniu tan senzill com sigui possible. I aquest és el motiu pel qual he estat fidel a Verdana per al text central i a Times Roman o Georgia per als títols durant tots aquests anys.</p>
 <p>D'altra banda, els dissenyadors de tipus de lletra i els programadors intenten contínuament que les <a href="http://brainstormsandraves.com/articles/typography/webfonts/">fonts siguin més llegibles i boniques</a>. De manera que preneu-vos-ho amb reserves i intenteu alguna cosa nova si creieu que funcionarà. Descobrireu si funciona o no quan proveu aquesta pàgina web en diferents navegadors (una tasca que explicaré més endavant en aquest apartat).</p>
 
@@ -194,4 +185,12 @@
 
 <p>Encara que aquesta composició pot semblar fàcil de fer, vaig estar força temps utilitzant els colors de la combinació de colors de contrast per als fons, per donar color als títols i per canviar la disposició dels anuncis diverses vegades. Amb cada canvi, els colors semblaven atapeir la senzillesa de la composició, de manera que vaig eliminar-los i em vaig quedar amb el negre per a tota la tipografia, excepte per a l'afegitó. Encara que podia utilitzar un enllaç de color "visitat", crec que la meva millor opció és quedar-me amb una base senzilla de dos colors que accepti bé les imatges en color sense crear un malson cromàtic.</p>
 <p>D'altra banda, podeu veure com crear un esquelet prèviament pot simplificar també la feina: una vegada tingueu definit un "mapa" o una arquitectura, l'addició del color és més o menys com pintar "sense sortir-se de la ratlla". Si us cenyiu a la vostra composició, podeu utilitzar-la per a guiar-vos a l'hora d'escollir. A més, si manteniu la senzillesa, el disseny pot ser més elegant a llarg termini, i també més usable i accessible.</p>
-<p>Hi ha una altra bona raó per a mantenir la simplicitat d'aquesta composició: les pàgines interiors tindran fragments de codi i utilitzaré una font d'espai únic per a aquest co
+<p>Hi ha una altra bona raó per a mantenir la simplicitat d'aquesta composició: les pàgines interiors tindran fragments de codi i utilitzaré una font d'espai únic per a aquest codi amb la finalitat de cenyir-me a les millors pràctiques. Aquest és un altre motiu pel qual he decidit utilitzar dos tipus de lletra sans-serif diferents d'estils semblants. L'aplicació d'una font d'espai únic a l'interior d'aquest web aportarà una bona varietat de tipus de lletra, juntament amb qualsevol variant publicitària. Assegureu-vos de fer servir els elements d'encapçalament (<code>h1</code>, <code>h2</code>, <code>h3</code>, etc.) per als títols i subtítols en comptes de fer que siguin en negreta (<code>strong</code>) o en cursiva (<code>em</code>). L'ús d'elements d'encapçalament farà el web més accessible. Podeu modificar la manera com aquests títols apareixen al full d'estils (CSS).</p>
+<p>Algunes coses a tenir en compte sobre la pàgina anterior:</p>
+
+<ul>
+<li><p>He mantingut el nom de l'empresa de la part superior de la pàgina en negre, perquè el negre ajuda a connectar el negre del logotip amb la part superior de la pàgina.</p></li></ul>
+
+
+<ul>
+<li><p>He fet servir una alineació centrada a la part superior de la columna central per atreure l'atenció a la funció de re

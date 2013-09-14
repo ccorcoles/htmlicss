@@ -1,13 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<!DOCTYPE html>
+<html lang="ca">
 <head>
-<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
-<meta http-equiv="Content-Language" content="ca" />
-<meta name="language" content="ca" />
+<meta charset="utf-8" />
 <meta name="author" content="Universitat Oberta de Catalunya" />
-<meta name="description" content="FALTA CONTENIDO" />
-<meta name="title" content="FALTA CONTENIDO" />
-<meta name="keywords" content="FALTA CONTENIDO" />
 
 <title>CSS - El model de composició de CSS: caixes, vores, marges, farcit</title>
 <link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
@@ -34,7 +29,7 @@
 
 <p>A primera vista, el model de composició de CSS és molt senzill. Les caixes, les vores i els marges són elements força simples i la sintaxi de CSS ofereix una forma fàcil de descriure les seves característiques.</p>
 
-<p>Tanmateix, els motors de representació dels navegadors segueixen una llista de regles descrites a la Recomanació CSS 2.1 i unes quantes de pròpies. Per aquesta raó, hi ha molts detalls que cal comprendre abans de poder afegir tècniques avançades al repertori d'un especialista en estils.</p>
+<p>Tanmateix, els motors de representació dels navegadors segueixen una llista de regles descrites a la Recomanació CSS i unes quantes de pròpies. Per aquesta raó, hi ha molts detalls que cal comprendre abans de poder afegir tècniques avançades al repertori d'un especialista en estils.</p>
 
 <p>En aquest apartat es presenten les propietats de CSS que manipulen la composició dels elements HTML com ara les vores, els marges i molts més. També es tracten algunes de les regles mencionades abans. En pròxims apartats es parlarà de la disposició de columnes avançada i les tècniques de graella, i es tractarà amb més detall la composició dels formularis, els elements flotants, distància i posicionament.</p>
 
@@ -479,4 +474,14 @@ margin: 1em auto 1.5em auto;
 
 <p>A vegades us trobareu situacions en què necessiteu limitar la mida d'un element, generalment per garantir que una columna de mida proporcional conservi sempre una amplada llegible. Les diverses propietats <code>min-</code> i <code>max-</code> responen a aquest requeriment. De la mateixa manera que amb <code>width</code> i <code>height</code>, els resultats que poden esperar-se de fer servir aquestes propietats són bastant previsibles en realitat.</p>
 
-<p>Tanmateix, segons la meva experiència, aquestes propietats tenen un ús limitat (encara que altres experts no hi estiguin d'acord). Igual que els antics <code>width</code> i <code>height</code>, poden patir errors d'arrodoniment que poden trametre resultats totalment inesperats. I el que és més important, l'IE 6, que a data de juliol del 2008 encara té una àmplia quota d
+<h3 id="demo4">Demostració 4</h3>
+
+<p>Es van col·locar marges <code>auto</code> a l'esquerra i a la dreta del contenidor de la pàgina. Ara cal una <code>width</code> perquè els valors de marge tinguin sentit. A més, el pla és assignar un valor <code>float</code> al text destacat de manera que també obtingui una amplada.</p>
+
+<pre><code>#main { width: 42em; }
+.pullQuote { width: 14em; }</code></pre>
+          
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev4.html" hreflang="en">Exemple de canvi de l'amplada del contenidor del document i del text destacat</a>"</p>
+
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_0
