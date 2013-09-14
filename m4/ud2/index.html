@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El text central d'HTML - Llistes HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">El text central d'HTML</div>
+	<div id="subtitulo">Llistes HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud3/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+	<h1>16. Llistes HTML</h1>
+  
+  <p class="by"><a href="../../index.html#buchanan">Ben Buchanan</a>. 8 de juliol del 2008. Publicat a: definició, ordenat, desordenat, xhtml, html </p>
+  
+  <p>Les llistes es fan servir per a agrupar dades relacionades per tal que quedin clarament associades entre elles i siguin fàcils de llegir. En el desenvolupament dels webs modernes, les llistes són uns elements molt habituals que es fan servir tant per a la navegació com per al contingut general.</p>
+  
+  <p>Les llistes són molt adequades des d'un punt de vista estructural, ja que ajuden a crear un document ben estructurat, més accessible i fàcil de mantenir. També són útils per una raó purament pràctica: aporten elements addicionals als quals adjuntar estils del CSS i disposar així d'una gran varietat d'estils (més endavant en aquest curs ja parlarem del CSS; per a saber quins són els apartats sobre el CSS que hi ha disponibles, consulteu l'índex de continguts). </p>
+  
+  <p>En aquest apartat explicaré els diferents tipus de llistes disponibles en l'HTML, quan i com s'han d'utilitzar i com aplicar alguns estils bàsics. El contingut és el següent (guaita tu! És una llista!):</p>
+  
+  <p>Els continguts d'aquest apartat són els següents:</p>
+  
+  <ul class="index">
+		<li>16.1. <a href="#threetypes" accesskey="1">Els tres tipus de llistes</a>
+    <ul class="index">
+		<li>16.1.1. <a href="#unordered">Llistes no ordenades</a></li>
+  <li>16.1.2. <a href="#unorderedmarkup">Etiquetatge de llistes no ordenades</a></li>
+  <li>16.1.3. <a href="#ordered">Llistes ordenades</a></li>
+  <li>16.1.4. <a href="#orderedmarkup">Etiquetatge de llistes ordenades</a></li>
+  <li>16.1.5. <a href="#beginningwithothernumbers">Començar llistes ordenades amb un número diferent d'1</a></li>
+  <li>16.1.6. <a href="#definition">Llistes de definicions</a></li>
+	</ul></li>
+  <li>16.2. <a href="#choosinglists" accesskey="2">Escollir entre tipus de llistes</a></li>
+  <li>16.3. <a href="#listsemantics" accesskey="3">La diferència entre llistes HTML i text</a></li>
+  <li>16.4. <a href="#nestinglists" accesskey="4">Imbricar llistes</a></li>
+  <li>16.5. <a href="#stepbystep" accesskey="5">Exemple pas a pas</a>
+  <ul class="index">
+	<li>16.5.1. <a href="#mainpage">Etiquetatge de la pàgina principal</a></li>
+  <li>16.5.2. <a href="#afegir">Afegir alguns estils</a></li>
+  <li>16.5.3. <a href="#recipepage">La pàgina de la recepta</a></li>
+  <li>16.5.4. <a href="#recipepagemarkup">Etiquetatge de la pàgina de la recepta</a></li>
+  <li>16.5.5. <a href="#estils">Estils de la pàgina de la recepta</a></li>
+    </ul></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+  <li class="especial"><a href="#exercises">Preguntes de repàs</a></li> 
+  <li class="especial"><a href="#furtherreading">Lectures complementàries</a></li> 
+  </ul>
+                         
+  <h2 id="threetypes">16.1. Els tres tipus de llistes</h2>
+  
+  <p>En l'HTML hi ha tres tipus de llistes: </p>
+  
+  <ul><li><p><strong>llista no ordenada:</strong> es fa servir per a agrupar elements relacionats sense cap ordre en concret. </p>
+  </li>
+  
+  <li><p><strong>llista ordenada:</strong> es fa servir per a agrupar elements relacionats en un ordre concret.</p>
+  </li>
+  
+  <li><p><strong>llista de definicions:</strong> es fa servir per a mostrar parelles de noms i valors, com per exemple termes i les seves definicions o hores i actes. </p>
+  </li></ul>
+
+  <p>Cadascuna d'aquestes llistes té una finalitat i un significat específics i no són intercanviables. </p>
+                        
+  <h3 id="unordered">16.1.1. Llistes no ordenades</h3>
+  
+  <div class="text-clau">
+  <p>Les llistes no ordenades, o llistes de pics, s'utilitzen quan tenim una sèrie d'elements que es poden col·locar en qualsevol ordre. </p>
+  </div>
+  
+  <div class="exemple">
+  <h3>La llista de la compra</h3>
+  
+  <p>Un exemple podria ser una llista de la compra: </p>
+  <ul>
+  <li><p>llet</p></li>
+  <li><p>pa</p></li>
+  <li><p>mantega</p></li>
+  <li><p>cafè </p></li>
+  </ul>
+  
+  <p>Tots aquests elements formen part d'una llista, però es poden posar en qualsevol ordre sense que la llista perdi el seu sentit: </p>
+  
+  <ul>
+		<li><p>pa</p></li>
+    <li><p>cafè </p></li>
+    <li><p>llet</p></li>
+    <li><p>mantega</p></li>
+  </ul> 
+	</div>
+  
+  <p>Es pot fer servir el CSS per a canviar el pic a un dels diversos estils per defecte, podeu fer servir una imatge pròpia o fins i tot es poden fer llistes sense pics; més endavant en aquest mateix apartat veurem com fer-ho i en altres apartats sobre el CSS ho explicarem amb més detall. Si ho trobeu una mica confús no cal que ara us preocupeu pel CSS; ja ho aclarirem tot plegat més endavant, a <a href="../../m6/ud6/index.html">Estils de llistes i enllaços</a>.</p>
+
+  <h3 id="unorderedmarkup">16.1.2. Etiquetatge de llistes desordenades</h3>
+  
+  <div class="text-clau">
+  <p>Les llistes desordenades utilitzen les etiquetes <code>&lt;ul&gt;&lt;/ul&gt;</code> i dintre d'aquestes hi ha molt grups de <code>&lt;li&gt;&lt;/li&gt;</code>.</p>
+  </div>
+                         
+  <pre><code>&lt;ul&gt;
+  &lt;li&gt;pa&lt;/li&gt;
+  &lt;li&gt;cafè&lt;/li&gt;
+  &lt;li&gt;llet&lt;/li&gt;
+  &lt;li&gt;mantega&lt;/li&gt;
+&lt;/ul&gt;</code></pre>  
+
+  <h3 id="ordered">16.1.3. Llistes ordenades</h3>
+  
+  <div class="text-clau">
+  <p>Les llistes ordenades, o llistes numerades, s'utilitzen quan tenim una sèrie d'elements que s'han de col·locar en un ordre concret. </p>
+  </div>
+  
+  <p>Un exemple podrien ser les instruccions de cuina, que s'han de seguir per ordre per tal que la recepta surti bé:</p>
+  
+  <ol><li><p>Tingueu tots els ingredients a mà</p></li>
+    <li><p>Mescleu tots els ingredients</p></li>
+    <li><p>Poseu la mescla en una safata per al forn</p></li>
+    <li><p>Deixeu-ho coure durant una hora</p></li>
+    <li><p>Traieu-ho del forn</p></li>
+    <li><p>Deixeu-ho reposar durant deu minuts</p></li>
+    <li><p>Serviu-ho</p></li>
+  </ol>
+  
+  <p>Si els elements de la llista es desordenen la informació no tindrà cap sentit:</p>
+  
+  <ol><li><p>Tingueu tots els ingredients a mà </p></li>
+    <li><p>Deixeu-ho coure durant una hora</p></li>
+    <li><p>Traieu-ho del forn</p></li>
+    <li><p>Serviu-ho</p></li>
+    <li><p>Poseu la mescla en una safata per al forn</p></li>
+    <li><p>Deixeu-ho reposar durant deu minuts</p></li>
+    <li><p>Mescleu tots els ingredients</p></li>
+  </ol>
+  
+  <p>Les llistes ordenades es poden crear amb diversos sistemes de numeració o alfabètics; és a dir, lletres o números. El sistema per defecte de la majoria de navegadors són els números decimals, però hi ha més opcions:</p>
+  
+  <ul><li><p>Lletres </p>
+    <ul class="guions">
+			<li><p>&ndash; Lletres ASCII en minúscules (a, b, c...) </p></li>
+      <li><p>&ndash; Lletres ASCII en majúscules (A, B, C...) </p></li>
+      <li><p>&ndash; Lletres gregues clàssiques en minúscules: (&alpha;, &beta;, &gamma;...)</p></li>
+    </ul></li>
+  </ul>
+  
+  <ul><li><p>Números </p>
+    <ul class="guions">
+    	<li><p>&ndash; Números decimals (1, 2, 3...)</p></li>
+      <li><p>&ndash; Números decimals amb zeros inicials (01, 02, 03...)</p></li>
+      <li><p>&ndash; Números romans en minúscules (i, ii, iii...)</p></li>
+      <li><p>&ndash; Números romans en majúscules (I, II, III...)</p></li>
+      <li><p>&ndash; Numeració georgiana tradicional (an, ban, gan...) </p></li>
+      <li><p>&ndash; Numeració armènia tradicional (mek, yerku, yerek...) </p></li>
+    </ul></li>
+  </ul>
+  
+  <p>Aquí també podeu fer servir el CSS per a canviar l'estil de les vostres llistes.</p>
+
+  <h3 id="orderedmarkup">16.1.4. Etiquetatge de llistes ordenades</h3>
+  
+  <div class="text-clau">
+  <p>Les llistes ordenades utilitzen les etiquetes <code>&lt;ol&gt;&lt;/ol&gt;</code> i dintre d'aquestes hi ha molts grups de <code>&lt;li&gt;&lt;/li&gt;</code>.</p>
+  </div>
+                      
+  <pre><code>&lt;ol&gt;
+  &lt;li&gt;Tingueu tots els ingredients a mà&lt;/li&gt;
+  &lt;li&gt;Mescleu tots els ingredients&lt;/li&gt;
+  &lt;li&gt;Poseu la mescla en una safata per al forn&lt;/li&gt;
+  &lt;li&gt;Deixeu-ho coure durant una hora&lt;/li&gt;
+  &lt;li&gt;Traieu-ho del forn&lt;/li&gt;
+  &lt;li&gt;Deixeu-ho reposar durant deu minuts&lt;/li&gt;
+  &lt;li&gt;Serviu-ho&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+  <h3 id="beginningwithothernumbers">16.1.5. Començar llistes ordenades amb un número diferent d'1</h3>
+  
+  <div class="text-clau">
+  <p>És possible fer que una llista ordenada comenci amb un número diferent de l'1 (o bé i, I, etc.). Això s'aconsegueix amb l'atribut <code>start</code>, que defineix un valor numèric fins i tot encara que feu servir el CSS per canviar els comptadors de la llista i fer que siguin caràcters alfabètics o números romans amb la propietat <code>list-style-type</code>. Això pot ser útil si teniu una única llista de punts però voleu trencar-la amb una nota o una altra mena d'informació relacionada. </p>
+  </div>
+  
+  <p>Ho podríem fer, per exemple, amb la llista anterior:</p>
+
+  <pre><code>&lt;ol&gt;
+  &lt;li&gt;Tingueu tots els ingredients a mà&lt;/li&gt;
+  &lt;li&gt;Mescleu tots els ingredients&lt;/li&gt;
+  &lt;li&gt;Poseu la mescla en una safata per al forn&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p class="note"&gt;Abans de posar la mescla a la safata, preescalfeu el forn
+ a 180 graus centígrads per tenir-lo a punt per al següent pas&lt;/p&gt;
+
+&lt;ol start="4"&gt;
+  &lt;li&gt;Deixeu-ho coure durant una hora&lt;/li&gt;
+  &lt;li&gt;Traieu-ho del forn&lt;/li&gt;
+  &lt;li&gt;Deixeu-ho reposar durant deu minuts&lt;/li&gt;
+  &lt;li&gt;Serviu-ho&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+  
+  <p>Amb això s'obté el resultat següent:</p>
+  
+  <ol><li><p>Tingueu tots els ingredients a mà</p></li>
+    <li><p>Mescleu tots els ingredients</p></li>
+    <li><p>Poseu la mescla en una safata per al forn</p>
+  
+  <p>Abans de posar la mescla a la safata, preescalfeu el forn a 180 graus centígrads per tenir-lo a punt per al següent pas</p></li>
+
+		<li><p>Deixeu-ho coure durant una hora</p></li>
+    <li><p>Traieu-ho del forn</p></li>
+    <li><p>Deixeu-ho reposar durant deu minuts</p></li>
+    <li><p>Serviu-ho</p></li>
+  </ol>
+  
+  <p>Tingueu en compte que aquest atribut ha estat desaprovat en l'última versió de les especificacions de l'HTML 4, la qual cosa significa que les vostres pàgines no es validaran quan utilitzin doctypes estrictes HTML4. Si voleu utilitzar aquesta funció en una pàgina HTML4 estricta i és absolutament necessari validar-la, podeu fer-ho utilitzant els <a href="http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/" hreflang="en">comptadors del CSS</a> en lloc d'aquest atribut. <code>&lt;start&gt;</code> ha estat afegit de nou en HTML5, afortunadament, ja que resulta útil.</p>
+                              
+  <h3 id="definition">16.1.6. Llistes de definicions</h3>
+  
+  <p>Les llistes de definicions associen elements concrets i les seves definicions en un format de llista. Per exemple, si voleu donar una definició dels elements de la vostra llista de la compra, podeu fer-ho de la següent manera:</p>
+  <dl>
+  <dt>llet</dt>
+  <dd>Producte lacti líquid de color blanc</dd>
+  <dt>pa</dt>
+  <dd>Aliment cuinat al forn a base de farina.</dd>
+  <dt>mantega</dt>
+  <dd>Producte lacti sòlid de color groc</dd>
+  <dt>cafè</dt>
+  <dd>Llavors dels fruits d'alguns arbres del cafè</dd>
+  </dl>
+  
+  <p>Cadascuna de les parelles de definici&oacute; i terme &eacute;s un grup de definició (o grup nom-valor). Podeu tenir tants grups de definició com vulgueu, però hi ha d'haver com a mínim un terme i una definició a cadascun dels grups. No és possible tenir un terme sense cap definició o una definició sense cap terme.</p>
+  
+  <p>Podeu associar més d'un terme a una única definició, o viceversa. Per exemple, el terme "cafè" pot tenir diversos significats, que podeu mostrar un després de l'altre:</p>
+  
+  <dl>
+  <dt>cafè</dt>
+  <dd>beguda feta a partir de grans de cafè torrats i mòlts</dd>
+  <dd>una tassa de cafè</dd>
+  <dd>una reunió social en la qual es consumeix cafè</dd>
+  <dd>un color marró tirant a fosc</dd>
+  </dl>
+  
+  <p>També és possible tenir més d'un terme per a la mateixa definició. Això s'utilitza per a mostrar variacions d'un terme, totes elles amb el mateix significat:</p>
+  
+  <dl>
+  <dt>soda</dt>
+  <dt>gasosa</dt>
+  <dt>beguda gasosa</dt>
+  <dt>cola</dt>
+  <dd>Beguda dolça amb gas.</dd>
+  </dl>
+  
+  <div class="text-clau">
+  <p>Les llistes de definicions són diferents dels altres tipus de llistes, ja que utilitzen termes i descripcions en lloc d'elements de llista.</p>
+  
+  <p>Així, doncs, les llistes de definicions utilitzen les etiquetes <code>&lt;dl&gt;&lt;/dl&gt;</code> i dintre d'aquestes hi ha grups de <code>&lt;dt&gt;&lt;/dt&gt;</code> i <code>&lt;dd&gt;&lt;/dd&gt;</code>: S'ha d'aparellar com a mínim un <code>&lt;dt&gt;&lt;/dt&gt;</code> amb com a mínim un <code>&lt;dd&gt;&lt;/dd&gt;</code>; el <code>&lt;dt&gt;&lt;/dt&gt;</code> ha de ser sempre el primer.</p>
+  </div>
+  
+  <p>Una llista de definicions molt senzilla amb termes únics i definicions úniques tindria el següent aspecte: </p>
+                        
+  <pre><code>&lt;dl&gt;
+  &lt;dt&gt;Terme&lt;/dt&gt;
+  &lt;dd&gt;Definició del terme&lt;/dd&gt;
+  &lt;dt&gt;Terme&lt;/dt&gt;
+  &lt;dd&gt;Definició del terme&lt;/dd&gt;
+  &lt;dt&gt;Terme&lt;/dt&gt;
+  &lt;dd&gt;Definició del terme&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+  
+  <p>I es representa de la manera següent:</p>
+  
+	<dl>
+	<dt>Terme</dt>
+  <dd>Definició del terme</dd>
+  <dt>Terme</dt>
+  <dd>Definició del terme</dd>
+  <dt>Terme</dt>
+  <dd>Definició del terme</dd>
+  </dl>
+  
+  <p>En aquest exemple hem associat més d'un terme a una definició, i viceversa: </p>
+
+  <pre><code>&lt;dl&gt;
+  &lt;dt&gt;Terme&lt;/dt&gt;
+  &lt;dd&gt;Definició del terme&lt;/dd&gt;
+  &lt;dt&gt;Terme&lt;/dt&gt;
+  &lt;dt&gt;Terme&lt;/dt&gt;
+  &lt;dd&gt;Definició aplicable als dos termes anteriors&lt;/dd&gt;
+  &lt;dt&gt;Terme que pot tenir les dues definicions següents&lt;/dt&gt;
+  &lt;dd&gt;Una definició del terme&lt;/dd&gt;
+  &lt;dd&gt;Una altra definició del terme&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+  
+  <p>I es representaria de la manera següent:</p>
+ 
+  <dl>
+  <dt>Terme</dt>
+  <dd>Definició del terme</dd>
+  <dt>Terme</dt>
+  <dt>Terme</dt>
+  <dd>Definició aplicable als dos termes anteriors</dd>
+  <dt>Terme que pot tenir les dues definicions següents</dt>
+  <dd>Una definició del terme</dd>
+  <dd>Una altra definició del terme</dd>
+  </dl>
+  
+  <p>En general, no és massa habitual associar múltiples termes a una única definició, però està bé saber que és possible per si alguna vegada s'ha de fer.</p>
+
+  <h2 id="choosinglists">16.2. Escollir entre tipus de llistes</h2>
+  
+  <p>A l'hora de decidir el tipus de llista que utilitzareu, normalment podreu prendre la decisió correcta responent dues preguntes molt senzilles:</p>
+  
+  <ol>
+		<li><p>Estic definint termes (o associant altres parelles nom/valor)? </p>
+    <ol class="lletres">
+			<li><p>Si la resposta és afirmativa, utilitzeu una llista de definicions.</p></li>
+      <li><p>Si la resposta és negativa, no utilitzeu una llista de definicions i passeu a la pregunta següent.</p></li>
+    </ol></li>
+    <li><p>L'ordre dels elements de la llista és important? </p>
+    	<ol class="lletres">
+				<li><p>Si la resposta és afirmativa, utilitzeu una llista ordenada. </p></li>
+      	<li><p>Si la resposta és negativa, utilitzeu una llista desordenada. </p></li>
+    </ol></li>
+  </ol>              
+
+  <h2 id="listsemantics">16.3. La diferència entre llistes HTML i text</h2>
+  
+  <p>És possible que us estigueu preguntant quina és la diferència entre una llista HTML i el text amb pics o números escrits manualment. L'ús d'una llista HTML té uns quants avantatges:</p>
+  
+  <ul>
+    <li><p>Si heu de canviar l'ordre dels elements d'una llista ordenada, només caldrà que els moveu en el codi HTML. Si haguéssiu escrit els números a mà hauríeu de revisar-ho tot i canviar el número de cadascun dels elements per tal de corregir-ne l'ordre, la qual cosa seria molt feixuga!</p></li>
+        
+    <li>
+    <p>L'ús d'una llista HTML permet aplicar correctament estil a la llista: es pot utilitzar CSS per donar estil únicament als elements. Si us limiteu a utilitzar un text normal us serà molt més difícil aplicar un estil als elements individuals de manera útil, donat que els elements utilitzats seran els mateixos que s'empren a la resta del text. </p></li>
+       
+    <li><p>Si utilitzeu una llista HTML, el contingut tindrà l'estructura semàntica adequada i no serà només un efecte visual "tipus llista". Això té uns avantatges importants; per exemple, els lectors de pantalla poden indicar als usuaris amb alguna deficiència visual que estan llegint una llista i no un embolic confús de text i números.</p></li>
+	</ul>
+  
+  <p>O, per a dir-ho d'una altra manera: <strong>el text i les llistes no són el mateix</strong>. L'ús de text en lloc d'una llista farà que tingueu més feina i pot provocar problemes als lectors del document. Per tant, si el vostre document necessita una llista, hauríeu d'utilitzar la llista HTML correcta.</p>
+
+  <h2 id="nestinglists">16.4. Imbricar llistes</h2>
+  
+  <p>Un element d'una llista pot contenir tota una altra llista; això es coneix com a "imbricar" una llista. Pot ser útil per a elements com ara taules de contingut:</p>
+  
+  <ol>
+    <li><p>Capítol u</p>
+    <ol>
+			<li><p>Secció u</p></li>
+      <li><p>Secció dos</p></li>
+      <li><p>Secció tres</p></li>
+    </ol></li>
+    <li><p>Capítol dos</p></li>
+    <li><p>Capítol tres</p></li>
+  </ol>
+  
+  <p>La clau per a imbricar llistes és recordar que la llista imbricada ha d'estar relacionada amb un element concret de la llista. Per tal de reflectir-ho en el codi, la llista imbricada ha d'estar continguda en aquest element de la llista. </p>
+  
+  <p>El codi de la llista anterior és el següent:</p>
+                      
+  <pre><code>&lt;ol&gt;
+  <strong>&lt;li&gt;</strong>Capítol u
+    &lt;ol&gt;
+      &lt;li&gt;Secció u&lt;/li&gt;
+      &lt;li&gt;Secció dos&lt;/li&gt;
+      &lt;li&gt;Secció tres&lt;/li&gt;
+    &lt;/ol&gt;
+  <strong>&lt;/li&gt;</strong>
+  &lt;li&gt;Capítol dos&lt;/li&gt;
+  &lt;li&gt;Capítol tres&lt;/li&gt;
+&lt;/ol&gt;</code></pre>   
+  
+  <p>Observeu que la llista imbricada comença després del <code>&lt;li&gt;</code> i del text de l'element de la llista que la conté ("Capítol u"), i que acaba abans del <code>&lt;/li&gt;</code> de l'element de la llista que la conté. Les llistes imbricades són normalment la base per als menús de navegació de llocs web, ja que són una bona manera de definir l'estructura del lloc.</p>
+  
+  <p>En teoria es poden imbricar tantes llistes com es vulgui, tot i que en la pràctica una imbricació excessiva pot arribar a crear una situació molt confusa. En cas de llistes molt llargues, pot ser millor dividir el contingut en diverses llistes amb títols o fins i tot dividir-la en diverses pàgines. </p>
+
+  <h2 id="stepbystep">16.5. Exemple pas a pas</h2>
+  
+  <p>A continuació veurem un exemple pas a pas en el qual inclourem tot el que hem explicat fins ara. Imaginem-nos la següent situació:</p>
+  
+  <p>Esteu creant un petit lloc web per a l'Escola de Cuina HTML. A la pàgina principal hi ha d'aparèixer una llista de receptes classificades per categories que ens han de dur a les pàgines de les receptes. Cadascuna de les pàgines de receptes inclou una llista amb els ingredients necessaris, notes sobre aquests ingredients i el mètode de preparació. Les tres categories són:</p>
+  <ul><li>Pastissos (que inclou receptes per a "Pa de pessic", "Pastís de xocolata" i "Pastís de poma")</li>
+  <li>Galetes (que inclou receptes per a "Galetes de civada i coco", "Gotes de melmelada" i "Moments dolços")</li>
+  <li>Pans ràpids (que inclou receptes per a "Pa de soda" i "Panets de llet")</li></ul> 
+  <p>El client no té cap preferència per l'ordre en què apareguin les categories i les receptes; només vol estar segur que la gent sabrà quins elements són categories i quins són receptes.</p>
+  
+  <p>Ara anirem passant per tot el procés de creació d'aquest lloc.</p>
+                                       
+  <h3 id="mainpage">16.5.1. Etiquetatge de la pàgina principal</h3>
+  
+  <ol>
+    <li>
+  <p>Creeu una pàgina HTML ben formada que inclogui el <code>doctype</code> i els elements <code>html</code>, <code>head</code> i <code>body</code> i deseu-la com a <em>stepbystep-main.html</em>. Afegiu-hi el títol principal (<code>h1</code>) "Escola de cuina HTML" i un subtítol (<code>h2</code>) "Receptes":</p>
+                                     
+  <pre><code>&lt;h1&gt;Escola de cuina HTML&lt;/h1&gt;
+&lt;h2&gt;Receptes&lt;/h2&gt;</code></pre></li>
+
+    <li>
+  <p>Hi heu de presentar tres categories de receptes i l'ordre no és important; en aquest cas el més adequat és una llista no ordenada i, per tant, haureu d'afegir el següent a la vostra pàgina:</p>
+
+  <pre><code>&lt;h2&gt;Receptes&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pastissos&lt;/li&gt;
+  &lt;li&gt;Galetes&lt;/li&gt;
+  &lt;li&gt;Pans ràpids&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+  
+  <p>El sagnat dels elements <code>li</code>, tot i que no és necessari, fa que el codi sigui més llegible.</p></li>
+
+    <li><p>Ara hi haureu d'afegir les receptes com a subelements; per exemple, "Pa de pessic", "Pastís de xocolata" i "Pastís de poma" han d'anar a la categoria "Pastissos". Per fer-ho cal que creeu una llista imbricada a cadascun dels elements. Com que l'ordre no és important, aquí també haurem d'utilitzar llistes no ordenades. Per tal de facilitar les coses en aquest tutorial, enllaçarem totes les receptes a una única pàgina de recepta (més endavant s'expliquen els enllaços HTML amb més detall. Si voleu informació sobre els enllaços, podeu anar-hi):</p></li>
+	</ol>                  
+	
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'apartat 19 d'aquest mòdul.</p>
+  </div>
+  
+	<pre><code>&lt;h2&gt;Receptes&lt;/h2&gt;
+ &lt;ul&gt;
+  &lt;li&gt;Pastissos
+  &lt;ul&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Pa de pessic&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Pastís de xocolata&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Pastís de poma&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Galetes
+  &lt;ul&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Galetes de civada i coco&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Gotes de melmelada&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Moments dolços&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pans/pans ràpids
+  &lt;ul&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Pa de soda&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="stepbystep-recipe.html"&gt;Panets de llet&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/li&gt;
+ &lt;/ul&gt;</code></pre>
+                           
+  <h3 id="afegir">16.5.2. Afegir alguns estils</h3>
+  
+  <p>Cal que tornem a dir que, si no l'enteneu, en aquest apartat no cal que us preocupeu excessivament del CSS. Aquí només veurem el CSS d'una manera molt superficial, i ja en parlarem en molt més detall més endavant en aquest mateix curs.</p>
+  
+  <p>Al client li agrada aquesta organització, però vol que les categories s'indiquin amb unes fletxes petites en lloc de pics. També vol que les categories quedin alineades a l'esquerra de la pàgina. Per a fer-ho cal que especifiqueu una imatge en lloc d'un pic i que llavors definiu els ajustos de marge/separació.</p>
+  
+  <ol>
+    <li><p>Per a evitar conflictes amb altres llistes del lloc, haureu d'afegir una classe a la llista per tal de poder crear selectors contextuals específics en el vostre full d'estils. La classe "llista de receptes" podria ser adequada:</p>
+	
+  <pre><code>&lt;h2&gt;Receptes&lt;/h2&gt;
+  
+&lt;ul <strong>class="llista-de-receptes"</strong>&gt;</code></pre></li>
+
+    <li><p>Ara heu de crear un full d'estil i afegir-hi unes quantes regles, però en primer lloc heu d'afegir etiquetes <code>style</code> d'obertura i de tancament al <code>head</code> del vostre document.</p></li>
+  
+  <li><p>Ara eliminareu l'espaiat de la llista. Per defecte, alguns navegadors utilitzen <code>margin</code> i altres <code>padding</code> per a separar els elements i, per tant, haureu d'ajustar els dos a zero; cal que afegiu el següent entre les etiquetes style:</p>
+                              
+  <pre><code>ul.llista-de-receptes {
+  margin-left: 0;
+  padding-left: 0;
+}</code></pre></li>
+
+    <li><p>A continuació heu de crear una imatge de pic personalitzada; si ho voleu podeu utilitzar la meva (vegeu la figura 1).</p>
+
+	<div class="imagen">
+		<img src="06510_m4_02.gif" alt=" " />
+		<p>Figura 1. Imatge de pic personalitzada.</p>
+	</div></li>
+
+    <li><p>Ara haureu d'eliminar els pics dels elements de la llista, definir el pic com a imatge de fons per a aquests i afegir-hi una mica de separació per tal que el text no quedi sobre la imatge de fons. Podeu fer-ho afegint el següent CSS just abans de l'etiqueta <code>style</code> de tancament:</p>
+
+  <pre><code>ul.llista-de-receptes li {
+  list-style-type: none;
+  background: #fff url("example-bullet.gif") 0 0.4em no-repeat;
+  padding-left: 10px;
+}</code></pre></li>
+
+    <li><p>Finalment, haureu de tornar a posar els pics als elements de la llista imbricada i definir un fons de color blanc (la segona norma és més específica, per la qual cosa anul·larà la norma de la imatge de fons). Recordeu que la llista imbricada heretarà la primera norma del CSS, per la qual cosa haureu de "desfer" tot els ajustos de la llista principal. Afegiu el següent CSS just abans de l'etiqueta <code>style</code> de tancament:</p>                          
+
+  <pre><code>ul.llista-de-receptes li li {
+  list-style-type: disc;
+  background: #fff;
+}</code></pre></li>
+  </ol>
+  
+
+  <p>El resultat final hauria de ser alguna similar al que apareix a la figura 2:</p>
+
+	<div class="imagen">
+		<img src="06510_m4_03.gif" alt="Captura de pantalla de la pàgina principal" />
+		<p>Figura 2. La pàgina principal acabada amb imatges de pics personalitzades.</p>
+  	<p class="font"><strong>També podeu veure més exemples a:</strong> "<a href="http://dev.opera.com/articles/view/16-html-lists/stepbystep-main.html" hreflang="en">HTML Cooking School</a>"</p>
+	</div>                                                                      
+
+  
+  <h3 id="recipepage">16.5.3. La pàgina de la recepta</h3>
+  
+  <p>En aquest exemple només crearem la pàgina de la recepta per al pa de pessic, però si ho voleu, podeu crear les altres pel vostre compte utilitzant aquesta pàgina com a plantilla. El client us ha subministrat la recepta del pa de pessic en un arxiu de text que té el següent aspecte:</p>
+                     
+
+  <pre><code>Pa de pessic
+Ingredients
+3 ous
+100 g de sucre de llustre
+85 g de farina amb llevat
+Notes sobre els ingredients:
+  Sucre de llustre: sucre blanc granulat molt fi.
+  Farina amb llevat: una mescla ja preparada de farina i agents gasificants
+   (normalment sal i llevat artificial).
+Preparació
+  1. Preescalfeu el forn a 190° C.
+  2. Greixeu un motlle rodó de 20 cm.
+  3. En un bol de mida mitjana, barregeu-hi els ous i el sucre de llustre fins
+     a obtenir una mescla esponjosa.
+  4. Incorporeu-hi la farina.
+  5. Poseu aquesta mescla en el motlle preparat.
+  6. Enforneu-ho durant 20 minuts al forn preescalfat, o fins que la part superior
+     del pa de pessic recuperi la forma en prémer-la lleugerament.
+  7. Deixeu-lo refredar dins el motlle sobre una reixa metàl·lica.</code></pre>
+
+
+  <h3 id="recipepagemarkup">16.5.4. Etiquetatge de la pàgina de la recepta</h3>
+  
+  <ol>
+		<li><p>Creeu un altre document HTML de la manera adequada i deseu-lo com a stepbystep-recipe.html. Afegiu-hi els següents títols:</p>
+
+  <pre><code>&lt;h1&gt;Pa de pessic&lt;/h1&gt;
+&lt;h2&gt;Ingredients&lt;/h2&gt;
+&lt;h3&gt;Notes sobre els ingredients&lt;/h3&gt;
+&lt;h2&gt;Preparació&lt;/h2&gt;</code></pre></li>
+
+		<li><p>La llista d'ingredients té diversos elements, però l'ordre no és important. Així, doncs, cal fer servir una llista desordenada. Afegiu el següent a body del vostre HTML:</p>
+
+  <pre><code>&lt;h2&gt;Ingredients&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;3 ous&lt;/li&gt;
+&lt;li&gt;100 g de sucre de llustre&lt;/li&gt;
+&lt;li&gt;85 g de farina amb llevat&lt;/li&gt;
+&lt;/ul&gt;</code></pre></li>
+
+		<li><p>Les notes sobre els ingredients hi són per a definir adequadament què són alguns dels ingredients. Cal que associeu l'ingredient (el terme) amb la seva definició. Per a això cal fer servir una llista de definicions. Afegiu el següent al vostre HTML, sota la llista desordenada del pas anterior:</p>
+
+  <pre><code>&lt;h3&gt;Notes sobre els ingredients&lt;/h3&gt;
+&lt;dl&gt;
+&lt;dt&gt;Sucre de llustre&lt;/dt&gt;
+&lt;dd&gt;Sucre blanc granulat molt fi&lt;/dd&gt;
+&lt;dt&gt;Farina amb llevat&lt;/dt&gt;
+&lt;dd&gt;Una mescla ja preparada de farina i agents gasificants (normalment sal i <br/>llevat artificial).&lt;/dd&gt;
+&lt;/dl&gt;</code></pre></li>
+
+		<li><p>La preparació ha de seguir, com és obvi, l'ordre correcte, per la qual cosa haurem de fer servir una llista ordenada; afegiu el següent al vostre HTML, sota la llista de definicions:</p>
+
+  <pre><code>&lt;h2&gt;Preparació&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Preescalfeu el forn a 190ºC.&lt;/li&gt;
+&lt;li&gt;Greixeu un motlle rodó de 20 cm.&lt;/li&gt;
+&lt;li&gt;En un bol de mida mitjana, barregeu-hi els ous i el sucre de llustre
+ fins a obtenir una mescla esponjosa.&lt;/li&gt;
+&lt;li&gt;Incorporeu-hi la farina&lt;/li&gt;
+&lt;li&gt;Poseu aquesta mescla en el motlle preparat.&lt;/li&gt;
+&lt;li&gt;Enforneu-ho durant 20 minuts al forn preescalfat, o fins que la part
+ superior del pa de pessic recuperi la forma en prémer-la lleugerament.&lt;/li&gt;
+&lt;li&gt;Deixeu-lo refredar dins el motlle sobre una reixa metàl·lica.&lt;/li&gt;
+&lt;/ol&gt;</code></pre></li>
+</ol>
+
+  <h3 id="estils">16.5.5. Estils de la pàgina de la recepta</h3>
+  
+  <p>El client està molt content amb els resultats, però vol que les definicions apareguin en negreta per a fer-les més llegibles. Afegiu el següent al head del vostre HTML: </p>
+                       
+
+  <pre><code>&lt;style&gt;
+dt {
+  font-weight: bold;
+}
+&lt;/style&gt;</code></pre>
+  
+  <p>La pàgina hauria de tenir un aspecte similar al de la figura 3.</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_04.gif" alt="Captura de pantalla que mostra la pàgina de la recepta" />
+		<p>Figura 3. La pàgina de la recepta acabada amb els termes de les definicions en negreta.</p>
+		<p class="font"><strong>També podeu veure la

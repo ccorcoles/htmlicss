@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Accessibilitat - Conceptes bàsics d'accessibilitat</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">Accessibilitat</div>
+	<div id="subtitulo">Conceptes bàsics d'accessibilitat</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../../m4/ud10/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>25. Conceptes bàsics d'accessibilitat</h1>
+<p class="by"><a href="../../index.html#hughes">Tom Hughes-Croucher</a>. 26 de setembre de 2008. Publicat a: wcag, alt, 508, secció, legal.</p>
+
+<p>Quan creeu un lloc web, l'accessibilitat (aconseguir que tothom el pugui utilitzar siguin quines siguin les seves capacitats o discapacitats) hauria de ser una de les preocupacions més importants. En aquest curs, fins ara l'accessibilitat ha estat sempre implícita en tots els exemples que hem vist, fins i tot encara que no us n'adonéssiu. En aquest apartat, però, en parlaré explícitament perquè pugueu entendre bé què és, per què és important, com es garanteix que els llocs siguin accessibles i quines directrius existeixen per definir els llocs accessibles. </p>
+      
+      <p>Abans de parlar concretament de l'accessibilitat al web, començarem parlant de l'accessibilitat en general; al cap i a la fi, l'accessibilitat no és només una qüestió associada als llocs web; és un aspecte que, potencialment, ha de tenir en compte tots els serveis, objectes o tecnologies amb què us trobeu.</p>
+      
+      <div class="note">
+      <h3>Nota</h3>
+      <p>Tingueu en compte que un tema associat sobre el que us hauríeu d'informar és <a href="http://www.w3.org/WAI/intro/aria" hreflang="en">WAI ARIA</a>: la iniciativa Web Accessibility Initiative's Accessible Rich Internet Applications, que és bàsicament una metodologia que permet la creació d'aplicacions amb Ajax/JavaScript més accessibles. Podeu trobar un article molt bo d'<a href="http://dev.opera.com/articles/view/introduction-to-wai-aria/" hreflang="en">introducció a l'ARIA a dev.opera.com</a>.</p>
+      </div>
+      
+      <p>Els continguts d'aquest apartat són els següents:</p>
+    
+<ul class="index">
+	<li>25.1. <a href="#whatisaccessibility" accesskey="1">Què és l'accessibilitat?</a></li>
+ 	<li>25.2. <a href="#whyisitimportant" accesskey="2">Per què és important l'accessibilitat?</a>
+	<ul class="index">
+	<li>25.2.1. <a href="#legalities">Els aspectes legals de l'accessibilitat</a></li>
+	<li>25.2.2. <a href="#potentialmarkets">Mercats potencials</a></li>
+	<li>25.2.3. <a href="#searchengines">Motors de cerca</a></li>
+	<li>25.2.4. <a href="#ethics">Ètica i marques</a></li>
+	</ul></li>
+	<li>25.3. <a href="#designingaccessibility" accesskey="3">Dissenyar pensant en l'accessibilitat</a></li>
+	<li>25.4. <a href="#interoprequirements" accesskey="4">Requisits d'interoperabilitat</a></li>
+	<li>25.5. <a href="#accessiblefeatures" accesskey="5">Característiques d'una pàgina web accessible</a>
+	<ul class="index">
+	<li>25.5.1. <a href="#semanticstructure">Estructura semàntica</a></li>
+	<li>25.5.2. <a href="#alternativecontent">Contingut alternatiu</a></li>
+	<li>25.5.3. <a href="#interaction">Definir la interacció</a></li>
+	</ul></li>
+	<li>25.6. <a href="#accessibilitystandards" accesskey="6">Estàndards de l'accessibilitat</a>
+	<ul class="index">
+	<li>25.6.1. <a href="#WCAG1">Directrius d'accessibilitat del contingut web 1.0</a></li>
+	<li>25.6.2. <a href="#WCAG2">Directrius d'accessibilitat del contingut web 2.0</a></li>
+	<li>25.6.3. <a href="#section508">Secció 508</a></li>
+	<li>25.6.4. <a href="#otherstandards">Altres estàndards</a></li>
+	</ul></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+	<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+</ul>
+
+
+
+<h2 id="whatisaccessibility">25.1. Què és l'accessibilitat?</h2>
+
+<p>Mireu al vostre voltant. És molt possible que veieu altres persones; si no és així, per què no aneu a fer una passejada ràpida? Probablement en gaudireu i us anirà bé. Totes les persones que veureu seran diferents: algunes tenen els cabells castanys, altres no. Algunes tenen els ulls blaus, altres no. Altres porten ulleres, altres no. Ningú és exactament igual a ningú altre. Algunes diferències, com el color dels cabells o dels ulls, són purament cosmètiques; és a dir, no afecten de cap manera important la nostra vida. Algunes diferències, com el fet de portar ulleres, sí que l'afecten. L'accessibilitat és una cosa molt senzilla, una filosofia, tot i que en alguns països també forma part de la llei.</p>
+  
+  <div class="text-clau">
+  <p>L'accessibilitat és tractar a tothom igual, siguin quines siguin les seves capacitats. </p>
+  </div>
+  
+  <p>Sóc molt conscient que aquesta afirmació està oberta a la interpretació.  La majoria de les discussions sobre accessibilitat comencen parlant sobre la discapacitat. Això implica que les persones amb alguna discapacitat mereixen un tractament especial. Però l'accessibilitat no és això; en realitat és un símptoma de la manera en què la gent ha construït tradicionalment edificis, llocs web i moltes altres coses.</p>
+  <p>Quan es construeixen coses pressuposant que tothom és igual que nosaltres, podeu estar segurs que sempre funcionaran malament per a algunes persones.  La gent pressuposa que l'accessibilitat és ajudar les persones amb alguna discapacitat, ja que l'accessibilitat afegida és una cosa molt present a la nostra societat. Per exemple, molts edificis que es van construir només amb escales han incorporat de sobte unes rampes barates i molt lletges. Però l'accessibilitat ha estat durant molt de temps una qüestió de disseny militar. Per què? Doncs perquè sovint és vital per a la supervivència; amb unes forces g molt elevades, els pilots dels avions de combat no poden fer el mateix que fan quan són a terra. Si els dissenyadors no tinguessin en compte les necessitats dels pilots en entorns tant de gravetat alta com baixa, hi hauria molts més accidents d'avió.</p>
+  <p>Què significa, però, per als desenvolupadors de llocs web?  La resposta ràpida és que heu d'intentar ser més conscients de les necessitats de tota l'audiència que pot visitar el vostre lloc web. Una resposta més llarga implicaria, per part vostra, ser mínimament conscients dels diferents nivells de capacitats que pot tenir la gent i de l'ús que fan dels ordinadors.  Aplicant les tècniques que es descriuen en aquest apartat i en altres apartats relacionats podreu crear uns llocs web que funcionin bé amb moltes formes d'interacció. Els vostres llocs web han de poder ser utilitzats per persones:</p>
+  
+<ul>
+<li><p>Cegues o amb deficiències visuals greus que escoltin els llocs web utilitzant un lector de pantalla o que els llegeixin en una pantalla braille.</p></li>
+<li><p>Miops que augmentin el tipus de lletra fins al 200% de la seva mida.</p></li>
+<li><p>Amb discapacitats motrius que no puguin utilitzar les mans per manipular un ratolí i que, per tant, utilitzin un dispositiu de senyalització per manipular el teclat o fins i tot un punter visual per manipular el lloc web.</p></li>
+<li><p>Utilitzin ratolins de bola o altres tipus de sistemes de control de l'ordinador menys habituals.</p></li>
+ </ul>
+  <p>De moment no cal que us preocupeu pels detalls concrets d'aquestes interaccions; ja els anirem veient pas a pas.</p>
+
+<h2 id="whyisitimportant">25.2. Per què és important l'accessibilitat?</h2>
+
+<p>L'accessibilitat és important per una raó principal i per moltes altres raons petites. La principal és que tots som diferents però tots tenim el mateix dret a utilitzar els llocs web, però hi ha moltes altres raons per les quals hauríeu de tenir en compte l'accessibilitat a l'hora de crear llocs web:</p>
+
+<ul>
+<li><p>En alguns països és obligatori per llei.</p></li>
+<li><p>No s'han excloure clients/visitants potencials del vostre lloc web.</p></li>
+<li><p>Els llocs accessibles acostumen a estar més ben situats en els motors de cerca.</p></li>
+<li><p>Demostrareu una bona ètica, una cosa que els clients sabran valorar.</p></li>
+<li><p>Si creeu els llocs web seguint els estàndards del web no necessitareu fer pràcticament res més per fer-los accessibles, la qual cosa aporta molts avantatges; a més a més, també hi ha moltes similituds entre els llocs més accessibles i els llocs més compatibles amb els navegadors de telèfons mòbils, que és una altra circumstància que dificulta l'ús dels llocs web, tot i que per unes circumstàncies diferents. De fet, s'han fet alguns estudis d'anàlisi de la relació entre l'accessibilitat del web i les millors pràctiques del desenvolupament del web mòbil; <a href="http://www.w3.org/WAI/mobile/" hreflang="en">vegeu la pàgina del WAI "Web Content Accessibility and Mobile Web"</a>, on trobareu més informació.</p></li>
+<li><p>Les tècniques que ajuden la gent amb discapacitats beneficien tots els usuaris.</p></li>
+</ul>
+
+<p>Ara passarem a veure alguns d'aquests punts més detalladament.</p>
+
+<h3 id="legalities">25.2.1. Els aspectes legals de l'accessibilitat</h3>
+
+<div class="note">
+	<h3>Nota</h3>
+        <p>És molt important entendre els fonaments dels aspectes legals, però si no és que sou un advocat i sabeu bé de què esteu parlant, caldria que anéssiu molt en compte a l'hora de donar una opinió sobre qüestions legals.</p>
+        </div>
+        <p>Al Regne Unit, segons la <a href="http://www.direct.gov.uk/en/DisabledPeople/index.htm" hreflang="en">DDA</a>, és il·legal discriminar les persones discapacitades a l'hora de contractar treballadors i oferir serveis o educació.  La discriminació es defineix com no fer "ajustaments raonables" per donar suport a tothom, siguin quines siguin les seves capacitats o discapacitats. Això s'aplica, evidentment, als serveis i l'educació disponibles a través de llocs web.</p>
+        
+        <p>Als Estats Units i la Unió Europea també hi ha exigències per als llocs web governamentals. Als Estats Units, els llocs web del govern federal (i d'alguns governs estatals) han de complir la <a href="http://www.section508.gov/" hreflang="en">Secció 508</a>. La Secció 508 és un document que intenta definir els requisits mínims per aconseguir l'accessibilitat.  La Secció 508 no afecta només els llocs web, sinó que també fa referència a qualsevol altra tecnologia que puguin utilitzar els empleats federals. A Europa, la Comissió Europea ha reconegut la Web Accessibility Initiative (WAI) de W3C i recomana el seu ús a tots els estats membres. La <a href="http://w3.org/WAI" hreflang="en">WAI</a> publica directrius per a llocs web, fabricants d'eines de creació de webs i navegadors web (per exemple, el WCAG, del qual parlaré més endavant).</p>
+
+<h3 id="potentialmarkets">25.2.2. Mercats potencials</h3>
+
+<p>Si creeu llocs web (o qualsevol altra cosa) per a un tipus de persones concretes, estareu excloent altres menes de persones fins i tot encara que no us n'adoneu, i tota aquesta gent exclosa pot representar fàcilment una quota de mercat important (o fins i tot majoritària). L'any 2000, la cadena de supermercats Tesco del Regne Unit va posar en marxa un projecte per crear una versió diferent del seu lloc de comestibles en línia pensat específicament per a les persones amb discapacitats visuals.  Julie Howell de RNIB va comentar que "La feina realitzada per Tesco.com per aconseguir que el seu servei de comestibles fos més accessible per a les persones cegues ha resultat en un augment dels ingressos de 13 milions de lliures anuals, uns ingressos que no estaven a l'abast de la companyia quan el lloc web no era accessible per als clients cecs". Així, doncs, si Tesco no hagués pensat en la gent amb discapacitats visuals no hauria arribat mai a un mercat de clients amb un valor de 13 milions de lliures com a mínim.</p>
+
+<p>La lliçó que n'hem d'extreure és que tothom, siguin quines siguin les seves capacitats, necessita els mateixos serveis: queviures, taxis, electricitat... i ha de poder gaudir de les mateixes coses: pel·lícules, música, bars...  Pressuposar que la situació vital personal d'algú fa que canviïn les seves capacitats o els seus desitjos de participar en tots els aspectes de la societat s'ha demostrat una i una altra vegada com un gran error.</p>
+
+<h3 id="searchengines">25.2.3. Motors de cerca</h3>
+
+<p>Els motors de cerca no són persones. Sovint, quan algú crea un lloc web ho fa sense tenir en compte com es podrà trobar a Google, Yahoo, etc. Els motors de cerca són només programes informàtics i per indexar la pàgina només poden utilitzar la informació que poden entendre. Això els fa ser molt similars als lectors de pantalla que poden utilitzar les persones amb alguna discapacitat visual.</p>
+
+<p>L'exemple més obvi dels efectes que això té sobre el disseny de webs són les imatges. Els ordinadors mostren imatges a partir d'una llista amb els colors que han de tenir tots els píxels i envien aquesta informació al monitor. Si poseu en una pàgina web una imatge que conté text, com per exemple un logotip, l'ordinador no té ni idea de què diu el text i ni tan sols sap que la imatge en conté. En HTML, l'element d'imatge conté una manera de descriure amb text el contingut d'una imatge, que és l'atribut <code>alt</code>. Cal que oferiu un text per descriure totes les imatges no decoratives del vostre lloc, i mai hauríeu de representar paràgrafs complets com a imatges (o Flash); les persones cegues i els motors de cerca no tindran ni idea de què diu el text. Com a resultat, la posició en un motor de cerca (és a dir, la facilitat de trobar el vostre lloc web amb motors de cerca com el Google) se'n veurà afectada i quedareu innecessàriament fora d'un mercat molt valuós.</p>
+
+<h3 id="ethics">25.2.4. Ètica i marques</h3>
+
+<p>Tothom hauria de tenir en compte l'accessibilitat, però això no vol dir que tothom ho faci. Si teniu en compte l'accessibilitat estareu actuant en benefici de la comunitat. Això és una cosa de la qual us podreu enorgullir; si demostreu que teniu en compte a tothom que integra la nostra societat aconseguireu millorar molt la vostra imatge de marca. Com a professionals, la nostra obligació és intentar aconseguir els resultats de la millor qualitat possible. En una societat que ens valora com a persones individuals, és important no excloure algú pel fet que tingui unes necessitats diferents.</p>
+
+<p>Si seguiu uns principis responsables i demostreu d'una manera genuïna que els apliqueu, podreu crear una imatge de marca extraordinàriament positiva.  Les companyies que demostren que es preocupen pels seus clients els fidelitzaran molt més que les que no ho fan.</p>
+
+<h2 id="designingaccessibility">25.3. Dissenyar pensant en l'accessibilitat</h2>
+
+<div class="text-clau">
+<p>La clau per a l'accessibilitat és pensar en un problema i decidir solucionar-lo per a més d'un tipus d'usuaris. </p>
+</div>
+
+<p>Si preteneu tractar l'accessibilitat com alguna cosa que ja afegireu una vegada ja hàgiu acabat totes les altres feines, només aconseguireu tenir una cosa mal feta i mal integrada. Necessitareu més temps, no funcionarà bé i tindrà un aspecte horrible.</p>
+
+<p>La millor manera d'aconseguir una solució ben feta és dissenyar el web tenint en compte totes les necessitats des del primer moment.  Això no vol dir que no pugueu canviar els vostres plans o afegir-hi alguna cosa que us hagués passat per alt, però hauríeu d'intentar ser conscients de quin és el problema general que preteneu solucionar amb el vostre disseny. En el cas dels llocs web, això implica crear una solució usable per tots els usuaris, incloent-hi aquells que potser no poden utilitzar un ratolí, un teclat, un monitor, etc.</p>
+
+<h2 id="interoprequirements">25.4. Requisits d'interoperabilitat</h2>
+
+<p>Els requisits d'interoperabilitat poden variar molt d'una situació a una altra:</p>
+
+<ul>
+  <li><p>Sovint s'introdueixen noves tecnologies que no incorporen funcions d'accessibilitat.</p>
+
+<div class="exemple">
+<p>El nou connector Silverlight de Microsoft no presenta la informació a través dels API d'accessibilitat utilitzats pels lectors de pantalla i altres tecnologies d'assistència, tot i que si que està previst incorporar-hi funcions d'accessibilitat en el futur.</p>
+</div></li>
+
+
+<li><p>En els casos en què aquestes funcions d'accessibilitat estan teòricament disponibles, pot ser necessari un cert temps perquè les tecnologies d'assistència les utilitzin.</p>
+
+<div class="exemple">
+<p>Els lectors de pantalla més nous funcionen molt millor amb les actualitzacions amb JavaScript de les estructures HTML que els lectors de pantalla més antics.</p>
+</div></li>
+
+<li><p>Fins i tot quan ja estan establertes des de fa molt temps, les característiques d'accessibilitat poden continuar diferint entre les diferents plataformes.</p>
+
+<div class="exemple">
+<p>El connector Adobe Flash Player exposa des de fa molt de temps la informació a l'API d'accessibilitat de Windows, però no a l'equivalent d'Apple o GNOME.</p>
+</div></li>
+
+
+<li><p>També hi sol haver un cert retard entre l'arribada de la tecnologia i la seva distribució generalitzada. Actualment els navegadors i els connectors solen ser gratuïts, mentre que les tecnologies d'assistència majoritàries poden arribar a ser molt cares.</p>
+
+<div class="exemple">
+<p>Un dels lectors de pantalla més populars és JAWS de Freedom Scientific per a Windows. Pràcticament cada any n'apareix una versió nova. El preu de JAWS Professional per al consumidor final és de 1.095 dòlars, i encara que us gasteu 200 dòlars addicionals per gaudir d'un Contracte de manteniment de programari per a les dues versions següents, les actualitzacions seguiran costant 500 dòlars o més. Per tant, tot i que l'última versió es la 9, encara trobareu molts usuaris de JAWS que facin servir versions anteriors.</p>
+</div></li>
+</ul>       
+<p>Quan vulgueu construir llocs web per al web públic, doncs, caldrà que hi incorporeu una certa interoperabilitat amb una combinació molt variada d'usuaris i tecnologies. Hi ha quatre enfocaments possibles:</p>
+
+<ul>
+<li><p>Millorar progressivament el vostre lloc web i anar-ne comprovant la compatibilitat a mesura que aneu avançant.</p></li>
+
+<li><p>Permetre que tots els usuaris puguin desactivar les millores problemàtiques.</p></li>
+
+<li><p>Oferir versions alternatives amb el mateix contingut o les mateixes funcions.</p></li>
+
+<li><p>Avisar els clients de les tecnologies que han d'incorporar i donar exemples de companyies que siguin compatibles amb aquestes tecnologies.</p></li>
+</ul>
+<p>A les intranets, la compatibilitat amb versions anteriors i la varietat són un problema molt més petit. Una organització concreta pot garantir, per exemple, que tots els empleats amb discapacitats tinguin accés a una tecnologia d'assistència que accepti bé el DHTML. En aquestes circumstàncies, i amb les proves pertinents amb la tecnologia d'assistència oferta, seria raonable prendre el JavaScript com a referència.</p>
+
+<p>La compatibilitat amb versions posteriors i la compatibilitat entre plataformes, però, sí que segueixen essent un problema, per la qual cosa s'haurien de preferir les tecnologies obertes i estàndard sobre les tecnologies de propietat i no estàndards.</p>
+
+<p>Podríeu, per exemple, desenvolupar una aplicació de formació de la intranet per a una gran corporació. Us han demanat que garantiu que l'aplicació sigui accessible, però no us han especificat cap estàndard al qual us hàgiu d'adaptar.  Parleu amb el departament d'informàtica i descobriu que tothom té l'última versió de l'Internet Explorer amb el JavaScript habilitat i el Flash instal·lat i activat, i també que tothom disposarà de la tecnologia d'assistència moderna necessària per poder fer servir tots aquests programes. Encara que la companyia passi a una plataforma Unix seguirà havent-hi la tecnologia d'assistència necessària per al JavaScript, però el text i els controls en Flash només són accessibles des del Windows. Podríeu fer que l'script i el Flash fossin una referència obligatòria per a la vostra aplicació. Però decidiu utilitzar el Flash només per reproduir vídeo i construir els grups de controls per al vídeo Flash a partir dels estàndards del web, ja que la tecnologia d'assistència només pot accedir als controls del Flash des de la plataforma Windows.  D'aquesta manera, l'aplicació seguiria essent accessible encara que la companyia migrés a Unix.</p>
+
+<p>Les polítiques de TI de l'organització poden canviar, i tots els esforços més ben intencionats per fer que les funcions JavaScript siguin operatives i per explotar els grups de funcions d'accessibilitat dels connectors poden fallar; per tant, continua essent una bona idea anar realitzant una millora progressiva de la referència tecnològica a partir d'una capa HTML bàsica.</p>
+
+<h2 id="accessiblefeatures">25.5. Característiques d'una pàgina web accessible</h2>
+
+<p>En aquest subapartat explicaré les funcions d'accessibilitat diferents d'un lloc web; és a dir, què ha de contenir un lloc web accessible.  Explicaré cadascuna d'elles en detall.</p>
+
+<h3 id="semanticstructure">25.5.1. Estructura semàntica</h3>
+
+<p>Una de les bases dels estàndards del web és l'ús de l'estructura semàntica en l'HTML. L'estructura semàntica també és summament important per a l'accessibilitat. És així perquè ofereix un marc de referència per a la informació de la pàgina. Quan la gent no pot veure l'estil visual de la pàgina, l'estructura semàntica ajuda a explicar-los diverses coses. Els pot indicar la seva posició a la jerarquia del document i les maneres en què poden interactuar amb els diferents elements de la pàgina; també ofereix èmfasi al contingut textual en els llocs adequats.</p>
+
+<p>Un bon exemple de la importància de l'estructura semàntica d'un document per a l'accessibilitat és la navegació. Un menú de navegació ben estructurat és una llista de punts. Podeu etiquetar-lo com una llista HTML:</p>
+
+
+<pre><code>&lt;ul&gt;
+   &lt;li&gt;Entrada del menú 1&lt;/li&gt;
+   &lt;li&gt;Entrada del menú 2&lt;/li&gt;
+   &lt;li&gt;Entrada del menú 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>Amb uns menús de navegació estructurats com a llistes, els usuaris de lectors de pantalla podran saber molt fàcilment que és una llista encara que no la puguin veure. Això és així perquè els lectors de pantalla els diuen que és una llista. Si no utilitzeu l'etiquetatge de llista, llavors el lector de pantalla no té cap manera de saber que és una llista i no ho pot dir a l'usuari.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Podeu trobar més informació sobre l'ús de la semàntica correcta al vostre HTML a molts dels apartats anteriors d'aquest curs, bàsicament als que parlen de l'HTML.</p>
+</div>
+
+<h3 id="alternativecontent">25.5.2. Contingut alternatiu</h3>
+
+<p>Tal com s'esmenta al subapartat sobre els motors de cerca, és essencial que hi hagi una alternativa accessible al contingut i la navegació.  El text es considera la moneda universal del contingut, però sobre això cal fer una advertència, tal com veureu més endavant.  Un lector de pantalla pot llegir el text sense cap dificultat, es pot fer més petit o més gran, se'n pot modificar el contrast molt fàcilment i s'hi poden fer moltes més transformacions.  Com el text és tan fàcil de manipular, totes les formes més exòtiques de contingut haurien de tenir sempre una alternativa basada en text. Alguns formats, com ara les versions més modernes de Flash, ja integren l'accés a text per tal de poder accedir directament al seu contingut textual directament sense necessitat d'haver d'oferir una alternativa per a tot el suport.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Vegeu els motors de cerca en el subapartat 25.2.3 d'aquest mòdul.</p>
+</div>
+
+<div class="text-clau">
+<p>L'únic grup amb discapacitat per al qual una alternativa de text pot no tenir cap utilitat és el grup de persones amb discapacitats cognitives.  </p>
+</div>
+
+<p>La dificultat que presenten les persones amb discapacitats cognitives és que normalment necessiten un contingut diferent i no el mateix contingut en un suport diferent. Amb això no volem dir que no calgui fer-ho. La simplificació del llenguatge i de la terminologia utilitzats en el vostre lloc web representarà un benefici per a tothom. Alguns grups, com la <a href="http://www.clearest.co.uk/" hreflang="en">Plain Language Commission</a>, recomanen un enfocament de "llenguatge senzill" per al material que utilitzen les companyies per donar als seus clients la informació important, com ara els requisits legals i els termes i les condicions. Aquests grups ofereixen un <a href="http://www.clearest.co.uk/?id=46" hreflang="en">lèxic molt senzill</a> que conté els termes que es poden fer servir per a una comunicació efectiva utilitzant el llenguatge més planer possible.</p>
+
+
+<p>Com podeu incloure alternatives de text al vostre lloc web?  El primer pas és identificar les coses que encara no són text. En l'HTML hi ha moltes coses que encara no són text. Les imatges en són l'exemple més evident.</p>
+
+<p>Aquí teniu un exemple d'ús accessible d'una imatge:</p>
+
+
+<pre><code>&lt;p&gt;An interesting piece of art is Michelangelo's "God creates
+Adam" &lt;img src="images/adam.jpg" alt="A painting of a man
+reaching up to touch God's hand reaching down. It is cracked with age."
+longdesc="adam.html"&gt;.&lt;/p&gt;</code></pre>
+
+
+<p>La imatge d'aquest exemple forma part integral del contingut. L'atribut <code>alt</code> conté una descripció breu de la imatge per a les persones (o per als motors de cerca) que potser no poden veure-la correctament. L'atribut <code>longdesc</code> permet enllaçar amb una pàgina HTML que conté una descripció completa de la imatge. Això es fa servir normalment només per descriure imatges complexes que es fan servir com a part important del contingut. I també té l'inconvenient que els navegadors no l'accepten completament. La majoria de les vegades només utilitzareu l'atribut <code>alt</code>.</p>
+
+<p>Quan feu les imatges per a coses diferents que no són contingut, com ara la navegació o simplement com a decoració visual, les hauríeu de tractar diferent de les imatges de contingut. Les imatges utilitzades per fer més atractius els botons o la navegació de la pàgina han de tenir un atribut <code>alt</code> que coincideixi amb el text de la imatge. L'atribut <code>alt</code> funciona senzillament com una manera senzilla per permetre que l'ordinador llegeixi el text contingut a la imatge (i el llegeixi a un usuari d'un lector de pantalla).</p>
+
+<p>En el cas de les imatges purament decoratives, les imatges utilitzades per al seguiment d'anuncis o qualsevol altra imatge que no tingui en principi cap interès per a l'usuari o amb la qual no hagi d'interactuar, l'atribut <code>alt</code> hauria de quedar buit. Això no vol dir que s'hagi d'ometre aquest atribut, sinó que s'ha de definir com a <code>alt=""</code>. Això és així a causa d'una tàctica que utilitzen els lectors de pantalla per ajudar els seus usuaris a fer front a pàgines molt inaccessibles. Quan una imatge no té cap atribut <code>alt</code>, especialment quan forma part d'un enllaç, el lector de pantalla llegeix la URL de la imatge a l'usuari. Ho fan així perquè els usuaris puguin saber què és la imatge a partir de la URL, per exemple si la imatge té un nom similar a <code>afegir_a_carreto.gif</code>. Així, doncs, hauríeu de definir <code>alt=""</code> per a les imatges que sapigueu que no tindran cap interès per a l'usuari, de manera que els lectors de pantalla no llegeixin totes i cadascuna de les URL de les imatges, la qual cosa podria arribar a ser molt frustrant per a l'usuari del lector de pantalla.</p>
+
+<p>No totes les formes de contingut són tan simples com una imatge.  Els suports més complexos, com el Flash (els arxius Flash poden ser llocs web sencers en si mateixos) o les pel·lícules exigeixen unes descripcions més complexes. Les versions més recents de Flash permeten oferir alternatives de text per als elements d'una pel·lícula Flash, igual que en l'HTML. </p>
+
+<h3 id="interaction">25.5.3. Definir la interacció</h3>
+
+<p>Moltes webs actuals impliquen l'ús de tecnologies a més a més de l'HTML.  Fins i tot una cosa tan bàsica com el CSS es pot utilitzar de maneres que facin que una pàgina o una interacció siguin molt menys accessibles. </p>
+
+<div class="text-clau">
+<p>La clau per a l'accessibilitat en la interacció es troba en el fet de començar amb les interaccions més senzilles i utilitzar-les com a components bàsics per a les interaccions més complexes.</p>
+</div>
+
+<div class="note">
+<h3>Nota</h3>
+<p>Tingueu en compte que l'objectiu d'aquest exemple és fer-vos veure la funció que tenen els diferents elements de les pàgines web. Per garantir que siguin accessibles han de ser semànticament solvents en termes tant dels elements HTML com de les metàfores visuals que s'hi utilitzin. Si ho trobeu tot plegat una mica confós, torneu a llegir l'exemple unes quantes vegades i mireu també uns quants menús i altres components de pàgines web mentre aneu comprovant no només si s'hi utilitza l'HTML correcte sinó també si l'aspecte del component té sentit en relació amb la seva funció. No podeu esperar mai que un visitant d'una pàgina web faci una cerca amb un quadre de text que es diu "Introduïu la vostra adreça electrònica per subscriure-us al nostre butlletí informatiu", ni tampoc podeu esperar que un visitant vident pugui localitzar contingut d'interès si tots els títols tenen el mateix estil que el text normal (de manera similar, tampoc podeu esperar que un usuari cec localitzi contingut d'interès si tots els "títols" són en realitat només uns altres paràgrafs amb una mida de text més gran aplicada amb el CSS o elements <code>font</code>).</p>
+</div>
+
+<p>Un bon exemple d'això és la metàfora visual tan utilitzada de les pestanyes. La metàfora de les pestanyes s'ha extret de les carpetes d'anelles amb classificadors de temes. Això s'ha traslladat als ordinadors per permetre que una única àrea de la pantalla pugui mostrar informació de diversos temes representats per pestanyes connectades a l'àrea; podeu veure un bon exemple de pestanyes a
+<a href="http://dev.opera.com/" hreflang="en">dev.opera.com</a>, on apareixen a la part superior de la pàgina. Fins aquí tot és raonablement senzill. El problema són les tecnologies utilitzades per crear les pestanyes, que normalment s'apliquen amb el JavaScript.</p>
+
+<p>Tan bon punt les pestanyes s'utilitzen com a part d'una interacció més complexa que el simple fet de permetre que l'usuari seleccioni la informació, la metàfora original queda trencada, però sovint se segueix utilitzant el mateix codi per representar les pestanyes. En el següent exemple, l'HTML mostra l'aspecte d'un control de pestanya que mostra informació:</p>
+
+
+<pre><code>&lt;div class="tabcontrol"&gt;
+   &lt;div class="hd"&gt;
+      &lt;ul&gt;
+         &lt;li&gt;&lt;a href="#dogs" class="selected"&gt;Dogs&lt;/a&g

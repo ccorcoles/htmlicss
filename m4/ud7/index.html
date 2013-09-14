@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El text central d'HTML - Elements semàntics menys coneguts</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">El text central d'HTML</div>
+	<div id="subtitulo">Elements semàntics menys coneguts</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud6/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud8/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+
+	<h1>21. Elements semàntics menys coneguts</h1>
+  
+  <p class="by"><a href="../../index.html#francis">Mark Norman Francis</a>. 8 de juliol del 2008 · Publicat a: adreça, sub, sup, samp, abbr </p>
+
+  <p>En aquest apartat presentaré alguns dels elements semàntics de l'HTML més obscurs i menys coneguts i utilitzats. Parlaré de l'etiquetatge del codi de programació, la interacció amb ordinadors, les cites i les abreviatures, la visualització dels canvis realitzats en els documents i més. Acabaré comentant algunes de les propostes d'elements semàntics nous que s'han fet en l'esborrany d'HTML 5.</p>
+  
+  <div class="note">
+  <h3>Nota</h3>
+  
+  <p>Després de cada exemple de codi hi ha un enllaç "Arxiu font:" que, en clicar-lo, us portarà a la visualització del resultat d'aquest codi font en un arxiu diferent; d'aquesta manera podreu veure exemples reals de com apareix realment aquest codi font en el navegador, a banda del codi en si.</p>
+  </div>
+  
+  <p>Els continguts d'aquest apartat són els següents:</p>
+  
+  <ul class="index">
+	<li>21.1. <a href="#contact" accesskey="1">Destacar la informació de contacte</a></li>
+  <li>21.2. <a href="#code" accesskey="2">Llenguatges i codi de programació</a></li>
+  <li>21.3. <a href="#computerinteraction" accesskey="3">Mostrar la interacció amb ordinadors</a></li>
+  <li>21.4. <a href="#variables" accesskey="4">Variables</a></li>
+  <li>21.5. <a href="#citations" accesskey="5">Cites</a></li>
+  <li>21.6. <a href="#abbreviations" accesskey="6">Abreviatures</a></li>
+  <li>21.7. <a href="#dfn" accesskey="7">Instàncies definidores</a></li>
+  <li>21.8. <a href="#supsub">Superíndex i subíndex</a></li>
+  <li>21.9. <a href="#linebreaks">Salts de línia</a></li>
+  <li>21.10. <a href="#horizontal">Línies horitzontals</a></li>
+  <li>21.11. <a href="#insdel">Canvis en els documents (inserir i suprimir)</a></li>
+  <li>21.12. <a href="#futurehtml">Alguns elements HTML futurs</a></li>                                
+  <li class="especial"><a href="#summary">Resum</a></li> 
+  </ul>
+                              
+
+  <h2 id="contact">21.1. Destacar la informació de contacte</h2>
+  
+  <p>L'element <code>address</code> és probablement el que té el nom més equivocat i el més mal entès de l'HTML. A primera vista, amb un nom com "address" (adreça) semblaria que es fa servir per a encapsular adreces, ja siguin electròniques o postals, o coses similars. Això només és així en part.</p>
+  
+  <div class="text-clau">
+  <p>El significat real d'<code>address</code> és oferir informació de contacte <em>de l'autor o els autors</em> de la pàgina, o de la secció principal de la pàgina, en què apareix. Aquesta informació pot ser un nom, una adreça electrònica, una adreça postal o un enllaç a una altra pàgina amb més informació de contacte. </p>
+  </div>
+  
+  <p>Per exemple:</p>
+                            
+  <pre><code>&lt;address&gt; 
+  &lt;span&gt;Mark Norman Francis&lt;/span&gt;, 
+  &lt;span class="tel"&gt;1-800-555-4865&lt;/span&gt;
+&lt;/address&gt;</code></pre>  
+
+<p class="font"><strong>Arxiu font: </strong>"<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#address1" hreflang="en">Simple address example</a>"</p>
+  
+  <p>A l'exemple següent, l'adreça es troba en el paràgraf del peu de pàgina i és un enllaç cap a una altra pàgina del lloc web. La informació de contacte ampliada de la pàgina a la qual apunta aquest enllaç pot contenir moltes més dades, i d'aquesta manera no cal repetir-la una i altra vegada en el lloc web.</p>
+                         
+  <pre><code>&lt;p class="footer"&gt;© Copyright 2008&lt;/p&gt;
+&lt;address&gt;
+&lt;a href="/contact/"&gt;Mark Norman Francis&lt;/a&gt;
+&lt;/address&gt;</code></pre>      
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#address2" hreflang="en">Advanced address example</a>"</p>
+  
+  <p>(Evidentment, si el lloc web tingués més d'un autor es podria fer servir aquest mateix patró i definir enllaços cap a pàgines de contacte diferents per als diferents autors).</p>
+  
+  <p>El que és <strong>incorrecte</strong> és utilitzar l'element <code>address</code> per a indicar qualsevol altre tipus d'adreces, com ara el que podeu veure a la pàgina web d'exemple incorrecte.</p>
+
+  <pre><code>&lt;p&gt; Our company address: &lt;/p&gt;
+  &lt;address&gt;
+    Opera Software ASA,
+    Waldemar Thranes gate 98,
+    NO-0175 OSLO,
+    NORWAY
+  &lt;/address&gt;</code></pre>  
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#address3" hreflang="en">Incorrect address example</a>"</p>
+  
+  <p>(Evidentment, si Opera assumís la responsabilitat col·lectiva per l'article, aquest codi seria correcte encara que jo, i no tot el personal d'Opera, fos l'autor real d'aquesta pàgina en concret).</p>
+  
+  <p>Per a qualsevol adreça general, podeu utilitzar el que es coneix com a "microformat" per a indicar que un paràgraf conté una adreça. Trobareu més informació sobre els microformats en altres <a href="http://dev.opera.com/articles/html/" hreflang="en">articles de la pàgina web d'Opera</a>.</p>
+
+  <h2 id="code">21.2. Llenguatges i codi de programació</h2>
+  
+  <div class="text-clau">
+  <p>L'element <code>code</code> s'utilitza per a indicar el codi informàtic o els llenguatges de programació, com per exemple PHP, JavaScript, CSS, XML i altres. En el cas de mostres curtes dintre d'una frase, simplement heu d'envoltar l'element amb l'element code, com ara:</p>
+                         
+
+  <pre><code>&lt;p&gt;It is bad form to use event handlers like
+&lt;code&gt;onclick&lt;/code&gt; directly in the HTML.&lt;/p&gt;</code></pre>
+   </div>
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#code1" hreflang="en">First code example</a>"</p>
+  
+  <p>En cas de mostres de codi més grans que poden ocupar múltiples línies podeu utilitzar un bloc preformatat, tal com s'explica a l'apartat <em>Etiquetatge del contingut de text a HTML</em>.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>         
+  <p>Vegeu l'apartat 15 d'aquest mòdul.</p>
+  </div>
+  
+  <p>Tot i que no hi ha cap mètode definit per a indicar el llenguatge de programació o el codi informàtic dintre de l'element <code>code</code>, podeu utilitzar l'atribut <code>class</code>. Una pràctica molt habitual (que es menciona en l'esborrany d'HTML 5) és utilitzar el prefix <code>language-</code> (llenguatge) i llavors afegir-hi el nom del llenguatge. </p>
+  
+  <p>Així, doncs, l'exemple anterior es convertiria en:</p>
+                     
+  <pre><code>&lt;p&gt;It is bad form to use event handlers like 
+&lt;code class="language-javascript"&gt;onclick&lt;/code&gt;
+directly in the HTML.&lt;/p&gt;</code></pre>     
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#code2" hreflang="en">Second code example</a>"</p>
+  
+  <p>Alguns llenguatges de programació tenen noms que no es poden representar fàcilment en classes, com per exemple C#. La manera correcta d'escriure aquest nom seria <code>class='language-c\#'</code>, que pot resultar confusa i es pot escriure malament amb molta facilitat. Jo aconsellaria utilitzar una classe consistent només amb lletres i guions i lletrejar-la completament. Així, doncs, en aquest cas es podria utilitzar <code>class='language-csharp'</code>.</p>
+
+  <h2 id="computerinteraction">21.3. Mostrar la interacció amb ordinadors</h2>
+  
+  <div class="text-clau">
+  <p>Els dos elements <code>samp</code> i <code>kbd</code> es poden utilitzar per a indicar l'entrada i la sortida de la interacció amb un programa informàtic. </p>
+  </div>
+  
+  <p>Per exemple:</p>
+                          
+  <pre><code>&lt;p&gt;One common method of determining if a computer is connected
+to the internet is to use the computer program &lt;code&gt;ping&lt;/code&gt;
+to see if a computer likely to be running is reachable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;samp class="prompt"&gt;kittaghy%&lt;/samp&gt; &lt;kbd&gt;ping -o google.com&lt;/kbd&gt;
+  &lt;samp&gt;PING google.com (64.233.187.99): 56 data bytes
+  64 bytes from 64.233.187.99: icmp_seq=0 ttl=242 time=108.995 ms
+  
+  --- google.com ping statistics ---
+  1 packets transmitted, 1 packets received, 0% packet loss
+  round-trip min/avg/max/stddev = 108.995/108.995/108.995/0.000 ms
+  &lt;/samp&gt;&lt;/pre&gt;</code></pre>  
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#computer" hreflang="en">Computer interaction example</a>"</p>
+  
+  <p>L'element <code>samp</code> indica un exemple de la sortida d'un programa informàtic. Tal com es pot veure en aquest exemple, amb l'atribut <code>class</code> es poden indicar diferents tipus de sortides. No obstant això, però, no hi ha cap convenció que s'hagi adoptat d'una manera general sobre el tipus de classes que s'han d'utilitzar.</p>
+  
+  <p>L'element <code>kbd</code> indica l'entrada per part de l'usuari que interactua amb l'ordinador. Tot i que tradicionalment aquestes entrades es fan des del teclat (i per això es fa servir la contracció "kbd", de l'anglès "keyboard" &#8211;teclat&#8211;), també s'ha d'utilitzar per indicar altres tipus d'entrades, com per exemple per veu.</p>
+
+  <h2 id="variables">21.4. Variables</h2>
+  
+  <div class="text-clau">
+  <p>L'element <code>var</code> s'utilitza per a indicar variables en el contingut textual. Això pot incloure expressions matemàtiques algebraiques o dintre del codi de programació. </p>
+  </div>
+  
+  <p>Per exemple:</p>
+                         
+  <pre><code>&lt;p&gt;The value of &lt;var&gt;x&lt;/var&gt; in
+ 3&lt;var&gt;x&lt;/var&gt;+2=14 is 4.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="language-perl"&gt;
+my &lt;var&gt;$welcome&lt;/var&gt; = "Hello world!";
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+   
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#variables" hreflang="en">Variables example</a>"</p> 
+
+  <h2 id="citations">21.5. Cites</h2>
+  
+  <div class="text-clau">
+  <p>L'element <code>cite</code> (cita) s'utilitza per a indicar d'on procedeix el contingut proper; quan se cita una persona, un llibre o una altra publicació, o es remet el visitant de manera general a una altra font, aquesta font hauria de trobar-se dintre d'un element <code>cite</code>. </p>
+  </div>
+  
+  <p>Per exemple:</p>
+                        
+  <pre><code>&lt;p&gt;The saying &lt;q&gt;Everything should be made as simple as possible, but
+not simpler&lt;/q&gt; is often attributed to &lt;cite&gt;Albert Einstein&lt;/cite&gt;,
+but it is actually a paraphrasing of a quote which is much less easy
+to understand.&lt;/p&gt;</code></pre>   
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#citations" hreflang="en">Citations example</a>"</p>
+
+  <h2 id="abbreviations">21.6. Abreviatures</h2>
+  
+  <div class="text-clau">
+  <p>Els elements <code>abbr</code> i <code>acronym</code> s'utilitzen per a indicar on hi ha abreviatures i ofereixen un mètode per a desenvolupar-les sense interrompre innecessàriament el flux del document.</p>
+  </div>
+  
+  <p>El text de l'abreviatura es troba dintre de l'element <code>abbr</code> i la versió completa se situa dintre de l'atribut
+<code>title</code>, és a dir:</p>
+                                
+
+  <pre><code>&lt;p&gt;Styling is added to &lt;abbr title="Hypertext Markup Language"&gt;HTML&lt;/abbr&gt;
+documents using &lt;abbr title="Cascading Style Sheets"&gt;CSS&lt;/abbr&gt;.&lt;/p&gt;</code></pre>
+
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#abbreviations" hreflang="en">Abbreviations example</a>"</p>
+  
+  <p>Un acrònim és un tipus d'abreviatura, amb la diferència que el resultat és acceptat com si fos una paraula i es llegeix com a tal. Un exemple podria ser radar, que és una paraula formada a partir de la frase <span lang="en">RAdio Detecting And Ranging</span> 'detecció i mesura de la distància per ràdio'. Tot i que l'especificació HTML 4.01 accepta els elements <code>abbr</code> i <code>acronym</code>, la veritat és que no sempre queda perfectament clar quin és el que cal utilitzar...</p>
+  
+  <p>Internet Explorer (abans de la versió 7, i la 7 no posa el subratllat de punts sota les abreviatures igual que fan altres navegadors) no reconeix l'element <code>abbr</code>, però sí <code>acronym</code>. Desafortunadament, els acrònims són un subgrup d'abreviatures i és incorrecte etiquetar alguna cosa com ara "HTML" amb l'element <code>acronym</code>.</p>
+  
+  <p>Per altra banda, a l'esborrany de l'HTML 5, l'element <code>acronym</code> ha desaparegut i es proposa estandarditzar  <code>abbr</code> per a ambdós casos, ja que qualsevol acrònim no deixa de ser una abreviatura vàlida.</p>
+  
+  <p>El millor que es pot fer és evitar utilitzar <code>acronym</code> i fer servir sempre <code>abbr</code> en tot el codi. Si heu d'aplicar algun estil visual a <code>abbr</code>, podeu posar un <code>span</code> en el seu interior i aplicar-lo a aquest en lloc d'aplicar-lo a <code>abbr</code>, amb la qual cosa tots els navegadors aplicaran aquests estils visuals. </p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Donarem més detalls sobre els estils de text en l'apartat 29 del mòdul "CSS".</p>
+  </div>     
+
+  <h2 id="dfn">21.7. Instàncies definidores</h2>
+  
+  <div class="text-clau">
+  <p>Hi ha una mica de confusió sobre l'ús adequat de <code>dfn</code>, que es descriu en l'especificació HTML com "la instància definidora del terme inclòs". Aquest concepte és molt semblant a la idea de l'element <code>dt</code> (terme de definició) utilitzat en les llistes de definicions.</p>
+  </div>
+  
+  <p>La diferència és que el terme utilitzat a <code>dfn</code> no ha de formar part d'una llista de termes i definicions i que es pot utilitzar com a part del flux de text normal, fins i tot en un estil de prosa conversacional. Vegem, doncs, un exemple de l'ús de <code>dfn</code>:</p>    
+
+  <pre><code>&lt;p&gt;&lt;dfn&gt;HTML&lt;/dfn&gt;: HTML significa "HyperText Markup Language". Es el 
+llenguatge que es fa servir per descriure el contingut de documents web.&lt;/p&gt;</code></pre>
+  
+  <p>Hi apareix el terme HTML seguit immediatament de la seva definició, amb la qual cosa és el lloc ideal per a utilitzar-hi l'element <code>dfn</code>. L'hauríeu d'utilitzar només una vegada en una pàgina, en el punt en el qual es defineix el terme per primera vegada; de totes maneres, els termes s'han de definir només una vegada en una pàgina, per la qual cosa no és gaire problemàtic.</p>
+  
+  <p>Tot això està molt bé, però un exemple aïllat no és massa pràctic; l'ús de
+<code>dfn</code> es recomana quan una abreviatura es fa servir més d'una vegada en una pàgina. Per exemple, en el mòdul "Fonaments de l'HTML" d'aquest curs, l'abreviatura HTML apareixia més de quaranta vegades. Utilitzar el codi <code>&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code> totes i cadascuna de les vegades que es fa servir aquesta abreviatura seria un malbaratament d'amplada de banda, seria visualment molt molest i per als usuaris de lectors de pantalles seria probablement molt pesat i avorrit, ja que HTML s'explicaria una vegada i una altra tot i que ja s'hauria explicat què significa. En lloc d'això, el que es podria fer és inserir el codi en el punt en el qual es defineix per primera vegada per als lectors:</p>
+                              
+  <pre><code>&lt;p&gt;&lt;dfn&gt;&lt;abbr&gt;HTML&lt;/abbr&gt;&lt;/dfn&gt; ("HyperText Markup Language") is 
+a language to describe the contents of web documents.&lt;/p&gt;</code></pre>
+
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#dfn1" hreflang="en">First defining instances example</a>"</p>
+  
+  <p>Aleshores, cada vegada que es faci servir HTML es pot etiquetar simplement com a
+<code>&lt;abbr&gt;HTML&lt;/abbr&gt;</code>. Llavors, un agent d'usuari podria posar a disposició de l'usuari algun mètode per a recuperar la instància definidora de l'abreviatura. Desafortunadament, ara per ara no hi ha cap agent d'usuari que ho faci, ni tan sols els lectors de pantalla. Per tant, seria millor utilitzar també l'atribut <code>title</code> per a oferir aquesta informació:</p>
+
+  <pre><code>&lt;p&gt;&lt;dfn&gt;&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;&lt;/dfn&gt; ("HyperText
+Markup Language") is a language to describe the contents of web documents.&lt;/p&gt;</code></pre>
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#dfn2" hreflang="en">Second defining instances example</a>"</p>
+  
+  <p>Ara, però, hem doblat el terme ampliat per a HTML, la qual cosa pot ser un problema per als usuaris de lectors de pantalla. No obstant això, el fet de deixar l'ampliació visible fa que el document sigui menys útil per als usuaris vidents, que en pràcticament tots els casos seran la majoria.</p>
+  
+  <p>Jo crec que aquest es un compromís acceptable quan només hi ha una o dues abreviatures que necessiten una definició (en pàgines que exigeixen un nombre més gran de definicions, potser seria millor crear una secció de glossari o una pàgina en la qual es pugui utilitzar l'etiquetatge més rigorós de les llistes de definicions). Si això és un tema que us afecta, el codi podria ser:</p>
+
+  <pre><code>&lt;p&gt;&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;
+(&lt;dfn&gt;HyperText Markup Language&lt;/dfn&gt;) is a language to
+describe the contents of web documents.&lt;/p&gt;</code></pre>
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#dfn3" hreflang="en">Third defining instances example</a>"</p>
+  
+  <p>No obstant això, l'agent d'usuari hauria de tenir algun mètode per a connectar la definició amb totes les aparicions del terme definit. Actualment no hi ha cap navegador que faci res útil amb <code>dfn</code>, tot i que segueix essent un lligam útil per a aplicar estils amb el CSS. La solució proposada anteriorment és actualment la millor que tenim.</p>
+  
+  <p>Aquest és un cas molt desgraciat d'una especificació que s'ha creat sense unes directrius clares sobre com s'ha d'utilitzar un element; probablement no es va basar en cap ús d'aquest element en el món real, ja que en cas contrari hi hauria algun mètode per combinar el terme amb la seva descripció o definició completa. L'especificació HTML 5 entra en molts més <a href="http://www.w3.org/html/wg/html5/#the-dfn" hreflang="en">detalls sobre l'ús de <code>dfn</code></a>, però segueix essent només un esborrany i encara no es pot utilitzar en el web.</p>                                  
+
+  <h2 id="supsub">21.8. Superíndex i subíndex</h2>
+  
+  <div class="text-clau">
+  <p>Per a etiquetar una part d'un text com a superíndex o subíndex (lleugerament per sobre o per sota de la resta del text) cal utilitzar els elements <code>sup</code> i <code>sub</code>.</p>
+  </div>
+  
+  <p>Alguns llenguatges necessiten aquests elements per a l'ús correcte de les abreviatures i es poden fer servir per a etiquetar contingut matemàtic de poca envergadura, ja que així s'evita recórrer a MathML (un llenguatge de marques matemàtic específic però bastant complicat creat amb l'únic objectiu d'etiquetar fórmules matemàtiques complicades).</p>
+  
+  <p>Un exemple dels dos tipus:</p>
+                          
+
+  <pre><code>&lt;p&gt;The chemical formula for water is H&lt;sub&gt;2&lt;/sub&gt;O, and it
+is also known as hydrogen hydroxide.&lt;/p&gt;
+&lt;p&gt;The famous formula for mass-energy equivalence as derived by Albert
+Einstein is E=mc&lt;sup&gt;2&lt;/sup&gt; &#8211; energy is equal to the mass
+multiplied by the speed of light squared.&lt;/p&gt;</code></pre>
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#supsub" hreflang="en">Superscript and subscript example</a>"</p>                     
+
+  <h2 id="linebreaks">21.9. Salts de línia</h2>
+  
+  <p>Tenint en compte la manera en què l'HTML defineix l'espai en blanc, no és possible controlar el lloc on saltaran les línies de text (per exemple, etiquetar una adreça postal com un paràgraf però voler que tingui un aspecte visual en el qual cada part de l'adreça aparegui en una línia independent) simplement prement la tecla de retorn mentre es va escrivint el text.</p>
+  
+  <div class="text-clau">
+  <p>Amb l'element <code>br</code> és possible introduir un salt de línia en el document. No obstant això, només s'hauria d'utilitzar per a forçar salts de línia en els llocs on siguin estrictament necessaris, i mai per a aplicar més espaiat vertical entre paràgrafs o similars en un document; això s'hauria de fer amb el CSS.</p>
+  </div>
+  
+  <p>Algunes vegades pot ser més fàcil utilitzar un bloc de text preformatat en lloc d'inserir-hi elements <code>br</code>. O bé, si voleu que una part concreta d'un text aparegui en una línia independent, tot i que això és purament una qüestió d'estil, podeu posar aquesta part en un element <code>span</code> i definir-la per tal que es mostri com un element de bloc.</p>
+  
+  <p>Així, per exemple, podeu escriure l'adreça de contacte d'Opera que hem vist abans en aquest apartat quan parlàvem sobre l'element <code>address</code> de la següent manera:</p>
+                       
+  <pre><code>&lt;p&gt;Our company address: &lt;/p&gt;
+&lt;address&gt;
+Opera Software ASA,&lt;br&gt;Waldemar Thranes gate 98,&lt;br&gt;
+NO-0175 OSLO,&lt;br&gt;NORWAY
+&lt;/address&gt;</code></pre>
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#breaks" hreflang="en">Line breaks example</a>"</p>
+
+  <p>Evidentment, si escriviu en XHTML en lloc d'HTML, l'element hauria de ser autotancat, com el següent:<br/> <code>&lt;br /&gt;.</code></p>    
+
+  <h2 id="horizontal">21.10. Línies horitzontals</h2>
+  
+  <div class="text-clau">
+  <p>Les línies horitzontals es creen en l'HTML amb l'element <code>hr</code>. Aquest element insereix una línia en el document que representa un límit entre seccions diferents.</p>
+  </div>
+  
+  <p>Alguns diuen que aquest és un efecte inherentment no semàntic i purament visual i de presentació, però de fet hi ha precedents en la literatura que justifiquen l'existència d'un element així. En un capítol (que es podria descriure com una secció d'un llibre) a vegades apareix una línia horitzontal entre escenes que tenen lloc en temps i/o llocs diferents. En la poesia també s'utilitzen algunes separacions decoratives per delimitar les diferents estrofes del poema.</p>
+  
+  <p>Cap d'aquests usos justificaria l'existència d'un element d'encapçalament nou, que és la manera acceptada de marcar els límits entre seccions d'un document.</p>
+  
+  <p>L'element <code>hr</code> no té cap atribut i el seu estil s'haurà de definir amb el CSS en cas que l'aspecte per defecte no sigui satisfactori.</p>
+  
+  <p>També, igual que en el salt de línia, si escriviu en XHTML i no en HTML caldrà que utilitzeu la forma autotancada :
+<code>&lt;hr /&gt;</code>.</p>         
+
+  <h2 id="insdel">21.11. Canvis en els documents (inserir i suprimir)</h2>
+  
+  <p>Si s'han introduït canvis en un document des de la primera vegada que va estar disponible, podeu marcar aquests canvis per tal que les persones que el tornin a llegir o els processos automatitzats puguin saber què s'hi ha canviat i quan.</p>
+  
+  <div class="text-clau">
+  <p>El text nou (insercions) s'ha de posar dintre de l'element <code>ins</code>. El text que s'ha eliminat (supressions) s'ha de posar dintre de l'element <code>del</code>. Si en un punt concret del document s'ha fet una supressió i una inserció, la manera correcta de procedir és posar primer el text suprimit i llavors el text inserit.</p>
+  </div>
+  
+  <p>Aquests dos elements poden tenir dos atributs que aporten més significat a les edicions.</p>
+  
+  <p>Si la raó del canvi s'explica a la pàgina o en algun altre lloc del web, hauríeu de crear un enllaç cap aquest document o fragment de l'atribut de cita. El que estem dient en realitat és que "Aquest canvi s'ha fet per la raó següent".</p>
+  
+  <p>També podeu indicar l'hora que es va fer el canvi amb l'atribut datetime. El valor hauria de ser una marca horària conforme a l'estàndard ISO, que normalment té la forma "AAAA-MM-DD HH:MM:SS &plusmn;HH:MM" (en trobareu més informació a la <a href="http://en.wikipedia.org/wiki/ISO_8601" hreflang="en">Wikipedia</a>).</p>
+  
+  <p>Un exemple que utilitza els dos atributs:</p>
+
+
+  <pre><code>&lt;p&gt;We should only solve problems that actually arise. As
+  &lt;cite&gt;&lt;del datetime="2008-03-25 18:26:55 Z"
+  cite="/changes.html#revision-4"&gt;Donald Knuth&lt;/del&gt;&lt;ins
+  datetime="2008-03-25 18:26:55 Z"
+  cite="/changes.html#revision-4"&gt;C. A. R. Hoare&lt;/ins&gt;&lt;/cite&gt;
+  said: &lt;q&gt;premature optimization is the root of all 
+  evil&lt;/q&gt;.&lt;/p&gt;</code></pre>    
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/21-lesser-known-semantic-elements/lesserknownsemantics.html#insdelexample" hreflang="en">Inserting and deleting example</a>"</p>
+
+  <h2 id="futurehtml">21.12. Alguns elements HTML futurs</h2>
+  
+  <p>Tal com ja s'ha comentat diverses vegades en aquest i en altres apartats, la <a href="http://www.w3.org/html/wg/html5/" hreflang="en">versió 5 d'HTML</a> encara s'està redactant. Aquesta versió serà l'actualització més radical d'HTML des de la seva aparició. Estudiant els patrons d'ús real de l'HTML a Internet en lloc de limitar-se a pensar en què podria ser útil, és més que probable que la semàntica dels documents, que actualment és poc més que una convenció, s'insereixi directament a l'especificació.</p>            
+  
+  <p>Alguns elements d'exemple que probablement s'introduiran en l'HTML i que podrien representar una millora significativa en la manera de codificar i utilitzar els documents inclouen:</p>
+  
+  <ul>
+		<li><p><code>header</code>: conté l'encapçalament (masthead) de la pàgina; normalment consisteix en un logotip i un títol, potser una petita secció "Sobre" i alguna navegació global del lloc, com per exemple enllaços per a iniciar sessió/sortir/perfil.</p></li>    
+  
+  <li><p><code>footer</code>: conté el peu de pàgina, que normalment inclou altres enllaços dintre del lloc, el copyright i altra informació legal.</p></li>    
+  
+  <li><p><code>nav</code>: conté els enllaços de navegació principals d'una pàgina.</p></li>    
+  
+  <li><p><code>article</code>: conté la part d'una pàgina que és l'àrea de contingut principal i exclou tots els altres elements de la pàgina com per exemple la navegació, l'encapçalament i el peu de pàgina.</p></li>    
+  
+  <li><p><code>aside</code>: conté la informació de la barra lateral d'una àrea concreta de la pàgina; també es pot utilitzar per a destacats o notes dintre del contingut principal.</p></li>
+	</ul>
+  
+  <p>N'hi ha més, que podeu trobar a l'<a href="http://www.whatwg.org/specs/web-apps/current-work/" hreflang="en">especificació HTML 5</a>.</p>                                                                                                     
+
+  
+  
+        <h2 id="summary">Resum</h2> 
+  
+  <p>En aquest apartat he explicat alguns dels elements semàntics de l'HTML menys coneguts i que menys s'utilitzen. En l'apartat següent seguirem examinant l'ús correcte de dos elements semàntics d'HTML semànticament neutres: <code>div</code> i
+<code>span</code>.</p>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud6/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+		<a rel="next" href="../ud8/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

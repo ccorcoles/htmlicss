@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Estils de llistes i enllaços</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Estils de llistes i enllaços</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud5/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud7/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>32. Estils de llistes i enllaços</h1>
+<p class="by"><a href="../../index.html#buchanan">Ben Buchanan</a>. 26 de setembre de 2008 Publicat a: subratllar, estats, navegació, farcit, marge.</p>
+  
+<p>Molts elements de les pàgines web són una mica "indulgents" pel que fa al disseny: no és gaire greu si no estan "del tot bé". Però llistes i enllaços són una altra història, perquè si no es fan bé poden causar problemes greus a la gent que vulgui fer servir el vostre lloc web.</p>
+
+<p>En concret, els enllaços tenen alguns requisits bàsics pel que fa a l'estil i a les expectatives dels usuaris. Els enllaços amb estils mal fets poden arruïnar l'experiència que tindrà l'usuari quan faci servir el web, perquè la gent haurà d'aturar-se a pensar on ha de clicar. En el pitjor dels casos, l'usuari no sabrà determinar ni tan sols quins elements de la pàgina són enllaços.</p>
+
+<p>En aquest apartat ens centrarem en les competències bàsiques que calen per crear uns estils de llistes i d'enllaços ben fets. També parlarem d'algunes maneres d'evitar errors fonamentals d'aquests elements i de produir un resultat final que funcioni en qualsevol navegador i que sigui accessible per als usuaris amb discapacitats.</p>
+
+<div class="note">
+<h3>Nota</h3>
+<p>En aquest apartat es faran servir diversos exemples, així que us podeu descarregar els fitxers de mostra de les llistes i els enllaços per anar veient-los a mesura que seguiu la lliçó.</p>
+
+<p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/32-styling-lists-and-links/styling-lists-and-links-examples.zip">styling-lists-and-links examples</a>"</p>
+</div>
+
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>32.1. <a href="#stylinglists" accesskey="1">Aplicar estils a les llistes</a>
+<ul class="index">    
+<li>32.1.1. <a href="#basicbullets">Pics i números bàsics</a></li>
+<li>32.1.2. <a href="#custombullets">Pics personalitzats mitjançant imatges</a></li>
+<li>32.1.3. <a href="#listmarginspadding">Marges i farcit de llistes</a>
+<ul class="index"> 
+<li><a href="#unorderedlists">Llistes no ordenades</a></li>
+<li><a href="#orderedlists">Llistes ordenades</a></li>
+<li><a href="#whattodo">Aleshores què s'ha de fer?</a></li>
+</ul></li>
+<li>32.1.4. <a href="#liststyleposition">Utilitzar una col·locació de tipus llista</a></li>
+<li>32.1.5. <a href="#definitionlists">I les llistes de definicions, què?</a></li>
+<li>32.1.6. <a href="#nestedlists">Llistes imbricades</a></li>
+<li>32.1.7. <a href="#horizontallists">Llistes horitzontals</a></li>
+<li>32.1.8. <a href="#fauxcolumns">"Columnes falses"</a>
+<ul class="index"> 
+<li><a href="#legacybrowsers">Navegadors antics</a></li>
+</ul></li>
+<li>32.1.9. <a href="#listsconclusion">Conclusió de les llistes</a></li>
+</ul></li>                       
+<li>32.2. <a href="#stylinglinks" accesskey="2">Aplicar estils als enllaços</a>
+<ul class="index">
+<li>32.2.1. <a href="#linkstates">Comprendre els estats dels enllaços</a></li>
+<li>32.2.2. <a href="#evolutionexpectations">Com l'evolució dels navegadors va crear expectatives</a></li>
+<li>32.2.3. <a href="#userexpectations">Expectatives de l'usuari</a></li>
+<li>32.2.4. <a href="#usecolorcarefully">Utilització adequada dels colors</a></li>
+<li>32.2.5. <a href="#cssforlinks">Entrem en matèria: el CSS</a>
+<ul class="index"> 
+<li><a href="#linkstateorder">Aplicar estils d'estat d'enllaç en l'ordre adient</a></li>
+<li><a href="#controllingdefaults">Controlar les opcions per defecte</a></li>
+<li><a href="#controllingdefaults">Subratllats</a></li>
+<li><a href="#controllingdefaults">Contorn</a></li>
+</ul></li>
+<li>32.2.6. <a href="#recreatingnetscape">Exemple: recreació de les opcions per defecte de Netscape</a>
+<ul class="index"> 
+<li><a href="#fauxunderlines">Subratllats falsos amb <code>border-bottom</code></a></li>
+<li><a href="#stylesthatdontrelyoncolor">Estils no basats en el color</a></li>
+</ul></li>
+<li>32.2.7. <a href="#iconsonlinks">Icones en enllaços</a></li>
+</ul></li>                     
+<li>32.3. <a href="#navigationexample" accesskey="3">Combinar-ho tot: un senzill menú de navegació</a></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+<li class="especial"><a href="#furtherreading">Lectures complementàries</a></li>
+
+</ul>
+                      
+<h2 id="stylinglists">32.1. Aplicar estils a les llistes</h2>
+
+<p>Primer de tot, us ensenyaré els conceptes bàsics relacionats amb l'aplicació d'estils a les llistes amb CSS i després passaré a fer una ullada a algunes de les tècniques una mica més complicades.</p>
+
+<h3 id="basicbullets">32.1.1. Pics i números bàsics</h3>
+
+<p>El punt més bàsic a tenir en compte a l'hora de crear un estil per a una llista és pensar en quina forma de pic o de número volem fer servir. També pot ser que no vulgueu fer servir cap mena de pic o de número. Tal com heu après en veure l'HTML per a les llistes, existeixen moltes possibilitats que s'estableixen mitjançant la propietat <code>list-style-type</code>.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Vegeu les llistes a l'apartat 16 del mòdul "El text central d'HTML".</p>
+</div>
+
+<p>Per exemple, per especificar que totes les llistes no ordenades del lloc web facin servir pics quadrats, podeu utilitzar aquest CSS:</p>
+
+<pre><code>ul li {
+   list-style-type: square;
+}</code></pre>
+
+<p>D'aquesta manera aconseguirem un resultat semblant al de la figura 1:</p>
+
+<div class="imagen">
+<img src="06510_m6_35.gif" alt="Captura de pantalla d'una llista amb pics quadrats."/>
+<p>Figura 1. Llista no ordenada amb pics quadrats.</p>
+</div>
+<p>A la figura 2 es mostren alguns exemples de llista molt habituals:</p>
+
+<div class="imagen">
+<img src="06510_m6_36.gif" alt="Captura de pantalla d'alguns tipus de llista habituals: discs, quadrats, cercles i sense pic per a les llistes no ordenades, nombres decimals, decimals amb zero a l'esquerra, lletres minúscules i nombres romans en minúscula per a les llistes ordenades."/>
+<p>Figura 2. Estils més habituals de llistes.</p>
+<p><strong>Podeu veure algunes opcions més a la pàgina d'exemples a</strong>: "<a href="http://devfiles.myopera.com/articles/485/styling-lists-example-basics.html" hreflang="en">styling-lists-example-basics</a>"</p>
+</div>
+
+
+<p>Fixeu-vos que els pics i els números es representen amb el <code>color</code> que s'especifiqui a <code>li</code> o que aquest hereti. Si necessiteu que el pic sigui d'un color diferent del text, haureu de fer servir una imatge o solucionar-ho utilitzant altres elements dels punts enumerats a la llista (pot ser molt fàcil si la llista està formada per enllaços, per exemple).</p>
+
+
+<h3 id="custombullets">32.1.2. Pics personalitzats mitjançant imatges</h3>
+
+<p>El conjunt de pics estàndard és suficient per al contingut bàsic, però sovint es demana als dissenyadors que substitueixin els pics per una imatge pròpia.</p>
+
+<p>L'especificació de CSS inclou la propietat <code>list-style-image</code> per afegir una imatge de llista personalitzada. No obstant això, la propietat té poques opcions de col·locació de la imatge de fons i, en determinades circumstàncies, no funciona en absolut a l'IE. Per això ha acabat essent molt més habitual establir una imatge de fons en els elements enumerats a la llista.</p>
+
+<p>Posem per cas que teniu una llista de canals d'informació RSS i voleu canviar el pic per la típica icona taronja de l'RSS. Aplicarem la classe "rss" a la llista per diferenciar-la d'altres llistes.</p>
+
+<pre><code>&lt;ul <strong>class="rss"</strong>&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;News&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Sport&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Weather&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Business&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Entertainment&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="http://example.com/rss.xml"&gt;Funny News&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>Primer establirem que la llista no tingui <code>list-style-type</code> i eliminarem el marge i el farcit (<span lang="en">padding</span>). Aleshores, només cal afegir una imatge de fons a cada element enumerat de la llista, una mica de farcit a l'esquerra per desplaçar el text perquè es pugui veure la imatge i una mica de farcit al voltant del botó per espaiar els elements de la llista.</p>
+
+<pre><code>.rss {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+.rss li {
+   background: #fff url("icon-rssfeed.gif") 0 3px no-repeat;
+   padding: 0 0 5px 15px;
+}</code></pre>
+
+<p>D'aquesta manera ens quedarà una llista amb la imatge del RSS en lloc de pics, tal com es pot observar a la figura 3:</p>
+
+<div class="imagen">
+<img src="06510_m6_37.gif" alt="Captura de pantalla d'una llista amb els pics substituïts per imatges."/>
+<p>Figura 3. Llista amb pics fets amb una imatge.</p>
+</div>
+
+<p>Tingueu en compte que la imatge de fons està situada fent servir píxels per a col·locar-la de manera precisa. Depenent del disseny que vulgueu aplicar, pot ser que també pugueu fer servir <code>%</code>, <code>em</code>s o paraules clau. De tota manera, aneu amb compte quan el disseny inclogui contingut que pugui fer que un element de la llista acabi tenint diverses línies de text, perquè si establiu el fons en <code>center</code> vertical o <code>50%</code> pot quedar força estrany, tal com es veu a la figura 4:</p>
+
+<div class="imagen">
+<img src="06510_m6_38.gif" alt="Captura de pantalla que mostra com queda el pic centrat verticalment al mig del text en lloc d'estar centrat a la primera línia del text."/>
+<p>Figura 4. Demostració d'imatges de pic centrades verticalment en un element de llista de diverses línies.</p>
+</div>
+
+<p>En canvi, si establiu que la imatge quedi a la part superior de l'element de la llista, conservareu el comportament tradicional dels pics (és a dir, quedarà davant de la primera línia). Vegeu la figura 5:</p>
+
+<div class="imagen">
+<img src="06510_m6_39.gif" alt="Captura de pantalla d'imatges de pic col·locades a la part superior."/>
+<p>Figura 5. Demostració d'imatges de pic alineades a la part superior d'un element de llista amb més d'una línia.</p>
+
+</div>
+
+<h3 id="listmarginspadding">32.1.3. Marges i farcit de llistes</h3>
+
+<p>Si es fan servir bé, els marges i el farcit poden fer que les llistes quedin molt més endreçades i professionals, però cal que sapigueu què esteu fent i tenir en compte que la situació és diferent per a cada tipus de llista. En aquest subapartat us ensenyaré com aplicar marges i farcit als dos tipus de llista més habituals de forma assenyada.</p>
+
+<h3 id="unorderedlists">Llistes no ordenades</h3>
+
+<p>Una cosa que probablement notareu de seguida és que l'estil predeterminat de les llistes aplica un sagnat més destacat que l'estil predeterminat per als paràgrafs. Vegeu la figura 6:</p>
+
+<div class="imagen">
+<img src="06510_m6_40.gif" alt="Captura de pantalla d'estils de llista per defecte amb un sagnat més gran que el dels paràgrafs."/>
+<p>Figura 6. Les llistes amb l'estil predeterminat tenen un sagnat a l'esquerra.</p>
+</div>
+<p>Si voleu que els elements d'una llista desordenada quedin alineats al mateix punt que la resta de contingut, haureu de crear alguns estils per modificar el sagnat com més us agradi. Cada navegador requereix uns paràmetres diferents, en alguns s'ha d'eliminar el marge i en d'altres s'ha d'eliminar el farcit. Per tant, per establir els valors inicials a tots els navegadors, establiu el següent: </p>
+
+<pre><code>ul {
+   margin: 0;
+   padding: 0;
+}</code></pre>
+
+<p>Pot ser que això no tingui l'efecte que esperàveu perquè farà que tot el text quedi a la mateixa alçada tocant a l'esquerra, però els pics quedaran més enllà del text com es veu a la figura 7:</p>
+
+<div class="imagen">
+<img src="06510_m6_41.gif" alt="Captura de pantalla de pics més enllà del text."/>
+<p>Figura 7. Els pics queden més a l'esquerra que el text.</p>
+</div>
+<p>Per tant, per alinear els pics a l'esquerra, el que heu de fer és establir un marge per a la llista d'elements i que així quedi tot al mateix nivell:</p>
+
+<pre><code>ul {
+   margin-left: 0;
+   padding-left: 0;
+}
+ul li {
+   margin-left: 1em;
+}</code></pre>
+
+<p>Arribats a aquest punt encara trobareu una diferència d'un píxel entre un navegador i un altre, però l'efecte és bàsicament el més consistent possible. Vegeu la figura 8:</p>
+
+<div class="imagen">
+<img src="06510_m6_42.gif" alt="Captura de pantalla de pics alineats a l'esquerra com els paràgrafs."/>
+<p>Figura 8. Els pics col·locats al mateix nivell que els paràgrafs anteriors i posteriors.</p>
+</div>
+
+<h3 id="orderedlists">Llistes ordenades</h3>
+
+<p>Ara heu de tenir en compte el mateix, però aplicat a les llistes ordenades. Aquestes llistes són més complicades perquè els símbols numèrics estan alineats segons l'element de la llista que tingui el número més alt. Per exemple, si teniu una llista de 10 elements, els decimals es col·locaran de manera que l'element de dos dígits, el "10", quedi com es veu a la figura 9:</p>
+
+
+<div class="imagen">
+<img src="06510_m6_43.gif" alt="Captura de pantalla d'una llista de deu elements amb els marcadors sagnats perquè hi càpiga el 10."/>
+
+<p>Figura 9. Els símbols numèrics dels elements de l'1 al 9 tenen un farcit a l'esquerra per quedar alineats amb l'element 10.</p>
+</div>
+
+<p>Per tant, en realitat no es pot fer que aquesta llista quedi tota alineada a l'esquerra i al mateix nivell que la resta del text, tret que establiu que la llista faci servir <code>list-style-type: decimal-leading-zero;</code>, que solucionarà el problema tal com es veu a la figura 10:</p>
+
+<div class="imagen">
+<img src="06510_m6_44.gif" alt="Captura de pantalla de zeros al principi perquè tots els números quedin ben alineats a l'esquerra."/>
+<p>Figura 10. Els zeros a l'esquerra omplen l'espai buit dels elements de l'1 al 9.</p>
+</div>
+<p>És més habitual acceptar senzillament la diferència d'espaiat. Això, però, significa que els símbols de les llistes ordenades i desordenades no podran alinear-se fàcilment a l'esquerra de manera consistent. Només es podrà alinear el text de les llistes.</p>
+
+<pre><code>ul, ol {
+   margin-left: 0;
+   padding-left: 0;
+}
+li {
+   margin-left: 2em;
+}</code></pre>
+
+<p>Necessiteu com a mínim 2 em de marge a l'esquerra per incloure tant les llistes ordenades com les no ordenades. A la figura 11, fixeu-vos com s'alinea el text dels elements a les dues llistes.</p>
+
+<div class="imagen">
+<img src="06510_m6_45.gif" alt="Captura de pantalla de llistes amb tot el text alineat a l'esquerra."/>
+<p>Figura 11. El text s'alinea tant a les llistes ordenades com desordenades.</p>
+</div>
+
+<h3 id="whattodo">Aleshores què s'ha de fer?</h3>
+
+<p>Bàsicament teniu tres opcions:</p>
+<ol>
+<li><p>Acceptar la col·locació per defecte de les llistes i dels seus símbols.</p></li>
+<li><p>Especificar l'alineació del text de les llistes.</p></li>
+<li><p>Establir un estil diferent per a <code>ul</code> i <code>ol</code>.</p></li>
+</ol>
+<p>No hi ha una manera "correcta" ni "incorrecta" de fer-ho i és força habitual que es deixi tot amb la configuració predeterminada per a les llistes de contingut general.</p>
+
+<h3 id="liststyleposition">32.1.4. Utilitzar una col·locació de tipus llista</h3>
+
+<p>Si voleu que el text d'elements de més d'una línia quedin per sota del símbol de la llista, haureu de configurar la propietat <code>list-style-position</code> a <code>inside</code> per així obtenir el resultat que es veu a la figura 12:</p>
+
+<div class="imagen">
+<img src="06510_m6_46.gif" alt="Captura de pantalla d'una llista desordenada amb text de més d'una línia per sota dels pics."/>
+<p>Figura 12. La posició de la llista <code>inside</code> fa que, a partir de la segona línia, el text quedi per sota del símbol en lloc d'alineat amb el sagnat del text.</p>
+</div>
+
+<p>Aquest estil de símbols envoltats de text no és gaire popular. La propietat <code>list-style-position</code> està establerta per defecte en <code>outside</code>, la qual cosa produeix el resultat del qual es parla més endavant en aquest apartat.</p>
+
+<h3 id="definitionlists">32.1.5. I les llistes de definicions, què?</h3>
+
+<p>En general, les llistes de definicions no requereixen gaire atenció a part d'establir un estil <code>dt</code> (normalment text en negreta) i controlar el sagnat de les definicions:</p>
+
+<pre><code>dt {
+   font-weight: bold;
+}
+dd {
+   margin-left: 2em;
+}</code></pre>
+
+<p>Això defineix un estil clar i senzill per a llistes de definicions, tal com es veu a la figura 13:</p>
+
+<div class="imagen">
+<img src="06510_m6_47.gif" alt="Captura de pantalla d'una llista de definicions amb termes en negreta i definicions amb sagnat."/>
+<p>Figura 13. Una llista de definicions amb un estil molt senzill.</p>
+</div>
+<p>Malgrat que les llistes de definicions poden reestructurar-se amb elements flotants i posicionaments, això és complicat i, en general, és millor fer les coses senzilles. Tal com són, ja són prou útils; només els cal una mica d'ajuda per fer que els termes de la definició destaquin una mica més i que les definicions tinguin un sagnat adequat. </p>
+
+
+<h3 id="nestedlists">32.1.6. Llistes imbricades</h3>
+
+<p>Ja vau aprendre a imbricar llistes. Quan creeu el vostre propi CSS heu d'anar amb compte de mantenir uns trets de disseny molt clars per mostrar la relació entre una llista imbricada i la llista que la inclou. La manera més fàcil d'aconseguir-ho és aplicar un sagnat als elements de la llista imbricada que, de fet, és la configuració predeterminada a tots els navegadors.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Vegeu les llistes al subapartat 16.4 del mòdul "El text central d'HTML".</p>
+</div>
+
+<p>Si establiu el vostre sagnat de llista personal, la configuració bàsica es multiplicarà. Per exemple, vegeu el CSS següent:</p>
+
+<pre><code>ul, ol {
+   margin-left: 0;
+   padding-left: 0;
+}
+li {
+   margin-left: 2em;
+}</code></pre>
+
+<p>Cada element subsegüent de la llista filla de la cadena hereta el valor de margin del seu element de llista pare a més de tenir 2 em propis més afegits a sobre. Així, doncs, un element de llista de nivell superior (un que no tingui un element de llista com a element pare) tindrà un marge esquerre de 2 em, mentre que un element de llista fill del primer element de llista heretarà 2 em del seu pare i tindrà 2 em més afegits a sobre, és a dir, un total de 4 em, etc.</p>
+
+<h3 id="horizontallists">32.1.7. Llistes horitzontals</h3>
+
+<p>Un dels canvis més comuns que són necessaris per treballar amb una llista és crear una llista horitzontal, és a dir, fer que els elements de la llista apareguin un al costat de l'altre en comptes d'un a sota de l'altre. Es tracta d'un truc molt habitual per a la navegació per llocs web. Vegem un exemple de l'apartat dels menús de navegació (figura 14):</p>
+
+<div class="imagen">
+<img src="06510_m6_48.gif" alt="Captura de pantalla d'una llista senzilla amb pics."/>
+<p>Figura 14. Una llista senzilla.</p>
+</div>
+<p>Convertim-la en una llista horitzontal com es veu a la figura 15:</p>
+
+<div class="imagen">
+<img src="06510_m6_49.gif" alt="Captura de pantalla d'una llista amb els elements un al costat de l'altre."/>
+<p>Figura 15. Una llista horitzontal senzilla.</p>
+</div>
+<p>Per aconseguir aquest efecte hem de fer tres coses a la llista:</p>
+<ol>
+<li><p>Eliminar <code>margin</code> i <code>padding</code> de <code>&lt;ul&gt;</code>.</p></li>
+<li><p>Establir els elements de la llista a display: inline;.</p></li>
+<li><p>Aplicar una mica d'espaiat a la dreta dels elements de la llista perquè no xoquin. </p></li>
+</ol>
+<p>En aquest exemple, la llista té l'ID "mainmenu" (menú principal), així que el farem servir com a selector contextual per garantir que només canviem la llista que volem canviar. El CSS és el següent:</p>
+
+<pre><code>#mainmenu {
+   margin: 0;
+   padding: 0;
+}
+#mainmenu {
+   display: inline;
+   padding: 0 1em 0 0;
+}</code></pre>
+
+<p>En aquest senzill exemple només cal establir els elements de la llista a <code>display: inline;</code>. Tingueu en compte que si feu servir <code>float: left;</code>, també aconseguireu un resultat semblant. Més endavant en aquest curs aprendreu més coses sobre els elements flotants.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Vegeu els elements flotants en l'apartat 35 d'aquest mòdul didàctic.</p>
+</div>
+
+<h3 id="fauxcolumns">32.1.8. "Columnes falses"</h3>
+
+<p>Abans hem creat una llista de canals d'informació de RSS. Ara imagineu-vos que aquella llista s'ha situat en una barra lateral del vostre lloc. El dissenyador vol que la llista aparegui en dues columnes amb una vora al voltant de tot el grup tal com es veu a la figura 16: </p>
+
+<div class="imagen">
+<img src="06510_m6_50.gif" alt="Captura de pantalla d'una llista en dues columnes."/>
+<p>Figura 16. Una llista de canals d'informació en dues columnes amb una icona de RSS com a pic.</p>
+<p class="font"><strong>Vegeu l'exemple a:</strong> "<a href="http://devfiles.myopera.com/articles/485/styling-lists-example-columns.html" hreflang="en">Styling lists example columns</a>"</p>
+</div>
+
+
+
+<p>Suposem que la llista es troba dins d'un <code>&lt;div&gt;</code> que estableix l'amplada i la vora. La llista bàsica quedaria d'una manera semblant a la figura 17:</p>
+
+<div class="imagen">
+<img src="06510_m6_51.gif" alt="Captura de pantalla de llista bàsica"/>
+<p>Figura 17. La llista sense estils dins de la vora.</p>
+<p class="font"><strong>Vegeu la llista bàsica original a :</strong> "<a href="http://devfiles.myopera.com/articles/485/styling-lists-example-image-bullet.html" hreflang="en">Styling lists example image bullet</a>"</p>
+</div>
+
+
+
+
+<p>Per aconseguir l'efecte de "faux columns" o columnes falses, afegiu la icona RSS tal com hem vist abans i apliqueu un marge de 5 píxels a dalt, a la dreta i a l'esquerra.</p>
+
+<pre><code>.rss {
+   margin: 5px 5px 0 5px;
+   padding: 0;
+}
+.rss li {
+   list-style-type: none;
+   background: #fff url("icon-rssfeed.gif") 0 3px no-repeat;
+   padding: 0 0 5px 15px;
+   display:-moz-inline-box;
+}</code></pre>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Fixeu-vos que s'afegeix <code>display:-moz-inline-box;</code> perquè l'exemple es pugui veure correctament amb el Firefox 2.</p> 
+</div> 
+<p>No cal que li afegim marge al botó perquè l'últim element de la llista ja aplicarà l'espaiat adient amb el seu farcit tal com s'observa a la figura 18:</p>
+
+<div class="imagen">
+<img src="06510_m6_52.gif" alt="Captura de pantalla de llista amb l'espaiat i les icones correctes."/>
+<p>Figura 18. Ja gairebé hem acabat; ara tenim un espaiat i unes icones de pic ben fetes.</p>
+</div>
+
+<p>Ara establiu els elements de la llista a <code>display: inline-block;</code> i establiu l'amplada a <code>40%</code> i el marge dret a <code>2%</code> (també podeu fer servir amplades en píxels). També heu d'especificar que el <code>&lt;ul&gt;</code> tingui una amplada de <code>100%</code> per garantir que els elements de més d'un línia quedin com han de quedar i que la llista tingui la mida correcta:</p>
+
+<pre><code>.rss {
+   margin: 5px 5px 0 5px;
+   padding: 0;
+   <strong>width: 100%;</strong>
+}
+.rss li {
+   <strong>display: inline-block;</strong>
+   <strong>width: 40%;</strong>            
+   <strong>margin: 0 2% 0 0;</strong>
+   list-style-type: none;
+   background: #fff url("icon-rssfeed.gif") 0 3px no-repeat;
+   padding: 0 0 5px 15px;
+   display:-moz-inline-box;
+}</code></pre>
+
+<p>A la majoria de navegadors, amb això n'hi haurà prou per crear l'efecte de la columna, però haureu d'especificar que l'IE faci "flotar" els elements de la llista a l'esquerra. Utilitzem un estil condicional per a totes les versions fins a l'IE7 (ja que encara no sabem què faran les futures versions).</p>
+
+<pre><code>&lt;!--[if lte IE 7]&gt;
+   &lt;style type="text/css"&gt;
+      .rss li {
+         float: left;
+      }
+   &lt;/style&gt;
+&lt;![endif]--&gt;</code></pre>
+
+<p>Ara ja tenim l'efecte de les dues columnes, tal com es veu a la figura 19: </p>
+
+<div class="imagen">
+<img src="06510_m6_53.gif" alt="Captura de pantalla d'una llista en dues columnes."/>
+<p>Figura 19. La llista completa.</p>
+</div>
+
+<h3 id="legacybrowsers">Navegadors antics</h3>
+
+<p>Si se us demana que creeu aquest disseny per a navegadors més antics que no accepten <code>inline-block</code> (bloc inserit), haureu de fer "flotar" els elements de la llista a l'esquerra a tots els navegadors i fer servir un ajust de distància com el que es descriu a l'<a href="http://www.positioniseverything.net/easyclearing.html" hreflang="en">article <cite>How to clear floats without structural markup</cite></a>. Per sort, l'última fornada de navegadors han fet que el <code>inline-block</code> sigui una propietat de visualització viable, així que, tret que tingueu una participació molt gran per a navegadors antics com ara Firefox 2, hauríeu de poder fer servir el mètode <code>inline-block</code>.</p>
+
+<h3 id="listsconclusion">32.1.9. Conclusió de les llistes</h3>
+
+<p>Ja hem cobert un conjunt bàsic d'opcions d'aplicació d'estils i mètodes per a llistes. Podeu fer servir aquests exemples com a punt de partida i combinar-los per crear un gran nombre de dissenys. Com que les llistes sovint es combinen amb enllaços, passem a parlar dels enllaços. </p>
+
+<h2 id="stylinglinks">32.2. Aplicar estils als enllaços</h2>
+
+<p>Aplicar estils als enllaços pot considerar-se una mena d'art. En aquest camp s'apliquen molts requisits diferents i pot ser difícil complir-los tots i, a la vegada, obtenir un resultat estèticament satisfactori. D'altra banda, és perfectament possible sempre i quan es tinguin en compte una sèrie de normes molt senzilles:</p>
+
+<ul>
+<li><p>comprendre els diferents estats dels enllaços,</p></li>
+
+<li><p>no apartar-se gaire de les expectatives de l'usuari,</p></li>
+
+<li><p>utilitzar els colors adequadament.</p></li>
+
+
+</ul>
+<p>Si seguiu aquestes regles, podreu crear enllaços clars i fàcils de fer servir.</p>
+
+<h3 id="linkstates">32.2.1. Comprendre els estats dels enllaços</h3>
+
+<p>Abans d'aplicar estils als enllaços, heu de comprendre els diferents <strong>estats dels enllaços</strong>. Hi ha un total de cinc estats: no visitat o predeterminat, visitat, seleccionat, per sobre i actiu.</p>
+
+<ul>
+<li><p>No visitat. L'estat per defecte d'un enllaç quan encara no s'ha activat o visitat.</p></li>
+
+<li><p>Visitat. L'estat d'un enllaç que l'usuari ja ha visitat.</p></li>
+
+<li><p>Seleccionat. S'aplica mentre l'enllaç està seleccionat, per exemple quan el cursor de l'usuari del teclat es troba sobre l'enllaç. Actualment, l'IE no accepta l'estat seleccionat i només fa servir <code>active</code> (actiu) en lloc de <code>focus</code> (seleccionat).</p></li>
+
+<li><p>Per sobre ('hover'). S'aplica quan un usuari té el punter del ratolí per sobre de l'enllaç però encara no l'ha clicat.</p></li>
+
+<li><p>Actiu. S'aplica quan l'usuari activa l'enllaç, és a dir, mentre l'està clicant. En alguns navegadors aquest estil també s'aplica quan l'enllaç s'ha obert en una altra finestra o pestanya.</p></li>
+</ul>
+
+<p>Sempre heu d'especificar el CSS per a cadascun d'aquests estats. Cadascun aporta informació a l'usuari sobre el fet d'interactuar amb un enllaç. En cas de dubte sobre si fer servir <code>focus</code> (seleccionat), <code>hover</code> (per sobre) o <code>active</code> (actiu), podeu aplicar l'estil <code>focus</code> i hover de la mateixa manera perquè les seves funcions són prou semblants per no causar confusió amb el mateix estil d'enllaç. Després podeu afegir alguna variació senzilla per a <code>active</code>, per exemple posar el text en cursiva. En cas necessari, podeu aplicar el mateix estil a tots tres.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Fixeu-vos que no tots aquests estats són mútuament excloents (tot i que en realitat no és possible que un enllaç estigui visitat i no visitat a la vegada), és perfectament possible que un enllaç estigui en estat "per sobre", "actiu" i "visitat" a la vegada.</p>
+</div>
+
+<h3 id="evolutionexpectations">32.2.2. Com l'evolució dels navegadors va crear expectatives</h3>
+
+<p>Per entendre millor algunes expectatives dels usuaris pel que fa als enllaços, va bé saber una mica de la història del web.</p>
+
+<p>Pot ser que hàgiu sentit a parlar dels "valors per defecte de Netscape" dels enllaços o que els enllaços sempre haurien de ser blaus i porpra. Això es remunta als principis de la creació del web, quan els navegadors establien els colors del contingut i els creadors de webs no tenien gaire control sobre la forma de representació de les seves pàgines. </p>
+
+<p>El text era negre, el fons era gris i tots els enllaços estaven subratllats. Els enllaços sense visitar eren blaus, els enllaços visitats eren porpra i els enllaços actius eren vermells. Això era tot. Vegeu la figura 20 per observar-ne una mostra.</p>
+
+<div class="imagen">
+<img src="06510_m6_54.jpg" alt="Captura de pantalla de la pàgina d'inici de Mosaic/Navigator on s'explica què són els hiperenllaços."/>
+<p>Figura 20. Una captura de pantalla de Mosaic.</p>
+</div>
+<p>Malgrat que era una mica monòton, era totalment consistent i <strong>va establir la base de les futures expectatives dels usuaris</strong>. Concretament, els usuaris encara a dia d'avui esperen que el text subratllat sigui un enllaç. Potser no s'esperin que tots els enllaços estiguin subratllats, però sí que esperen que es pugui clicar sobre un text subratllat. I és millor no decebre aquesta expectativa. </p>
+
+<p>Alguns llocs fan servir enllaços blaus i porpres, que encara són els colors predeterminats del contingut sense estil a la majoria de navegadors. Encara que sempre podeu adaptar-vos a la moda "retro" i seguir amb aquesta parella de colors, en general als usuaris no els fa res trobar-se amb altres colors, dintre de certs límits. </p>
+
+<h3 id="userexpectations">32.2.3. Expectatives de l'usuari</h3>
+
+<p>Hi ha una sèrie de regles generals per a les expectatives de l'usuari pel que fa als enllaços.</p>
+
+<ul>
+<li><p>Els usuaris esperen trobar enllaços que tinguin <strong>un aspecte diferent </strong>de la resta del text que no són enllaços</p></li>
+
+<li><p>Els usuaris esperen que els enllaços <strong>reaccionin</strong> d'alguna manera quan es passa el cursor per sobre o quan es selecciona l'enllaç.</p></li>
+
+<li><p>Els usuaris esperen que els enllaços <strong>canviïn</strong> després de visitar-los.</p></li>
+
+<li><p>Als usuaris els agrada la <strong>consistència</strong> dels estils dels enllaços de l

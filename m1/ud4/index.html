@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Introducció al món dels estàndards web - Estàndards web: un bonic somni, però quina és la realitat?</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+	<div id="titulo">Introducció al món dels estàndards web</div>
+	<div id="subtitulo">Estàndards web: un bonic somni, però quina és la realitat?</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud3/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m2/ud1/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>5. Estàndards web: un bonic somni, però quina és la realitat?</h1>
+<p class="by"><a href="../../index.html#lane">Jonathan Lane</a>. 8 de juliol del 2008. Publicat a: validació, adopció, compatibilitat, estàndards</p>
+
+<p>Fins ara, hem parlat sobre el meravellós ideal dels estàndards web. Els estàndards web permeten una interoperabilitat entre tots els navegadors web, en tots els sistemes operatius i inclús en tots els dispositius electrònics disponibles. Però això és realment la realitat? Tots els navegadors compleixen els estàndards al 100%? Estan fent servir adequadament els estàndards web tots els desenvolupadors web? Construeixen els desenvolupadors web una pàgina utilitzant estàndards web i ja es queden tranquils pensant que el seu disseny funcionarà a tot arreu?</p>
+<p>La resposta realment senzilla a aquesta darrera pregunta és no; encara que es tracta d'una situació ideal, està molt allunyada de la realitat.</p>
+<ul class="index">
+	<li>5.1. <a href="#standardscheck" accesskey="1">Com es comprova el compliment dels estàndards web?</a></li>
+	<li>5.2. <a href="#standardstoday" accesskey="2">Compatibilitat dels estàndards a les pàgines actualment</a>
+	<ul class="index">
+		<li>5.2.1. <a href="#amazon">Amazon: comprar amb estàndards?</a></li>
+		<li>5.2.2. <a href="#cnn">CNN: notícies estandarditzades?</a></li>
+		<li>5.2.3. <a href="#apple">Apple: el màxim d'elegància en disseny i en validació?</a></li>
+		<li>5.2.4. <a href="#survey">Un petit sondeig de compatibilitat d'estàndards</a></li>
+	</ul></li>
+	<li>5.3. <a href="#compliancelack" accesskey="3">Per què hi ha tan poques pàgines que compleixin els estàndards?</a>
+	<ul class="index">
+		<li>5.3.1. <a href="#education">Educació</a></li>
+		<li>5.3.2. <a href="#business">Motius empresarials</a></li>
+	</ul></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+	<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+	<li class="especial"><a href="#furtherreading">Lectures complementàries</a></li>
+</ul>
+
+<h2 id="standardscheck">5.1. Com es comprova el compliment dels estàndards web?</h2>
+<p>Abans de continuar, la pregunta que probablement us estigui passant pel cap és: "com se sap si una pàgina web utilitza estàndards web?". Té un aspecte diferent que qualsevol altra pàgina web? Sí i no. Les pàgines web que compleixen els estàndards web, si estan correctament desenvolupades, no han de semblar diferents de les pàgines web codificades mitjançant un etiquetatge que és un batibull o que s'aguanta amb pinces. No obstant això, el codi font de la pàgina web pot semblar bastant diferent (proveu de fer clic amb el botó secundari o prement la tecla Ctrl sobre una pàgina web i seleccioneu l'opció "Codi font" o "Veure el codi font"; la terminologia exacta depèn del navegador).</p>
+<p>Una pàgina web que compleixi els estàndards tindrà un etiquetatge ordenat i clar amb poc o sense format incrustat a la mateixa pàgina. És possible que us resulti difícil notar-ho a primera vista, però creieu-me, les persones amb dificultats visuals que utilitzen lectors de pantalla i motors de cerca ho notaran de seguida. Al darrer apartat ja hem parlat dels avantatges d'utilitzar els estàndards web.</p>
+<p>La manera més senzilla de comprovar la compatibilitat dels estàndards és utilitzar una pràctica eina, disponible en línia, anomenada <strong>validador</strong>.</p>
+
+<ul>
+<li><p>El World Wide Web Consortium (W3C) té disponible el validador gratuïtament a <a href="http://validator.w3.org/" hreflang="en">http://validator.w3.org/</a> (consulteu la figura 1). Podeu (i caldria) utilitzar aquesta eina per a comprovar errors d'HTML o XHTML en qualsevol pàgina web que estigueu desenvolupant.</p></li>
+<li><p>El CSS es pot comprovar utilitzant el validador de CSS disponible a <a href="http://jigsaw.w3.org/css-validator/" hreflang="en">http://jigsaw.w3.org/css-validator/</a>.</p></li>
+</ul>
+
+<p>Feu clic lliurement en aquests enllaços i proveu algunes de les pàgines web que més us agradin.</p>
+<div class="imagen">
+	<img src="06510_m1_07.gif" alt="El validador del W3C mostra que l'XHTML 1.0 de la pàgina és vàlid" />
+	<p>Figura 1. El servei de validació d'etiquetatge del W3C comprova les vostres pàgines i indica qualsevol error d'etiquetatge.</p>
+</div>
+<p>Validar sempre les pàgines que es creen és només la meitat del procés. Com podem comprovar si els navegadors compleixen els estàndards? El Projecte d'estàndards web ha desenvolupat una sèrie de proves anomenades proves Acid que utilitzen algunes regles complexes d'HTML i CSS (a més d'altre etiquetatge i codi) per veure si un navegador pot reproduir correctament diferents pantalles de prova. La darrera versió de la prova Acid, Acid3, encara està en procés de creació.</p>
+<div class="vegeu_tambe">
+	<h3>Vegeu també</h3>
+<p>Podeu llegir més coses sobre les proves Acid a la pàgina web d'<a href="http://www.acidtests.org/" hreflang="en">acidtests.org</a>, o també podeu visitar les pàgines de prova reals per a posar a prova el vostre navegador.</p>
+</div>
+
+
+<h2 id="standardstoday">5.2. Compatibilitat dels estàndards a les pàgines actualment</h2>
+<p>Utilitzen els principals webs els estàndards o simplement arrepleguen quatre coses i prou? Fem una ullada a unes quantes empreses i vegem quina puntuació reben mitjançant el servei de validació d'etiquetatge del W3C. Us sorprendria quantes grans pàgines web no passen les proves de validació d'estàndards; no us desanimeu, de totes maneres, perquè no hi ha motiu per a no poder fer-ho millor i que les vostres pàgines sí es validin correctament. Quan llegiu els següents informes tingueu en compte que com més gran i complicada és la pàgina web, més difícil és validar-la, en general (hi ha altres factors a tenir en compte, com les tecnologies emprades).</p>
+
+<h3 id="amazon">5.2.1. Amazon: comprar amb estàndards?</h3>
+<p>És possible que si alguna vegada heu fet alguna compra en línia hàgiu visitat <a href="http://amazon.com/" hreflang="en">Amazon.com</a> (o un dels webs específics per país). Amazon és un megamagatzem del ciberespai que ofereix de tot, des de llibres a CD i fins i tot aliments en algunes zones. Ara bé: passaria Amazon.com la prova de validació? Comproveu-ho a la figura 2.</p>
+<div class="imagen">
+	<img src="06510_m1_08.gif" alt="Amazon té un munt d'errors de validació" />
+	<p>Figura 2. Amazon.com falla estrepitosament! No només té etiquetatge no vàlid, sinó que ni tan sols declaren un tipus de document (dient quina versió d'HTML o XHTML utilitzen).</p>
+</div>
+<p>A Amazon encara li queda molt per a fer pel que fa a compatibilitat amb els estàndards. Desconec què passa a Amazon, però si se'm permet especular una mica, diria que tenint en compte que Amazon ja fa temps que funciona, probablement han utilitzat el mateix programari per a la seva pàgina web durant tota la seva existència. Com els estàndards web no han rebut la suficient atenció fins a principis d'aquest segle, és molt probable que el sistema que utilitza Amazon per a vendre productes en línia es desenvolupés molt abans, quan els estàndards web no eren realment acceptats ni publicitats. No ho sé del cert, però intueixo que Amazon es troba en el cas d'aquells que es mantenen amb allò que els funciona.</p>
+
+<h3 id="cnn">5.2.2. CNN: notícies estandarditzades?</h3>
+<p>Segur que les organitzacions de notícies són ens semàntics? <a href="http://CNN.com/" hreflang="en">CNN.com</a> és una de les pàgines web de mitjans més gran de tot el món. En tenir recursos globals i informar sobre les notícies a mesura que succeeixen, segurament tindran un equip d'especialistes interns per a garantir que el seu web tingui un etiquetatge vàlid, no? Comproveu-ho a la figura 3.</p>
+<div class="imagen">
+	<img src="06510_m1_09.gif" alt="CNN és una mica més conforme, però no supera la prova" />
+	<p>Figura 3. CNN.com (el 15 d'abril del 2008) no supera la validació amb 33 errors. Es menciona un tipus de document HTML 4.01 transicional, però gran part del seu etiquetatge té un aire molt d'XHTML.</p>
+</div>
+<p>33 errors no està malament tractant-se d'un web de les dimensions i complexitat de CNN. Aquests 33 errors pot ser que es produeixin (i de nou estic especulant) perquè el sistema de gestió de continguts que utilitzen no estigui del tot preparat per a produir etiquetatge que compleixi els estàndards, o podria tractar-se d'una col·lecció d'errors d'etiquetatge per part d'un personal de producció que s'especialitza a redactar notícies, no produir webs; qualsevol explicació és versemblant.</p>
+
+
+<h3 id="apple">5.2.3. Apple: el màxim d'elegància en disseny i en validació?</h3>
+<p>Apple és famosa pels seus productes de maquinari i programari bonics i funcionals. El seus anuncis de productes són quasi com experiències religioses per a multituds de fidels seguidors. El web d'<a href="http://apple.com/" hreflang="en">Apple</a>, (vegeu la figura 4) sovint es considera molt ben dissenyat i organitzat, però... passaria la prova de validació?</p>
+<div class="imagen">
+	<img src="06510_m1_10.jpg" alt="El lloc web d'Apple gairebé supera la validació" />
+	<p>Figura 4. A Apple.com li falta molt poc per tenir un etiquetatge HTML 4.01 transicional vàlid. Entre els 6 errors que té hi ha una barreja d'errades d'etiquetatge i un cas d'ús d'etiquetes específiques de Safari.</p>
+</div>
+<p>El web d'Apple s'acosta molt a la validació. Realment, només caldria que algú li dediqués 5 minuts per corregir els errors i fer que la pàgina superi la prova de validació. No obstant això, l'única errada que esmentaria breument és que Apple ha decidit utilitzar un atribut específic de Safari al seu quadre de cerca (donant al quadre de cerca l'atribut <code>type="search"</code>). A Safari, això li permetrà veure una llista de cerques recents fent clic sobre una petita icona de lupa. En altres navegadors, com ara Opera o Internet Explorer, es veurà només com un quadre de text normal.</p>
+
+
+<h3 id="survey">5.2.4. Un petit sondeig de compatibilitat d'estàndards</h3>
+<p>En comptes de veure molts exemples com aquest, he comprimit la resta de webs sondejades en una pràctica gràfica de pastís. M'he mirat uns 40 webs corporatius de la llista Fortune 500 i també les classificacions Alexa de webs amb més trànsit, i a la figura 5 es mostra el que he esbrinat:</p>
+<div class="imagen">
+	<img src="06510_m1_11.gif" alt="Un 85% dels llocs webs examinats no superen la validació" />
+	<p>Figura 5. El 85% dels webs sondejats no van passar la validació de cap manera. Alguns presentaven fallades espectaculars de fins a 1.000 errors; d'altres eren només un parell d'errades aquí i allà.</p>
+</div>
+
+<h2 id="compliancelack">5.3. Per què hi ha tan poques pàgines que compleixin els estàndards?</h2>
+<p>Ens preguntem: "per què, per què no es validen?" Això pot ser una mica dramàtic, però com a mínim té un to similar a la pregunta que us esteu fent en aquest moment. Per què es validen tan pocs webs? Ja he esmentat algunes de les raons possibles coses com sistemes de comerç electrònic o sistemes de gestió de continguts heretats però també hi ha altres motius subjacents.</p>
+
+<h3 id="education">5.3.1. Educació</h3>
+<p>La facultat on vaig anar tenia un programa de Sistemes d'informació de gestió (<span lang="en">Management Information Systems</span>), un programa de ciències informàtiques i un programa de Nous mitjans, cadascun dels quals tenia assignatures relacionades amb la producció de webs i encara que ensenyaven moltes coses de manera eficient, a cap d'aquestes hi havia realment molta cobertura de com codificar realment un web. La sensació general que tinc quan miro moltes assignatures universitaries és que els llenguatges web com l'HTML, el CSS i JavaScript es troben sota el llindar tècnic de la majoria de programes de ciències informàtiques i per sobre del de la majoria de programes de MIS/Nous mitjans.</p>
+<p>A on vull anar a parar en aquest cas és que molts cursos educatius no cobreixen aquest tipus de matèries amb gaire detall. Apostaria que si li pregunteu a 10 desenvolupadors que treballin amb estàndards web on van aprendre a utilitzar-los, 9 d'ells respondrien que són autodidactes (i l'altre no respondria perquè té massa feina intentant que el seu web es visualitzi bé amb l'IE6).</p>
+<p>El World Wide Web Consortium (W3C), que és el grup responsable de desenvolupar els estàndards, i el Web Standards Project (WaSP) s'estan prenent seriosament aquest repte i estan pressionant realment perquè millori l'acceptació dels estàndards web, tant per part dels fabricants de navegadors com per part dels desenvolupadors.</p>
+<p>De fet, el veritable motiu pel qual es va crear aquest curs que esteu llegint és proporcionar un conjunt adequat de materials d'aprenentatge per als estàndards web i un mitjà per a utilitzar aquest material per a aprendre, de manera gratuïta. En definitiva intentem eliminar alguns motius més (dubtem de si fer servir la paraula "excuses" en aquest cas) pels quals la gent no està adoptant els estàndards web. Realment no hi ha excusa per a no utilitzar-los, tenint en compte els avantatges que suposen (tal com s'ha vist al subapartat 4.1).</p>
+
+<h3 id="business">5.3.2. Motius empresarials</h3>
+<p>Un web que visito freqüentment, destinat a emprenedors implicats a posar n marxa noves iniciatives basades al web ha allotjat una sèrie de discussions sobre l'ús dels estàndards web a "aplicacions web 2.0". Generalment hi ha un intercanvi interessant entre aquells que creuen que s'haurien de fer servir els estàndards web perquè tenen sentit (per tots els motius que hem tractat anteriorment), i aquells que simplement diuen que no importa.</p>
+<p>El fons de la qüestió és que els navegadors web interpretaran el codi per dolent que sigui. No és necessari validar les vostres pàgines perquè es visualitzin correctament a la majoria de navegadors. Des d'una perspectiva empresarial, on el temps és or, per a què preocupar-se d'invertir més temps per tal que es validin? Si pots arranjar quatre codis en forma de taula en 30 minuts, o passar-te 30 minuts codificant la teva pàgina en HTML i CSS i 30 minuts per a assegurar-te que es valida i funciona correctament en qualsevol navegador, i el resultat final tindrà el mateix aspecte a la majoria de navegadors web, què us sembla més fàcil?</p>
+<p>Molta gent de la meva generació (quasi arribo a la trentena en el moment de redactar això) va aprendre a crear webs utilitzant taules per al format i etiquetes de tipus de lletra per a la tipografia. Pot semblar aclaparador tornar a aprendre a fer alguna cosa quan el que estàs fent encara "funciona" (encara es veu bé a la majoria de navegadors web). Els empresaris generalment no distingeixen la diferència; no m'he trobat mai que un director em parlés de la qualitat del meu etiquetatge durant una revisió de rendiment. De manera que, realment, quin és l'incentiu?</p>
+<p>Doncs el que jo crec és (ja podeu endevinar quina és la meva posició) que el plantejament del codi desordenat o mal fet té molt poca visió de futur. Segons la meva experiència, redissenyar un web basat en estàndards és mot més fàcil que haver de convertir un caos de pàgines incorrectament codificades (he fet les dues coses). Encara he d'arribar a la utopia que prometen l'XHTML i el CSS en la qual només s'ha de tocar el CSS per a redissenyar un web, però m'hi he acostat força.</p>
+<p>També cal tenir en compte que veureu molts més anuncis de feina actualment demanant coneixements d'estàndards web que mai.</p>
+<p>També hi ha alguns motius empresarials directes a tenir en compte. En general, l'ús d'estàndards web millora la posició d'un web a les classificacions dels motors de cerca (l'ordre en què apareixen els webs quan es fa una cerca de Google) i sobretot millora la facilitat de trobar-lo. A més, l'ús d'estàndards i bones pràctiques generalment farà que la pàgina web sigui més accessible per a les persones amb discapacitats que intenten utilitzar-la i per als usuaris que intenten accedir al web amb telèfons mòbils. Més usuaris i un augment de la visibilitat sempre és bo per al negoci.</p>
+
+
+
+<h2 id="summary">Resum</h2>
+<p>En aquest apartat he parlat sobre l'estat actual de l'adopció d'estàndards web, sobre com comprovar si els estàndards s'estan emprant correctament a un web, quants utilitzen els estàndards web correctament i els motius pels quals la gent no adopta els estàndards. Com ja heu vist anteriorment, els motius no són tan imperatius i haurien de ser fàcils de superar.</p>
+<p>Així, doncs, què ha de fer un desenvolupador web emprenedor? Penseu que són importants els estàndards web (i seguir llegint aquest curs), o sou dels qui poseu en marxa un editor gràfic i comenceu a maquetar el web amb taules?</p>
+<p>Diguem-ho d'aquesta manera: la queixa individual més gran que he llegit de persones que diuen que el desenvolupament basat en estàndards és una pèrdua de temps és que es triga massa a aprendre els estàndards web en comptes dels mètodes obsolets i desenvolupar webs que funcionin amb tots els navegadors. Aleshores, per què no començar aprenent la manera correcta de fer-ho i estalviar-se uns quants problemes? Heu decidit aprendre com crear webs i heu de fer-ho d'una manera o una altra; per tant, per què no aprendre a fer-ho correctament?</p>
+
+
+<h2 id="exercises">Preguntes de repàs</h2>
+<ol>
+<li><p>Hem vist molts "grans" webs i si es validen o no. Passeu pel validador alguns dels webs que visiteu sovint. Es validen? Si no és així, mireu alguns dels errors per a fer-vos una idea de per què fallen.</p></li>
+<li><p>Què és un tipus de document (<span lang="en">doctype</span>)? Què fa?</p></li>
+<li><p>Quins arguments podeu donar a favor dels estàndards web per als negocis?</p></li></ol>
+
+
+
+<h2 id="furtherreading">Lectures complementàries</h2>
+
+<ul>
+<li><p><a href="http://validator.w3.org/" hreflang="en">Servei de validació de marcat del W3C</a>.</p></li>
+<li><p><a href="http://www.w3.org/" hreflang="en">Web del W3C</a> (amb informació sobre diversos estàndards i recomanacions per al futur).</p></li>
+<li><p><a href="http://www.webstandards.org/" hreflang="en">El Projecte d'estàndards web</a>.</p></li>
+</ul>
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud3/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+<a rel="next" href="../../m2/ud1/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

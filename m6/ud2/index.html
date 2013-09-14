@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Herència i cascada</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Herència i cascada</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud3/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>28. Herència i cascada</h1>
+<p class="by"><a href="../../index.html#olsson">Tommy Olsson</a>. 26 de setembre de 2008. Publicat a: importància, font, ordre, important, especificitat.</p>
+   
+<p>L'herència i la cascada són dos conceptes bàsics en CSS. S'han de comprendre bé per fer servir CSS. Per sort, no són gaire difícils d'entendre, tot i que alguns detalls poden ser una mica complicats de recordar.</p>
+
+<p>Els dos conceptes estan relacionats, però són diferents. L'herència està relacionada amb com els elements de l'etiquetatge de l'HTML hereten propietats dels seus elements pares (els que els contenen) i els transmeten als seus fills, mentre que la cascada té a veure amb les declaracions de CSS que s'apliquen a un document i com les regles contradictòries s'anul·len o no entre elles.</p>
+
+<p>En aquest apartat tractarem detalladament aquests dos conceptes. Probablement l'herència és un concepte més fàcil de copsar, de manera que començaré amb aquest i després passaré a les particularitats de la cascada.
+</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Descarregueu-vos el codi font dels exemples d'aquest apartat; el fitxer "inheritance_cascade_code.zip" conté el CSS i HTML acabats, a més de la plantilla inicial d'HTML perquè pugueu anar treballant mentre veieu els exemples.</p>
+<p class="font"><strong>Descarregueu els exemples a:</strong> "<a href="http://dev.opera.com/articles/view/28-inheritance-and-cascade/inheritance_cascade_code.zip">inheritance_cascade_code.zip</a>"</p>
+
+</div>
+
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>28.1. <a href="#inheritance" accesskey="1">Herència</a>
+<ul class="index">
+<li>28.1.1. <a href="#inheritanceuseful">Per a què serveix l'herència</a></li>
+<li>28.1.2. <a href="#howinheritanceworks">Com funciona l'herència</a></li>
+<li>28.1.3. <a href="#inheritanceexample">Un exemple d'herència</a></li>
+<li>28.1.4. <a href="#forcinginheritance">Forçar l'herència</a></li>
+</ul></li>
+<li>28.2. <a href="#thecascade" accesskey="2">Cascada</a>
+<ul class="index">
+<li>28.2.1. <a href="#importance">Importància</a></li>
+<li>28.2.2. <a href="#specificity">Especificitat</a></li>
+<li>28.2.3. <a href="#sourceorder">Ordre en les fonts</a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+</ul>
+
+<h2 id="inheritance">28.1. Herència</h2>
+
+<div class="text-clau">
+<p>L'herència en CSS és el mecanisme mitjançant el qual determinades propietats d'un element pare es transmeten als seus fills. De fet, s'assembla força a l'herència genètica. Si els progenitors tenen els ulls blaus, els fills segurament també tindran els ulls blaus.</p>
+</div>
+
+<p>No totes les propietats CSS són heretades perquè algunes d'elles no tindria sentit que ho fossin. Per exemple, els marges no s'hereten perquè és poc probable que un element fill necessiti els mateixos marges que el seu pare. Normalment, el sentit comú dicta quines propietats s'hereten i quines no, però per estar-ne del tot segur, cal consultar cada propietat a la <a href="http://www.w3.org/TR/CSS21/propidx.html" hreflang="en">taula de resum de propietats de l'especificació CSS 2.1</a>.</p>
+
+<h3 id="inheritanceuseful">28.1.1. Per a què serveix l'herència</h3>
+
+<p>Per què el CSS té un mecanisme d'herència? Probablement, la manera més senzilla de respondre aquesta pregunta sigui pensar què passaria si no existís l'herència. S'haurien d'especificar qüestions com ara la família de fonts, la mida de la font i el color del text individualment per a tots i cadascun dels tipus d'element.</p>
+
+<p>Mitjançant l'herència, per exemple, es poden especificar les propietats de les fonts dels elements <code>html</code> o <code>body</code> i tota la resta d'elements els heretaran. Es poden especificar els colors de fons i de primer pla d'un element contenidor concret i tots els elements fills d'aquest contenidor heretaran automàticament el color de primer pla. El color de fons no s'hereta, però el valor inicial de <code>background-color</code> (color de fons) és <code>transparent</code>, la qual cosa significa que el fons del pare es veurà a través seu. L'efecte és el mateix que si s'heretés el color de fons, però penseu què passaria si s'heretessin les imatges de fons! Tots els fills tindrien la mateixa imatge de fons com a pare i, per tant, tot semblaria un trencaclosques creat per algú amb problemes d'addicció a les drogues, ja que el fons "tornaria a començar des de zero" per a cada element.</p>
+
+<h3 id="howinheritanceworks">28.1.2. Com funciona l'herència</h3>
+
+<p>Tots els elements d'un document HTML hereten totes les propietats heretables del seu pare tret de l'element arrel (<code>html</code>), que no té progenitor.</p>
+<p>El fet que les propietats heretades tinguin algun efecte o no depèn d'altres factors, tal com veurem més endavant quan parlem de la cascada. De la mateixa manera que una mare d'ulls blaus pot tenir un fill d'ulls marrons si el pare té els ulls marrons, les propietats heretades a CSS poden anul·lar-se.</p>
+
+<h3 id="inheritanceexample">28.1.3. Un exemple d'herència</h3>
+<ol>
+<li><p>Copieu el següent document HTML en un fitxer nou de l'editor de textos que més us agradi i guardeu-lo com
+inherit.html.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/
+strict.dtd"&gt;
+&lt;html lang="en"&gt;
+	&lt;head&gt;
+		&lt;meta http-equiv="Content-Type" content="text/html;
+		charset=utf-8"&gt;
+		&lt;title&gt;Herència&lt;/title&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;h1&gt;Títol&lt;/h1&gt;
+		&lt;p&gt;Un paràgraf de text.&lt;/p&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>Si obriu el document en el navegador web, veureu un document força avorrit que es mostra segons l'estil per defecte del vostre navegador.</p></li>
+
+<li><p>Creeu un nou fitxer buit amb l'editor de textos, copieu-hi a dins la regla CSS que es mostra a continuació i guardeu el fitxer com <code>style.css</code> a la mateixa ubicació que el fitxer HTML.</p>
+
+<pre><code>html {
+	font: 75% Verdana,sans-serif;
+}</code></pre></li>
+
+<li><p>Enllaceu el full d'estil al document HTML inserint la línia següent abans del tag <code>&lt;/head&gt;</code>.</p>
+
+<pre><code>&lt;link rel="stylesheet" type="text/css" media="screen" href="styles.css"&gt;</code></pre></li>
+
+<li><p>Guardeu el fitxer HTML modificat i recarregueu el document en el navegador. La font passarà de ser la predeterminada pel navegador (normalment Times o Times New Roman) a ser Verdana. Si no teniu Verdana instal·lada a l'ordinador, el text es mostrarà amb la font Sans Serif especificada per defecte a la configuració del navegador. A més, el text es veurà un 25% més petit que a la versió sense estil.</p>
+
+<p>La regla de CSS que hem especificat s'aplica únicament a l'element html. No hem especificat cap regla per als títols o els paràgrafs, però ara tot el text es mostra en Verdana al 75% de la mida per defecte. Per què? Per l'herència.</p>
+
+<p>La propietat de font és una propietat abreujada que estableix tota una sèrie de propietats relacionades amb les fonts. Només n'hem especificat dues, la mida de la font i la família de fonts, però aquesta regla equival al següent:</p>
+
+<pre><code>html {
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 75%;
+	line-height: normal;
+	font-family: Verdana,sans-serif;
+}</code></pre>
+
+<p>Totes aquestes propietats s'hereten, de manera que l'element body les heretarà de l'element <code>html</code> i després les transmetrà als seus fills: el títol i el paràgraf.</p>
+
+<p>Però un moment! Hi ha quelcom que no acaba de quedar clar pel que fa a l'herència de la mida de la font, oi? La mida de la font de l'element <code>html</code> s'estableix en 75%, però 75% de què? I la mida de la font de <code>body</code> no hauria de ser el 75% de la mida de la font del seu pare i les mides de les fonts del títol i del paràgraf haurien de ser el 75% de la mida de l'element <code>body</code>?</p>
+
+<p>El valor que s'hereta no és el valor especificat, és a dir, el valor que escrivim al full d'estil, sinó una cosa que s'anomena <em>el valor computat</em>. El valor computat és, en el cas de la mida de la font, un valor absolut mesurat en píxels. Per a l'element <code>html</code>, que no té un element pare del qual heretar, un percentatge del valor de mida de font s'associa a la mida de font predeterminada del navegador. La majoria de navegadors actuals tenen una mida de font predeterminada de 16 píxels. El 75% de 16 és 12, de manera que el valor computat de la mida de la font de l'element <code>html</code> serà probablement 12 píxels. Aquest és el valor que hereta <code>body</code> i que es transmet al títol i al paràgraf.</p>
+
+<p>(La mida de la font del títol és més gran perquè el navegador aplica algunes normes d'estil integrades pròpies. Vegeu el tema de la cascada tot seguit.)</p></li>
+
+<li><p>Afegiu dos declaracions més a la regla del full d'estil de CSS:</p>
+
+<pre><code>html {
+	font: 75% Verdana,sans-serif;
+	background-color: blue;
+	color: white;
+}</code></pre></li>
+
+<li><p>Guardeu el fitxer CSS i recarregueu el document al navegador.</p>
+
+<p>Ara el fons és de color blau fort i tot el text és blanc. La regla s'aplica a l'element <code>html</code>: el document sencer, el fons del qual serà blau. L'element <code>body</code> hereta el color blanc de primer pla i es transmet a tots els fills de <code>body:</code> en aquest cas el títol i el paràgraf. Aquests no hereten el fons, però el fons s'establirà en el valor per defecte de <code>transparent</code>, de manera que el resultat visual final serà text blanc sobre fons blau.</p></li>
+
+<li><p>Afegiu una altra regla nova al full d'estil i guardeu i recarregueu el document.</p>
+
+<pre><code>h1 {
+	font-size: 300%;
+}</code></pre>
+
+<p>Aquesta regla estableix la mida de la font del títol. El percentatge s'aplica a la mida de font heretada (el 75% de la predeterminada pel navegador, que suposem que és 12 píxels), de manera que la mida del títol serà el 300% de 12 píxels, és a dir: 36 píxels.</p></li>
+</ol>
+<h3 id="forcinginheritance">28.1.4. Forçar l'herència</h3>
+
+<p>Mitjançant la paraula clau <code>inherit</code> (heretar) pot forçar-se l'herència fins i tot per a propietats que no s'hereten normalment. Tanmateix, s'ha de fer servir amb molta cura, perquè Microsoft Internet Explorer (fins a la versió 7 inclosa) no és compatible amb aquesta paraula clau.</p>
+
+<p>La regla següent fa que tots els paràgrafs heretin totes les propietats de fons dels seus pares:</p>
+
+<pre><code>p {
+	background: inherit;
+}</code></pre>
+
+<p>Amb les propietats abreujades es pot fer servir inherit en comptes dels valors normals. S'ha de fer servir la versió abreujada per a tot o per a res. En la versió no abreujada no es poden especificar alguns valors i fer servir <code>inherit</code> per a d'altres, perquè els valors poden donar-se en qualsevol ordre i no hi ha manera d'especificar quins valors volem heretar.</p>
+
+<p>Forçar l'herència no és quelcom que calgui fer sovint. Pot ser útil per "desfer" una declaració d'una regla conflictiva o per no haver d'introduir les dades de determinats valors directament al codi font. Un exemple seria el típic menú de navegació:</p>
+
+<pre><code>&lt;ul id="nav"&gt;
+	&lt;li&gt;&lt;a href="/"&gt;Inici&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="/news/"&gt;Notícies&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="/products/"&gt;Productes&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="/services/"&gt;Serveis&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="/about/"&gt;Sobre nosaltres&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>Per mostrar aquesta llista d'enllaços com a menú horitzontal, podeu fer servir el CSS següent:</p>
+
+<pre><code>#nav {
+	background: blue;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+#nav li {
+	display: inline;
+	margin: 0;
+	padding: 0 0.5em;
+	border-right: 1px solid;
+}
+#nav li a {
+	color: inherit;
+	text-decoration: none;
+}</code></pre>
+
+<p>En aquest cas, el color de fons de tota la llista s'estableix en blau a la regla de #nav. Així també s'estableix el color de primer pla com a blanc i tots els elements de la llista i tots els enllaços hereten el mateix. La regla dels elements de la llista estableix un límit a la dreta, però no especifica el color del marge, la qual cosa significa que utilitzarà el color de primer pla heretat (el blanc). Per als enllaços, hem fet servir <code>color:inherit</code> per forçar l'herència i anul·lar el color dels enllaços predeterminat del navegador.</p>
+
+<p>Lògicament, també podria haver especificat el blanc com a color del marge i del text dels enllaços, però el millor del fet de deixar que ho faci l'herència és que, si més endavant decidim canviar els colors, només haurem de fer un canvi en aquest punt.</p>
+
+<h2 id="thecascade">28.2. Cascada</h2>
+
+<div class="text-clau">
+<p>CSS significa <em>Cascading Style Sheets</em> (fulls d'estil en cascada) i, per tant, no hauria d'estranyar-nos que la cascada sigui un concepte important. És el mecanisme que controla el resultat final quan s'apliquen diverses declaracions CSS contraposades al mateix element. </p>
+</div>
+
+<p>Hi ha tres conceptes principals que controlen l'ordre en el qual s'apliquen les declaracions de CSS:</p>
+<ol>
+<li><p>Importància</p></li>
+<li><p>Especificitat</p></li>
+<li><p>Ordre en les fonts</p></li>
+</ol>
+
+<p>Tot seguit tractaré amb detall aquests conceptes un per un.</p>
+
+<p>La importància és un dels conceptes més... doncs... importants. Si dues declaracions tenen la mateixa importància, l'especificitat de les regles decidirà quina s'ha d'aplicar. Si les regles tenen la mateixa especificitat, l'ordre de les fonts controla el resultat.</p>
+
+<h3 id="importance">28.2.1. Importància</h3>
+
+<p>La importància d'una declaració de CSS depèn d'on s'ha especificat. Les declaracions contraposades s'aplicaran en l'ordre següent; les noves anul·laran les més antigues.</p>
+<ol>
+<li><p>Fulls d'estil d'agent d'usuari.</p></li>
+<li><p>Declaracions normals en fulls d'estil d'autor.</p></li>
+<li><p>Declaracions normals en fulls d'estil d'usuari.</p></li>
+<li><p>Declaracions importants en fulls d'estil d'autor.</p></li>
+<li><p>Declaracions importants en fulls d'estil d'usuari.</p></li>
+</ol>
+<p>Un <strong>full d'estil d'agent d'usuari</strong> és el full d'estil integrat del navegador. Cada navegador té les seves pròpies regles sobre com mostrar diversos elements d'HTML si l'usuari o dissenyador de la pàgina no especifica cap estil. Per exemple, els enllaços no visitats acostumen a ser blaus i a estar subratllats.</p>
+
+<p>Un full d'estil d'usuari és un full d'estil que ha especificat l'usuari. No tots els navegadors són compatibles amb els fulls d'estil d'usuari, però poden ser molt pràctics, sobretot per als usuaris amb determinats tipus de minusvalidesa. Per exemple, una persona dislèxica pot tenir un full d'estil d'usuari que especifiqui determinades fonts i colors que li facilitin la lectura.</p>
+
+<p>Opera permet especificar fulls d'estil d'usuari des de <samp>Tools</samp> (eines) (o des del menú Opera en un Mac) &gt; <samp>Preferences...</samp> (Preferències) &gt; llengüeta <samp>Advanced</samp> (Avançat) &gt; <samp>Content</samp> (Contingut), fent clic al botó <samp>Style Options...</samp>  (Opcions d'estil...) i després assenyalant el full d'estil d'usuari del camp de text <samp>My style sheet</samp> (El meu full d'estil) dins de la llengüeta <samp>Display</samp> (Mostrar) d'aquest quadre de diàleg. També es pot especificar si es vol que el full d'estil d'usuari anul·li el full d'estil de l'autor (el dissenyador del web) a la llengüeta <samp>Presentation</samp> (Presentació)i, fins i tot, que afegeixi un botó a la interfície d'usuari amb el qual poder canviar el full d'estil de l'usuari amb la de l'autor. Per a fer-ho, sortiu totalment del menú <samp>Preferences...</samp> (Preferències...) fent clic a Acceptar i després feu clic amb el botó dret o, mentre premeu <samp>Ctrl</samp>, feu clic en algun punt de la interfície del navegador Opera, seleccioneu la vista <samp>Customize...</samp> (Personalitzar...) &gt; llengüeta <samp>Buttons</samp> (Botons) &gt; <samp>Browser</samp> (Navegador) i arrastreu el botó <samp>Author Mode</samp> (Mode autor) fins a un punt d'alguna de les barres d'eines.</p>
+
+<p>Quan parlem de "full d'estil", normalment fem referència a un full d'estil d'autor. És el full d'estil que ha creat o enllaçat l'autor del document (o, més probablement, el dissenyador del web).</p>
+
+<p>Les declaracions normals són exactament el que el seu nom indica: declaracions normals. El contrari són les <strong>declaracions importants</strong>, que són les declaracions que van seguides d'una directiva <code>!important</code>.</p>
+
+<p>Com es pot observar, les declaracions importants d'un full d'estil d'usuari tenen prioritat sobre totes les altres, la qual cosa és lògica. Seguint l'exemple de la persona dislèxica, podria ser que volgués veure tot el text amb Comic Sans MS en cas que li facilités la lectura. Aleshores podria tenir un full d'estil d'usuari amb la regla següent:</p>
+
+<pre><code>* {
+	font-family: "Comic Sans MS" !important;
+}</code></pre>
+
+<p>En aquest cas, independentment d'allò que hagi especificat el dissenyador, i independentment d'allò que s'hagi establert com a família de fonts predeterminada del navegador, tot es mostrarà amb Comic Sans MS.</p>
+
+<p>El mètode de presentació per defecte del navegador només s'aplicarà si les declaracions no queden anul·lades per alguna regla d'un full d'estil d'usuari o un full d'estil d'autor, ja que el full d'estil d'agent d'usuari té la precedència menor.</p>
+
+<p>En realitat, la majoria de dissenyadors no cal que es preocupin gaire de la importància perquè no s'hi pot fer res. No hi ha cap manera de saber si un usuari té un full d'estil d'usuari definit que anul·la el nostre CSS. I si el tenen, segurament sigui per alguna bona raó. Tot i així, va bé saber què és la importància i com pot afectar la presentació dels nostres documents.</p>
+
+<h3 id="specificity">28.2.2. Especificitat</h3>
+
+<p>L'especificitat és una cosa que cal que tots els autors de CSS comprenguin i tinguin en compte. Pot considerar-se una mesura de com d'específic és el selector d'una regla. Un selector d'especificitat baixa pot donar com a resultat molts elements (com *, que dóna com a resultat tots els elements del document), mentre que un selector amb una especificitat elevada pot ser que només doni com a resultat un únic element d'una pàgina (com ara <code>#nav</code>, que només dóna com a resultat l'element amb un <code>id</code> de <code>nav</code>).</p>
+
+<p>L'especificitat d'un selector pot calcular-se fàcilment, tal com veurem molt aviat. Si dues o més declaracions entren en conflicte per un element determinat i totes les declaracions tenen la mateixa importància, la de la regla amb el selector més específic serà la que "guanyi".</p>
+
+<p>L'<strong>especificitat</strong> té quatre components; per exemple a, b, c i d. El component "a" és el més distintiu i el "d" el que menys.</p>
+
+<ul>
+<li><p>El component "a" és força senzill: És 1 per a una declaració en un atribut de <code>style</code>, si no, és 0.</p></li>
+
+<li><p>El component "b" és el nombre de selectors de <code>id</code> al selector (els que comencen amb #).</p></li>
+
+<li><p>El component "c" és el nombre de selectors d'atribut, inclosos els selectors de classe, i pseudoclasses.</p></li>
+
+<li><p>El component "d" és el nombre de tipus d'elements i pseudoelements del selector.</p></li>
+</ul>
+
+<p>Així, després de comptar una mica, podem unir aquests quatre components per aconseguir l'especificitat de qualsevol regla. Les declaracions de CSS en un atribut de
+<code>style</code> no tenen un selector, de manera que la seva especificitat sempre és 1,0,0,0.</p>
+
+<p>Vegem uns quants exemples que ens ajudaran a aclarir com funciona aquest procés.</p>
+
+<table summary="">
+<thead>      
+<tr>
+<th><strong>Selector</strong></th>
+<th><strong>a</strong></th>
+<th><strong>b</strong></th>
+<th><strong>c</strong></th>
+<th><strong>d</strong></th>
+<th><strong>Especificitat</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h1</code></td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0,0,0,1</td>
+</tr>
+<tr>
+<td><code>.foo</code></td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0,0,1,0</td>
+</tr>
+<tr>
+<td><code>#bar</code></td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0,1,0,0</td>
+</tr>
+<tr>
+<td><code>html&gt;head+body ul#nav *.home a:link</code></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>0,1,2,5</td>
+</tr>
+</tbody>
+</table>
+
+<p>Passem ara a comentar l'últim exemple amb més detall. S'obté <code>a=0</code> perquè és un selector, no una declaració d'un atribut style. Hi ha un selector ID (<code>#nav</code>), de manera que <code>b=1</code>. Hi ha un selector d'atributs (<code>.home</code>) i una pseudoclasse (<code>:link</code>), per tant, <code>c=2</code>. Hi ha cinc tipus d'element (<code>html</code>, <code>head</code>, <code>body</code>, <code>ul</code> i <code>a</code>), de manera que <code>d=5</code>. Per tant, l'especificitat final és 0,1,2,5.</p>
+<p>Cal mencionar que els combinadors (com &gt;, + i l'espai en blanc) no afecten l'especificitat d'un selector. El selector universal (*) tampoc té informació sobre especificitat.</p>
+
+<p>També cal tenir en compte que hi ha una gran diferència d'especificitat entre un selector <code>id</code> i un selector d'atributs que per casualitat faci referència a un atribut
+<code>id</code>. Encara que donin com a resultat el mateix element, tenen especificitats molt diferents. L'especificitat de <code>#nav</code> és 0,1,0,0 i l'especificitat de [<code>id="nav"</code>]és només 0,0,1,0.</p>
+
+<p>Fixem-nos com funciona això en la pràctica.</p>
+<ol>
+<li><p>Comenceu afegint un altre paràgraf al document HTML.</p>
+
+<pre><code>&lt;body&gt;
+	&lt;h1&gt;Títol&lt;/h1&gt;
+	&lt;p&gt;Un paràgraf de text.&lt;/p&gt;
+	&lt;p&gt;Un segon paràgraf de text.&lt;/p&gt;
+&lt;/body&gt;</code></pre></li>
+
+<li><p>Afegiu una regla al full d'estil per fer que el text dels paràgrafs sigui d'un color diferent.</p>
+
+<pre><code>p {
+	color: cyan;
+}</code></pre></li>
+
+<li><p>Guardeu els dos fitxers i recarregueu el document al vostre navegador. S'haurien de veure dos paràgrafs de color cian.</p></li>
+
+<li><p>Establiu un <code>id</code> al primer paràgraf per a que pugueu trobar-lo fàcilment amb un selector CSS.</p>
+
+<pre><code>&lt;body&gt;
+	&lt;h1&gt;Títol&lt;/h1&gt;
+	&lt;p id="special" &gt;Un paràgraf de text.&lt;/p&gt;
+	&lt;p&gt;Un segon paràgraf de text.&lt;/p&gt;
+&lt;/body&gt;</code></pre></li>
+
+<li><p>Afegiu una regla per al paràgraf especial al full d'estil.</p>
+
+<pre><code>#special {
+	background-color: red;
+	color: yellow;
+}</code></pre></li>
+
+<li><p>Guardeu els dos fitxers i recarregueu el document al navegador per veure'n el resultat, que és bastant viu.</p></li>
+</ol>
+<p>Vegem les declaracions que s'apliquen als dos paràgrafs.</p>
+
+<p>La primera regla que he afegit estableix <code>color:cyan</code> per a tots els paràgrafs. La segona regla estableix un color de fons vermell i estableix <code>color:yellow</code> per a l'únic element que té <code>id</code> de <code>special</code>. El primer paràgraf encaixa amb aquestes dues regles: és un paràgraf i té la <code>id</code> de <code>special</code>.</p>
+
+<p>El fons vermell no és cap problema perquè només s'ha especificat per a <code>#special</code>. No obstant això, ambdues regles inclouen una declaració de la propietat de <code>color</code>, la qual cosa significa que hi ha un conflicte. Ambdues regles tenen la mateixa importància, es tracta de declaracions normals al full d'estil de l'autor, de manera que cal fixar-se en l'especificitat dels dos selectors.</p>
+
+<p>El selector de la primera regla és <code>p</code>, que té una especificitat de 0,0,0,1 segons les regles anteriorment mencionades, ja que inclou un únic tipus d'element. El selector de la segona regla és <code>#special</code>, que té una especificitat de 0,1,0,0 perquè està format per un selector de <code>id</code>. 0,1,0,0 i és molt més específic que 0,0,0,1, de manera que la declaració <code>color:yellow</code> guanya i s'obté el text groc sobre fons vermell.</p>
+
+<h3 id="sourceorder">28.2.3. Ordre en les fonts</h3>
+
+<p>Si dues declaracions afecten el mateix element, tenen la mateixa importància i la mateixa especificitat, la senyal distintiva final és l'ordre en les fonts. La declaració que es veu més endavant als fulls d'estil "guanyarà" a les anteriors.</p>
+
+<p>Si teniu un únic full d'estil extern, les declaracions al final del fitxer anul·laran les que succeeixin abans al fitxer en cas de conflicte. Les declaracions contraposades també poden succeir en diferents fulls d'estil. En aquest cas, l'ordre en què s'enllacen, s'inclouen o s'importen els fulls d'estil determina quina declaració s'aplica, de manera que si es tenen dos fulls d'estil enllaçats en el <code>head</code> d'un document, l'enllaçat a l'últim anul·larà l'enllaçat al primer. Vegem un exemple pràctic de com funciona això.</p>
+<ol>
+<li><p>Afegiu una regla nova al full d'estil, just al final del fitxer, com per exemple:</p>
+
+<pre><code>p {
+	background-color: yellow;
+	color: black;
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu la pàgina web. Llavors tindreu dues regles que donen com a resultat tots els paràgrafs. Tenen la mateixa importància i la mateixa especificitat (ja que el selector és el mateix), per tant el mecanisme final per distingir-les serà l'ordre de les fonts.</p></li>
+</ol>
+<p>L'última regla especifica <code>color:black</code> i que anul·larà <code>color:cyan</code> de la regla anterior.</p>
+
+<p>Fixeu-vos com aquesta regla nova no afecta en absolut el primer paràgraf. Malgrat que la regla nova apareix en últim lloc, el seu selector té una especificitat més baixa que el de <code>#special</code>. Això demostra clarament com l'especificitat té prioritat sobre l'ordre de les fonts.</p>
+
+<h2 id="summary">Resum</h2>
+
+<p>Herència i cascada són conceptes bàsics que qualsevol dissenyador web ha de comprendre.</p>
+
+<p>L'herència permet declarar propietats en elements de nivell alt i que aquestes propietats es transmetin a tots els elements descendents. Només algunes propietats s'hereten per defecte, però l'herència pot forçar-se mitjançant la paraula clau <code>inherit</code>.</p>
+
+<p>La cascada soluciona els conflictes quan diverses declaracions afecten un element determinat. Les declaracions importants anul·len les que no ho són tant. Entre declaracions d'igual importància, l'especificitat de la regla controla quina s'aplica. I, si tota la resta és igual, l'ordre de les fonts suposa la distinció definitiva.</p>
+
+<h2 id="exercises">Preguntes de repàs</h2>
+
+
+<p>Preguntes que hauríeu de poder respondre:</p>
+
+<ol>
+<li><p>Es pot heretar la propietat <code>width</code>? Penseu-hi abans de contestar (tindria sentit?) i després mireu la resposta correcta a l'<a href="http://www.w3.org/TR/CSS21" hreflang="en">especificació CSS</a>.</p></li>
+
+
+<li><p>Si afegim <code>!important</code> a la declaració <code>color:black</code> de l'última regla del <a href="http://dev.opera.com/articles/view/28-inheritance-and-cascade/inheritance_cascade_code.zip" hreflang="en">full d'estil d'exemple</a>, afectarà el color del text del primer paràgraf "especial"?</p></li>
+
+<li><p>Quin selector és més específic, "<code>#special</code>" o "<code>html&gt;head+body&gt;h1+p</code>"?</p></li>
+
+<li><p>Quina aparença hauria de tenir un full d'estil d'usuari per a que el nostre document de prova aparegui amb Comic Sans MS negra sobre fons blanc, independentment del full d'estil de l'autor?</p></li>
+
+</ol>
+
+ </div>
+ <div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud1/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+		<a rel="next" href="../ud3/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

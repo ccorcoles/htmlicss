@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El text central d'HTML - Taules HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">El text central d'HTML</div>
+	<div id="subtitulo">Taules HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud4/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud6/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+   <h1>19. Taules HTML</h1>
+   
+   <p class="by"><a href="../../index.html#hanen">Jenifer Hanen</a>. 8 de juliol del 2008. Publicat a: encapçalament, dades, peu, taules, títol de taula</p>
+   
+   <p>Vaja! Com hem d'utilitzar els estàndards del web per a organitzar pilons de dades? El simple fet de pensar en les tones d'elements imbricats necessaris per a aconseguir que totes aquestes dades es distribueixin en files i quadres ja fa que el nostre cervell quedi totalment col·lapsat; però hi ha una solució: les taules poden salvar-nos!</p>
+   
+   <p>En el disseny de webs, les taules són una manera molt bona d'organitzar dades en un format tabulat. És a dir, que hem de veure les taules, els gràfics i els altres elements visuals informatius com una ajuda per a veure i processar una gran quantitat d'informació d'una manera resumida que ens ajuda a comparar i contrastar dades diferents. Podem veure aquests elements molt sovint als llocs web, ja sigui per a resumir o comparar resultats d'eleccions polítiques, estadístiques esportives, preus, talles o altres dades.</p>
+   
+   <p>A l'època juràssica d'Internet, abans de la popularització del CSS com a mètode per a separar la presentació de l'estructura de l'HTML, les taules s'utilitzaven per a maquetar les pàgines web: per a crear columnes i quadres i, en general, per a distribuir el contingut. Però aquesta no és la manera correcta de fer les coses; la maquetació amb taules donava com a resultat unes pàgines carregades i confuses amb un piló de taules imbricades; arxius molt grans, difícils de mantenir i difícils de modificar. Encara podreu veure llocs web fets així al web, però cal que tingueu molt clar que actualment les taules s'han d'utilitzar només per a allò que van ser dissenyades: les dades tabulars, i fer servir el CSS per a controlar la maquetació.</p>
+   
+   <p>En aquest apartat explicaré com utilitzar adequadament les taules HTML.</p>
+   
+   <p>Els continguts d'aquest apartat són els següents:</p>
+   
+   <ul class="index">
+		<li>19.1. <a href="#basictable" accesskey="1">La taula més bàsica</a></li>
+   <li>19.2. <a href="#addingfeatures" accesskey="2">Afegir-hi algunes altres funcions</a></li>
+   <li>19.3. <a href="#morestructure" accesskey="3">Seguir estructurant la taula</a></li>
+   <li>19.4. <a href="#csstable" accesskey="4">El CSS ens ajuda: una taula amb un aspecte millor</a></li>  
+   <li class="especial"><a href="#summary">Resum</a></li> 
+   <li class="especial"><a href="#exercises">Preguntes de repàs</a></li> 
+   <li class="especial"><a href="#furtherreading">Lectures complementàries</a></li> 
+   </ul>
+                               
+
+   <h2 id="basictable">19.1. La taula més bàsica</h2>
+   
+   <p>Començaré amb el codi HTML semàntic necessari per a crear una taula bàsica; aquest exemple en concret compara erupcions volcàniques recents de la regió del Pacífic d'Amèrica del Nord. A mi m'agraden els volcans i quan era petita vaig convèncer la meva mare que em portés a diversos d'aquests volcans durant els viatges que fèiem a l'estiu per a visitar l'àvia. Sempre esperava que algun d'aquests volcans del Nord-oest del Pacífic entrés en erupció mentre estàvem de vacances, però va ser en va. </p>                     
+
+   <p>La primera taula és la següent:</p>
+                           
+   <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Volcano Name&lt;/td&gt;
+    &lt;td&gt;Location&lt;/td&gt;
+    &lt;td&gt;Last Major Eruption&lt;/td&gt;
+    &lt;td&gt;Type of Eruption&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Mt. Lassen&lt;/td&gt;
+    &lt;td&gt;California&lt;/td&gt;
+    &lt;td&gt;1914-17&lt;/td&gt;
+    &lt;td&gt;Explosive Eruption&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Mt. Hood&lt;/td&gt;
+    &lt;td&gt;Oregon&lt;/td&gt;
+    &lt;td&gt;1790s&lt;/td&gt;
+    &lt;td&gt;Pyroclastic flows and Mudflows&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Mt. St. Helens&lt;/td&gt;
+    &lt;td&gt;Washington&lt;/td&gt;
+    &lt;td&gt;1980&lt;/td&gt;
+    &lt;td&gt;Explosive Eruption&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>  
+
+   
+   <p>Aquest codi es representa de la manera següent:</p>
+
+   <table summary=" ">
+     <tr>
+       <td>Volcano Name</td>
+       <td>Location</td>
+       <td>Last Major Eruption</td>
+       <td>Type of Eruption</td>
+     </tr>
+     <tr>
+       <td>Mt. Lassen</td>
+       <td>California</td>
+       <td>1914-17</td>
+       <td>Explosive Eruption</td>
+     </tr>
+     <tr>
+       <td>Mt. Hood</td>
+       <td>Oregon</td>
+       <td>1790s</td>
+       <td>Pyroclastic flows and Mudflows</td>
+     </tr>
+     <tr>
+       <td>Mt. St. Helens</td>
+       <td>Washington</td>
+       <td>1980</td>
+       <td>Explosive Eruption</td>
+     </tr>
+   </table>
+   
+   <p>Començarem descomponent l'etiquetatge HTML utilitzat en el codi anterior:</p>
+   
+   <ul>
+			<li><p><code>&lt;table&gt;&lt;/table&gt;</code>: L'element <code>table</code> és necessari per a indicar al navegador que voleu organitzar el contingut d'una manera tabular.</p></li>
+     <li><p><code>&lt;tr&gt;&lt;/tr&gt;</code>: L'element <code>tr</code> estableix una fila de la taula. Això permet que el navegador organitzi tot el contingut que hi ha entre les etiquetes <code>&lt;tr&gt;</code> i <code>&lt;/tr&gt;</code> d'una manera horitzontal, totes elles en una fila.</p></li>
+     <li><p><code>&lt;td&gt;&lt;/td&gt;</code>: L'element <code>td</code> defineix la cel·la de la taula o cadascun dels espais individuals per al contingut dintre de la fila. Utilitzeu només les cel·les de taula <code>td</code> que siguin necessàries segons les dades que s'hi vulguin incloure. No utilitzeu cel·les <code>td</code> buides per a crear espai en blanc o separació; per a crear l'espai en blanc o la separació cal que utilitzeu el CSS, ja que no només és una bona manera de separar la presentació de l'estructura, sinó que també fa que la taula sigui més fàcil d'entendre per part de les persones amb discapacitats visuals que utilitzen lectors de pantalla per a llegir-los el contingut de la taula en veu alta.</p></li>
+		</ul>
+   
+   <p>Tingueu en compte que els elements bàsics s'han d'imbricar de la manera següent:</p>
+                         
+
+   <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;content&lt;/td&gt;
+    &lt;td&gt;content&lt;/td&gt;
+    &lt;td&gt;content&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+   
+   <p>Si els ordenem d'una altra manera, el navegador generarà un garbuix considerable i mostrarà la taula d'una manera molt estranya.</p>                     
+
+   <h2 id="addingfeatures">19.2. Afegir-hi algunes altres funcions</h2>
+   
+   <p>Ara que ja tenim la taula bàsica, podeu afegir-hi algunes funcions de taula una mica més complexes. En primer lloc hi afegirem un títol i uns encapçalaments de columna per a millorar les dades tant pel que fa a la semàntica com a la llegibilitat per part dels lectors de pantalla. L'etiquetatge de la taula millorada és el següent:</p>
+                                    
+   <pre><code>&lt;table&gt;
+  &lt;caption&gt;Recent Major Volcanic Eruptions in the Pacific Northwest&lt;/caption&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Volcano Name&lt;/th&gt;
+    &lt;th&gt;Location&lt;/th&gt;
+    &lt;th&gt;Last Major Eruption&lt;/th&gt;
+    &lt;th&gt;Type of Eruption&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Mt. Lassen&lt;/td&gt;
+    &lt;td&gt;California&lt;/td&gt;
+    &lt;td&gt;1914-17&lt;/td&gt;
+    &lt;td&gt;Explosive Eruption&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Mt. Hood&lt;/td&gt;
+    &lt;td&gt;Oregon&lt;/td&gt;
+    &lt;td&gt;1790s&lt;/td&gt;
+    &lt;td&gt;Pyroclastic flows and Mudflows&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Mt. St. Helens&lt;/td&gt;
+    &lt;td&gt;Washington&lt;/td&gt;
+    &lt;td&gt;1980&lt;/td&gt;
+    &lt;td&gt;Explosive Eruption&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>        
+   
+   <p>Aquest codi es representa de la manera següent:</p>
+
+   <table>
+    <caption>Recent Major Volcanic Eruptions in the Pacific Northwest</caption>
+    <tr>
+       <th>Volcano Name</th>
+       <th>Location</th>
+       <th>Last Major Eruption</th>
+       <th>Type of Eruption</th>
+     </tr>
+     <tr>
+       <td>Mt. Lassen</td>
+       <td>California</td>
+       <td>1914-17</td>
+       <td>Explosive Eruption</td>
+     </tr>
+     <tr>
+       <td>Mt. Hood</td>
+       <td>Oregon</td>
+       <td>1790s</td>
+       <td>Pyroclastic flows and Mudflows</td>
+     </tr>
+     <tr>
+       <td>Mt. St. Helens</td>
+       <td>Washington</td>
+       <td>1980</td>
+       <td>Explosive Eruption</td>
+     </tr>
+   </table>
+   
+   <p>Els elements nous que hem utilitzat són:</p>
+   
+   <ul>
+			<li><p><code>&lt;caption&gt;&lt;/caption&gt;</code>: L'element <code>caption</code> permet afegir un títol a les dades de la taula. La majoria dels navegadors centren el títol i el reprodueixen amb la mateixa amplada que la taula, llevat que s'utilitzi el CSS per a alinear el text d'una manera diferent.</p>
+   </li>
+   
+   <li><p><code>&lt;th&gt;&lt;/th&gt;</code>: L'element <code>th</code> descriu el contingut que hi ha entre aquestes etiquetes com els encapçalaments per a les columnes de la taula. Això és útil no només per a ajudar a descriure semànticament quina és la funció d'aquest contingut, sinó que també ajuda a reproduir-lo d'una manera més precisa en diversos navegadors i dispositius. Aquest exemple és la manera més bàsica d'utilitzar l'element <code>th</code>.</p>
+   </li>
+		</ul>              
+		
+   <h2 id="morestructure">19.3. Seguir estructurant la taula</h2>
+   
+   <p>Com a pas final per a acabar d'estructurar la nostra taula, definiré unes seccions d'encapçalament i de cos de la taula, hi afegiré un peu i definiré l'àmbit dels títols de fila i columna. També hi afegiré un atribut de resum per a descriure el contingut de la taula. L'etiquetatge definitiu de la taula és el següent:</p>
+                       
+
+   <pre><code>&lt;table summary="a summary of recent major volcanic eruptions
+ in the Pacific Northwest"&gt;
+  &lt;caption&gt;Recent Major Volcanic Eruptions in the Pacific Northwest&lt;/caption&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Volcano Name&lt;/th&gt;
+      &lt;th scope="col"&gt;Location&lt;/th&gt;
+      &lt;th scope="col"&gt;Last Major Eruption&lt;/th&gt;
+      &lt;th scope="col"&gt;Type of Eruption&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tfoot&gt;
+    &lt;tr&gt;
+      &lt;td colspan="4"&gt;Compiled in 2008 by Ms Jen&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tfoot&gt;  
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Mt. Lassen&lt;/th&gt;
+      &lt;td&gt;California&lt;/td&gt;
+      &lt;td&gt;1914-17&lt;/td&gt;
+      &lt;td&gt;Explosive Eruption&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Mt. Hood&lt;/th&gt;
+      &lt;td&gt;Oregon&lt;/td&gt;
+      &lt;td&gt;1790s&lt;/td&gt;
+      &lt;td&gt;Pyroclastic flows and Mudflows&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;th scope="row"&gt;Mt. St. Helens&lt;/th&gt;
+      &lt;td&gt;Washington&lt;/td&gt;
+      &lt;td&gt;1980&lt;/td&gt;
+      &lt;td&gt;Explosive Eruption&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+   
+   <p>Aquest codi de taula té el següent aspecte en un navegador:</p>
+   
+   <table summary="a summary of recent major volcanic eruptions in the Pacific Northwest">
+    <caption>Recent Major Volcanic Eruptions in the Pacific Northwest</caption>
+     <thead>
+       <tr>
+         <th scope="col">Volcano Name</th>
+         <th scope="col">Location</th>
+         <th scope="col">Last Major Eruption</th>
+         <th scope="col">Type of Eruption</th>
+       </tr>
+     </thead>
+		 <tfoot>
+     <tr>
+       <td colspan="4">Compiled in 2008 by Ms Jen</td>
+     </tr>
+    </tfoot>  
+    <tbody>
+     <tr>
+        <th scope="row">Mt. Lassen</th>
+        <td>California</td>
+        <td>1914-17</td>
+        <td>Explosive Eruption</td>
+      </tr>
+      <tr>
+        <th scope="row">Mt. Hood</th>
+        <td>Oregon</td>
+        <td>1790s</td>
+        <td>Pyroclastic flows and Mudflows</td>
+      </tr>
+      <tr>
+        <th scope="row">Mt. St. Helens</th>
+        <td>Washington</td>
+        <td>1980</td>
+        <td>Explosive Eruption</td>
+     </tr>    
+		</tbody>
+   </table>
+   
+   <p>Els nous elements/atributs són els següents:</p>
+   
+   <ul>
+			<li><p>Els elements <code>thead</code>, <code>tbody</code> i <code>tfoot</code>: Aquests elements defineixen respectivament el títol, el cos i el peu de la taula. Llevat que estiguem codificant una taula realment complexa amb moltes columnes i files de dades, si els utilitzem correm el risc d'excedir-nos. En una taula complexa, però, el seu ús no només estructurarà el contingut per al codificador, sinó també per als navegadors i altres dispositius.</p></li>
+   
+   <li><p>Els atributs <code>colspan</code> i <code>rowspan</code>: L'atribut <code>colspan</code> crea una cel·la de taula que ocuparà més d'una columna. En el cas del peu anterior, jo volia que una cel·la de la taula n'ocupés tota l'amplada i per això li he dit que havia d'estendre's al llarg de quatre columnes. També podeu afegir-hi un atribut <code>rowspan</code> de cel·la de taula que permetrà que la cel·la ocupi <var>x</var> files, per exemple <code>&lt;td rowspan="3"&gt;</code>.</p></li>
+   
+   <li><p>L'atribut <code>summary</code>: Aquest atribut s'utilitza per a definir un resum del contingut de la taula per al seu ús per part dels lectors de pantalla (observeu que aquest resum no apareix a la versió de la taula que es veu en pantalla.) Tingueu en compte que en les recomanacions WC3 antigues, WCAG 1.0 i HTML 4.0, es diu que es pot utilitzar l'atribut <code>summary</code> tal com s'ha explicat anteriorment. En els esborranys més nous de les especificacions, però, aquest atribut <code>summary</code> ja no es menciona. El fet de seguir utilitzant l'atribut <code>summary</code> és una qüestió que està per resoldre; de moment, els integrants del Web Standards Curriculum hem arribat a la conclusió que val la pena seguir-lo utilitzant. Al cap i a la fi, no fa cap mal i presenta alguns avantatges per a l'accessibilitat.</p></li>
+   
+   <li><p>L'atribut <code>scope</code>: També és possible que hàgiu observat els atributs <code>scope</code> de les etiquetes <code>th</code>, i el fet que jo hagi definit els noms dels volcans també com a títols de columnes, dins les files de dades. Això és perfectament possible, però de fet m'estic apartant del tema. L'atribut <code>scope</code> es pot utilitzar dins l'element <code>th</code> per a indicar als lectors de pantalla que el contingut de <code>th</code> és el títol d'una columna o una fila. L'atribut <code>scope</code> només s'utilitza dins l'element <code>th</code>.</p></li>
+		</ul>         
+		
+   <h2 id="csstable">19.4. El CSS ens ajuda: una taula amb un aspecte millor</h2>
+   
+   <p>Els elements i atributs anteriors són tot el que necessiteu per codificar una bona taula de dades. Ara que ja hem definit l'estructura HTML, passem a veure un CSS molt senzill per a fer que la taula tingui un aspecte encara millor:</p>
+
+   <pre><code>body{
+  background: #ffffff;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.4em;
+  font-family: tahoma, arial, sans-serif;
+  font-size: 62.5%;
+}
+   
+table {
+  width: 80%;
+  margin: 0;
+  background: #FFFFFF;
+  border: 1px solid #333333;
+  border-collapse: collapse;
+}
+   
+td, th {
+  border-bottom: 1px solid #333333;
+  padding: 6px 16px;
+  text-align: left;
+}
+   
+th {
+  background: #EEEEEE;
+}
+   
+caption {
+  background: #E0E0E0;
+  margin: 0;
+  border: 1px solid #333333;
+  border-bottom: none;
+  padding: 6px 16px;
+  font-weight: bold;
+}</code></pre>          
+   
+   <p>Quan ho apliquem a l'etiquetatge definitiu de la nostra taula, l'aspecte que tindrà és el que es pot veure a la figura 1. També podeu comprovar la taula real d'exemple.</p>
+                          
+		<div class="imagen">
+			<img src="06510_m4_10.gif" alt="Exemple de la taula final" />
+			<p>Figura 1. Ara la taula és visualment molt més atractiva.</p>
+			<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/19-html-tables/table3.html" hreflang="en">table3.html</a>"</p>
+		</div>                                                
+
+   <p>Ooooh...! Molt millor, no?  Podeu aplicar els estils que vulgueu a la taula, però l'exemple anterior és un punt de referència a partir del qual podeu començar a treballar. En un apartat aprendreu moltes més coses sobre els estils de les taules; de moment em limitaré a explicar què fa cadascuna de les seccions d'aquest CSS:</p>
+   
+   <ul>
+			<li><p><code>body</code>: En el CSS anterior he afegit propietats per definir el marge (en aquest cas a zero), una separació per crear una mica de lloc, un color de fons (blanc), la mida i la família del tipus de lletra, així com l'interlineat per fer-ho tot una mica més espaiós. Podeu descarregar-vos el codi d'aquest exemple a <a href="http://dev.opera.com/articles/view/19-html-tables/csstable.zip">http://dev.opera.com/articles/view/19-html-tables/csstable.zip</a>; proveu de modificar-ne les propietats a l'arxiu CSS per a veure com canvien les coses.</p>
+   </li>
+   
+   <li><p><code>table</code>: Les vores s'hi han afegit amb la declaració de vores del CSS. Per tal que tot funcionés correctament també he hagut d'afegir la propietat <code>border-collapse</code> a <code>collapse</code>; d'aquesta manera es reinicien els valors de les vores de la taula i <code>border-bottom</code> és una línia recta contínua que ocupa tota la fila en lloc de quedar trencada entre cadascuna de les cel·les de la taula. En aquest exemple he definit <code>width</code> al 80%. Això fa que la taula ocupi el 80% de l'amplada de la pantalla i l'amplada de la taula canviarà sempre que es facin canvis a l'amplada de pantalla del navegador.</p>
+   </li>
+   
+   <li><p><code>th</code> i <code>td</code>: En el CSS anterior he definit l'alineació del text a l'esquerra, però també pot ser centrada o fins i tot podeu donar noms de classe als diferents elements <code>th</code> i <code>td</code> i llavors utilitzar el CSS per a tenir un major control sobre cadascuna de les files o columnes (en el cas de les files, donareu un nom de classe a l'etiqueta de l'element <code>tr</code>). També he afegit una mica de separació a <code>th</code> i <code>td</code> per obrir les files i aconseguir així que la llegibilitat fos millor. En el cas del selector <code>th</code> anterior, he definit un altre color per diferenciar els títols de la resta de la taula.</p>
+   </li>
+   
+   <li><p><code>caption</code>: Si no definiu les propietats CSS per al selector <code>caption</code>, aquest no tindrà cap vora i tindrà el mateix color de fons que tota la pàgina encara que l'etiquetatge HTML per al títol de la taula es trobi a l'etiqueta <code>table</code>. Així, doncs, en l'exemple anterior he definit una vora per al títol (sense cap vora inferior, ja que la vora de la taula ja fa aquesta funció), un color de fons diferent i un tipus en negreta per a diferenciar el títol de la fila dels títols de columna.</p></li>
+   </ul>               
+
+   
+  <h2 id="summary">Resum</h2> 
+   
+   <p>En aquest apartat he explicat tot el que heu de saber per a crear unes taules de dades en HTML molt efectives. Això és tot! Per a acabar us deixaré amb un parell d'idees bàsiques que cal que recordeu:</p>
+   
+   <ul>
+			<li><p>És important que les taules estiguin correctament codificades per tal que es puguin llegir en tots els navegadors, dispositius mòbils i tota mena de suports. L'HTML de la taula ha de ser tan reduït com sigui possible, i per a definir-ne els estils s'ha d'utilitzar el CSS. Més endavant en aquest mateix curs aprendreu molt més sobre el CSS.</p></li>
+   
+   <li><p>Els dispositius mòbils i els usuaris que utilitzin lectors de pantalla podran accedir a les taules sempre que el seu codi sigui net i que es facin servir els atributs com scope i summary, així com l'element caption, per anunciar clarament i semànticament per a què serveixen les seccions respectives. Per a l'accessibilitat també és important no utilitzar cel·les buides per a crear espai en blanc (per a això heu d'utilitzar el CSS).</p></li>
+   </ul>
+   
+   
+   <h2 id="exercises">Preguntes de repàs</h2> 
+   
+   <ol>
+     <li><p>Comenceu escrivint el codi d'una taula senzilla amb només els 3 elements de taula principals: <code>table</code>,  <code>tr</code> i <code>td</code>. Deseu-la i obriu-la en un navegador.</p></li>
+     <li><p>Igual que en el segon exemple anterior, afegiu-hi un títol, títols de columna i un peu. Com canvia el que podeu veure en el navegador?</p></li>
+     <li><p>Què podeu fer per a que la taula sigui més accessible per als lectors de pantalla i els dispositius portàtils?</p></li>
+     <li><p>Ara creeu un arxiu CSS. Proveu de definir un estil per a les vores, la separació i l'espaiat de cel·la de la taula només amb el CSS i sense fer servir cap atribut de l'etiquetatge HTML. Afegiu-hi un color de fons i definiu l'estil dels tipus de lletra.</p></li>
+   </ol>
+   
+   <p>Passeu-ho bé!</p>
+                         
+   <h2 id="furtherreading">Lectures complementàries</h2>
+   
+   <ul>
+		<li><p>Recomanació HTML 4 per a taules del W3C</p> 
+   <p><a href="http://www.w3.org/TR/html401/struct/tables.html">http://www.w3.org/TR/html401/struct/tables.html</a></p></li>
+   <li><p>Recomanació CSS 2 per a taules del W3C</p>
+   <p><a href="http://www.w3.org/TR/CSS21/tables.html">http://www.w3.org/TR/CSS21/tables.html</a></p></li>
+		<li><p>"Bring on the Tables" de Roger Johansson</p>
+   <p><a href="http://www.456bereastreet.com/archive/200410/bring_on_the_tables/">http://www.456bereastreet.com/archive/200410/bring_on_the_tables/</a></p></li>
+		</ul>   
+
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud4/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+		<a rel="next" href="../ud6/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

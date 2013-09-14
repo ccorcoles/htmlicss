@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Fonaments d'HTML - L'element &lt;head&gt; de l'HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">Fonaments d'HTML</div>
+	<div id="subtitulo">L'element &lt;head&gt; de l'HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud3/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>13. L'element &lt;head&gt; de l'HTML</h1>
+<p class="by"><a href="../../index.html#heilmann">Christian Heilmann</a>. 8 de juliol del 2008. Publicat a: estils, html, capçalera, extern, script</p>
+
+ <p>Aquest apartat tracta una part del document HTML que no rep l'atenció que es mereix: la marca que va dins de l'element  head. Quan acabeu aquest tutorial haureu après les diferents parts d'aquesta secció i què fan, incloent el doctype, l'element title, les paraules clau i la descripció (tots ells gestionats amb elements meta). També aprendreu els detalls de JavaScript i dels estils CSS (tant interns com externs) i sabreu què no heu de deixar dins de head. Podeu descarregar-vos alguns <a href="http://dev.opera.com/articles/view/13-the-html-head-element/headtutorial.zip" hreflang="en">fitxers de demostració</a>, als quals faré referència al llarg d'aquest apartat; una vegada hàgiu acabat de treballar-hi podeu dedicar-vos a modificar-los com vulgueu. Cal que seguiu aquest tutorial de principi a fi, ja que va presentant una sèrie de bones pràctiques que s'han de seguir quan es treballa amb el head de l'HTML. Malgrat que totes les parts són vàlides en si mateixes, al final trobareu una conclusió sobre les millors pràctiques que us farà reconsiderar alguns dels primers consells. </p>
+  
+  <p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+	<li>13.1. <a href="#head" accesskey="1"><code>Head</code>? Què és això?</a></li>
+ 	<li>13.2. <a href="#language" accesskey="2">Definir l'idioma principal del document</a></li>
+	<li>13.3. <a href="#title" accesskey="3">Jutjar un document pel seu títol</a></li>
+	<li>13.4. <a href="#meta" accesskey="4">Afegir paraules clau i una descripció</a></li>
+	<li>13.5. <a href="#csshead" accesskey="5">I l'aspecte? Afegir estils</a></li>
+	<li>13.6. <a href="#javascripthead" accesskey="6">Afegir funcions dinàmiques amb JavaScript</a></li>
+	<li>13.7. <a href="#externalfileshead" accesskey="7">Un moment! L'ús de CSS integrat i JavaScript no és precisament la millor idea</a></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+	<li class="especial"><a href="#exercises">Preguntes de repàs</a></li> 
+</ul>
+
+     <h2 id="head">13.1. <code>Head</code>? Què és això?</h2>
+      
+      <p>En aquest mateix curs ja heu vist que un document HTML vàlid necessita un <code>doctype</code>, que és un element que explica quin tipus d'HTML cal esperar i indica als navegadors la manera de mostrar correctament el document. Roger explica molt més detalladament l'element <code>doctype</code> en l'apartat següent, aquí ens limitarem a dir que el <code>doctype</code> especifica que el document necessita un element <code>html</code> amb uns elements <code>head</code> i <code>body</code> en el seu interior. La major part del temps la dedicareu a l'element <code>body</code>, ja que és el que incorpora tot el contingut del document. <code>head</code> té un paper aparentment menys important, ja que, si deixem de banda l'element  <code>title</code>, no hi ha res de tot el que poseu dins d'aquesta secció que sigui visible per a les persones que visiten el vostre web. Però <code>head</code> és el lloc on hi ha la major part de les instruccions per al navegador i on es desa informació addicional (la que es coneix com a informació <code>meta</code>) sobre el document. </p>
+
+      <h2 id="language">13.2. Definir l'idioma principal del document</h2>
+      
+      <p>Una part de la informació sobre el document es troba a l'element pare de <code>head</code>, que és l'element <code>html</code>. Aquí es defineix l'idioma natural principal del document. Quan parlo d'idioma natural m'estic referint a un idioma <em>humà</em>, com per exemple el francès, el tailandès o l'anglès. Això és de gran ajuda per als lectors de pantalla, ja que, per exemple, la paraula "six" es pronuncia d'una manera molt diferent en francès i en anglès; també pot ser de molta ajuda per als motors de cerca. És molt aconsellable definir l'idioma principal d'un document, sobretot si esteu escrivint pàgines pensades per a un públic internacional, tot i que hi ha moltes pàgines que no ho fan. S'ha de definir de la següent manera:</p>
+      
+<pre><code>&lt;html lang="en-GB"&gt;
+   ...
+&lt;/html&gt;</code></pre>
+      
+      <div class="note">
+      <h3>Nota</h3>
+      <p>Tingueu en compte que també podeu definir l'idioma de subseccions del vostre document utilitzant l'atribut lang en altres elements, com per exemple <code>&lt;span lang="fr"&gt;Bonjour&lt;/span&gt;</code>.</p>
+      </div>
+      
+      <p>Els atributs que utilitzeu per a definir l'idioma depenen del <code>DOCTYPE</code> del vostre document.</p>
+
+      <blockquote>
+      <p>El <a href="http://www.w3.org/TR/i18n-html-tech-lang/#ri20040429.092928424" hreflang="en">W3C</a> diu:</p>
+      
+      <p>"Per a HTML cal utilitzar només l'atribut <code>lang</code>; per a XHTML 1.0 servit com a <code>text/html</code> cal utilitzar els atributs <code>lang</code> i <code>xml:lang</code>; i per a XHTML servit com a XML cal utilitzar només l'atribut <code>xml:lang</code>."</p>
+      
+      </blockquote>
+      
+      <p>Els codis d'idioma poden ser codis de dues lletres, com per exemple <code>en</code> per a l'anglès, o bé codis de quatre lletres com ara <code>en-US</code> per a l'anglès americà o d'altres codis menys habituals. Els codis de dues lletres estan definits a <a href="http://en.wikipedia.org/wiki/ISO_639-1" hreflang="en">ISO 639-1</a>, tot i que les millors pràctiques actuals exigeixen l'<a href="http://www.w3.org/International/articles/language-tags/" hreflang="en">ús del registre de subetiquetes de la IANA per a les definicions dels codis d'idioma</a>.</p>
+
+      <h2 id="title">13.3. Jutjar un document pel seu títol</h2>
+      
+      <p>Un dels elements més importants de <code>head</code> és <code>title</code>. El text inclòs en el <code>title</code> apareix en la majoria dels agents d'usuari/navegadors dins de la barra del títol de l'aplicació (la barra que hi ha a la part superior de la finestra del navegador). És el primer que veuran els usuaris del web quan visitin el vostre lloc; per tant és realment important.  A més a més, les tecnologies d'assistència com per exemple els lectors de pantalla (programari que llegeix en veu alta les pàgines web per als usuaris amb alguna discapacitat visual) el llegeixen per donar una primera idea sobre el que els visitants poden esperar del document, i també hi ha molts motors de cerca que funcionen d'una manera similar. Així, doncs, si utilitzeu un bon títol que sigui llegible per a les persones i que contingui les paraules clau adequades tindreu moltíssimes més possibilitats que us trobin en el web. Ara agafarem el document HTML <code><a href="http://devfiles.myopera.com/articles/360/headexample.html" hreflang="en">headexample.html</a></code> i l'obrirem en el navegador. </p>
+                         
+      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;I am a title example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      
+      <p>Veureu que el text de <code>title</code> apareix a la barra que hi ha sobre el navegador, tal com mostra la figura 1. </p>
+
+			<div class="imagen">
+				<img src="06510_m3_01.gif" alt="El títol es mostra a la barra de títol del navegador" />
+				<p>Figura 1. Mostrar un títol en un navegador.</p>
+			</div>
+
+      <p>Hi ha molts tutorials al web que expliquen com escriure uns bons títols de documents; en la majoria dels casos, les explicacions estan relacionades amb l'optimització per a motors de cerca (SEO, de l'anglès <span lang="en">Search Engine Optimization</span>). Tampoc cal exagerar i intentar enganyar els motors de cerca perquè mostrin un nombre excessivament alt de resultats de cerca. Heu d'escriure un títol que doni una informació concisa sobre el document. "Cria de gossos: consells sobre els alsacians" és molt més comprensible que "Gossos, Alsacians, Cria, Gos, Consells, Gratuït, Mascota".</p>
+             
+      <h2 id="meta">13.4. Afegir paraules clau i una descripció</h2>
+      
+      <p>El següent que s'ha de fer pot semblar d'entrada superflu, ja que les persones que visitin el vostre lloc web no ho veuran mai: afegir una descripció i paraules clau. L'una i les altres s'han d'afegir a <code>head</code> dins dels elements <code>meta</code>, tal com es pot veure en <a href="http://devfiles.myopera.com/articles/360/headwithmeta.html" hreflang="en">l'exemple</a> següent del web de Yahoo! Eurosport: </p>
+                         
+      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Yahoo! UK &amp; Ireland Eurosport&#8211;Sports News | Live Scores | Sport&lt;/title&gt;
+  &lt;meta name="description" content="Latest sports news and live scores
+   from Yahoo! Eurosport UK. Complete sport coverage with Football results,
+   Cricket scores, F1, Golf, Rugby, Tennis and more."&gt;
+  &lt;meta name="keywords" content="eurosport,sports,sport,sports news,
+   live scores,football,cricket,f1,golf,rugby,tennis,uk,yahoo"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      
+      <p>Si obriu aquest document en un navegador no hi veureu res de tot això, però si poseu el document en línia i els motors de cerca l'indexen, llavors el text d'aquesta descripció apareixerà sota el vincle en els resultats del motor de cerca, tal com es pot veure en la figura 2. </p>
+    
+			<div class="imagen">
+				<img src="06510_m3_02.gif" alt="Descripcions que es mostren a la pàgina de resultats d'un motor de cerca" />
+				<p>Figura 2. Les descripcions apareixen a les pàgines de resultats dels motors de cerca.</p>
+			</div>
+     
+      <p>Aquesta podria ser precisament la informació crucial que estava buscant un possible visitant del vostre lloc web i el motiu per clicar l'enllaç. Les descripcions tenen encara un altre ús: alguns navegadors mostren la descripció com a informació addicional quan s'afegeix el document a la llista de d'adreces d'interès, tal com es pot veure a la figura 3.</p>
+
+				<div class="imagen">
+					<img src="06510_m3_03.jpg" alt="Alguns navegadors utilitzen la descripció com a descripció de l'adreça d'interès" />
+					<p>Figura 3. En alguns navegadors es veuen les descripcions quan s'afegeix el document a la llista d'adreces d'interès.</p>
+				</div>
+                
+      <p>Per tant, tot i que el fet d'afegir descripcions meta no té cap avantatge immediat obvi, aquestes descripcions tenen una funció molt important per a l'èxit del vostre document. Això mateix també serveix, tot i que en un grau menor, per a les paraules clau afegides. </p>
+      
+      <p>Tot i que molts anys d'abús per falsejar índexs han fet que els motors de cerca hagin deixat de prendre's seriosament les paraules clau, aquestes encara poden ser una bona eina que es pot fer servir per a indexar ràpidament molts documents sense necessitat d'haver d'examinar-ne i analitzar-ne el contingut. Podeu fer servir les paraules clau <code>meta</code>, per exemple, en un sistema de gestió del contingut escrivint un script que les indexi i que faci que el motor de cerca funcioni molt més ràpidament. No costa gens oferir una manera de trobar documents sense necessitat d'analitzar-ne el contingut. Si afegiu algunes paraules clau en un element <code>meta</code> tindreu l'opció de realitzar una cerca intel·ligent i ràpida dels vostres llocs web en cas que en el futur els arribeu a crear. Podeu imaginar-vos les paraules clau com uns petits punts de llibre que poseu dins d'un llibre molt gran per tal que us sigui més fàcil trobar ràpidament una secció concreta sense haver de llegir capítols sencers.</p>
+
+      <h2 id="csshead">13.5. I l'aspecte? Afegir estils</h2>
+      
+      <p>L'altre element que podeu afegir al <code>head</code> d'un document són les normes per als estils, que es defineixen en fulls d'estil en cascada (CSS, de l'anglès <span lang="en">Cascading Style Sheets</span>). Els podeu integrar directament a <code>head</code> fent servir un element <code>style</code>, com per exemple (<a href="http://devfiles.myopera.com/articles/360/headinlinestylesmedia.html" hreflang="en">headinlinestyles.html</a>): </p>
+                          
+      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
+  &lt;meta name="description" content="How to breed Alsatians, tips on proper
+   breeding and information about common issues with this breed."&gt;
+  &lt;meta name="keywords" content="Dogs,Alsatian,Breeding,Dog,Tips,Free,Pet"&gt;
+  &lt;style type="text/css"&gt;
+    body{
+      background:#000;
+      color:#ccc;
+      font-family:  helvetica, arial, sans-serif;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt;Test!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      
+      <p>Si obriu l'arxiu en un navegador, apareixerà la paraula "Test!" en gris sobre un fons negre i el tipus de lletra serà Helvetica o Arial, segons el que hagi instal·lat el vostre sistema. L'element <code>style</code> també pot contenir un altre atribut anomenat <code>media</code>, que defineix quin tipus de suport utilitzarà aquests estils; és a dir, voleu utilitzar aquests estils quan veieu el document en una pantalla d'ordinador, en un dispositiu portàtil o imprès? Podeu escollir entre diversos tipus de suports; els més útils són: </p>
+        
+			<ul>
+      <li><p>pantalla (<code>screen</code>): per a la visualització en pantalla.</p></li>
+      <li><p>impressió (<code>print</code>): defineix l'aspecte que tindrà el document imprès. </p></li>
+      <li><p>aparells portàtils (<code>handheld</code>): defineix l'aspecte del document en dispositius mòbils i altres dispositius portàtils.</p></li>
+      <li><p>presentacions (<code>projection</code>): per a presentacions fetes en HTML, per exemple les acceptades per <a href="http://www.opera.com/browser/tutorials/operashow/" hreflang="en">Opera Show</a>.</p></li>
+		</ul>
+      
+      <p>Si, per exemple, voleu invalidar els colors utilitzats a la pantalla i fer servir una mida més gran per al tipus de lletra per tal de millorar la pàgina per a la impressió, podeu afegir un altre bloc d'estils sota el primer amb un atribut  <code>media</code> de <code>print</code>, tal com podeu veure a continuació (<a href="http://devfiles.myopera.com/articles/360/headinlinestylesmedia.html" hreflang="en">headinlinestyles.html</a>): </p>
+      
+			<pre><code>&lt;style type="text/css" media="print"&gt;
+  body{
+    background:#fff;
+    color:#000;
+    font-family:  helvetica, arial, sans-serif;
+    font-size:300%;
+  }
+&lt;/style&gt;</code></pre>
+      
+      <p>Ara, quan imprimiu aquesta pàgina web, el navegador sabrà que ha de fer servir el full d'estils d'impressió i no els estils de pantalla. Comproveu-ho carregant <a href="http://devfiles.myopera.com/articles/360/headinlinestylesmedia.html" hreflang="en">headinlinestylesmedia.html</a> i seleccionant la previsualització de la impressió, tal com mostra la figura 4: </p>
+      
+			<div class="imagen">
+				<img src="06510_m3_04.gif" alt="La mateixa pàgina amb fulls d'estil d'impressió i de pantalla aplicats" />
+				<p>Figura 4. Un full d'estils de pantalla i d'impressió.</p>
+			</div>
+
+      <h2 id="javascripthead">13.6. Afegir funcions dinàmiques amb JavaScript</h2>
+      
+      <p>Un altre element que podeu afegir a <code>head</code> són <span lang="en">scripts</span> que executarà el navegador, i que per això es coneixen com a "<span lang="en">scripts</span> de client", escrits en JavaScript. Tal com ja hem vist, JavaScript afegeix un comportament dinàmic a l'HTML estàtic, com per exemple efectes d'animació, validació de dades de formularis o altres coses que passen quan l'usuari realitza determinades accions.</p>
+      
+      <p>Podeu afegir JavaScript a un document fent servir l'element <code>script</code>. Quan un navegador troba un element d'aquest tipus, ignora tota la resta i deixa d'analitzar qualsevol altra part del document mentre intenta executar el codi que hi ha en aquest element. Això significa que si voleu estar segurs que el vostre JavaScript estarà disponible abans que es carregui el document principal, l'haureu d'afegir a <code>head</code>. Per exemple, podeu avisar la gent que us visiti que un enllaç concret els conduirà a un altre servidor amb el següent script (<code><a href="http://devfiles.myopera.com/articles/360/headscript.html" hreflang="en">headscript.html</a></code>): </p>
+      
+      <div class="vegeu_tambe">
+      <h3>Vegeu també</h3>
+      <p>Hem vist el JavaScript en l'apartat 4 del mòdul "Introducció al món dels estàndards web".</p>
+      </div>
+                          
+
+      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
+  &lt;meta name="description" content="How to breed Alsatians, tips on proper
+   breeding and information about common issues with this breed."&gt;
+  &lt;meta name="keywords" content="Dogs,Alsatian,Breeding,Dog,Tips,Free,Pet"&gt;
+  &lt;style type="text/css" media="screen"&gt;
+    body{
+      background:#000;
+      color:#ccc;
+      font-family:  helvetica, arial, sans-serif;
+    }
+    a {color:#fff}
+  &lt;/style&gt;
+  &lt;style type="text/css" media="print"&gt;
+    body{
+      background:#fff;
+      color:#000;
+      font-family:  helvetica, arial, sans-serif;
+      font-size:300%;
+    }
+  &lt;/style&gt;
+  &lt;script&gt;
+    function leave(){
+      return confirm("This will take you to another site,\n are you sure you
+       want to go?")
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+Test!
+&lt;a href="http://dailypuppy.com" onclick="return leave()"&gt;The Daily Puppy&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      
+      <p>Si obriu aquest exemple en el vostre navegador web i cliqueu l'enllaç, se us demanarà que confirmeu l'acció. Aquest és només un exemple molt ràpid d'un script, però queda molt lluny de les millors pràctiques actuals. Els altres tutorials que trobareu més endavant en aquest mateix curs expliquen les millors pràctiques de JavaScript i ensenyen les tècniques de JavaScript en profunditat, però de moment no cal que us en preocupeu. </p>
+  
+      <h2 id="externalfileshead">13.7. Un moment! L'ús de CSS integrat i JavaScript no és precisament la millor idea</h2>
+      
+      <p>Pot sonar molt fort, ja ho sé, però hi ha una cosa que heu de recordar sempre que construïu llocs web: la millor cosa que podeu fer és reutilitzar el vostre codi tant com sigui possible. Afegir estils i scripts de lloc a totes i cadascuna de les pàgines no té massa sentit; més aviat al contrari, ja que així és més difícil mantenir un lloc complet i els documents individuals queden excessivament carregats. </p>
+      
+      <p>És molt millor posar els estils i scripts en arxius externs i importar-los cap als arxius HTML quan sigui necessari; d'aquesta manera, quan s'hagin de fer canvis només caldrà actualitzar-los en un lloc. Per al vostre JavaScript, això és fa utilitzant elements <code>script</code> que no tenen cap <code>script</code> en el seu interior, sinó un enllaç a un arxiu extern utilitzant un atribut <code>src</code>, tal com podeu veure en el codi següent (<a href="http://devfiles.myopera.com/articles/360/externaljs.html" hreflang="en">externaljs.html</a>): </p>
+      
+      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
+  &lt;meta name="description" content="How to breed Alsatians, tips on proper
+   breeding and information about common issues with this breed."&gt;
+  &lt;meta name="keywords" content="Dogs,Alsatian,Breeding,Dog,Tips,Free,Pet"&gt;
+  &lt;style type="text/css" media="screen"&gt;
+    body{
+      background:#000;
+      color:#ccc;
+      font-family:  helvetica, arial, sans-serif;
+    }
+    a {color:#fff}
+  &lt;/style&gt;
+  &lt;style type="text/css" media="print"&gt;
+    body{
+      background:#fff;
+      color:#000;
+      font-family:  helvetica, arial, sans-serif;
+      font-size:300%;
+    }
+  &lt;/style&gt;
+  &lt;script src="leaving.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+Test!
+&lt;a href="http://dailypuppy.com" onclick="return leave()"&gt;The Daily Puppy&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>      
+      
+      <p>Amb CSS no és tan fàcil. L'element <code>style</code> no té cap atribut <code>src</code>, amb la qual cosa haureu de fer servir l'element <code>link</code>; aquest té un atribut <code>href</code> que especifica un fitxer CSS extern per a importar-lo i un atribut <code>media</code> per a definir si aquests estils s'han d'utilitzar per a pantalla, impressió, etc., de manera similar al que hem vist abans. Posant tant CSS com JavaScript en els seus fitxers independents es pot reduir d'una manera molt important la longitud del <code>head</code>, tal com es pot veure a continuació (<a href="http://devfiles.myopera.com/articles/360/externalall.html" hreflang="en">externalall.html</a>):</p>
+      
+      <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Breeding Dogs&#8211;Tips about Alsatians&lt;/title&gt;
+  &lt;meta name="description" content="How to breed Alsatians, tips on proper
+   breeding and information about common issues with this breed."&gt;
+  &lt;meta name="keywords" content="Dogs,Alsatian,Breeding,Dog,Tips,Free,Pet"&gt;
+  &lt;link rel="stylesheet" type="text/css" media="screen" href="styles.css"&gt;
+  &lt;link rel="stylesheet" type="text/css" media="print" href="printstyles.css"&gt;
+  &lt;script src="leaving.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+Test!
+&lt;a href="http://dailypuppy.com" onclick="return leave()"&gt;The Daily Puppy&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      
+      <p>Altres avantatges de mantenir els estils i scripts en els seus fitxers independents són: </p>
+             
+			<ul>
+      <li><p>Tot serà més ràpid i fàcil per als visitants del vostre lloc web; tot i que es descarreguen alguns arxius addicionals, la informació sobre estils i scripts no es repeteix en cadascun dels arxius de la pàgina web (només es descarrega una vegada, ens els arxius d'estils i scripts independents), amb la qual cosa els arxius de pàgina descarregats seran més petits. A més, els arxius CSS i JavaScript es desaran a la memòria cau (quedaran desats temporalment al vostre equip local) i la propera vegada que accediu al lloc web els arxius ja seran a l'ordinador, la qual cosa significa que no caldrà tornar-los a carregar.</p></li>
+      
+      <li><p>La facilitat de manteniment. Els estils i els scripts per a tot el lloc web, que pot estar format per milers de documents, es troben en un únic lloc; per tant, si cal canviar alguna cosa només ho haureu de fer en un arxiu i no en milers.</p></li>
+      </ul>
+
+			<h2 id="summary">Resum</h2> 
+      
+      <p>Això és tot. Heu après les diferents parts que hi pot haver a la secció de capçalera dels documents HTML. Aquestes són: </p>
+      
+      <ul>
+				<li><p><code>title</code>, que introdueix el document.</p></li>   
+				<li><p>Elements <code>meta</code>, que conté una descripció del contingut d'aquest document i paraules clau que permeten una indexació més senzilla del contingut.</p></li>
+        <li><p>Elements <code>link</code>, que indiquen els arxius CSS externs.</p></li>
+        <li><p>Elements <code>script</code> que indiquen els arxius JavaScript externs.</p></li>
+      </ul>
+      
+      <p>Si tot és correcte, aconseguireu tenir un document ràpid i fàcil de trobar i entendre. </p>
+                           
+      <h2 id="exercises">Preguntes de repàs</h2>
+      
+      <p>Com sempre, aquí teniu unes quantes preguntes de repàs per a veure si heu entès tot el que hem explicat:</p>
+      
+      <ol>
+        <li><p>Per què és aconsellable afegir una descripció en un element <code>meta</code> encara que no es pugui veure a la pantalla? </p></li>
+        <li><p>Quin avantatge té afegir JavaScript al <code>head</code> d'un document i no al <code>body</code>?</p></li>
+        <li><p>Com podeu aprofitar l'emmagatzematge en memòria cau del vostre navegador i què heu de fer per treure'n partit?</p></li>
+        <li><p>Com els navegadors donen molta importància al títol, no seria útil atapeir-lo de paraules clau relacionades? Quins són els desavantatges d'aquesta pràctica?</p></li>
+        <li><p>Com que la pantalla del títol pot ser una mica avorrida, no seria bo destacar en negreta algunes paraules amb un element <code>b</code>? És possible fer-ho?</p></li>
+      </ol>                 
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud1/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+		<a rel="next" href="../ud3/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

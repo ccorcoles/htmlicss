@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Fonaments d'HTML - Conceptes bàsics d'HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">Fonaments d'HTML</div>
+	<div id="subtitulo">Conceptes bàsics d'HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../../m2/ud6/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>12. Conceptes bàsics d'HTML</h1>
+<p class="by"><a href="../../index.html#francis">Mark Norman Francis</a>. 8 de juliol del 2008. Publicat a: en línia, atribut, html, element, etiqueta.</p>
+
+<p>En aquest apartat aprendrem els conceptes bàsics d'HTML: què és, què fa, un resum de la seva història i quina estructura té un document en HTML. Els apartats que trobareu després d'aquest, expliquen cadascuna de les parts específiques de l'HTML amb molta més profunditat. </p>
+    <p>Els continguts d'aquest apartat són els següents:</p>
+    
+<ul class="index">
+	<li>12.1. <a href="#whatishtml" accesskey="1">Què és l'HTML</a></li>
+ 	<li>12.2. <a href="#htmllooks" accesskey="2">Aspecte de l'HTML</a></li>
+	<li>12.3. <a href="#htmlhistory" accesskey="3">La història de l'HTML</a></li>
+	<li>12.4. <a href="#htmlstructure" accesskey="4">L'estructura d'un document HTML</a></li>
+	<li>12.5. <a href="#htmlsyntax" accesskey="5">La sintaxi dels elements HTML</a></li>
+	<li>12.6. <a href="#blockinline" accesskey="6">Elements de bloc i en línia</a></li>
+	<li>12.7. <a href="#characterreferences" accesskey="7">Referències de caràcter</a></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+</ul>
+
+
+ <h2 id="whatishtml">12.1. Què és l'HTML</h2>
+  
+  <p>La majoria de les aplicacions d'escriptori que poden llegir i escriure fitxers utilitzen un format de fitxer especial. Per exemple, el Microsoft Word entén els fitxers ".doc" i el Microsoft Excel entén els ".xls". Aquests fitxers contenen les instruccions per reconstruir el document quan es torna a obrir i per saber quin és el contingut del document, a més de les "metadades" sobre l'article com per exemple l'autor, la data de l'última modificació del document i fins i tot coses com la llista de canvis realitzats per tal de poder-ne recuperar totes les versions diferents.</p>
+  
+  <div class="text-clau">
+  <p>L'<strong>HTML</strong> ("<strong>HyperText Markup Language</strong>") és un llenguatge per a descriure el contingut dels documents del web. Utilitza una sintaxi especial que conté marcadors (coneguts com a "elements") que envolten el text que hi ha dins el document per indicar als agents d'usuari com han d'interpretar aquesta part del document.</p>
+  </div>
+  
+  <p>Fem servir el terme tècnic "agents d'usuaris" en lloc de "navegadors web". Un agent d'usuari és qualsevol programari que es faci servir per a accedir a les pàgines web en nom dels usuaris. Aquí cal fer una distinció molt important: tots els tipus de navegadors d'escriptori (Internet Explorer, Opera, Firefox, Safari, etc.) i els navegadors alternatius per a altres dispositius (com ara el canal d'Internet de la Wii i els navegadors per a telèfons mòbils com ara Opera Mini i WebKit per a l'iPhone) són agents d'usuari, però no tots els agents d'usuari són navegadors. Els programes automatitzats que utilitzen Google i Yahoo! per indexar el web i que executen en els seus motors de cerca també són agents d'usuari, però no hi ha cap ésser humà que els controli directament.</p>         
+
+  <h2 id="htmllooks">12.2. Aspecte de l'HTML</h2>
+  
+  <p>L'HTML és només una representació textual del contingut i del seu significat general. Per exemple, el codi per a l'encapçalament "Aspecte de l'HTML" és el següent:</p>
+  
+  <pre><code>&lt;h2 id="htmllooks"&gt;Aspecte de l'HTML&lt;/h2&gt;</code></pre>
+  
+  <p>La part <code>&lt;h2&gt;</code> és un marcador (que es coneix com a "etiqueta") que significa "el que segueix s'ha de considerar com un títol de segon nivell". <code>&lt;/h2&gt;</code> és una etiqueta que indica on acaba el títol de segon nivell (i es coneix com a "etiqueta de tancament"). L'etiqueta d'obertura, l'etiqueta de tancament i tot el que hi ha entre elles es coneix com a "element". Molta gent utilitza els termes element i etiqueta indistintament, la qual cosa no és del tot correcta. <code>id="htmllooks"</code> és un atribut; més endavant ja en parlarem, dels atributs.</p>
+  
+  <p>La majoria dels navegadors incorporen una opció "Codi font" o "Veure el codi font", normalment sota el menú "Veure". Si el vostre navegador incorpora aquesta opció, seleccioneu-la i dediqueu uns moments a mirar el codi font HTML d'aquesta pàgina.</p>
+
+  <h2 id="htmlhistory">12.3. La història de l'HTML</h2>
+  
+  <p>Quan Tim Berners-Lee va inventar el web, va crear tant el primer servidor web com la <a href="http://www.w3.org/History/19921103-hypertext/hypertext/WWW/MarkUp/MarkUp.html" hreflang="en">primera versió de l'HTML</a>.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>A l'apartat 2 del mòdul "Introducció al món dels estàndards web" vau veure resumidament l'aparició del web modern. </p>
+  </div>
+  
+  <p>L'HTML ha canviat d'una manera molt important des d'aquells primers dies, però una bona part del contingut de l'HTML actual ja es trobava en aquesta primera documentació i més de la meitat de les "etiquetes" descrites en el document "Etiquetes HTML" original encara existeixen.</p>
+  
+  <p>A mesura que hi va anar havent cada vegada més gent que escrivia pàgines web i alternatives al navegador original, també es van anar afegint més funcions a l'HTML. Moltes es van adoptar universalment (com ara l'element <code>img</code> utilitzat per inserir una imatge en un document, que es va fer servir per primera vegada a NCSA Mosaic). Altres etiquetes eren de propietat i només es feien servir en un o dos navegadors. Cada vegada hi havia una necessitat més gran d'estandardització per tal que els autors d'altres navegadors poguessin tenir un document (conegut com a "especificació") que descrivís de manera definitiva l'aspecte de l'HTML per així poder jutjar si se saltaven algunes parts de la implantació de l'HTML.</p>
+  
+  <p>L'IETF (<span lang="en">Internet Engineering Task Force</span>, un organisme definidor d'estàndards que es preocupa per la interoperabilitat a través d'Internet) va publicar l'any 1993 un esborrany de proposta d'HTML. Aquesta proposta va caducar l'any 1994 sense haver-se convertit en un estàndard, però va fer que l'IETF creés un grup de treball per estudiar l'estandardització de l'HTML.</p>
+  
+  <p>L'any 1995 es va redactar "HTML 2.0", que aprofitava idees de l'esborrany de l'HTML original. Dave Raggett va escriure una proposta alternativa coneguda com a HTML+; aquesta proposta es va utilitzar com a base per a molts dels elements nous implantats pels navegadors (com ara el mètode per a inserir imatges en documents, que es va fer  servir per primera vegada a NCSA Mosaic).</p>
+  
+  <p>Més tard en aquell mateix any va aparèixer un esborrany d'HTML 3.0, però es va deixar de treballar en aquesta versió a causa de la manca de suport per part dels creadors de navegadors quant a la direcció que s'havia de seguir. HTML 3.2 va suprimir moltes de les funcions noves de la versió 3.0 i, en lloc d'aquestes, va adoptar moltes de les creacions dels navegadors més populars d'aleshores: Mosaic i Netscape Navigator.</p>
+  
+  <p>L'any 1997, W3C va publicar l'HTML 4.0 com a recomanació que adoptava més extensions específiques de navegadors, però que també intentava racionalitzar i perfeccionar l'HTML. Això es va fer marcant diversos elements com a desaprovats, la qual cosa significa que els elements són obsolets i que, tot i que encara apareixen en aquesta versió, s'eliminaran en una revisió posterior. Això es va fer per impulsar un ús millor i més semàntic de l'HTML en documents.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'evolució de l'HTML a l'apartat 4 del mòdul "Introducció al món dels estàndards web".</p>
+  </div>
+  
+  <p>L'any 1999 es va publicar l'HTML 4.01, amb algunes errates corregides l'any 2001. Aquesta és l'última versió d'HTML, tot i que actualment s'està treballant en la versió HTML 5.</p>
+  
+  <p>L'any 2000, el W3C també va publicar l'especificació XHTML 1.0, que era l'HTML reestructurat per ser un document XML vàlid.</p>             
+                     
+  <h2 id="htmlstructure">12.4. L'estructura d'un document HTML</h2>
+  
+  <p>El document HTML vàlid més petit possible seria alguna cosa similar a això:</p>
+  
+  
+<pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;Pàgina d'exemple&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;h1&gt;Hola a tothom&lt;/h1&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  
+  <p>El document comença amb un element de tipus de document o doctype. Aquest element descriu el tipus d'HTML que s'utilitza per tal que els agents d'usuari puguin determinar com cal interpretar el document i saber si segueix les normes que diu que seguirà.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>El <code>doctype</code> es descriu amb més detall a l'apartat 14 d'aquest mòdul.</p>
+  </div>
+  
+  <p>Tot seguit es pot veure l'etiqueta d'obertura de l'element <code>html</code>. Aquest és un element que inclou tot el document. L'etiqueta <code>html</code> de tancament és l'última cosa que hi ha en qualsevol document HTML.</p>
+  
+  <p>Dintre de l'element <code>html</code> hi ha l'element <code>head</code>. Aquest és un element que conté informació sobre el document (les metadades). Aquest element es descriu més detalladament en el següent apartat. A la capçalera hi ha l'element
+<code>title</code>, que defineix el títol "Pàgina d'exemple" de la barra del menú.</p>
+  
+  <p>Després de l'element <code>head</code> hi ha l'element <code>body</code>, que és l'element que inclou el contingut real de la pàgina; en aquest cas només hi ha un element d'encapçalament de nivell u (<code>h1</code>), que conté el text "Hola a tothom.". I aquest és tot el nostre document.</p>
+  
+  <p>Tal com es pot veure, sovint els elements contenen altres elements. El cos del document inclourà inevitablement molts altres elements. Les divisions de pàgina creen l'estructura general del document i contindran subdivisions. Aquestes contindran títols, paràgrafs, llistes, etc. Els paràgrafs poden contenir elements que creïn enllaços cap a altres documents, cites, èmfasi... A mesura que aneu avançant en aquesta sèrie anireu sabent més coses sobre aquests elements.</p>
+
+  <h2 id="htmlsyntax">12.5. La sintaxi dels elements HTML</h2>
+  
+  <p>Tal com ja hem vist, un element bàsic en HTML consisteix en dos marcadors al principi i al final d'un bloc de text. Hi ha alguns elements que no envolten el text, i en la majoria dels casos els elements poden contenir subelements (com l'<code>html</code> que conté <code>head</code> i <code>body</code> a l'exemple anterior).</p>
+  
+  <p>Els elements també poden tenir atributs, que poden modificar el comportament de l'element i introduir-hi un significat addicional.</p>
+  
+<pre><code>&lt;div id="masthead"&gt;
+   &lt;h1&gt;Conceptes bàsics del 
+      &lt;abbr title="llenguatge de marcat d'hipertext"&gt;HTML&lt;/abbr&gt;
+   &lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+  
+  <p>En aquest exemple hi ha un element <code>div</code> (divisió de pàgina, una manera de partir els documents en blocs lògics) amb un atribut <code>id</code> afegit que té el valor de <code>masthead</code>. L'element <code>div</code> conté un element  <code>h1</code> (encapçalament de primer nivell o més important), que alhora conté text. Part d'aquest text està inclòs en un element <code>abbr</code> (que s'utilitza per a especificar l'expansió de les sigles), que té l'atribut <code>title</code>, el valor del qual està definit com a <em>llenguatge de marcat d'hipertext</em>.</p>
+  
+  <p>Molts dels atributs d'HTML són comuns per a tots els elements, tot i que alguns són específics d'un o diversos elements concrets. Aquests tenen sempre la forma <code>keyword="value"</code>. El valor ha d'aparèixer sempre entre cometes senzilles o dobles (en algunes circumstàncies es poden ometre les cometes, però això no és una pràctica recomanable pel que fa a la predictibilitat, la comprensió i la claredat; s'han de posar <em>sempre</em> els valors entre cometes).</p>
+  
+  <p>La majoria dels <a href="http://www.w3.org/TR/html401/index/attributes.html" hreflang="en">atributs i els seus valors possibles</a> estan definits per les especificacions HTML; no és possible crear atributs propis sense invalidar l'HTML, ja que això podria confondre els agents d'usuari i provocar problemes a l'hora d'interpretar correctament la pàgina web. Les úniques excepcions reals són els atributs <code>id</code> i <code>class</code>; els seus valors estan totalment sota el vostre control, ja que serveixen per a afegir significat i semàntica propis als vostres documents.</p>
+  
+  <p>Un element que es troba dintre d'un altre element es coneix com un "fill" d'aquest element. Així, doncs, en l'exemple anterior, <code>abbr</code> és un fill de l'element <code>h1</code>, que alhora és un fill de <code>div</code>. I a la inversa, l'element <code>div</code> seria un "pare" de l'element <code>h1</code>. Aquest concepte de pare/fill és molt important, ja que és la base de CSS i es fa servir molt en JavaScript.</p>
+
+  <h2 id="blockinline">12.6. Elements de bloc i en línia</h2>
+  
+  <p>En l'HTML hi ha dues categories generals d'elements que corresponen a dos tipus de continguts i estructures que representen aquests elements: elements de bloc i elements en línia.</p>
+  
+  <div class="text-clau">
+  <p>Els <strong>elements de bloc</strong> són elements de nivell superior i normalment defineixen l'estructura del document. Pot ser útil veure els elements de bloc com aquells que comencen en una línia nova i que representen un trencament amb el que hi ha abans. </p>
+  </div>
+  
+  <p>Alguns elements de bloc comuns inclouen els paràgrafs, les llistes, els títols i les taules.</p>
+  
+  <div class="text-clau">
+  <p>Els <strong>elements en línia</strong> són aquells que es troben inclosos en els elements estructurals de bloc i que inclouen només parts petites del contingut del document, i no paràgrafs sencers ni grups de contingut. </p>
+  </div>
+  
+  <p>Un element inserit no farà que aparegui una línia nova en el document; són els tipus d'elements que apareixen dins un paràgraf de text. Alguns elements en línia comuns inclouen els vincles d'hipertext, les paraules o frases destacades o les cites curtes.</p>            
+
+  <h2 id="characterreferences">12.7. Referències de caràcter</h2>
+  
+  <p>Un últim aspecte que cal mencionar d'un document HTML és la manera d'incloure-hi caràcters especials. En l'HTML, els caràcters &lt;, &gt; i &amp; són especials.  Aquests caràcters inicien i finalitzen parts del document HTML, i no representen els caràcters de "més petit que", "més gran que" i "et".</p>
+  
+  <p>Un dels primers errors que pot cometre un autor de webs és fer servir un caràcter "et" en un document i llavors veure que hi apareix alguna cosa inesperada. Per exemple, si s'escriu la frase <span lang="en">"Imperial units measure weight in stones&amp;pounds"</span> pot ser que en alguns navegadors es vegi "...stones&pound;s".</p>
+  
+  <p>Això passa perquè en l'HTML la cadena literal "&amp;pound;" és en realitat una referència de caràcter. Una referència de caràcter és una manera d'incloure en un document un caràcter que és difícil o impossible d'escriure des d'un teclat, o en una codificació de document concreta.</p>
+  
+  <p>El símbol "et" (&amp;) introdueix la referència i el punt i coma (;) l'acaba. No obstant això, molts agents d'usuari poden ser molt condescendents a l'hora de perdonar errors en l'HTML, com per exemple el d'oblidar el punt i coma, i interpretaran "&amp;pound" com una referència de caràcter. Les referències poden ser números (referències numèriques) o paraules abreujades (referències d'entitats).</p>
+  
+  <div class="text-clau">
+  <p>Un símbol "et" s'ha d'introduir en un document com a "&amp;amp;", que és la referència d'entitat de caràcter, o bé com a "&amp;#38;" que és la referència numèrica. <a href="http://www.evolt.org/article/A_Simple_Character_Entity_Chart/17/21234/" hreflang="en">A evolt.org</a> trobareu un taula completa de les referències de caràcters.</p>
+  </div>
+
+
+<h2 id="summary">Resum</h2>
+  
+  <p>En aquest apartat hem après els conceptes bàsics de l'HTML, d'on prové i algunes idees sobre l'estructura d'un document HTML. Tot seguit explicarem la secció <code>&lt;head&gt;</code> d'un document HTML més detalladament i després continuarem explicant el contingut de <code>&lt;body&gt;</code>.</p> 
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../../m2/ud6/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+		<a rel="next" href="../ud2/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

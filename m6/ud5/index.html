@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Imatges de fons en CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Imatges de fons en CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud4/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud6/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	           
+<div id="main">
+<h1>31. Imatges de fons en CSS</h1>
+<p class="by"><a href="../../index.html#sullivan">Nicole Sullivan</a>. 26 de setembre de 2008 Publicat a: repetir, adjuntar, <span lang="en">sprite</span>, prova, posició.</p>
+
+<p>Admeteu-ho! Des del primer apartat d'aquest curs us heu estat morint de ganes d'aprendre com aconseguir que el vostre web quedi impressionant i fabulós. Fins i tot és possible que hagueu saltat els altres apartats per arribar a aquest directament!</p>
+
+<p>Les imatges de fons serveixen per fer que el vostre lloc quedi atractiu, però potser us sorprengui saber que estan molt relacionades amb els conceptes fonamentals que ja heu après.</p>
+
+<p>Tal com ja heu vist en aquest curs, un dels canvis més importants que aporta el CSS és la capacitat per separar <strong>presentació</strong> o l'aspecte de les coses, de la <strong>semàntica</strong>, o el significat de les coses. La imatge de fons de CSS és una de les eines més importants que podeu fer servir perquè permet aplicar imatges decoratives a determinades parts del vostre HTML sense afegir pes addicional a l'HTML. Abans, els creadors web (com vosaltres!) es veien obligats a omplir el codi d'etiquetes <code>img</code>.</p>
+
+<p>El CSS i, sobretot la propietat <code>background</code> (fons), fan que el vostre HTML deixi d'estar atapeït d'elements presentacionals. D'aquesta manera, redissenyar un lloc o realitzar altres transicions de la vida d'una pàgina web creada amb mètodes moderns, pot fer-se d'una manera molt més senzilla. Podreu actualitzar tota la pàgina canviant únicament el full d'estil en lloc d'haver de gravar totes i cadascuna de les pàgines HTML. Depenent de la mida del lloc, això pot estalviar-vos una gran quantitat de temps.</p>
+
+<p>En aquest apartat mostraré els conceptes bàsics del funcionament de les imatges de fons de CSS, incloent l'aplicació d'una imatge de fons a través de CSS, ajustar la seva col·locació, repetir-la en vertical o horitzontal i combinar imatges de fons amb <a href="http://www.alistapart.com/articles/sprites/" hreflang="en"><em>sprites</em> de CSS</a> per millorar el
+<a href="http://developer.yahoo.com/performance/index.html" hreflang="en">rendiment del lloc</a>.</p>
+
+
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>31.1. <a href="#howdoesitwork" accesskey="1">Com funciona?</a>
+<ul class="index">
+<li>31.1.1. <a href="#backgroundproperties">Propietats de fons</a></li>
+</ul></li>
+<li>31.2. <a href="#buildingalert" accesskey="2">Crear un missatge d'alerta</a>
+<ul class="index">
+<li>31.2.1. <a href="#thedesign">El disseny</a></li>
+<li>31.2.2. <a href="#thecode">El codi</a>
+<ul class="index">
+<li><a href="#createselector">Crear el lligam o selector de CSS</a></li>
+<li><a href="#addbackgroundcolor">Afegir el color de fons</a></li>
+<li><a href="#applybackgroundimage">Aplicar la imatge de fons</a></li>
+<li><a href="#controllingrepeat">Controlar la repetició del fons</a></li>
+<li><a href="#attachment"><code>Attachment</code></a></li>
+<li><a href="#positioningtheimage">Col·locar la imatge</a></li>
+<li><a href="#usingshorthand">Fer servir l'abreujament per combinar-ho tot com un professional</a></li>
+</ul></li>
+<li>31.2.3. <a href="#experimenting">Fer proves amb el codi</a></li>
+<li>31.2.4. <a href="#qualitytesting">Comprovar la qualitat</a></li>
+</ul></li>
+<li>31.3. <a href="#sprites" accesskey="3"><em>Sprites</em></a>
+<ul class="index">
+<li>31.3.1. <a href="#complexspriteexample">Un exemple de <em>sprite</em> complex i imatge de fons</a>
+<ul class="index">
+<li><a href="#creatingthesprite">Crear l'<em>sprite</em></a></li>
+</ul></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+<li class="especial"><a href="#furtherreading">Lectures complementàries</a></li>
+
+</ul>                          
+
+<h2 id="howdoesitwork">31.1. Com funciona?</h2>
+
+<p>El CSS per a fons es divideix en diverses propietats. Fent servir aquestes propietats, com ara <code>position</code> i <code>color</code>, podeu començar a controlar l'aspecte de la vostra pàgina. En aquest apartat repassarem detalladament les imatges de fons de CSS i crearem un missatge d'alerta com a exemple pas per pas. </p>
+<p>Primer de tot, hem de saber més coses sobre les diferents propietats que podem utilitzar.</p>
+
+<h3 id="backgroundproperties">31.1.1. Propietats de fons</h3>
+
+<table summary="">
+<thead>        
+<tr>
+<th><strong>Propietat</strong></th>
+<th><strong>Definició</strong></th>
+<th><strong>Descripció</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>background-color</code></td>
+<td>Estableix el color de fons de l'element d'HTML.</td>
+<td><p>Hi ha diverses maneres d'indicar el <code>background-color</code> o color de fons, com ara incloure valors i paraules clau RGB. La majoria de la gent fa servir la notació hexadecimal, un símbol de coixinet o barra (#) seguit de sis caràcters. La primera parella indica els nivells vermells i la segona i la tercera indiquen els nivells verd i blau respectivament: #RRGGBB.</p>
+<p>Hi ha moltes eines per escollir colors que poden ajudar-vos a trobar la notació hexadecimal d'un color determinat. El vermell pur, per exemple, seria el #FF0000.</p>
+ 
+ <div class="imagen">
+<img src="06510_m6_16.gif" alt="L'eina Selector de color del Photoshop proporciona el valor hexadecimal del color."/>
+ </div>
+ 
+ <p>Els valors vàlids inclouen un valor de <code>color</code>, <code>transparent</code> o <code>inherit</code>.</p></td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>Indica la ruta o URL de la imatge de fons.</td>
+<td><p>Estableix la <code>background-image</code> o imatge de fons mostrant al navegador on trobar la imatge fent servir l'URL. Per exemple: <code>url(alert.png)</code>. Fixeu-vos que la ruta va precedida de la paraula clau <code>url</code> i entre parèntesis. Aquesta sintaxi és important perquè el navegador entengui que voleu indicar una ubicació.</p>
+<p>Els valors vàlids inclouen una <code>URL</code>, <code>none</code> o <code>inherit</code>.</p></td>
+</tr>
+<tr>
+<td><code>repeat</code></td>
+<td>Indica en quina direcció s'ha de repetir la imatge de fons.</td>
+<td><p>Les imatges poden repetir-se en vertical o horitzontal, o en les dos direccions, per omplir tota l'amplada o alçada d'un element HTML. Utilitzeu <code>background-repeat</code> per indicar-li al navegador que repeteixi una imatge de fons.</p>
+<p>Els valors vàlids són <code>repeat</code>, <code>repeat-x</code>, <code>repeat-y</code> i <code>no-repeat</code>.</p></td>
+</tr>
+<tr>
+<td><code>attachment</code></td>
+<td>Defineix el comportament de la imatge de fons quan l'usuari desplaça.</td>
+<td>Les imatges poden desplaçar-se amb el contingut o quedar-se fixes a la pantalla de visualització. Els valors vàlids són: <code>scroll</code>, <code>fixed</code> i <code>inherit</code>.</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td>Indica al navegador on col·locar la imatge de fons.</td>
+<td><p>Les imatges poden mostrar-se a qualsevol punt dintre de les vores de l'element d'HTML en què estiguin aplicades. Feu servir <code>background-position</code> per col·locar les imatges amb precisió o per crear efectes visuals i capes.</p>
+<p>Hi ha moltes maneres útils d'indicar la posició, les paraules clau i els valors numèrics del fons. Les paraules clau (com ara <code>top</code> i <code>bottom</code>) són molt útils i fàcils de llegir. Els valors en píxels són molt precisos però no s'adapten als canvis d'alçada i amplada. Els valors de píxels negatius són molt útils quan es fan servir <span lang="en">sprites</span> de CSS, tal com veurem més endavant.</p>
+<p>Quan s'utilitzen <span lang="en">sprites</span> i píxels, el punt inicial sempre és l'extrem superior esquerre de l'element HTML, encara que la manera de funcionar de la col·locació de la imatge és una mica diferent amb píxels o amb percentatges. Els píxels sempre mouen la imatge un número concret de píxels cap a la part inferior dreta de la caixa contenidora (o cap a la part superior esquerra si són valors negatius), sigui quina sigui la mida de la imatge i de la caixa contenidora. Els percentatges, en canvi, mouen la imatge un percentatge de la diferència entre la caixa contenidora i la mida de la imatge. Si la imatge i la caixa contenidora són igual de grans, els percentatges no mouran gens la imatge.</p>
+<p>Els valors vàlids inclouen length (normalment en píxels), percentage (de l'amplada de l'element) i les paraules clau <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> i <code>center</code>. Fixeu-vos que <code>center</code> es pot fer servir per indicar un centre vertical o horitzontal. Fixeu-vos també que podeu mesclar percentatges i píxels a les regles, però no paraules clau i píxels ni paraules clau i percentatges.</p></td>
+</tr>
+<tr>
+<td><code>background</code></td>
+<td>La propietat abreujada que es pot fer servir per descriure tota la resta de propietats d'una línia.</td>
+<td><p>Les propietats abreujades són realment pràctiques. La majoria de desenvolupadors les utilitzen per mantenir el CSS el més senzill possible i per agrupar propietats relacionades. Es pot escriure una regla general fent servir l'abreujament i després anul·lar-la segons sigui necessari amb propietats específiques.</p>
+
+<p>Les propietats sempre s'haurien d'indicar en el mateix ordre perquè els navegadors puguin interpretar fàcilment els estils.</p>
+ <ol>
+ <li><code>color</code></li>
+ <li><code>url</code></li>
+ <li><code>repeat</code></li>
+ <li><code>attachment</code> (no es fa servir gairebé mai, es pot ometre)</li>
+ <li><code>horizontal-position</code></li>
+ <li><code>vertical-position</code></li>
+ </ol>
+ <p>Un exemple d'aquest abreujament amb totes les propietats utilitzades (tret de <code>attachment</code>):</p>
+<p><code>background: green url(logo.gif) no-repeat left top;</code></p></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="buildingalert">31.2. Crear un missatge d'alerta</h2>
+
+<p>Ara que ja hem vist la sintaxi bàsica necessària, us ensenyaré com crear un exemple complet de caixa d'alerta que servirà per demostrar tots els aspectes de les imatges de fons.</p>
+
+<h3 id="thedesign">31.2.1. El disseny</h3>
+
+<p>Posem per cas que un dissenyador gràfic us ha presentat un esbós visual del missatge d'alerta que voleu crear per al vostre lloc web. Fixeu-vos que l'alerta té el fons de color taronja clar per diferenciar-lo dels paràgrafs que l'envolten. També té una icona d'alerta a deu píxels de l'extrem superior esquerre.</p>
+
+<p>Fixeu-vos que l'esbós només té una línia de text, però en altres casos pot tenir-ne més. Un dels trets més importants del desenvolupador web és preveure com acabarà evolucionant un disseny. En part, respectar la visió artística d'un lloc suposa pensar en la consistència des que s'inicia fins que es redissenya. Per tant, el missatge d'alerta podria incloure més d'una línia de text o fins i tot múltiples paràgrafs, llistes o d'altres elements HTML. Hauríeu de tractar de ser tan agnòstics en qüestió d'elements com us sigui possible. D'aquesta manera augmentaran les probabilitats de reutilització del codi i el lloc web tindrà la màxima velocitat i eficiència. L'esbós és com es veu a la figura 1:</p>
+
+<div class="imagen">
+<img src="06510_m6_17.gif" alt="El text d'alerta apareix sobre un fons taronja clar. A l'esquerra apareix un signe d'exclamació sobre un triangle taronja."/>
+<p>Figura 1. L'esbós del dissenyador gràfic de la caixa d'alerta.</p>
+</div>
+
+<p>El dissenyador també us ha proporcionat la icona que heu de fer servir, tal com es mostra a la figura 2:</p>
+
+<div class="imagen">
+<img src="06510_m6_18.gif" alt="Signo de exclamación sobre un triángulo naranja"/>
+<p>Figura 2. La icona d'alerta.</p>
+
+</div>
+
+<h3 id="thecode">31.2.2. El codi</h3>
+
+<p>Basant-vos en tot el que heu après dels fons de CSS a la primera part d'aquest apartat, ja podeu anar pensant com crear aquest missatge d'avís. Us animo que ho proveu ara mateix i que després compareu el resultat amb el meu exemple.</p>
+
+<p>Molt bé, ja ho heu provat? Analitzem-ho ara pas per pas. Feu proves amb el codi, augmenteu o reduïu els valors i intenteu provar alternatives. També pot ser que vulgueu anar seguint tots els passos escrivint cada línia nova de codi en una eina com ara Opera Dragonfly o Firebug per poder anar veient els resultats de cada pas immediatament.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Cada còpia de pantalla té un enllaç a exemples de codi perquè pugueu comprovar la font a cada pas.</p>
+</div>
+
+<h3 id="createselector">Crear el lligam o selector de CSS</h3>
+
+<p>Per començar heu de crear una classe <code>alert</code> perquè el CSS s'hi pugui lligar. Creeu els fitxers esquelet nous de CSS i HTML, enllaceu el CSS al fitxer HTML i afegiu-li el codi següent:</p>
+
+<p>El CSS:</p>
+
+<pre><code>.alert { ... }</code></pre>
+
+<p>L'HTML:</p>
+
+<pre><code>&lt;p class="alert"&gt;
+   &lt;strong&gt;Alert!&lt;/strong&gt; The text of our alert message goes here.
+&lt;/p&gt;</code></pre>
+
+<p>En aquest cas he aplicat estils a l'alerta amb un <code>class</code> i no amb un id perquè podria tenir més d'una alerta a la pàgina, per exemple un element de formulari amb diversos errors. El CSS s'ha de fer el més flexible que es pugui i limitar-ho tot per tal que es correspongui al disseny quan es crea l'HTML.</p>
+
+<p>Molt bé, doncs ja teniu uns fonaments, però encara sembla un paràgraf normal perquè encara no li heu afegit cap estil. Fem-ho.</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>He decidit intencionadament no limitar la classe <code>alert</code> a paràgrafs; les caixes d'alerta també podrien contenir fàcilment altres elements. Hauríeu de deixar que el CSS tingui la màxima flexibilitat possible.</p>
+</div>
+
+<h3 id="addbackgroundcolor">Afegir el color de fons</h3>
+
+<p>Ja heu après com fer servir el color de fons amb els estils de text. Els mateixos principis s'apliquen a qualsevol element HTML i poden combinar-se amb imatges de fons per crear efectes visuals. Si el color de fons no s'ha establert ni heretat, serà transparent per defecte.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Vegeu com fer servir el color de fons amb els estils de text a l'apartat 29 d'aquest mòdul.</p>
+</div>
+
+<p>Afegim el color de fons taronja clar a la caixa d'alerta perquè ressalti entre el text que té al voltant. No hauria de ser gaire fosc perquè és important que mantingueu un nivell raonable de contrast entre el text i el <a href="http://www.w3.org/TR/2006/WD-WCAG20-20060427/guidelines.html#visual-audio-contrast" hreflang="en">color de fons</a>. Afegiu la propietat següent a la vostra regla de CSS:</p>
+
+
+
+<pre><code>.alert{<strong>background-color: #FFFFCC;</strong>}</code></pre>
+
+<p>Ara la caixa d'alerta s'assemblarà més a la figura 3:</p>
+
+<div class="imagen">
+<img src="06510_m6_19.gif" alt="Text sobre fons taronja clar"/>
+<p>Figura 3. Una caixa d'avís amb color de fons afegit.</p>
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://devfiles.myopera.com/articles/481/2_color.html" hreflang="en">Figura 3</a>"</p>
+</div>
+
+<h3 id="applybackgroundimage">Aplicar la imatge de fons</h3>
+
+<p>Passem a afegir la imatge. La ruta a la imatge de fons ha d'estar entre url(), tal com s'observa en el codi següent. Afegiu la línia ressaltada a la regla de CSS:</p>
+
+<pre><code>.alert{
+   background-color: #FFFFCC;
+   <strong>background-image: url(alert.png);</strong>
+}</code></pre>
+
+<p>Ara la caixa d'alerta quedarà com a la figura 4:</p>
+
+<div class="imagen">
+<img src="06510_m6_20.gif" alt="Text sobre una col·lecció de triangles taronja. Molt poc llegible"/>
+<p>Figura 4. S'ha afegit la imatge de fons, però la repetició queda horrible.</p>
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://devfiles.myopera.com/articles/481/3_image.html" hreflang="en">Figura 4</a>"</p>
+</div>
+<p>Recordeu que cada propietat de fons té un valor per defecte que se li aplicarà si no especifiqueu cap valor. Segurament ja us haureu adonat que la imatge es repeteix per tota l'alerta com si fossin les tessel·les d'un mosaic. Quina és la conclusió de tot això? Les imatges de fons estan configurades per defecte per a repetir-se tant horitzontalment com verticalment. Els fons que es repeteixen són especialment útils per a gradacions de colors i patrons que omplen la pantalla o un element d'HTML en concret, però en aquest cas no és el que volem.</p>
+
+<h3 id="controllingrepeat">Controlar la repetició del fons</h3>
+
+<div class="imagen">
+<img src="06510_m6_21.jpg" alt="Una paret de tessel·les, que dibuixen dues fletxes, una de vertical i una altra d'horitzontal"/>
+<p>Figura 5. De manera semblant a la nostra imatge de fons, aquestes tessel·les es repeteixen tant en horitzontal como en vertical.</p>
+</div>
+<p>Llegir especificacions pot ser un tasca intimidant, però l'especificació és molt bon lloc per esbrinar com se suposa que funciona el CSS abans de passar a profunditzar en la miríada de diferències existents entre navegadors. Feu una ullada a la part dels <a href="http://www.w3.org/TR/CSS21/colors.html" hreflang="en">colors i els fons de la W3C Specification</a> i intenteu trobar la paraula clau per fer-los servir quan no vulgueu que es repeteixi una imatge de fons. Tot seguit la farem servir en un exemple.</p>
+
+
+<p>Ja l'heu trobada? Fixeu-vos que hi ha una secció per cada propietat de fons incloent-hi <a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-repeat" hreflang="en"><code>background-repeat</code></a>. A sota de <strong>Value</strong> hi veureu totes les opcions possibles incloent-hi: <code>repeat</code>, <code>repeat-x</code>, <code>repeat-y</code>, <code>no-repeat</code> i <code>inherit</code>. Per defecte, les imatges de fons (<strong>inicials</strong>) es repeteixen. No s'especifica cap direcció, de manera que la imatge pot repetir-se en horitzontal o en vertical. Segurament ja us haureu imaginat que <strong>no-repeat</strong> (sense repetició) és el valor que necessiteu per impedir que la imatge es repeteixi en qualsevol direcció. Afegiu la següent línia ressaltada a la regla de CSS:</p>
+
+
+<pre><code>.alert{
+   background-color: #FFFFCC;
+   background-image: url(alert.png);
+   <strong>background-repeat: no-repeat;</strong>
+}</code></pre>
+
+<p>Ara la caixa d'alerta quedarà com a la figura 6:</p>
+
+<div class="imagen">
+<img src="06510_m6_22.gif" alt="Ara el triangle taronja apareix una sola vegada."/>
+<p>Figura 6. La caixa d'alerta amb una única còpia de la imatge de fons (sense repeticions).</p>
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://devfiles.myopera.com/articles/481/4_repeat.html " hreflang="en">Figura 6</a>"</p>
+</div>
+<p>A més, també podeu repetir-la en les dues direccions (com si fossin tessel·les d'un mosaic) o en cap direcció. Les gradacions acostumen a repetir-se horitzontalment o verticalment (vegeu la figura 7). No és necessari que conegueu la mida de l'element HTML; només cal que talleu un tros de la gradació i la feu repetir-se en la direcció que vulgueu; ja sigui "x" per horitzontal o "y" per vertical. Els patrons sovint es repeteixen en totes dues direccions i les icones normalment no es repeteixen. Més endavant examinareu <code>background-repeat</code> més a fons amb un altre exemple.</p>
+
+<div class="imagen">
+<img src="06510_m6_23.jpg" alt="Paret de tessel·les. Una línia horitzontal de tessel·les té un color diferent a la resta i està remarcada amb una fletxa horitzontal."/>
+<p>Figura 7. Les tessel·les o rajoletes d'aquest exemple només es repeteixen en horitzontal.</p>
+</div>
+<p>Fixeu-vos ara en un exemple pràctic del meu web, observeu la figura 8:</p>
+
+<div class="imagen">
+<img src="06510_m6_24.gif" alt="Una imatge molt petita es repeteix horitzontalment per crear un patró de tres colors al llarg de la part superior del meu lloc web."/>
+<p>Figura 8. Un exemple d'imatge repetida <a href="http://www.stubbornella.org/content/" hreflang="en">del meu web</a>.</p>
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://www.stubbornella.org/content/" hreflang="en">Figura 8</a>"</p>
+</div>                                       
+<p>El CSS que vaig fer servir per afegir aquest efecte decoratiu és relativament senzill. Vaig fer que el fons es repetís horitzontalment amb <code>repeat-x</code>:</p>
+
+<pre><code>body{background-repeat:
+<strong>repeat-x</strong>}</code></pre>
+
+<h3 id="attachment">Attachment</h3>
+
+<p>attachment permet especificar com funciona el fons quan l'usuari desplaça la pàgina cap avall. El funcionament per defecte és <code>scroll</code>, que fa que la imatge de fons es desplaci juntament amb el contingut.</p>
+
+<p>Per altra banda, si s'estableix <code>background-attachment</code> a <code>fixed</code>, l'element es queda fix a la finestra del navegador, de manera que no es mou quan es desplaça el contingut de dins de l'element al qual està adjunt. Això crea alguns efectes estranys que només seran visibles quan desplaceu la pàgina per sobre l'element d'HTML al qual està adjunt. La W3C ho fa servir per assenyalar l'estat de les especificacions, com per exemple la <a href="http://www.w3.org/TR/CSS21/colors.html#propdef-background-repeat" hreflang="en">imatge de la "W3C Candidate Recommendation" de dalt de tot a l'esquerra</a>. Desplaceu la pàgina cap avall i veureu que la imatge es queda fixa al racó superior esquerre. Està adjunta a l'element body, de manera que sempre és visible.</p>
+
+
+<p>Aquest pas no tindrà cap efecte en la nostra visualització perquè els navegadors estableixen per defecte que les imatges de fons es desplacin, però afegim-ho igualment al codi perquè pugueu veure com es fa servir la propietat. Afegiu la línia ressaltada a la regla de CSS:</p>
+
+<pre><code>.alert{
+   background-color: #FFFFCC;
+   background-image: url(alert.png);
+   background-repeat: no-repeat;
+   <strong>background-attachment: scroll;</strong>
+}</code></pre>
+
+<p>Tal com s'observa a la figura 9, la visualització de la caixa d'alerta no és gaire diferent de com era abans.</p>
+
+<div class="imagen">
+<img src="06510_m6_25.gif" alt="L'aspecte de l'alerta no ha canviat."/>
+<p>Figura 9. No ha canviat gaire, encara.</p>
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://devfiles.myopera.com/articles/481/5_attachment.html" hreflang="en">Figura 9</a>"</p>
+</div>
+
+<h3 id="positioningtheimage">Col·locar la imatge</h3>
+
+<p>La propietat de col·locació permet disposar la imatge de fons exactament on vulgueu posar-la, tant horitzontalment com verticalment, a l'element d'HTML. Aquesta propietat accepta paraules clau i valors com ara: top, center, right, 100%, -10%, 50px i -30em.</p>          
+<p>A la figura 10 es mostren els valors que poden utilitzar-se per col·locar les imatges de fons en diferents posicions.</p>
+
+<div class="imagen">
+<img src="06510_m6_26.gif" alt="Exemples de possibles posicions del fons. En un rectangle de 350 per 90 píxels veiem exemples d'imatges posicionades amb el seu codi. A dalt a l'esquerra amb left, top, o amb 0, 0; a dalt i centrat horitzontalment, amb center, top, o amb 50%, 0; a dalt a la dreta amb right, top, o amb 100%, 0; centrat vericalment, a l'esquerra amb left, center, o amb 0, 50%; centrat amb center, center, o 50%, 50%; centrat verticalment i a la dreta amb right, center, o 100%, 50%; a baix a l'esquerra amb left, bottom, o 0, 100%; centrat horitzontalmente i a baix amb center, bottom, o 50%, 100%. -50px, 50px fa que el centre de la imatge estigui a 60 píxels del marge superior i que sobresurti 25 píxels per l'esquerra. 350px, 60px situa el centre de la imatge a 350 píxels de la vora esquerra i 60 píxels per sota de la vora superior; finalment, 350px, -60 px situa el centre de la imatge 60 píxels per sobre de la vora superior, 350 píxels a la dreta de la vora esquerra."/>
+<p>Figura 10. Diversos exemples de posició del fons mitjançant paraules clau, percentatges i píxels.</p>
+</div>
+<p>Passem ara a col·locar la imatge de fons: voleu que quedi a l'extrem superior esquerre, però sense tocar els costats, de manera que necessiteu establir una distància de 10 píxels tant des del límit superior com des de l'esquerre. Això es pot fer afegint-hi la següent línia ressaltada a la regla CSS. Feu-ho ara.</p>
+
+<pre><code>.alert{
+   background-color: #FFFFCC;
+   background-image: url(alert.png);
+   background-repeat: no-repeat;
+   background-attachment: scroll;
+   <strong>background-position: 10px 10px;</strong>
+}</code></pre>
+
+<p>El primer valor és la distància horitzontal i el segon la vertical. En aquest cas són el mateix. Ara la caixa d'alerta quedarà com a la figura 11:</p>
+
+<div class="imagen">
+<img src="06510_m6_27.gif" alt="Ara la posició del triangle s'ajusta a allò que s'ha explicat en el text."/>
+<p>Figura 11. Hem fet servir la col·locació per situar la imatge de fons.</p>
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://devfiles.myopera.com/articles/481/6_position.html" hreflang="en">Figura 11</a>"</p>
+</div>
+<div class="note">
+<h3>Consell</h3>
+
+<p>Utilitzeu o bé només paraules clau o bé només valors numèrics, ja que els navegadors antics pot ser que ignorin la vostra declaració si els feu servir tots dos alhora. Si feu servir <code>right</code> i <code>bottom</code> aconseguireu el mateix que <code>100%</code> horitzontalment o verticalment.</p>
+</div>
+
+<h3 id="usingshorthand">Fer servir l'abreujament per combinar-ho tot com un professional</h3>
+
+<p>Com ja heu pogut veure, algunes propietats de CSS poden combinar-se. Per exemple, el fons i totes les subpropietats relacionades. El codi de CSS que hem escrit fins ara es pot reescriure abreujadament així:</p>
+
+<pre><code>.alert{<strong>background: #FFFFCC url(alert.png) no-repeat scroll 10px 10px</strong>;}</code></pre>
+
+<div class="note">
+<h3>Consell</h3>
+
+<p>Quan combineu subpropietats de <code>background</code>, poseu sempre les propietats en l'ordre següent. És important tant per la compatibilitat de tots els navegadors com per l'organització i manteniment del full d'estil:</p>
+</div>
+<ol>
+<li><p><code>color</code></p></li>
+<li><p><code>image</code></p></li>
+<li><p><code>repeat</code></p></li>
+<li><p><code>attachment</code></p></li>
+<li><p>posició <code>horizontal</code></p></li>
+<li><p>posició <code>vertical</code></p></li>
+</ol>
+<p>Proveu a substituir el CSS antic amb l'abreujament anterior i el vostre exemple us hauria de quedar exactament igual. Vegeu la figura 12.</p>
+
+<div class="imagen">
+<img src="06510_m6_28.gif" alt="La imatge continua sent exactament igual que en l'exemple anterior."/>
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://devfiles.myopera.com/articles/481/7_finishedProduct.html" hreflang="en">Figura 12</a>"</p>
+</div>
+
+<h3 id="experimenting">31.2.3. Fer proves amb el codi</h3>
+
+<p>La millor manera de recordar tots els detalls del CSS és provar les opcions un mateix. Proveu a canviar algunes de les propietats de l'exemple i vegeu com queda. Establiu la <code>background-position</code> a <code>100% 100%</code>, i fixeu-vos que dóna el mateix resultat que fer servir les paraules clau de <code>right</code> i <code>bottom</code>. I si ho canviéssiu a <code>-5px 0</code>? Per què creieu que ara no podeu veure part de la imatge?</p>
+
+<h3 id="qualitytesting">31.2.4. Comprovar la qualitat</h3>
+
+<p>Les comprovacions són extremadament importants per oferir una bona experiència a l'usuari. El fet que el lloc funcioni bé en el vostre equip amb la vostra configuració específica no vol dir que es vegi bé en tots els ordinadors. Quan comproveu la caixa d'alerta hauríeu de seguir aquests passos bàsics mínims:</p>
+
+<ul>
+<li><p>Augmenteu o reduïu la quantitat de text a l'interior de l'alerta.</p></li>
+
+<li><p>Augmenteu la mida del text del vostre navegador com a mínim dos nivells. Hauria estat millor utilitzar ems per col·locar la imatge? Llavors què passa quan augmenteu la mida del text?</p></li>
+
+<li><p>Apliqueu l'alerta <code>class</code> a d'altres elements com ara <code>div</code>, <code>p</code>, <code>ul</code>, <code>strong</code> o <code>em</code>. Què necessiteu canviar per fer que la classe sigui agnòstica?</p></li>
+
+<li><p>Incloeu uns quants paràgrafs i una llista dins del div de l'alerta. Encara funciona el codi?</p></li>
+
+<li><p>Verifiqueu l'alerta visualment als <a href="http://www.bbc.co.uk/guidelines/futuremedia/technical/browser_support.shtml#support_table" hreflang="en">navegadors de grau 1</a> (també anomenat <em>grau A</em>). El meu consell és que escriviu per a bons navegadors i adapteu per a l'Internet Explorer quan estigueu segurs que el codi funciona.</p></li>
+</ul>
+
+<p>Realitzar una sèrie rigorosa de proves forma part del procés d'aprendre a escriure CSS. Si aneu amb molt de compte alhora d'aprendre, acabareu anant molt ràpid.</p>
+
+<h2 id="sprites">31.3. <span lang="en">Sprites</span></h2>
+
+<p>Els usuaris ho volen tot. Volen que el vostre lloc sigui atractiu, interactiu i, a sobre, ràpid, però incloure grans quantitats d'imatges de fons de CSS pot alentir molt el web, ja que quantes més peticions d'HTTP feu, més lent serà el lloc (una petició d'HTTP és quan l'ordinador està accedint a una pàgina web i necessita demanar al servidor que li enviï un altre valor que compon el lloc, com ara un fitxer o una imatge de CSS; cada petició addicional significa més temps de càrrega del lloc). Per tal de superar aquesta limitació, podeu combinar icones relacionades per formar una sola imatge, els anomenats <a href="http://www.alistapart.com/articles/sprites" hreflang="en"><span lang="en">sprites</span> de CSS</a>. La propietat de <code>background-position</code> permet col·locar la imatge en la posició adequada de manera que les icones es vegin a través de la finestra de l'element HTML al qual estan adjunts els <span lang="en">sprites</span> de CSS.</p>
+
+<p>A la figura 13, per exemple, observareu que per veure la icona de la Terra a través de la finestra HTML heu de col·locar la imatge fent servir <code>left top</code>. Per moure la posició de la imatge de manera que es vegi la icona d'alerta, la posició del fons s'ha de canviar a <code>-80px 0</code>. El valor negatiu horitzontal fa que la imatge es desplaci a l'esquerra.</p>
+
+<div class="imagen">
+<img src="06510_m6_29.gif" alt="Tres imatges. En la primera, es combinen una icona que representa la Terra amb dues icones més, una que representa dues persones i una altra, un signe d'advertència. En la segona imatge es ressalta la icona de la Terra. En la tercera imatge, s'aprecia un element CSS en què només es veu la icona de la Terra."/>
+<p>Figura 13. Utilització de <span lang="en">sprites</span> de CSS per reduir les peticions de HTTP.</p>
+</div>
+<div class="note">
+<h3>Nota</h3>
+
+<p

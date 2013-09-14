@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Posicionament estàtic i relatiu en CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Posicionament estàtic i relatiu en CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud9/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud11/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">  
+<h1>36. Posicionament estàtic i relatiu en CSS</h1>
+<p class="by"><a href="../../index.html#olsson">Tommy Olsson</a>. 26 de setembre de 2008 Publicat a: en línia, composició, columna, bloc, IE.</p>
+
+<p>En aquest apartat explicaré en profunditat la manera en què es pot utilitzar el CSS per posicionar elements HTML en el lloc desitjat d'una pàgina amb la propietat <code>position</code> (posicionar) de CSS i algunes propietats relacionades.</p>
+
+<p>La propietat <code>position</code> de CSS té quatre valors lícits (a banda de l'omnipresent inherit): <code>static</code> (estàtic), <code>relative</code> (relatiu), <code>absolute</code> (absolut) i <code>fixed</code> (fix). Aquests valors tenen un impacte molt important sobre la manera en què es representa un element. Els valors <code>static</code> i <code>relative</code> estan molt relacionats, i en aquest apartat els estudiarem en gran detall. Els valors <code>absolute</code> i <code>fixed</code> també estan molt relacionats, però de moment els deixaré per al proper apartat.</p>
+
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>36.1. <a href="#rectangles" accesskey="1">El meravellós món dels rectangles</a></li>
+<li>36.2. <a href="#static" accesskey="2">Posicionament estàtic</a>
+<ul class="index">
+<li>36.2.1. <a href="#blockboxlayout">Disposició de caixes de bloc</a></li>
+<li>36.2.2. <a href="#inlineboxlayout">Disposició de caixes en línia</a></li>
+</ul></li>
+<li>36.3. <a href="#relative" accesskey="3">Posicionament relatiu</a>
+<ul class="index">
+<li>36.3.1. <a href="#multicolumnlayout">Disposició de múltiples columnes amb requisits d'ordre en el codi font</a>
+<ul class="index">
+<li><a href="#makingcolumns">Crear columnes</a></li>
+<li><a href="#iequirks">Solucionar els problemes amb l'Internet Explorer</a></li>
+</ul></li>
+<li>36.3.2. <a href="#otherusesforrelative">Altres usos del posicionament relatiu</a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+
+</ul>
+
+
+<h2 id="rectangles">36.1. El meravellós món dels rectangles</h2>
+
+<p>Per començar, recapitularem una mica tot el que hem dit en l'apartat dedicat als elements flotants i al <span lang="en">clearing</span>, sobre el CSS i les caixes HTML. Un document HTML consisteix en un nombre d'elements esquitxats amb dades de caràcters (text). Quan un document d'aquesta mena es reprodueix en una pantalla d'ordinador o en una còpia impresa, aquests elements generen caixes rectangulars. De la mateixa manera que un conjunt d'elements HTML es divideix en elements de bloc i elements en línia, les caixes del CSS també poden ser bàsicament caixes de bloc o caixes en línia. Per defecte, el full d'estils de l'agent d'usuari integrat d'un navegador fa que els elements HTML de bloc, com ara <code>p</code> i <code>div</code>, generin caixes de bloc, mentre que els elements en línia, com ara <code>strong</code> i <code>span</code>, generin caixes en línia. Podem utilitzar la propietat <code>display</code> per controlar el tipus de caixa que es generarà.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Vegeu l'apartat 35 d'aquest mòdul.</p>
+</div>
+
+<p>Les caixes generades pels elements d'un document es disposen segons una sèrie de normes clarament definides segons l'<a href="http://www.w3.org/TR/CSS21" hreflang="en">especificació CSS2.1</a>. Aquestes regles estan escrites per a les relativament escasses persones que escriuen programari per a navegadors perquè puguin saber com funciona el CSS, però no per a aquells de nosaltres que dissenyem pàgines web per guanyar-nos la vida o com a afició. És per això que existeix tot aquest curs! Com a resultat, l'especificació pot ser una mica difícil d'entendre. En aquest apartat intentaré explicar els conceptes bàsics d'una manera que resulti apropiada per als dissenyadors i desenvolupadors de webs.</p>
+
+<h2 id="static">36.2. Posicionament estàtic</h2>
+
+<p>De fet, aquest nom no és gens adequat. En realitat, els quadres amb <code>position:static</code> no es "posicionen" en el sentit del CSS. Simplement es disposen en l'ordre en què apareixen en l'etiquetatge i ocupen tot l'espai que necessiten; aquest és el comportament per defecte que es dóna quan no s'aplica cap CSS a l'HTML.</p>
+
+<p>Hi ha algunes diferències fonamentals en la manera com es distribueixen les caixes de bloc en comparació amb la distribució de les caixes en línia, o sigui que examinarem els dos tipus un a un. Començaré amb les caixes de bloc, perquè són més senzilles.</p>
+
+<h3 id="blockboxlayout">36.2.1. Disposició de caixes de bloc</h3>
+
+<p>Si no apliquem cap declaració CSS concreta, les caixes de bloc es disposen verticalment de dalt a baix en l'ordre en què apareixen a l'etiquetatge. Cada caixa és normalment tan ampla com el document (l'element <code>body</code>), però, fins i tot si les fem més estretes, aquestes no es distribuiran l'una al costat de l'altra encara que hi hagi espai, sinó que se seguiran situant una sota l'altra. Podeu imaginar-vos-ho com si cada caixa de bloc tingués un salt de línia implícit abans i després, ja que així es garanteix que tindrà una "línia" pròpia.</p>
+
+<p>La distància vertical entre dues caixes de bloc es controla amb la propietat <code>margin-bottom</code> (marge-inferior) de la primera caixa i la propietat
+<code>margin-top</code> (marge-superior) de la segona caixa (en aquest curs ja hem vist com manipular aquestes propietats). Per a les caixes del flux normal, és a dir, les caixes que no són flotants o que no tenen un posicionament absolut, els marges verticals entre dues caixes de bloc adjacents se superposaran, de manera que el resultat final no serà la suma dels dos marges, sinó el més gran dels dos, tal com es pot veure a la figura 1, que es mostra més endavant.</p>
+
+<p>Mireu el següent fragment d'HTML:</p>
+
+<pre><code>&lt;p style="margin-bottom:40px"&gt;This paragraph has a 40px bottom margin.&lt;/p&gt;
+&lt;p style="margin-top:20px"&gt;This paragraph has a 20px top margin.&lt;/p&gt;
+</code></pre>
+
+<p>Quan es mostra en un navegador, els marges se superposen, tal com es pot veure a la figura 1.</p>
+
+<div class="imagen">
+<img src="06510_m6_91.gif" alt="La distància entre els dos paràgrafs és de 40 píxels, no de 60 píxels"/>
+<p>Figura 1. Els marges se superposen i la distància entre els dos és de 40 píxels, i no de 60 píxels.</p>
+</div>
+
+<p>Una caixa de bloc inclourà només altres caixes de bloc o només caixes en línia. Si un element de bloc conté una barreja de fills de bloc i en línia (una cosa permesa però, semànticament qüestionable), es generarà el que es coneix com <em>caixes de bloc anònimes</em> per incloure-hi les caixes filles inserides de manera que la mare contingui només caixes de bloc.</p>
+
+<p>Podeu especificar les dimensions d'una caixa de bloc amb les propietats <code>width</code> (amplada) i <code>height</code> (alçada). També podeu especificar-ne els marges vertical i horitzontal. El valor inicial (per defecte) per a <code>width</code> i <code>height</code> és <code>auto</code>, i el valor inicial per a les propietats de marge és <code>0</code>. Aquests factors combinats signifiquen que una caixa de bloc serà per defecte tan ampla com la seva mare, tal com mostra la figura 2.</p>
+
+<div class="imagen">
+<img src="06510_m6_92.gif" alt="Les caixes de bloc es distribueixen verticalment."/>
+<p>Figura 2. Les caixes de bloc es distribueixen verticalment.</p>
+</div>
+
+<h3 id="inlineboxlayout">36.2.2. Disposició de caixes en línia</h3>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Aquest subapartat pot ser difícil d'entendre si no teniu gaire experiència amb CSS, o sigui que potser l'haureu de llegir unes quantes vegades, però tampoc us ha de preocupar. L'experimentació pel vostre compte és probablement la millor manera per entendre bé totes aquestes qüestions; només cal que a l'hora de fer les proves utilitzeu un bon navegador compatible amb els estàndards, com l'Opera o el Firefox.</p>
+</div>
+
+<p>Les caixes en línia es generen per defecte a partir dels elements HTML en línia, però també hi ha caixes en línia anònimes generades per incloure el contingut de text dels elements.</p>
+<p>Les caixes en línia es distribueixen horitzontalment, una després de l'altra, en l'ordre en el qual apareixen a l'etiquetatge. Segons la propietat <code>direction</code>, els quadres inserits es distribuiran d'esquerra a dreta (<code>direction:ltr</code>) o de dreta a esquerra (<code>direction:rtl</code>). La direcció d'esquerra a dreta s'utilitza, per exemple, amb els idiomes europeus, mentre que la de dreta a esquerra s'utilitza amb idiomes com l'àrab i l'hebreu.</p>
+
+<p>El grup de caixes en línia que formen una línia en la pantalla (o en el paper) està contingut en un altre rectangle, que es coneix com <em>caixa de línia</em>.  Les caixes de línia es distribueixen verticalment en el seu bloc mare, sense cap espai entre elles. Podem modificar l'alçada de les caixes de línia amb la propietat <code>line-height</code>.</p>
+
+<p>Per a les caixes en línia no podem especificar cap dimensió. Podem especificar-ne els marges horitzontals, però no els verticals.</p>
+
+<p>Si cal, una caixa en línia es pot dividir en diverses caixes en línia distribuïdes per dues o més caixes de línia. Quan es produeix una divisió d'aquesta mena, tots els marges horitzontals i separacions, i totes les vores verticals, s'aplicaran només abans de la primera caixa i després de l'última caixa. Imaginem-nos un document amb la regla següent per als elements em:</p>
+
+<pre><code>em {
+   margin: 0 2em;
+   padding: 0 1em;
+   border: 1px dotted blue;
+}</code></pre>
+
+<p>Amb això s'obtindrà una composició similar a la que es pot veure a la figura 3, en la qual els elements amb estil es divideixen en múltiples línies.</p>
+
+<div class="imagen">
+<img src="06510_m6_93.gif" alt="Els marges, el farcit i la vora no s'apliquen on es produeix el trencament."/>
+<p>Figura 3. Els marges, la separació i la vora no s'apliquen on es produeix el trencament.</p>
+</div>
+
+<p>L'alineació vertical de les caixes en línia dintre de la caixa de línia que les conté està determinada per la propietat <code>vertical-align</code> (alineament-vertical). El valor per defecte és <code>baseline</code>, la qual cosa significa que les caixes en línia s'alineen de manera que les seves línies base de text queden alineades. La línia base és la línia imaginària sobre la qual se situen les lletres sense astes descendents. Aquesta línia se situa una mica per sobre de la part inferior de la caixa de línia per deixar espai per a les astes ascendents de les lletres en minúscules, tal com mostra la figura 4.</p>
+
+<div class="imagen">
+<img src="06510_m6_94.gif" alt="Les lletres se situen sobre la línia base imaginària."/>
+<p>Figura 4. Les lletres se situen sobre la línia base imaginària.</p>
+</div>
+
+<p>Observeu que la propietat <code>vertical-align</code> s'aplica només a les caixes en línia i a les cel·les de taula, i no s'hereta. La figura 5 mostra algunes imatges petites amb diferents alineacions verticals.</p>
+
+<div class="imagen">
+<img src="06510_m6_95.gif" alt="Imatges situades amb els valors de la propietat vertical-align de CSS."/>
+<p>Figura 5. Les imatges situades amb els valors de la propietat <code>vertical-align</code> del CSS.</p>
+</div>
+
+<p>Quan l'amplada total de les caixes en línia en una caixa de línia és inferior a l'amplada de la caixa de línia en si, l'alineació vertical es controla amb la propietat
+<code>text-align</code>. Amb <code>text-align:justify</code> (alinear text: justificar) s'insereix un espai addicional entre les caixes en línia, si cal, per alinear el contingut a l'esquerra i a la dreta. Aquesta propietat s'aplica a les caixes de bloc, a les cel·les de taules i als blocs en línia, i s'hereta. La figura 6 mostra el resultat d'aplicar valors diferents de la propietat <code>text-align</code> al text que hi ha a l'interior de les cel·les d'una taula.</p>
+
+<div class="imagen">
+<img src="06510_m6_96.gif" alt="Control de l'alineació del text amb la propietat text-align."/>
+<p>Figura 6. Controlar l'alineació del text amb la propietat <code>text-align</code>.</p>
+</div>
+
+<h2 id="relative">36.3. Posicionament relatiu</h2>
+
+<p>El posicionament relatiu és un sistema de posicionament de CSS, però està més relacionat amb el "posicionament" estàtic que no pas amb els seus cosins-germans: el posicionament absolut i el fix.</p>
+
+<p>Un element amb <code>position:relative</code> es col·loca en principi igual que qualsevol element estàtic; de bloc o inserit. Però llavors passa una cosa molt interessant: la caixa generada es desplaça segons les propietats <code>top</code>, <code>bottom</code>, <code>left</code> i <code>right</code>.</p>
+
+<p>El que cal recordar sobre el posicionament relatiu és que només es desplaça la caixa generada. L'element segueix essent allà on era en el flux del document estàtic. Aquí és on "ocupa espai" pel que fa als altres elements. Això significa que la caixa desplaçada pot acabar a sobre d'altres caixes d'elements, ja que aquestes segueixen actuant com si l'element amb un posicionament relatiu s'hagués quedat on havia de ser abans d'aplicar el posicionament. Pel que fa al flux del document, l'element no s'ha mogut; és només el resultat visual final el que mostra la caixa desplaçada. Vegem com funciona a la pràctica.</p>
+
+<ol>
+<li><p>Copieu el següent codi HTML en un document nou de l'editor de textos que més us agradi i guardeu-lo amb el nom <code>relative.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+   &lt;head&gt;
+      &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+      &lt;title&gt;Relative Positioning&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;p&gt;Lorem ipsum dolor sit amet consectetuer adipiscing elit.
+      Curabitur feugiat feugiat purus.
+      Aenean eu metus. Nulla facilisi.
+      Pellentesque quis justo vel massa suscipit sagittis.
+      Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
+      per inceptos hymenaeos.
+      Quisque mollis, justo vel rhoncus aliquam, urna tortor varius lacus, 
+      ut tincidunt metus arcu vel lorem.
+      Praesent metus orci, adipiscing eget, fermentum ut, pellentesque non, 
+      dui.
+      Sed sagittis, &lt;span&gt;metus a semper&lt;/span&gt; dictum, sem 
+      libero sagittis nunc, vitae adipiscing leo neque vitae tellus.
+      Duis quis orci quis nisl nonummy dapibus.
+      Etiam ante. Phasellus imperdiet arcu at odio.
+      In hac habitasse platea dictumst. Aenean metus.
+      Quisque a nibh. Morbi mattis ullamcorper ipsum.
+      Nullam odio urna, feugiat sed, bibendum sed, vulputate in, magna.
+      Nulla tortor justo, convallis iaculis, porta condimentum, interdum 
+      nec, arcu.
+      Proin lectus purus, vehicula et, cursus ut, nonummy et, diam.&lt;/p&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre></li>
+
+<li><p>Obriu l'arxiu amb el vostre navegador web per veure quin aspecte té en aquest moment; hauríeu de veure només un paràgraf de text normal.</p></li>
+
+<li><p>Creeu un document nou en el vostre editor, copieu-hi el codi CSS següent i guardeu l'arxiu amb el nom <code>style.css</code>.</p>
+
+<pre><code>p {
+   width: 20em;
+}
+span {
+   background-color:  lime;
+}</code></pre></li>
+
+<li><p>Enllaceu el full d'estil al document HTML inserint la línia següent just abans de l'etiqueta <code>&lt;/head&gt;</code>.</p>
+
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;</code></pre></li>
+
+<li><p>Guardeu els dos arxius i actualitzeu la pàgina en el navegador. He fet que el paràgraf sigui més estret perquè els salts de línia siguin sempre en la mateixa posició fins i tot quan la finestra del navegador sigui petita.  Ara l'element <code>span</code> té un color de fons una mica cridaner per fer-lo més visible.</p></li>
+
+<li><p>Seguidament modificarem el full d'estils afegint tres declaracions a la regla per a l'element <code>span</code>:</p>
+
+<pre><code>span {
+   <strong>position: relative;</strong>
+   <strong>top: 1em;</strong>
+   <strong>left: 2em;</strong>
+   background-color: lime;
+}</code></pre></li>
+
+<li><p>Guardeu i torneu a carregar la pàgina en el navegador per veure els efectes del posicionament relatiu.</p></li>
+</ol>
+
+<p>Heu desplaçat l'element <code>span</code> tant verticalment com horitzontalment. Observeu que queda superposat sobre la línia de text següent i que al lloc on es trobava ara hi ha un espai buit.</p>
+
+<p>La manera en què s'ha desplaçat la caixa generada potser no era la que esperàveu d'aquest codi. Heu especificat <code>top:1em</code>, però la caixa s'ha desplaçat cap avall. A més, la caixa també s'ha desplaçat cap a la dreta tot i haver especificat <code>left:2em</code>. Per què?</p>
+
+<p>La clau per entendre el funcionament d'aquestes propietats amb el posicionament relatiu és adonar-se que especifiquen la vora a la qual s'aplica el moviment, i no la direcció del moviment. És a dir, que la propietat top desplaça la caixa en relació amb la seva vora superior, la propietat left el desplaça en relació amb la seva vora esquerra, i així anar fent. La caixa s'allunya de la vora especificada; per tant, <code>top:1em</code> desplaça el quadre 1 em des de la posició superior, és a dir, cap avall. Els nombres negatius desplacen el quadre en la direcció oposada i, per tant, <code>bottom:-1em</code> és el mateix que <code>top:1em</code>.</p>
+
+<p>Això ens porta a una altra conclusió: no té cap sentit especificar alhora una propietat top i una propietat <code>bottom</code> (o <code>left</code> i <code>right</code>) per al mateix element. Les regles del CSS diuen que si s'especifica <code>top</code>, llavors <code>bottom</code> s'ha d'ignorar. Pel que fa al moviment horitzontal, això depèn de la propietat <code>direction</code>. Si s'especifiquen <code>left</code> i <code>right</code> alhora, en un entorn d'esquerra a dreta s'ignora right i en un entorn de dreta a esquerra s'ignora <code>left</code>.</p>
+
+<p>L'exemple que hem vist explica el posicionament relatiu, però no sembla gaire útil, oi? Així, doncs, per a què serveix el posicionament relatiu?  Fem una ullada a un exemple més complicat.</p>
+
+
+<h3 id="multicolumnlayout">36.3.1. Disposició de múltiples columnes amb requisits d'ordre en el codi font</h3>
+
+<p>Avís: aquest exemple és una mica complex. Si és la primera vegada que entreu en el món del CSS us pot semblar fins i tot una mica desencoratjador, però l'aniré explicant a un ritme molt pausat deixant ben clar què és el que faig en cada moment. Si encara no heu llegit l'apartat que parla dels elements flotants i <span lang="en">clearing</span>, ara seria un bon moment per fer-ho.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Vegeu l'apartat 35 d'aquest mòdul.</p>
+</div>
+
+<p>Hi ha un tipus de composició que és molt habitual a les pàgines web. Inclou una capçalera, que normalment conté algun logotip o ensenya, sota la qual hi ha dues o més "columnes", una al costat de l'altra.  Al final hi sol haver un peu de pàgina que ocupa tota l'amplada, potser amb l'avís de copyright o la informació de contacte. La figura 7 mostra un exemple d'aquest tipus de composició.</p>
+
+<div class="imagen">
+<img src="06510_m6_97.gif" alt="Composició de múltiples columnes amb encapçalament i peu."/>
+<p>Figura 7. Una composició típica amb múltiples columnes entre una capçalera i un peu de pàgina.</p>
+</div>          
+<p>A l'Edat Fosca (els anys 1990), aquest tipus de distribució se solia crear amb taules. Això és un ús inadequat de l'etiquetatge de l'HTML per a finalitats presentacionals, cosa gens aconsellada; per tant, en aquest curs no ho ensenyarem. El CSS ofereix maneres d'aconseguir això mateix amb <code>display:table-cell</code> i similars, però aquesta solució té un inconvenient important: no hi ha cap versió de l'Internet Explorer que l'accepti, o sigui que tampoc la veurem. Només ens queden dues opcions: els elements flotants i el posicionament absolut. Aquests dos mètodes tenen avantatges i inconvenients, però si voleu un peu de pàgina que ocupi tota l'amplada i no sabeu d'entrada quina columna serà la més llarga, llavors necessitareu els elements flotants per garantir la integritat del disseny.</p>
+
+<p>El problema dels elements flotants és que només es desplacen cap a la dreta o l'esquerra fins que toquen la vora del bloc pare o un altre element flotant. Això vol dir que les columnes flotants han d'aparèixer en l'ordre correcte a l'etiquetatge. Però algunes vegades es vol tenir un ordre presentacional diferent de l'ordre del codi font.  Potser us interessi que el contingut aparegui abans de la navegació, per exemple, per tal de millorar la usabilitat de la navegació amb el teclat i l'optimització en motors de cerca. Això es pot aconseguir, fins i tot amb elements flotants, fent un ús entenimentat dels marges negatius i el posicionament relatiu; vegem com fer-ho. Començarem amb un document HTML que ens servirà de base per anar-hi treballant.</p>
+
+<ol>
+<li><p>Copieu el codi següent al vostre editor de textos i guardeu l'arxiu amb el nom <code>layout.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+   "http://www.w3.org/TR/html4/strict.dtd"&gt;
+   &lt;html lang="en"&gt;
+   &lt;head&gt;
+      &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+      &lt;title&gt;Static and Relative Positioning&lt;/title&gt;
+      &lt;link rel="stylesheet" type="text/css" href="layout.css"&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;div id="header"&gt;Header&lt;/div&gt;
+      &lt;div id="main"&gt;Main content&lt;/div&gt;
+      &lt;div id="sidebar"&gt;Sidebar&lt;/div&gt;
+      &lt;div id="nav"&gt;Navigation&lt;/div&gt;
+      &lt;div id="footer"&gt;Footer&lt;/div&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre></li>
+
+<li><p>Seguidament crearem l'embrió d'un full d'estils. Copieu el codi següent al vostre editor de textos i guardeu l'arxiu amb el nom <code>layout.css</code>.</p>
+
+<pre><code>#header {
+   background-color: #369;
+   color: #fff;
+}
+#sidebar {
+   background-color: #ff6;
+}
+#nav {
+   background-color: #ddd;
+}
+#footer {	
+   border-top: 1px solid #369;
+}</code></pre></li>
+
+<li><p>Deseu els dos arxius i carregueu la pàgina al navegador. Les cinc divisions apareixen en ordre, de dalt a baix. Imagineu-vos que el departament de disseny ha especificat que la navegació ha d'anar a l'esquerra, la barra lateral a la dreta i el contingut principal a la columna del mig. La capçalera i el peu de pàgina han d'ocupar tota l'amplada de la pàgina, però no sabem quina de les tres columnes serà la més llarga. L'ordre del codi font ve determinat pels experts en accessibilitat i usabilitat i no és negociable. Com es poden combinar tots aquests requisits per aconseguir una composició que funcioni? Perquè funcioni haureu d'afegir un element addicional a l'etiquetatge. És inevitable, però un element addicional és una cosa que no us hauria de preocupar gaire. Necessitareu un element que embolcalli les tres "columnes".</p></li>
+
+<li><p>Inseriu les dues línies destacades en el document HTML:</p>
+
+<pre><code>&lt;div id="header"&gt;Header&lt;/div&gt;
+   <strong>&lt;div id="wrapper"&gt;</strong>
+      &lt;div id="main"&gt;Main content&lt;/div&gt;
+      &lt;div id="sidebar"&gt;Sidebar&lt;/div&gt;
+      &lt;div id="nav"&gt;Navigation&lt;/div&gt;
+   <strong>&lt;/div&gt;</strong>
+&lt;div id="footer"&gt;Footer&lt;/div&gt;</code></pre>
+
+<p>Els dissenyadors (que, per sort, són conscients de l'accessibilitat i de la independència de dispositiu) han estipulat que la navegació ha de tenir una amplada de 12 em i la barra lateral de 14 em. La columna amb el contingut principal ha de tenir una amplada fluida, de manera que la composició s'adapti a diferents mides de finestres, ja que les composicions amb una amplada fixa no són gaire fàcils de fer servir per l'usuari. Per evitar que les línies de text siguin massa llargues i dificultin la llegibilitat, haureu de limitar la composició a una amplada màxima. Per evitar l'encavalcament en finestres summament estretes també haureu de limitar la composició a una amplada mínima. Dintre d'aquestes limitacions, la composició s'ha de centrar horitzontalment a la finestra del navegador.</p></li>
+
+<li><p>A continuació, assigneu les amplades a la navegació i a la barra lateral i definiu les limitacions d'amplada i el centrat general afegint les regles següents al final de l'arxiu CSS:</p>
+
+<pre><code>body{
+   margin: 0 auto;
+   min-width: 40em;
+   max-width: 56em;
+}
+#sidebar {
+   width: 13em;
+   padding: 0 0.5em;
+   background-color: #ff6;
+}
+#nav {
+   width: 11em;
+   padding: 0 0.5em;
+   background-color: #ddd;
+}</code></pre></li>
+
+<li><p>Guardeu els arxius i torneu-los a carregar; hauríeu de veure la barra lateral groga i la navegació de color gris amb les amplades desitjades. Si la finestra del navegador és prou ampla, també veureu que tota la pàgina té una amplada limitada i que apareix centrada horitzontalment.</p></li>
+
+<li><p>Intenteu canviar la mida de la finestra i mireu com s'adapta la composició.</p></li>
+</ol>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Si utilitzeu la versió 6 o anterior del Microsoft Internet Explorer no podreu veure els efectes de cap limitació de l'amplada. Això és així perquè aquestes versions de l'IE no accepten amplades (o altures) mínimes i màximes. Al final de l'exemple veurem una manera de solucionar aquest problema. De fet, al llarg de tot aquest exemple anireu veient uns resultats estranys, fins i tot amb l'IE7, perquè l'Internet Explorer té molts errors de representació. En aquest exemple em centraré en la manera de fer les coses conforme amb els estàndards, i al final ja veurem les solucions. </p>
+</div>
+
+<p>Si observeu el codi amb atenció veureu que les amplades estan fixades a 13 em i 11 em en lloc de 14 em i 12 em. Això és així perquè necessitem una mica de separació horitzontal; no volem que el contingut d'aquestes columnes toqui les vores, ja que no quedaria gaire bé. La separació s'afegeix a l'amplada, amb la qual cosa 13 em + 0,5 em + 0,5 em sumen un total de 14 em, que és el que volem.</p>
+
+<h3 id="makingcolumns">Crear columnes</h3>
+
+<p>Molt bé, ara ja tenim els components bàsics, però es mostren un després de l'altre. Com que volem tres columnes, les haurem de començar a fer flotar.</p>
+
+<ol>
+<li><p>Afegiu les regles següents al vostre arxiu CSS:</p>
+
+<pre><code>#main {
+   <strong>float: left;</strong>
+}
+#sidebar {
+   <strong>float: left;</strong>
+   width: 13em;
+   padding: 0 0.5em;
+   background-color: #ff6;
+}
+#nav {
+   <strong>float: left;</strong>
+   width: 11em;
+   padding: 0 0.5em;
+   background-color: #ddd;
+}</code></pre>
+
+<p>Amb aquest codi es fan flotar les columnes, sí, però no es mostren en l'ordre correcte. A més, la columna del contingut principal és massa estreta. I què ha passat amb el peu de pàgina?</p></li>
+
+<li><p>En primer lloc ens encarregarem del peu de pàgina. El problema és que hem fet flotar les tres columnes, amb la qual cosa han quedat fora del flux del document. El peu de pàgina queda just a sota de l'encapçalament i la caixa de línia que conté el text s'ha escurçat, de manera que la paraula "Footer" apareix a la dreta dels elements flotants. Podem solucionar-ho fent que el peu de pàgina estigui a una certa distància de totes les columnes flotants. Afegiu la regla següent al vostre arxiu CSS:</p>
+
+<pre><code>#footer {
+   <strong>clear: left;</strong>
+   border-top: 1px solid #369;
+}</code></pre></li>
+
+<li><p>I ara ens dedicarem a les tres columnes. Ho farem pas a pas, i durant una estona tot plegat tindrà un aspecte horrible; però no us desespereu, perquè al final tot anirà molt bé.</p>
+
+<p>La clau és l'element d'embolcall. Hi definirem uns marges esquerre i dret que es corresponguin amb les amplades de les columnes laterals (la navegació i la barra lateral). La columna del contingut principal ocuparà tota l'amplada de l'embolcall i les columnes laterals es desplaçaran cap a l'espai que deixen buit els marges. Sona complicat? No us preocupeu, perquè ho anirem fent de mica en mica.  En primer lloc definirem els marges de l'embolcall afegint la regla següent a l'arxiu CSS:</p>
+
+<pre><code>#wrapper {
+   margin: 0 14em 0 12em;
+   padding: 0 1em;
+}</code></pre>
+
+<p>Recordeu que els valors de la propietat <code>margin</code> abreujada s'especifiquen en l'ordre <strong>TReBaLl</strong>, és a dir: <code>top</code> (superior), <code>right</code> (dret), <code>bottom</code> (inferior), <code>left</code> (esquerre). Definim els marges superior i inferior a 0, el marge dret a 14 em (per a la barra lateral) i el marge esquerre a 12 em (per a la navegació). També hi hem afegit 1 em de separació horitzontal, perquè no volem que el contingut toqui les columnes laterals; cal que respiri.</p></li>
+
+<li><p>El següent pas és fer que la columna del contingut principal ocupi tota l'amplada del seu element embolcall pare; el codi també defineix un color de fons cridaner per a aquesta columna, temporalment:</p>
+
+<pre><code>#main {
+   float: left;
+   <strong>width: 100%;</strong>
+   <strong>background-color: lime;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu l'arxiu i torneu-lo a carregar; veureu una columna central del contingut de color verd llima amb la barra lateral i la navegació a sota. També veureu que hi ha molt d'espai en blanc als dos costats. El que hem de fer ara és aconseguir que les nostres columnes laterals es desplacin cap a aquest espai en blanc.</p>
+
+<p>De moment ens dedicarem a la barra lateral, que és flotant i ja té l'amplada correcta, però com que la columna <code>#main</code> té una amplada del 100% la barra lateral es desplaça cap avall. Com podem fer que pugi i es col·loqui al costat de <code>#main</code> tenint en compte que <code>#main</code> ocupa tota l'amplada? Ho farem en dos passos: en primer lloc la mourem cap amunt i després la desplaçarem cap al marge.</p></li>
+
+<li><p>Per aconseguir que la barra lateral flotant, que s'ha desplaçat cap avall, torni a anar cap amunt utilitzarem un truc molt enginyós. Afegiu el següent a la regla <code>#sidebar</code>:</p>
+
+<pre><code>#sidebar {
+   float: left;
+   width: 13em;
+   padding: 0 0.5em;
+   background-color:  #ff6;
+   <strong>margin-left:  -14em;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu, torneu a carregar i veureu que la barra lateral es troba ara a la mateixa alçada vertical que la columna del contingut. Amb un marge esquerre negatiu igual a l'amplada de l

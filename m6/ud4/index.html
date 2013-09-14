@@ -1,0 +1,482 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - El model de composició de CSS: caixes, vores, marges, farcit</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">El model de composició de CSS: caixes, vores, marges, farcit</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud3/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud5/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	       
+<div id="main">
+<h1>30. El model de composició de CSS: caixes, vores, marges, farcit</h1>
+<p class="by"><a href="../../index.html#henick">Ben Henick</a>. 26 de setembre de 2008 Publicat a: desbordament, abreujament, model, flotant, caixa.</p>
+
+<p>A primera vista, el model de composició de CSS és molt senzill. Les caixes, les vores i els marges són elements força simples i la sintaxi de CSS ofereix una forma fàcil de descriure les seves característiques.</p>
+
+<p>Tanmateix, els motors de representació dels navegadors segueixen una llista de regles descrites a la Recomanació CSS 2.1 i unes quantes de pròpies. Per aquesta raó, hi ha molts detalls que cal comprendre abans de poder afegir tècniques avançades al repertori d'un especialista en estils.</p>
+
+<p>En aquest apartat es presenten les propietats de CSS que manipulen la composició dels elements HTML com ara les vores, els marges i molts més. També es tracten algunes de les regles mencionades abans. En pròxims apartats es parlarà de la disposició de columnes avançada i les tècniques de graella, i es tractarà amb més detall la composició dels formularis, els elements flotants, distància i posicionament.</p>
+
+<div class="note">
+<h3>Nota</h3>
+<p>Per tot l'apartat trobareu molts exemples de codi enllaçats per demostrar les tècniques de les quals es parla, però si voleu treballar amb el codi al vostre ordinador, podeu descarregar-vos tots els exemples de codi.</p>
+
+<p class="font"><strong>Descarregueu els exemples a:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/article30_examples.zip" hreflang="en">http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/article30_examples.zip</a>"</p>
+</div>
+
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>30.1. <a href="#changingcomposition" accesskey="1">Canviar la composició: els marges, les vores i el farcit de CSS</a>
+<ul class="index">
+<li>30.1.1. <a href="#whitespace">Col·locar espai en blanc al voltant d'un element: les propietats <code> margin-top, margin-right, margin-bottom, margin-left</code> i <code>margin</code></a>
+<ul class="index">
+<li><a href="#automargins">Marges automàtics</a></li>
+<li><a href="#negativemargins">Marges negatius</a></li>
+<li><a href="#collapsingmargins">Col·lapse dels marges</a></li>
+<li><a href="#demo1">Demostració 1</a></li>
+</ul></li>
+<li>30.1.2. <a href="#addingborders">Afegir una vora a un element: propietats de vora</a>
+<ul class="index">
+<li><a href="#borderwidth">Les propietats <code>border-width</code></a></li>
+<li><a href="#borderstyle">Les propietats <code>border-style</code></a></li>
+<li><a href="#bordercolor">Les propietats <code>border-color</code></a></li>
+<li><a href="#bordershorthand">La propietat abreujada <code>border</code> i els seus quatre cosins, amb més detall</a></li>
+<li><a href="#fivebordershorthandproperties">Crear regles: la raó de ser de cinc propietats abreujades de vora en comptes d'una sola</a></li>
+<li><a href="#whysomanyproperties">...I per què tantes propietats? Només són vores, no?</a></li>
+<li><a href="#demo2">Demostració 2</a></li>
+</ul></li>
+<li>30.1.3. <a href="#padding">Quan només amb els marges no n'hi ha prou: propietats <code>padding</code></a>
+<ul class="index">
+<li><a href="#demo3">Demostració 3</a></li>
+</ul></li>
+</ul></li>
+<li>30.2. <a href="#widthandheight" accesskey="2">Treballar amb l'amplada i alçada dels elements</a>
+<ul class="index">
+<li>30.2.1. <a href="#widthandheightbasics">Conceptes bàsics de <code>width</code> i <code>height</code></a></li>
+<li>30.2.2. <a href="#minandmax"><code>min-width, max-width, min-height</code> i <code>max-height</code></a>
+<ul class="index">
+<li><a href="#demo4">Demostració 4</a></li>
+</ul></li>
+<li>30.2.3. <a href="#overflow">Desbordament: posar barreres al codi o deixar-lo lliure</a>
+<ul class="index">
+<li><a href="#fouroverflowvalues">Els resultats dels quatre valors d'<code>overflow</code></a></li>
+</ul></li>
+</ul></li>
+<li>30.3. <a href="#cssboxmodels" accesskey="3">Els models de caixa de CSS: fer que tot encaixi</a>
+<ul class="index">
+<li>30.3.1. <a href="#choosingrightunits">Escollir les unitats adients per a la composició</a>
+<ul class="index">
+<li><a href="#sizingelements">La regla principal d'aplicar mides als elements: mesclar unitats proporcionals i estàtiques amb compte, o no fer-ho</a></li>
+<li><a href="#unittypeprocons">Escollir el tipus d'unitat adient per a la composició: avantatges i desavantatges</a></li>
+</ul></li>
+<li>30.3.2. <a href="#boxmodelcomponents">Les components del model de caixa</a></li>
+<li>30.3.3. <a href="#W3Cboxmodel">El model de caixa del W3C: tot és acumulable</a>
+<ul class="index">
+<li><a href="#proportionalmarginspadding">Marges proporcionals i farcit en el model de caixa del W3C</a></li>
+</ul></li>
+</ul></li>
+<li>30.4. <a href="#documentflow" accesskey="4">Treballar amb flux de documents</a>
+<ul class="index">
+<li>30.4.1. <a href="#elementtypesdisplay">Tipus d'elements i la propietat <code>display</code></a>
+<ul class="index">
+<li><a href="#demo5">Demostració 5</a></li>
+</ul></li>
+<li>30.4.2. <a href="#float">Fer que alguns elements flueixin <em>al voltant</em> d'altres: la propietat <code>float</code></a>
+<ul class="index">
+<li><a href="#demo6">Demostració 6</a></li>
+</ul></li>
+<li>30.4.3. <a href="#floatandclear">Forçar elements <em>per sota</em> dels seus predecessors flotants: la propietat <code></code></a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+<li class="especial"><a href="#furtherreading">Lectures complementàries</a></li>
+</ul>                        
+
+<h2 id="changingcomposition">30.1. Canviar la composició: els marges, les vores i el farcit de CSS</h2>
+
+<p>Molts elements d'HTML, com ara els elements <code>div</code> i els títols, es representen per defecte de forma que ocupin tota l'amplada del llenç del navegador i forcin un salt de línea terminal, de manera que una sèrie d'aquests elements es representaria com una pila de principi a fi sobre el llenç del document. </p>
+
+<p>Tanmateix, els elements d'HTML i els estils que el navegador acostuma a assignar-los no són adients per a la gamma completa de casos d'ús que es demana als desenvolupadors que tinguin en compte quan fan la seva feina. La manera en què CSS i HTML es combinen s'ha ajustat a una relació d'"omplir els forats" de manera que les <code>class</code>es i <code>id</code>s puguin afegir significat semàntic a l'etiquetatge mentre que les regles de full d'estil poden canviar la composició i la presentació del contingut de forma precisa, potser fins i tot cancel·lant gran part dels estils predeterminats del navegador.</p>
+
+<p>El control acurat de l'espai en blanc és una de les eines més importants del dissenyador i, segons l'autor d'aquestes línies, la més important de totes. No obstant això, el grau de control de l'espai en blanc que aporta un valor de producció elevat al disseny d'un lloc no és present als fulls d'estil predeterminats dels navegadors, la qual cosa significa que els especialistes en estils acostumen a fer servir sovint els marges, les vores, el farcit i d'altres propietats de CSS que s'expliquen en aquest apartat.</p>
+
+<p>Els marges (<span lang="en">margin</span>), les vores (<span lang="en">border</span>) i el farcit (<span lang="en">padding</span>) es disposen tal com es mostra a la figura 1.</p>
+
+<div class="imagen">
+<img src="06510_m6_08.gif" alt="Veiem un text envoltat per dues caixes. La primera caixa és la vora, i la separació entre text i vora és el farciment. La segona caixa és el marge."/>
+<p>Figura 1. Representació explícita de les diferents parts d'una caixa d'elements, amb les respectives etiquetes de les propietats de CSS pertinents.</p>
+</div>
+
+<h3 id="whitespace">30.1.1. Col·locar espai en blanc al voltant d'un element: les propietats <code>margin-top, margin-right, margin-bottom, margin-left</code> i <code>margin</code></h3>
+
+<p>Els marges poden especificar-se de manera individual o en una regla abreujada. A més, la regla abreujada segueix permetent controlar cada una de les vores que envolten un objecte. Els valors vàlids acostumen a especificar-se en unitats <code>px</code> o <code>em</code> (píxels o ems). En els fulls d'estil específics d'impressió poden fer-se servir les unitats <code>in</code>, <code>cm</code>, o <code>pt</code> (polzades, centímetres o punts).</p>
+
+<p>En tots els casos, % (percentatge) és un valor vàlid, però cal fer-lo servir amb compte perquè aquests valors es calculen com una proporció de l'amplada de l'element pare i una previsió no prou acurada de valors podria tenir conseqüències no desitjades. Aquesta dificultat s'explica amb més detall quan es parla del model de caixa de CSS.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Podeu veure l'explicació del model de caixa de CSS en el subapartat 29.2 d'aquest mòdul.</p>
+</div>
+
+<p>A tots els elements en línia tret de les imatges els hi manquen marges i no accepten valors de marge.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>A la taula 2 que es mostra en el subapartat 30.4.1 hi ha una llista dels elements en línia.</p>
+</div>
+
+<h3 id="automargins">Marges automàtics</h3>
+
+<p>Depenent de les circumstàncies, la provisió d'un valor auto ordena al navegador que representi un marge segons el valor proporcionat al seu propi full d'estil. Tanmateix, quan s'aplica un marge així a un element amb una amplada significativa, un marge <code>auto</code> provoca que tot l'espai disponible es representi com espai en blanc.</p>
+
+<p>Amb la regla següent:</p>
+
+<pre><code>.narrowWaisted {
+	width: 16.667em;
+	margin: 1em auto 1em auto;
+}</code></pre>
+
+<p>... un element de bloc de la classe <code>narrowWaisted</code> (classe <em>cintura estreta</em>) es centrarà al mig del llenç disponible.</p>
+
+<p>... o el marge dret d'un element aplicable pot ajustar-se a un valor relativament petit, mentre que al marge esquerre se li assigna un valor <code>auto</code>.</p>
+
+<p>Quan es fa això, un element així es representarà gairebé tocant a la dreta.</p>
+
+<h3 id="negativemargins">Marges negatius</h3>
+
+<p>A totes les propietats de marges se'ls poden assignar valors negatius. En aquest cas, un marge adjacent pot ser "cancel·lat" a qualsevol nivell. Si s'aplica un valor prou negatiu a un element prou gran, l'element adjacent afectat pot acabar quedant per sota de l'altre.</p>
+
+<p>Com a exemple, posem per cas els següents elements senzills div:</p>
+
+<pre><code>&lt;div id="header"&gt;&lt;h1&gt;Lovely header&lt;/h1&gt;&lt;/div&gt;
+&lt;div id="content"&gt;&lt;p&gt;Overlapping text is entirely unreadable&lt;/p&gt;&lt;/div&gt;</code></pre>
+
+<p>Quan se li apliquen estils amb el CSS següent:</p>
+
+<pre><code>body {background-color:white font-family:Geneva, Arial, Helvetica, sans-serif;}
+#header { background-color:yellow }
+h1 { color:red; font-size:2em; }</code></pre>
+
+<p>... es crea el que es pot veure a la figura 2:</p>
+
+<div class="imagen">
+<img src="06510_m6_09.gif" alt=""/>
+<p>Figura 2. Els dos elements del nostre senzill exemple. No té res d'especial.</p>
+</div>
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://devfiles.myopera.com/articles/468/negativemargins1.html" hreflang="en">Negativemargins1 example</a>"</p>
+
+
+<p>Però ara ve la part interessant. Ara afegirem un marge negatiu força gran a sobre de l'element inferior mitjançant la regla següent:</p>
+
+<pre><code>#content {margin-top:-3em;}</code></pre>
+
+<p>Això provoca l'efecte visual de canviar l'element de manera que es superposi amb el títol tal com es pot veure a la figura 3.</p>
+
+<div class="imagen">
+<img src="06510_m6_10.gif" alt="Dos elements sense marges negatius aplicats."/>
+<p>Figura 3. Quan se li aplica un marge negatiu, l'element inferior passa a dalt i es superposa amb el títol.</p>
+</div>
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://devfiles.myopera.com/articles/468/negativemargins2.html" hreflang="en">Negativemargins2 example</a>"</p>
+
+
+<h3 id="collapsingmargins">Col·lapse dels marges</h3>
+
+<p>En els casos en què dos elements de bloc adjacents i semblants comparteixen marges que són més grans que zero, només s'aplicarà el marge més gran dels dos. Per exemple, posem per cas la regla següent:</p>
+
+<pre><code>p {
+margin: 1em auto 1.5em auto;
+}</code></pre>
+
+<p>Si un document que inclogui aquesta regla d'estil es representa de manera literal, el marge final entre els dos paràgrafs seguits seria 2.5 em, és a dir, la suma del marge inferior del paràgraf 1 (1,5 em) i el marge superior del paràgraf 2 (1 em). Això no obstant, a causa de l'aplicació de marges col·lapsats, el marge entre ells és només de 1.5 em.</p>
+
+<p>Les llistes i els títols són peculiars entre els elements de bloc, de manera que els seus marges no es col·lapsaran sobre els marges dels altres elements de bloc.</p>
+
+<h3 id="demo1">Demostració 1</h3>
+
+<p>A l'apartat anterior, d'aplicació d'estils als texts, va fer-se la tipografia de la secció introductòria d'una història de F. Scott Fitzgerald amb la majoria d'eines de CSS. De cara a la demostració d'aquest apartat, es fa servir aquella mateixa pàgina amb alguns petits canvis (principalment, l'addició d'un element contenidor al voltant de tot el text central). Els estils del text no canvien, però s'han eliminat els pocs estils de composició que s'havien aplicat a aquella demostració.</p>
+
+<p>Per començar, s'afegiran marges a tots els elements que els necessitin.</p>
+
+<pre><code>body { margin: 0; }
+	#main { margin: 0 auto 0 auto; }
+	h1 { margin: 0 0 1em 0; }
+	.pullQuote { margin: auto 0 1em 1em; }
+	p { margin: 0; }
+	.attribution { margin: 0 0 1.5em 0; }</code></pre>
+
+<p class="font"><strong>Arxiu font de: </strong>"<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev0.html" hreflang="en">Exemple amb només el mínim d'estils</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_00.css" hreflang="en">Full d'estil d'inici</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev1.html" hreflang="en">Exemple amb marges nous a body, títol, text destacat, contenidor de documents i paràgrafs</a>"</p>
+          
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_01.css" hreflang="en">Full d'estil de la demostració 1</a>"</p>
+
+<h3 id="addingborders">30.1.2. Afegir una vora a un element: propietats de vora</h3>
+
+<p>Hi ha una propietat de <code>border</code> (vora) abreujada, però només és útil quan es vol proporcionar una vora completa i consistent al voltant dels quatre costats d'un element. També és possible establir el pes (amplada), estil i color de qualsevol de les quatre vores d'un element mitjançant qualsevol combinació significativa de les propietats següents:</p>
+
+<ul>
+<li><p><code>border-width</code></p></li>
+<li><p><code>border-style</code></p></li>
+<li><p><code>border-color</code></p></li>
+<li><p><code>border-top</code></p></li>
+<li><p><code>border-top-width</code></p></li>
+<li><p><code>border-top-style</code></p></li>
+<li><p><code>border-top-color</code></p></li>
+<li><p><code>border-right</code></p></li>
+<li><p><code>border-right-width</code></p></li>
+<li><p><code>border-right-style</code></p></li>
+<li><p><code>border-right-color</code></p></li>
+<li><p><code>border-bottom</code></p></li>
+<li><p><code>border-bottom-width</code></p></li>
+<li><p><code>border-bottom-style</code></p></li>
+<li><p><code>border-bottom-color</code></p></li>
+<li><p><code>border-left</code></p></li>
+<li><p><code>border-left-width</code></p></li>
+<li><p><code>border-left-style</code></p></li>
+<li><p><code>border-left-color</code></p></li>
+</ul>
+
+<h3 id="borderwidth">Les propietats <code>border-width</code></h3>
+
+<p>Aquestes propietats es comporten exactament com seria d'esperar: assignen pes explícit a una o més vores.</p>
+
+<p>La propietat abreujada <code>border-width</code> (amplada de vora) accepta valors de la mateixa notació com la propietat abreujada de margin (marge), però no accepta valors percentuals. Pot ser que en el futur hagueu de redactar una regla com la següent:</p>
+
+<pre><code>td {
+	border-width: 1px 0 0 1px;
+}</code></pre>
+
+<h3 id="borderstyle">Les propietats <code>border-style</code></h3>
+
+<div class="imagen">
+<img src="06510_m6_11.gif" alt="Vuit valors diferents de l'estil de vora de CSS: dashed (línia discontínua), dotted (línia puntejada), doble (amb doble línia contínua), inset, groove, outset i ridge (amb perfils que simulen profunditat) i solid (línia sòlida contínua)."/>
+<p>Figura 4. Els vuit estils de vora més habituals.</p>
+</div>
+<p>Les propietats <code>border-style</code> (estil de vora) solen acceptar qualsevol dels valors següents:</p>
+
+<dl>
+<dt><code>dashed</code></dt>
+<dd>La longitud de les seccions de línia i la quantitat d'espai en blanc entre elles es determina mitjançant el navegador.</dd>
+
+<dt><code>dotted</code></dt>
+<dd>La quantitat d'espai en blanc entre els punts (que poden tenir qualsevol forma amb una proporció d'1) la determina el navegador.</dd>
+
+<dt><code>double</code></dt>
+<dd>L'amplada proporcionada es dividirà en terços i es representarà per l'ordre ple-negatiu-ple.</dd>
+
+<dt><code>groove</code></dt>
+<dd>Es representarà un outset (immediatament a dins i a tocar d'un inset.</dd>
+
+<dt><code>inset</code></dt>
+<dd>A la vora se li aplicarà una ombra perquè sembli que l'element al qual s'aplica està incrustat al llenç.</dd>
+
+<dt><code>none</code></dt>
+<dd>Equivalent a especificar una <code>-width</code> (amplada) de zero.</dd>
+
+<dt><code>outset</code></dt>
+<dd>A la vora se li aplicarà una ombra perquè sembli que l'element al qual s'aplica sobresurt del llenç.</dd>
+
+<dt><code>ridge</code></dt>
+<dd>Es representarà un <code>inset</code> immediatament a dins i a tocar d'un outset.</dd>
+
+<dt><code>solid</code></dt>
+<dd>La vora és una línia contínua sense ombra.</dd>
+</dl>
+
+<p>Quan es fa servir la propietat abreujada <code>border-style</code> (estil de vora), pot acceptar fins a quatre valors que s'apliquen de la mateixa manera que els valors abreujats <code>margin</code> (marge).</p>
+
+<p>La pràctica d'enfosquir una vora (en lloc d'ometre-la) es controla amb les propietats <code>-color</code>.</p>
+
+<h3 id="bordercolor">Les propietats <code>border-color</code></h3>
+
+<p>Per acabar, és possible establir qualsevol color a qualsevol vora concreta, tant amb una única propietat com les que s'acaben d'enumerar, com amb la propietat abreujada <code>border-color</code> (color de vora). </p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Consulteu l'explicació de la propietat abreujada de <code>margin</code> (marge) en el subapartat 27.4 per saber més detalls sobre els resultats de proporcionar menys de quatre valors.</p>
+</div>
+
+<p>De la mateixa manera que <code>background-color, border-color</code> pot adoptar un valor de <code>transparent</code>. Això pot ser útil per als casos límit que necessiten una composició consistent però no un ús consistent de les vores.</p>
+
+<h3 id="bordershorthand">La propietat abreujada <code>border</code> i els seus quatre cosins, amb més detall</h3>
+
+<p>Al contrari que les diverses propietats de vora <code> -width</code>, <code>-style</code> i <code>-color</code>, aquestes cinc propietats permeten definir les tres característiques de les quatre vores d'un objecte o de qualsevol vora concreta en qualsevol moment. Els valors abreujats de <code>border</code> (etc.) inclouen alguna o totes les propietats d'amplada, estil i color que s'apliquen a una vora; l'única limitació és que s'ha de fer referència a un únic costat qualsevol d'un element o als quatre a la vegada.</p>
+
+<p>Tingueu en compte la següent regla de <code>border</code>:</p>
+
+<pre><code>#borderShorthandExample {
+	border: 2px outset rgb(160,0,0);
+	padding: .857em;
+	background-color: rgb(255,224,224);
+}</code></pre>
+
+<p id="borderShorthandExample">Un element sobre el que s'hagi aplicat la norma anterior, presentarà exactament aquest aspecte.</p>
+
+<p>Quan s'omet un valor d'una regla abreujada de border, l'element representat mostrarà un resultat per defecte:</p>
+
+<ul>
+<li><p>L'<strong>amplada de la vora</strong> la determinarà el navegador.</p></li>
+
+<li><p>L'<strong>estil de la vora</strong> serà <code>solid</code>.</p></li>
+
+<li><p>El <strong>color de la vora</strong> serà idèntic al <code>color</code> aplicat a l'element en qüestió.</p></li>
+</ul>
+
+<h3 id="fivebordershorthandproperties">Crear regles: la raó de ser de cinc propietats abreujades de vora en comptes d'una sola</h3>
+
+<p>Les "regles" que es mencionen aquí són línies traçades sobre una composició, i no directives que calgui seguir. Aquestes línies milloren el contrast entre un element i l'espai que té al voltant i, en la majoria de casos, contribueixen a crear la il·lusió de profunditat en una composició. Aquest últim resultat s'exemplifica per l'existència dels estils de vora <code>inset</code> i <code>outset</code>.</p>
+
+<p>Si bé aquests mateixos efectes poden aconseguir-se col·locant vores al voltant dels quatre costats d'un element, l'habilitat per traçar línies definides amb precisió en una composició permet al dissenyador assolir un control considerable sobre els detalls.</p>
+
+<h3 id="whysomanyproperties">... I per què tantes propietats? Només són vores, no?</h3>
+
+<p>Quan es crea una composició que exigeix molta perícia d'un expert en estils, sempre hi ha la necessitat de tenir en compte casos límit.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Vegeu els casos límit, en l'apartat 27 sobre els marges.</p>
+</div>
+
+<p>A causa de la manera en què s'executen els dissenys dels llocs, us trobareu molts casos en els quals algun element poden arribar a tenir propietats estructurals semblants a d'altres elements d'un document però que tinguin requisits de presentació diferents. En aquests casos, té tot el sentit del món escriure una regla per al cas més comú i regles addicionals per a cadascun dels casos límit. Per aquest motiu existeixen els valors <code>auto</code> (automàtic) i <code>inherit</code> (heretar): per utilitzar un estil predeterminat com a cas límit.</p>
+
+<p>En el cas de les vores, els casos límit pot ser que requereixin la modificació d'una sola característica d'una vora d'un únic costat d'un element, i quan s'és prou savi per seguir el principi KISS, normalment el millor és canviar únicament els detalls que siguin estrictament necessaris.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Vegeu el principi KISS en el subapartat 27.4 d'aquest mòdul.</p>
+</div>
+
+<h3 id="demo2">Demostració 2</h3>
+
+<p>Determinades seccions del document haurien de decorar-se amb regles i vores.</p>
+
+<pre><code>h1 { border-bottom: 1px solid rgb(153,153,153); }
+.pullQuote { border: 1px solid rgb(153,153,153); }</code></pre>
+
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev2.html" hreflang="en">Exemple amb  una regla inferior al títol i una vora al voltant del text destacat</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_02.css" hreflang="en">Full d'estil de la demostració 2</a>"</p>
+
+<h3 id="padding">30.1.3. Quan només amb els marges no n'hi ha prou: propietats <code>padding</code></h3>
+
+<p>Trobareu elements amb colors de fons de tons secundaris o destacats que necessiten canals entre el contingut i els marges. També pot ser que necessiteu incloure espai entre les vores i el text que hi ha a prop.</p>
+
+<p>En aquests casos i en molts d'altres us seran molt útils les propietats <code>padding</code> (farcit), <code>padding-top</code> (farcit superior), <code>padding-right</code> (farcit dreta), <code>padding-bottom</code> (farcit inferior) i <code>padding-left</code> (farcit esquerre). Aquestes propietats insereixen espai negatiu entre els marges o vores d'un element i el seu contingut. Vegeu la figura 1 anterior com a clar exemple de la relació entre marges, vores i farcit.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Podeu veure la figura 1 al subapartat 30.1 d'aquest mòdul.</p>
+</div>
+
+<p>Aquestes propietats es comporten exactament igual que les propietats de marge però amb les excepcions següents:</p>
+
+<ul>
+<li><p>Els valors <code>auto</code> són funcionalment inútils en referències a les propietats de farcit.</p></li>
+<li><p>Els valors negatius de farcit són invàlids.</p></li>
+<li><p>El farcit mai no es col·lapsa.</p></li>
+<li><p>Els valors de marge no s'apliquen als elements en línia, però els valors de farcit sí.</p></li>
+</ul>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Podeu veure les propietats de marge en el subapartat 30.1 d'aquest mòdul.</p>
+</div>
+
+<h3 id="demo3">Demostració 3</h3>
+
+<p>Els canals haurien d'aplicar-se als elements als quals ja s'ha aplicat vores prèviament.</p>
+
+<pre><code>body { padding: 0; }
+	h1 { padding: .5em 0 .5em 0; }
+	.pullQuote { padding: .5em; }</code></pre>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/demo_rev3.html" hreflang="en">Exemple de inserció de canals adjacents a les vores prèviament aplicades al títol i al text destacat</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/30-the-css-layout-model-boxes-border/layout_03.css" hreflang="en">Full d'estil de la demostració 3</a>"</p>
+
+<h2 id="widthandheight">30.2. Treballar amb l'amplada i alçada dels elements</h2>
+
+<p>Poden modificar-se les dimensions de la majoria d'elements.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Anteriorment en el subapartat 30.1.1, quan parlàvem dels marges <code>auto</code>, ja s'ha demostrat que la majoria d'elements es poden modificar.</p>
+</div>
+
+<p>Les propietats CSS utilitzades per modificar les dimensions dels elements són: <code>width</code>, <code>height</code>, <code>min-width</code>, <code>max-width</code>, <code>min-height</code> i <code>max-height</code>. Aquestes propietats poden separar-se de (o enllaçar-se a) les dimensions del contingut dels elements amb la propietat <code>overflow</code>.</p>
+
+<p>També hi ha una propietat <code>clip</code> (retall) que amaga parts d'un element a dins dels marges. Tanmateix, no en parlarem en aquest apartat a causa de les seves limitades possibilitats d'ús.</p>
+
+<h3 id="widthandheightbasics">30.2.1. Conceptes bàsics de <code>width</code> i <code>height</code></h3>
+
+<p>En general, <code>width</code> i <code>height</code> produeixen exactament els resultats que caldria esperar. Això no obstant, el seu ús implica algunes notes importants.</p>
+
+<ul>   
+<li><p><strong><code>width</code> i <code>height</code> no poden aplicar-se a elements <code>inline</code>...</strong> Hi ha diversos elements (com ara <code>span</code>, <code>strong</code> i <code>em</code>) que ignoren l'aplicació dels valors width i height en circumstàncies normals.</p></li>
+</ul> 
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Vegeu una llista dels elements que ignoren l'aplicació dels valors <code>width</code> i <code>height</code> en el subapartat 30.3 d'aquest mòdul.</p>
+</div>
+
+<ul>
+<li><p><strong>... tret de les imatges, a les quals se'ls pot assignar width i height encara que siguin elements en línia</strong>. La Recomanació CSS 2.1 parla de les imatges com a elements "substituïts", la qual cosa significa que els navegadors sempre haurien de tractar-les com si tinguessin dimensions estàtiques. Per aquest motiu, aquestes dimensions poden modificar-se arbitràriament.</p></li>
+
+<li><p><strong><code>width</code> i <code>height</code> només són dues de les propietats que poden afectar les dimensions funcionals d'un element</strong>. Per tant, és fàcil trobar-se en situacions en què un element sigui massa petit (normalment massa estret) per contenir el contingut com caldria, la qual cosa provoca errors.</p></li>
+</ul>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Vegeu com les propietats poden afectar les dimensions funcionals d'un element en el subapartat 30.3 d'aquest mòdul, que tracta sobre el model de caixa de CSS.</p>
+</div>
+
+<ul>
+<li><p><strong>Els errors de representació de Microsoft Internet Explorer (IE) fan necessari especificar les a parelles de valor/propietat de <code>width</code> o <code>height</code> per a alguns elements</strong>. Hi ha algunes peculiaritats del motor de representació de l'IE que només poden resoldre's amb la força bruta. La majoria d'aquestes peculiaritats són ben conegudes i s'eliminaran d'IE 8, però fins que aquesta versió substitueixi els seus predecessors al mercat, aquest problema seguirà sent un cas de prova inevitable. <a href="http://www.positioniseverything.net/" hreflang="en">PositionIsEverything.net</a> i la <a href="http://css-discuss.incutio.com/" hreflang="en">wiki de CSS-Discuss</a> ofereixen molta informació sobre aquest assumpte i tècniques per resoldre-ho.</p></li>
+
+
+<li><p><strong>De tant en tant, els algoritmes d'arrodoniment provoquen diferències fora d'especificació en els navegadors que mostren els continguts amb mitjans de visualització LCD, LED o CRT (<code>type="screen"</code>)</strong>. El tipus de mitjà <code>screen</code> (pantalla) requereix que totes les unitats es converteixin en mesures de píxels, de manera que la imatge pot quedar diferent en cada navegador.</p></li>
+</ul>
+
+<h3 id="minandmax">30.2.2. <code>min-width, max-width, min-height i max-height</code></h3>
+
+<p>A vegades us trobareu situacions en què necessiteu limitar la mida d'un element, generalment per garantir que una columna de mida proporcional conservi sempre una amplada llegible. Les diverses propietats <code>min-</code> i <code>max-</code> responen a aquest requeriment. De la mateixa manera que amb <code>width</code> i <code>height</code>, els resultats que poden esperar-se de fer servir aquestes propietats són bastant previsibles en realitat.</p>
+
+<p>Tanmateix, segons la meva experiència, aquestes propietats tenen un ús limitat (encara que altres experts no hi estiguin d'acord). Igual que els antics <code>width</code> i <code>height</code>, poden patir errors d'arrodoniment que poden trametre resultats totalment inesperats. I el que és més important, l'IE 6, que a data de juliol del 2008 encara té una àmplia quota d

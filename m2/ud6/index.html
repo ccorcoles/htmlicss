@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Conceptes de disseny web - La tipografia al web</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">Conceptes de disseny web</div>
+	<div id="subtitulo">La tipografia al web</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud5/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m3/ud1/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>11. La tipografia al web</h1>
+<p class="by"><a href="../../index.html#haine">Paul Haine</a>. 8 de juliol del 2008. Publicat a: entitats, cites, tipus de lletra, tipografia, interlletratge</p>
+<p>Què és la tipografia? Per dir-ho d'una manera senzilla, és l'art, el disseny i la configuració del text (al qual ens referirem com a tipus). És un concepte manllevat de la impressió tradicional. Es tracta tant de saber allò que no s'ha de fer mai amb el tipus com de saber què s'hi ha de fer. Al web, normalment es presta molt poca atenció a la tipografia, però hi ha algunes limitacions tecnològiques que poden fer que la tipografia del web tingui menys possibilitats quan es compara amb la tipografia de la impremta. No obstant això, amb les eines disponibles no hi ha cap raó per la qual el tipus no es pugui presentar al web en una àmplia varietat de formes elegants i atractives.</p>
+<p>En aquest apartat explicaré exactament per què la tipografia està tan limitada al web (en comparació amb el disseny d'impremta) i donaré alguns consells per a aconseguir una bona tipografia al web, juntament amb un exemple d'una pàgina web que demostra alguns d'aquests consells. De moment no cal que us preocupeu si no enteneu el codi CSS i HTML; el que es tracta és que penseu en el disseny. A mesura que aneu llegint l'apartat, pot ser una bona idea tenir un llapis o un bolígraf a mà i un full de paper per a poder anar esbossant idees sobre la maquetació del text. </p>
+<p>Els continguts d'aquest apartat són els següents:</p>
+<ul class="index">
+	<li>11.1. <a href="#limitations" accesskey="1">Limitacions de la tipografia del web</a>
+	<ul class="index">
+		<li>11.1.1. <a href="#reducedfonts">Selecció reduïda de tipus de lletra</a></li>
+		<li>11.1.2. <a href="#hyphenation">Partició de mots</a></li>
+		<li>11.1.3. <a href="#kerning">Interlletratge</a></li>
+		<li>11.1.4. <a href="#lackofcontrol">Manca de control</a></li>
+	</ul></li>
+	<li>11.2. <a href="#howtypographyweb" accesskey="2">Com es fa la tipografia al web?</a></li>
+	<li>11.3. <a href="#quicktips" accesskey="3">Alguns consells ràpids</a>
+	<ul class="index">
+		<li>11.3.1. <a href="#selectfonts">Selecció d'una sèrie de tipus de lletres</a></li>
+		<li>11.3.2. <a href="#linelength">Longitud de línia</a></li>
+		<li>11.3.3. <a href="#lineheight">Interlineat</a></li>
+		<li>11.3.4. <a href="#dropcaps">Caplletres</a></li>
+		<li>11.3.5. <a href="#smallcaps">Versaletes</a></li>
+		<li>11.3.6. <a href="#hanging">Puntuació lliure</a></li>
+		<li>11.3.7. <a href="#correctentities">Puntuació tipogràficament correcta i altres entitats</a></li>
+		<li>11.3.8. <a href="#pullquotes">Destacats</a></li>
+	</ul></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+	<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+</ul>
+
+<h2 id="limitations">11.1. Limitacions de la tipografia del web</h2>
+<p>Els dissenyadors de la impremta tradicional tenen tot un munt de possibilitats a la seva disposició pel que fa a la tipografia, que inclouen tota la gran quantitat de tipus de lletres disponibles i moltes opcions per a la distribució del text. La tipografia del web és molt més limitada, ja que cal fer el disseny utilitzant tipus de lletres, distribucions de text, etc., que sabem d'entrada que estaran disponibles als ordinadors de tots els usuaris que naveguin per Internet. No serveix de res dissenyar el web pensant només en un mateix!</p>
+<p>Algunes de les limitacions de la tipografia del web són:</p>
+
+<ul>
+	<li><p>Poca varietat de tipus de lletra.</p></li>
+	<li><p>No es poden partir mots, amb la qual cosa el text justificat queda lleig per a les columnes de text molt estretes.</p></li>
+	<li><p>Control limitat de l'interlletratge (l'espai entre les lletres).</p></li>
+	<li><p>Manca de control sobre la visualització del resultat final. Els dissenyadors han de tenir en compte la gran varietat de dimensions de pantalles, resolucions i entorns.</p></li>
+</ul>
+
+<p>Tot seguit comentarem cadascun d'aquests punts amb més detall.</p>
+
+<h3 id="reducedfonts">11.1.1. Selecció reduïda de tipus de lletra</h3>
+<p>La poca varietat de fonts és normalment la primera cosa amb la qual us trobareu a l'hora de definir l'estil del text. Tot i que podeu especificar el tipus de lletra que vulgueu en el codi CSS, les persones que visitin els vostres llocs web només veuran el text en aquest tipus de lletra si la tenen instal·lada al seu ordinador; si no la hi tenen, el seu navegador utilitzarà el tipus de lletra alternatiu que hàgiu especificat en el CSS o bé recorrerà al tipus de lletra per defecte (normalment Times New Roman). Pot ser que us agradi veure tot el cos de text amb tipus de lletra especials com ara Trump Medieval o Avant Garde però, tret que el vostre públic objectiu no tingui una certa propensió cap als dissenyadors, és molt probable que no puguin apreciar mai els vostres esforços. És per això que molts dissenyadors de webs es limiten a utilitzar els tipus de lletres disponibles més habitualment en tots els sistemes, que normalment són només els següents:</p>
+
+<ul>
+	<li><p>Andale Mono</p></li>
+	<li><p>Times New Roman</p></li>
+	<li><p>Georgia</p></li>
+	<li><p>Verdana</p></li>
+	<li><p>Arial/Arial Black</p></li>
+	<li><p>Courier/Courier New</p></li>
+	<li><p>Trebuchet MS</p></li>
+	<li><p>Comic Sans (molts creuen que aquesta font és poc professional i molt lletja; no la utilitzeu si no és amb molta moderació i en llocs web destinats a nens)</p></li>
+	<li><p>Impact</p></li>
+</ul>
+
+<p>La figura 1 mostra l'aspecte d'aquests tipus de lletres.</p>
+<div class="imagen">
+	<img src="06510_m2_40.gif" alt="Tipografies web disponibles habitualment" />
+	<p>Figura 1. Els tipus de lletres disponibles més habitualment en tots els sistemes es limiten a aquests.</p>
+</div>
+<p>Si especifiqueu qualsevol dels tipus de lletres anteriors, tindreu moltes possibilitats que també el tinguin la majoria de les persones que us visitin. Microsoft va crear sis tipus de lletres nous dissenyats per al seu ús en pantalla en el Windows Vista i XP els noms dels quals, curiosament, comencen per la lletra C. Si els voleu fer servir, són Cambria, Calibri, Candara, Consolas, Constantia i Corbel. Tanmateix, jo no n'aconsellaria l'ús perquè és molt probable que no estiguin disponibles en les plataformes Mac o Linux.</p>
+<p>Per tant, en comparació amb els milers de tipus de lletres disponibles per als dissenyadors gràfics, els dissenyadors de llocs web només poden seleccionar entre poc més d'una dotzena. Però es tracta d'una limitació problemàtica? La tipografia és molt més que el fet de seleccionar un tipus de lletra atractiu; també cal tenir en compte les longituds de línia, l'interlletratge i l'espai en blanc. Recordeu que els tipògrafs anteriors a les fonts electròniques també s'havien d'enfrontar a unes limitacions similars.</p>
+
+<h3 id="hyphenation">11.1.2. Partició de mots</h3>
+<p>Quan es tracta d'alinear el text dins l'espai disponible hi ha quatre opcions: alineat a l'esquerra, alineat a la dreta, centrat i justificat. El text justificat, en el qual els marges esquerre i dret del bloc estan alineats amb els costats verticals de l'espai que el conté, pot tenir un aspecte més atractiu que el text amb un marge "irregular" i es pot veure molt en revistes i llibres. Al web, però, això és problemàtic a causa de la manca de la partició de mots automàtica, que en altres suports trenca les paraules en els punts apropiats per tal que encaixin millor dins la línia. Per tal de justificar el bloc de text, l'única cosa que pot fer el navegador és ajustar l'espai entre les paraules, la qual cosa pot fer que apareguin "rius d'espai en blanc" que flueixen verticalment pel bloc de text; això sol passar normalment quan la longitud de línia del bloc de text és massa curta i no hi ha prou espai per a realitzar uns ajustaments subtils, tal com mostra la figura 2. </p>
+<div class="imagen">
+	<img src="06510_m2_41.gif" alt="Els rius d'espai en blanc són lletjos" />
+	<p>Figura 2. Els rius d'espai en blanc poden esguerrar els blocs de text justificats.</p>
+</div>
+<p>Tal com podeu veure en aquesta figura, el fet que no es parteixin les paraules per a tallar-les en els punts naturals fa que l'espaiat entre algunes paraules arribi a tenir unes dimensions inacceptables. Per a evitar-ho, al web la majoria de les vegades cal fer servir el text alineat a l'esquerra.</p>
+
+
+<h3 id="kerning">11.1.3. Interlletratge</h3>
+<p>L'interlletratge és el procés d'ajustar l'espaiat entre parelles de lletres concretes quan el tipus de lletra utilitzat és proporcional (com ara Times New Roman, en el qual l'espai entre els caràcters varia segons el caràcter de què es tracti) i no d'amplada fixa (com ara Courier, en el qual l'espai entre els caràcters és sempre el mateix). L'interlletratge s'utilitza en impremta per a ajustar l'espai entre lletres que s'alineen d'una manera natural, com per exemple una W seguida d'una A, i pot donar un aspecte més professional al text. Els tipus de lletres més professionals ja incorporen instruccions d'interlletratge per tal de donar informació sobre l'espaiat al dispositiu que hagi de reproduir el tipus. La figura 3 mostra la diferència que representa l'ús de l'interlletratge.</p>
+<div class="imagen">
+	<img src="06510_m2_42.gif" alt="L'interlletratge en acció" />
+	<p>Figura 3. L'interlletratge pot millorar molt l'aspecte del text.</p>
+</div>
+<p>A la figura anterior, la primera paraula està impresa sense l'interlletratge ajustat. A la segona paraula, en canvi, s'ha reduït l'espaiat entre la W i la A, mentre que l'espai entre la A i la S s'ha augmentat lleugerament.</p>
+<p>Al web és totalment impossible aplicar l'interlletratge amb aquest grau de precisió. L'única cosa que s'hi assembla una mica és la possibilitat d'utilitzar l'espaiat entre caràcters, la qual cosa, en el món de la impressió, significa ajustar la separació entre els caràcters en tot el text, siguin quins siguin aquests caràcters. D'aquesta manera es pot reduir l'espai entre la W i la A, però això també afectarà l'espai entre totes les altres lletres. Al web, l'espaiat entre lletres es controla amb el CSS; en podem veure un exemple a la figura 4. </p>
+<div class="imagen">
+	<img src="06510_m2_43.gif" alt="Espaiat general de lletres o interlletratge" />
+	<p>Figura 4. Al web no es pot fer servir l'interlletratge pròpiament dit, el més semblant és l'espaiat de lletra general.</p>
+</div>
+
+<p>A la figura anterior s'ha augmentat l'espaiat entre cadascun dels caràcters en la mateixa mesura. Això ha servit per a separar la A i la S, però ara l'espai entre la W i A és massa gran. A causa d'aquesta característica de tot o res, és molt difícil utilitzar l'espaiat de lletra amb CSS d'una manera adient; és per això que cal utilitzar-lo amb molta moderació.</p>
+
+<h3 id="lackofcontrol">11.1.4. Manca de control</h3>
+<p>Després de totes aquestes explicacions sobre el món de la impremta, hi ha una cosa molt important que cal tenir sempre en compte, i és que <strong><em>el web no és una impremta</em></strong>. Així, doncs, el dissenyador gràfic no s'ha de preocupar de si la persona que veu el seu treball redimensiona el text, de si no té els tipus de lletres necessaris o de si no ha activat l'aliàsing. Nosaltres, però, sí que ens n'hem de preocupar, i normalment caiem en la temptació de forçar un disseny concret per a l'espectador, per exemple, definim un text d'una mida rígida, encabim el text en un espai d'una amplada i una alçada fixes o fins i tot substituïm fragments de text per imatges. </p>
+<p>Aquesta manca de control, però, no ha de ser necessàriament un problema. Només cal tenir en compte que la gent voldrà llegir el contingut del web utilitzant molts dispositius diferents amb entorns diferents i de maneres diferents. El que no heu de fer és intentar que no ho facin o posar-los dificultats. Si volen llegir el vostre contingut ho han de poder fer de la manera més senzilla possible. Potser volen llegir el contingut del web des del seu dispositiu mòbil mentre tornen cap a casa després de la feina; potser prefereixen imprimir-lo i llegir-lo en paper i no a la pantalla; o potser tenen alguna discapacitat visual i han d'augmentar la mida del tipus de lletra. Quan definiu l'estil del text del web, el que esteu fent en realitat és oferir una guia per a tots els diferents dispositius de navegació sobre com preferiu que es visualitzi aquest text. Evidentment, els dispositius poden ignorar tot el que vosaltres els dieu, però això no és cap problema. El que realment importa és que no intenteu imposar decisions de disseny a tot el vostre públic.</p>
+
+
+<h2 id="howtypographyweb">11.2. Com es fa la tipografia al web?</h2>
+<p>La tipografia al web es controla totalment amb CSS; amb CSS s'aconsegueix un control important: no només es controla la mida, el color i el tipus de lletra, sinó també l'interlineat, l'espaiat de lletra, l'ús de les majúscules (tot majúscules, majúscules inicials, versaletes o sense cap majúscula) i fins i tot es controla l'estil de la primera lletra o de la primera línia del text. </p>
+<p>Quan es defineix el bloc que conté el text també es controla el grau de justificació del text i la longitud de línia. I no només això; només cal crear unes normes d'estil en un lloc concret (el full d'estil) i després aplicar aquestes normes a tot el text de tot el lloc web (o també es pot ser més específic i aplicar-les a paràgrafs o parts concretes de la pàgina). A més a més, si mai us trobeu que heu d'augmentar la mida del text de la pàgina web, o bé si heu de canviar el tipus de lletra, només haureu de canviar aquest valor al full d'estil.</p>
+
+<h2 id="quicktips">11.3. Alguns consells ràpids</h2>
+<p>A continuació trobareu alguns consells ràpids sobre la tipografia del web.</p>
+
+<h3 id="selectfonts">11.3.1. Selecció d'una sèrie de tipus de lletres</h3>
+<p>Quan especifiqueu el tipus de lletra de pantalla preferit, és aconsellable incloure-hi algunes seleccions alternatives. És a dir, en lloc d'especificar només <code>"Georgia"</code>, podeu especificar <code>"Georgia, Cambria, "Times New Roman", Times, serif"</code>. D'aquesta manera, el navegador intentarà en primer lloc utilitzar el tipus de lletra Georgia, però si no està instal·lat ho provarà amb Cambria, després amb Times New Roman, després amb Times i finalment amb el tipus de lletra que el sistema operatiu tingui assignat a la paraula clau <code>"serif"</code>.</p>
+
+
+<h3 id="linelength">11.3.2. Longitud de línia</h3>
+<p>Per a facilitar la lectura, la longitud de línia mitjana del text que es troba dins un bloc hauria de ser de 40-60 caràcters per línia, tot i que aquest valor pot variar molt en funció del públic objectiu (els nens prefereixen unes línies més curtes i els adults més llargues). La figura 5 mostra una longitud de línia ideal:</p>
+<div class="imagen">
+	<img src="06510_m2_44.gif" alt="60 caràcters per línia" />
+	<p>Figura 5. 60 caràcters per línia, la longitud de línia ideal.</p>
+</div>
+<p>El text d'aquesta captura de pantalla té aproximadament uns 60 caràcters per línia. Si les línies són més llargues, el lector ha de començar a moure els ulls, o fins i tot el cap, per poder seguir el text, la qual cosa pot fer que augmenti la fatiga ocular i sigui més difícil assimilar el text.</p>
+
+<h3 id="lineheight">11.3.3. Interlineat</h3>
+<p>L'interlineat és l'espai vertical que hi ha entre les línies; el text serà més fàcil de llegir si aquest interlineat és una mica més gran que el valor predeterminat del navegador (la qual cosa també farà que hi hagi espai disponible per als caràcters de subíndex i superíndex). La figura 6 mostra la diferència entre dos paràgrafs: </p>
+<div class="imagen">
+	<img src="06510_m2_45.gif" alt="Mostra d'interlineat" />
+	<p>Figura 6. L'interlineat pot fer que l'aspecte del text sigui molt diferent.</p>
+</div>
+<p>El primer paràgraf de la figura anterior té l'interlineat predeterminat, la qual cosa li dóna un aspecte una mica atapeït. El segon paràgraf té un interlineat més gran, amb la qual cosa el text té més espai per a respirar i és més fàcil de llegir. No obstant això, un interlineat excessiu també farà que el text sigui difícil de llegir, de manera que cal anar amb compte.</p>
+
+<h3 id="dropcaps">11.3.4. Caplletres</h3>
+<p>Si definim el pseudoelement <code>first-letter</code> amb quelcom similar a <code>p:first-letter { }</code>, podrem crear un estil diferent del de la resta del text per a la primera lletra. Aquestes primeres lletres es coneixen normalment com caplletres, que són unes lletres que ocupen l'espai d'unes 3 o 4 línies. Vegeu la figura 7.</p>
+<div class="imagen">
+	<img src="06510_m2_46.gif" alt="Les caplletres són un efecte molt bonic" />
+	<p>Figura 7. Una caplletra típica.</p>
+</div>
+
+<h3 id="smallcaps">11.3.5. Versaletes</h3>
+<p>Sovint, tots els tipus de lletres incorporen una variant en versaletes, que són unes lletres en majúscules però que tenen la mida de la versió en minúscules. Les versaletes són útils quan volem escriure alguna cosa en majúscules però no volem destacar-ho d'una manera excessiva; es poden utilitzar, per exemple, per a les sigles. Encara que el sistema no tingui cap variant en versaletes del tipus de lletra especificat, això no serà cap problema; el navegador generarà la seva versió pròpia fent servir les lletres en majúscules i reduint els caràcters fins aproximadament el 70% de la seva mida. La figura 8 mostra una frase en versaletes. </p>
+<div class="imagen">
+	<img src="06510_m2_47.gif" alt="Les versaletes poden ser interessants" />
+	<p>Figura 8. Una frase en versaletes.</p>
+</div>
+
+<h3 id="hanging">11.3.6. Puntuació lliure</h3>
+<p>Si una frase comença amb cometes, es pot fer servir un efecte tipogràfic molt efectiu. Es pot fer servir la propietat CSS <code>text-indent</code> combinada amb un valor negatiu (ja sigui un valor en ems (-10em), punts (-10pt), píxels (-10px) o percentatge (-10%) per a desplaçar les cometes cap a l'esquerra i mantenir la línia vertical esquerra del bloc de text, tal com es pot veure a la figura 9:</p>
+<div class="imagen">
+	<img src="06510_m2_48.gif" alt="La puntuació lliure ben feta servir" />
+	<p>Figura 9. Puntuació lliure.</p>
+</div>
+
+<h3 id="correctentities">11.3.7. Puntuació tipogràficament correcta i altres entitats</h3>
+<p>Es pot donar un aspecte més professional i elegant al text mitjançant l'àmplia varietat d'entitats tipogràfiques HTML que hi ha disponibles, com ara les cometes "altes" o "angleses" i els guions curts - i llargs . Molts programes per a la publicació de textos en blocs i de processament de textos poden fer-ho automàticament mentre s'escriu. Aquests programes converteixen les cometes rectes en les cometes altes tipogràficament correctes i converteixen les cadenes de guions en guions curts o llargs. La figura 10 mostra alguns exemples de puntuació tipogràficament correcta.</p>
+<div class="imagen">
+	<img src="06510_m2_49.gif" alt="Cometes angleses" />
+	<p>Figura 10. Puntuació tipogràficament correcta.</p>
+</div>
+
+<p>Una vegada comenceu a farcir el vostre text amb signes de puntuació intel·ligents, aquest adquirirà un aspecte molt més elegant i professional, semblarà més el text d'una revista o d'un llibre que no un text en línia. Cal tenir en compte, però, que aquesta mena de puntuació podrà tenir un aspecte una mica pixel·lat quan es vegi en pantalles una mica velles o amb l'aliàsing desactivat, per la qual cosa cal utilitzar-la amb precaució.</p>
+<p>Per altra banda tenim les entitats, que són codis HTML especials que podeu inserir en el text per generar caràcters especials que normalment no estan disponibles des del teclat. La figura 11 conté diverses entitats:</p>
+<div class="imagen">
+	<img src="06510_m2_50.gif" alt="Entitats HTML" />
+	<p>Figura 11. Entitats HTML.</p>
+</div>
+
+<p>Aquestes entitats es poden introduir a mà, però hi ha molts programes de gestió del contingut que permeten convertir-les o inserir-les molt fàcilment.</p>
+
+
+<h3 id="pullquotes">11.3.8. Destacats</h3>
+<p>Un destacat és un fragment curt del text que apareix en algun altre punt de la pàgina amb caràcters d'una mida més gran i algunes vegades també amb un tipus de lletra diferent per tal que el lector s'hi fixi. Pràcticament totes les revistes fan servir els destacats i són una manera molt efectiva de dividir el text i destacar-ne les cites o les frases més importants. A més, són molt fàcils de fer al web només amb unes quantes etiquetes i definint-ne l'estil. Només cal fer que el text tingui una mida més gran, potser definir un tipus de lletra diferent, col·locar-lo de manera que el text normal l'envolti i llestos. També hi ha algunes solucions més avançades que fan servir JavaScript per seleccionar el text i crear automàticament un destacat. Aquestes solucions fan que no calgui escriure el mateix text dues vegades a l'etiqueta.</p>
+
+
+
+<h2 id="summary">Resum</h2>
+<p>Ja hem repassat tot el que calia dir sobre la tipografia i la tipografia al web; espero que ara ja tingueu clar que el text en línia no ha de limitar-se a Verdana, small, #333333, sinó que existeixen un munt de recursos i trucs tipogràfics que us poden ajudar a fer que el text destaqui per sobre de la resta. La gent visita bàsicament els llocs web per llegir el que hi han escrit els seus autors; per tant, el més sensat és fer que la lectura sigui tan agradable com sigui possible.</p>
+
+
+<h2 id="exercises">Preguntes de repàs</h2>
+<ol>
+	<li><p>Quina diferència hi ha entre l'interlletratge i l'espaiat entre lletres? Quin està disponible per al dissenyador de webs?</p></li>
+	<li><p>Com es pot evitar que hi hagi "rius d'espai en blanc" enmig del text?</p></li>
+	<li><p>Digueu quatre usos diferents de les majúscules disponibles amb CSS.</p></li>
+	<li><p>Quina és la longitud de línia ideal per al cos del text, i quins factors l'afecten?</p></li>
+	<li><p>Quina diferència hi ha entre un tipus de lletra amb serif i un tipus de lletra de pal sec? Doneu un exemple de cadascun.</p></li>
+	<li><p>Quina diferència hi ha entre la puntuació lliure i la puntuació normal?</p></li>
+	<li><p>Per inserir un símbol de copyright dins el text es fa servir una entitat HTML. Navegueu per Internet i mireu si podeu trobar totes les altres entitats HTML. N'hi ha unes 250!</p></li>
+</ol>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud5/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+		<a rel="next" href="../../m3/ud1/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

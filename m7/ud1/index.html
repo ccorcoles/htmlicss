@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Encapçalaments, peus, columnes i plantilles - Encapçalaments, peus, columnes i plantilles</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">Encapçalaments, peus, columnes i plantilles</div>
+	<div id="subtitulo">Encapçalaments, peus, columnes i plantilles</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../../m6/ud11/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" nohref="" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>38. Encapçalaments, peus, columnes i plantilles</h1>
+<p class="by"><a href="../../index.html#henick">Ben Henick</a>. 3 de febrer de 2009. Publicat a: peus, composició, css, columnes, encapçalaments.</p>
+
+<p>Fins ara, els articles d'aquest curs s'han centrat en temes concrets, des de conceptes tous com la tipografia i el color fins a instrucció tècnica dura sobre parts de CSS 2.1. Aquest article té un enfocament més ampli; la seva finalitat és mostrar al lector com utilitzar el material tractat fins ara per construir la plantilla d'un web sencer.</p>
+  
+  <p>La principal assumpció d'aquest material és que ja esteu familiaritzats amb les propietats <code>float</code> (flotar), <code>display</code> (visualitzar) i <code>position</code> (posició) de CSS.</p>
+  
+  <p>Els lectors autodidactes que desitgin passar directament al suc del CSS estan convidats (<em>a contracor)</em> a passar directament al subapartat 4 d'aquest mòdul, però hauran de tenir en compte que, al fer-ho, es perdran la lliçó sobre com una planificació satisfactòria del projecte condueix a la composició i implementació d'un lloc web.</p>
+
+	<div class="vegeu_tambe">
+    <h3>Vegeu també</h3>
+    <p>Vegeu el subapartat 38.4 d'aquest mòdul.</p>
+    </div>
+
+<p>Aquelles ànimes impacients que ignorin les advertències del paràgraf anterior també hauran de descarregar les plantilles per a una, dues i tres columnes que es faciliten en aquest article i se'ls enllaçarà de nou a la seva conclusió.</p>
+
+<div class="font">
+  <p><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_1col.html.txt">Composició a una columna</a>"</p>
+  <p><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_2col.html.txt">Composició a dues columnes</a>"</p>
+  <p><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/template_3col.html.txt">Composició a tres columnes</a>"</p>
+</div>
+    <p>L'estructura d'aquest article és la següent:</p>
+    
+<ul class="index">
+	<li>38.1. <a href="#criticalprocesssteps" accesskey="1">Les passes crítiques del procés de l'estilista</a>
+ 	<ul class="index"> 
+		<li>38.1.1. <a href="#gatheringobjectives">Recopilació d'objectius</a></li>
+		<li>38.1.2. <a href="#contentclassification1">Classificació de contingut</a></li>
+		<li>38.1.3. <a href="#collaborativesketching">Esborrany col·laboratiu i creació d'un compost</a></li>
+		<li>38.1.4. <a href="#establishmentdocumentstructure">Establiment d'una estructura entre i dins de documents</a></li>
+	</ul></li>
+	<li>38.2. <a href="#requirementsclassificationnamespaces" accesskey="2">Requisits, classificació i imbricació d'elements amb més detall</a>
+	<ul class="index">
+		<li>38.2.1. <a href="#definingbusinessobjectives">Definició d'objectius empresarials</a></li>
+		<li>38.2.2. <a href="#definingvisitorobjectives">Definició i compliment dels objectius dels visitants</a></li>
+		<li>38.2.3. <a href="#contentclassification2">Classificació de continguts</a></li>
+		<li>38.2.4. <a href="#sourceorder">Ordre del codi: accessibilitat i altres consideracions</a></li>
+		<li>38.2.5. <a href="#namespacecreation">Assignació d'<em>ids</em>, classes i elements contenidors</a></li>
+	</ul></li>
+	<li>38.3. <a href="#singlecolumn" accesskey="3">Implementació de la composició a una columna</a>
+	<ul class="index"> 
+		<li>38.3.1. <a href="#centeringlayout">Centrat de la composició</a></li>
+		<li>38.3.2. <a href="#documentcontainernecessary">És estrictament necessari un contenidor de tota l'amplada del document?</a></li>
+	</ul></li> 
+	<li>38.4. <a href="#doublecolumnlayout" accesskey="4">Implementació de la composició a dues columnes</a>
+	<ul class="index"> 
+		<li>38.4.1. <a href="#compositionissues">Problemes de composició en relació a les disposicions a una i dues columnes</a>
+		<ul class="index">
+			<li><a href="#sidebarplacement">Col·locació de <code>#sidebar</code> a l'esquerra en comptes del seu ordre original</a></li> 
+			<li><a href="#fauxcolumns">Columnes falses: ús d'una imatge de fons per alinear les longituds de les columnes quan la longitud del seu contingut és diferent</a></li> 
+			<li><a href="#primarynavigationsecondcolumn">Desplaçament de la navegació principal a la segona columna mentre es manté l'ordre d'origen</a></li>
+		</ul></li>
+	</ul></li>
+	<li>38.5. <a href="#triplecolumnlayout" accesskey="5">Implementació de la composició a tres columnes</a></li> 
+	<li>38.6. <a href="#headersandfooters" accesskey="6">Visió àmplia dels encapçalaments i peus</a>
+	<ul class="index">
+		<li>38.6.1. <a href="#cindyli">Lloc personal: Cindy Li</a>
+		<ul class="index">
+			<li><a href="#identitycindyli">Identitat</a></li> 
+			<li><a href="#contrastcindyli">Contrast</a></li>
+		</ul></li>
+		<li>38.6.2 <a href="#facebook">Xarxes socials: Facebook</a></li> 
+		<li>38.6.3. <a href="#BNSF">Màrqueting d'empresa i servei al client: BNSF Railway</a>
+		<ul class="index">
+			<li><a href="#identityrevisited">Repàs de la identitat</a></li>
+		</ul></li>
+		<li>38.6.4. <a href="#headerandfooterdesign">Disseny d'encapçalament i peu: els detalls de baix nivell</a> 
+		<ul class="index">
+			<li><a href="#moreaboutnavigationlayout">Més informació sobre la implementació de la composició de navegació</a></li>
+		</ul></li>
+	</ul></li>
+	<li>38.7. <a href="#varyingcolumnsites" accesskey="7">Webs amb diferents nombres de columnes: fer trampa amb <code>class</code> i <code>display</code></a></li> 
+	<li class="especial"><a href="#summary">Resum</a></li>
+	<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+	<li class="especial"><a href="#biblio">Lectures complementàries</a></li>
+</ul>
+
+
+<div class="note">
+	<h3>Nota</h3>
+  
+  <p>Podeu descarregar tot el codi d'exemple en un còmode paquet per fer proves al vostre equip local.</p>
+  <p class="font"><strong>Descarregueu el codi d'exemple a:</strong> "<a href="http://dev.opera.com/articles/view/38-headers-footers-columns-templates/layout_templates.zip">layout_template_code.zip</a>"</p>
+ </div>             
+
+<p>Un web construït adequadament acostuma a ser el producte d'un procés deliberat, principalment per entregues, encara que el lloc el creïn una o dues persones en comptes d'un equip sencer d'especialistes. A la figura 1 es descriu una representació prou elaborada d'aquest procés, i de les deu passes que aquí es descriuen, aquest article se centra en quatre, en concret:</p>
+  
+  <ol>
+    <li><p>Recollida de requisits en funció dels objectius empresarials i els consegüents objectius dels visitants</p></li>
+    <li><p>Classificació de continguts</p></li>
+    <li><p>Esborrany col·laboratiu i creació d'un compost</p></li>
+    <li><p>Establiment de l'estructura dels documents a utilitzar al web</p></li>
+  </ol>
+  
+  <p>Una vegada completades aquestes quatre passes, l'estilista té la major part de la informació que necessita per crear les disposicions del web, que generalment tindran una, dues o tres columnes. Independentment de la forma general de la composició, hi haurà diferències d'una secció d'un web a l'altra, que al seu torn influirà en com alguns elements i selectors d'estil passen a formar part del disseny global del web.</p>
+  
+  <p>Fins i tot després d'haver fet les seleccions de disseny i estructurals, queda la qüestió de com es tractarà la producció si el web s'ha de crear sobre un sistema de gestió de continguts (CMS) com Wordpress o Drupal.</p>
+  
+  <p>Aquest article subratlla la importància de les quatre passes esmentades anteriorment; proporciona un marc únic per a la classificació de continguts i descriu com compondre un web amb tots els encapçalaments, peus i columnes.</p>
+
+
+
+ <h2 id="criticalprocesssteps">38.1. Les passes crítiques del procés de l'estilista</h2>
+
+	<p>Les dues seccions següents es faciliten com a embelliment d'altres articles d'aquest currículum, amb un èmfasi en la planificació i el procés més que en la implementació. El missatge principal és: "mireu abans de saltar"; en altres paraules, compreneu clarament el que aneu a implementar <em>abans</em> de començar amb l'etiquetatge, els fulls d'estils i el codi.</p>
+
+<div class="imagen">
+	<img alt=" " src="06510_m7_01.gif"/>
+	<p>Figura 1. Deu passes comunes del procés de creació d'un web. Les que són especialment rellevants per a aquest article es mostren al tram invers.</p>
+</div>
+
+<h3 id="gatheringobjectives">38.1.1. Recopilació d'objectius</h3>
+
+
+
+<p>El bon CSS es basa en una cadena de dependències:</p>
+  <ul>
+    <li><p>El CSS es basa en una estructura per treballar;</p></li>
+    <li><p>L'estructura s'informa mitjançant el contingut;</p></li>
+    <li><p>El contingut necessita abast;</p></li>
+    <li><p>L'abast del contingut es defineix mitjançant els possibles objectius de visitants, i</p></li>
+    <li><p>Al seu torn, els objectius dels visitants estan relacionats amb els objectius empresarials.</p></li>
+
+</ul>
+
+  
+  <p>La qüestió d'aquesta cadena de requisits és que les necessitats dels vostres visitants assenyalaran directament l'estructura que heu de crear per al vostre lloc i, per tant, impulsar els selectors i tècniques aplicats als vostres estils.</p>
+  
+  <p>Quan el procés de recollida de requisits es gestiona incorrectament, els especialistes en estils s'enfronten a reptes com ara els següents:</p>
+  
+  <ul>
+    <li><p>Manca d'actius</p></li>
+    <li><p>Manca d'orientació pel que fa a la relació entre el comportament de la composició i la geometria de les finestres</p></li>
+    <li><p>Manca de definició dels nivells de suport de plataformes</p></li>
+</ul>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'apartat 34 del mòdul "CSS".</p>
+  </div>
+
+<ul>  
+      <li><p>Sol·licituds freqüents de canvis, ja que els requisits s'acoblen <em>durant</em> el procés d'implementació</p></li>
+    <li><p>Manca d'eines actuals</p></li>
+  </ul>
+
+<h3 id="contentclassification1">38.1.2. Classificació de contingut</h3>
+
+<p>Una vegada heu determinat l'abast del contingut del vostre web, heu de definir la seva importància per al lloc en conjunt i decidir quines eines de navegació proporcionareu als visitants per trobar-ho.</p>
+  
+  <p>També cal tenir en compte la qüestió de què fer amb la publicitat, les llistes d'enllaços, les galeries i els comentaris.</p>
+  
+  <p>Una vegada classificats, els continguts es poden associar llavors a la navegació del web i ponderar-los. La ponderació de continguts es tractarà aquí en un context primari/secundari/terciari, donat que la importància d'un bloc de continguts l'hauria de reflectir la seva posició en l'ordre original del document.</p>
+
+
+<h3 id="collaborativesketching">38.1.3. Esborrany col·laboratiu i creació d'un compost</h3>
+<p>Si esteu treballant en un projecte en el qual el disseny gràfic i la implementació d'estils són tasques assignades a diferents persones (que acostuma a ser el cas en els projectes comercials), el dissenyador gràfic haurà de basar-se en els diagrames de mapa del lloc i els esquelets (si és el cas) per començar a crear l'aspecte general del web.  Pot ser útil començar amb esborranys senzills, com a forma de definir elements com ara el motiu general del lloc, les seves característiques consistents i els detalls que podrien complicar l'etiquetatge o l'assignació de <code>class</code> i <code>id</code>.</p>
+  
+  <p>Una vegada acordats els esborranys, el dissenyador gràfic pot passar aleshores als compostos acabats, que haurien de ser semblants a captures de pantalla que es podrien generar en el navegador de desenvolupament una vegada posat en producció el web.</p>
+  
+  <p>D'ara en endavant, en aquest article el disseny gràfic es despatxarà ràpidament perquè ja s'ha tractat als articles sobre esquelets i compostos/models.</p>
+  
+<h3 id="establishmentdocumentstructure">38.1.4. Establiment d'una estructura entre i dins de documents</h3>
+
+<p>Amb els compostos a mà, l'especialista en estils pot començar a escriure l'etiquetatge i els CSS. El primer pas d'aquesta feina és decidir l'ordre dels continguts, imbricació d'elements, classes i <em>ids</em> que s'utilitzaran al web de producció, una feina que només es pot fer bé si l'especialista en estils compren completament el contingut que s'ha d'oferir al web i la manera en què s'ha de disposar.</p>
+
+<h2 id="requirementsclassificationnamespaces">38.2. Requisits, classificació i imbricació d'elements amb més detall</h2>
+<p>Si es segueixen les bones pràctiques modernes i s'adopta el paradigma de disseny centrat en l'usuari (UCD, User Centered Design) per motivar les decisions de disseny i desenvolupament, aleshores els objectius dels visitants influeixen cadascuna de les passes del procés de disseny.</p>
+  
+  <p>No obstant això, de fet els objectius del patrocinador (o editor) del web tenen prioritat des del punt de vista de l'equip de disseny, perquè sense un coneixement d'<em>aquells</em> objectius, l'equip de disseny no té manera de preveure els objectius dels visitants.</p>
+
+<h3 id="definingbusinessobjectives">38.2.1. Definició d'objectius empresarials</h3>
+
+<p>Els objectius "empresarials" del web entraran en una o vàries de les següents definicions <em>generals</em>:</p>
+  
+
+<ul>
+  <li><p>Generació directa d'ingressos (comerç electrònic)</p></li>
+  <li><p>Oferiment de publicitat, missatges i/o serveis de magatzematge mitjançant una interfície web (p. ex., Blogger, Flickr, Scribd, YouSendIt, Basecamp)</p></li>
+  <li><p>Comercialització d'un producte o servei</p></li>
+  <li><p>Facilitació d'informació</p></li>
+  <li><p>Entreteniment del visitant</p></li>
+  </ul>
+  
+  <p>Una vegada establerts els objectius <em>generals</em>, hi haurà més perfeccionament en funció de qualsevol d'una sèrie de factors, com la demografia, objectius de conversió i limitacions de disseny imposades pel pressupost del projecte o la naturalesa del propi contingut (com podria ser el cas amb el vídeo Flash).</p>
+  
+  <p>L'experiència és, de lluny, la millor guia en aquesta part del procés de recollida de requisits.</p>
+
+<h3 id="definingvisitorobjectives">38.2.2. Definició i compliment dels objectius dels visitants</h3>
+
+<p>Una vegada establerts els objectius empresarials, és a dir: "això és el que volem que vegin i facin els nostres visitants", el pas següent és atreure i conduir els visitants a aquelles destinacions i tipus de funcionalitats que millor els escaiguin.</p>
+  
+  <p>La principal assumpció d'aquesta part del procés de disseny és que "els visitants odien els obstacles". Les millors maneres de tenir en compte aquest supòsit són les següents:</p>
+ 
+<ul> 
+    <li><p>Definir i dissenyar una navegació que s'adapti de la millor manera possible a les estratègies de cerca més probables del visitant.<br /> Aquestes estratègies poden incloure cerca de text complet, llistes tradicionals taxonòmiques d'enllaços o "etiquetatge" (ja sigui moderat o definit per l'usuari).</p>
+ 
+ <div class="note">
+  <h3>Nota</h3>
+  <p>Tingueu en compte que un web pot contemplar més d'una estratègia de cerca.</p>
+</div></li>
+  
+  <li><p>Oferir sempre indicacions perquè el visitant sàpiga on es troba en el web en conjunt. Entre els mitjans habituals de fer-ho hi ha els "rastres de molles de pa", enllaços a contingut relacionat i indicacions visuals com, per exemple, el disseny d'enllaços de navegació dependents del context.</p></li>
+  <li><p>Reforçar l'estil visual i escrit de la manera més rígida possible, sense caure en una consistència ridícula. Aquesta pràctica està íntimament relacionada amb la necessitat de donar al visitant pistes consistents sobre la ubicació; la diferència és que mentre el color i la disposició de la navegació ofereixen a l'usuari orientació per tot el web, una presentació consistent al llarg de les pàgines és <em><strong>essencial</strong></em> per orientar-se en una única pàgina.</p></li>
+  
+<li><p>Indicar sempre en llenguatge planer les conseqüències de seguir un enllaç o enviar un formulari. De vegades això és tant senzill com etiquetar un botó de trametre amb la paraula "Cerca" però de vegades és possible que hagueu d'afegir una nota per donar més instruccions als visitants del web.</p></li>
+  <li><p>Proporcionar una distinció clara entre els elements de disseny que respondran a la interacció de l'usuari i qualsevol altra cosa. Els estils que fan que els enllaços siguin quasi indistingibles del text normal, el disseny inconsistent dels botons i els estils de <code>cursor</code> atípics són molt comuns i confusos. Els colors amb un contrast elevat, l'ús meditat de <code>padding</code> (per ampliar l'espai que ocupen els elements de disseny interactius), i els <code>title</code> informatius acostumen a ser més eficaços.</p></li>
+  
+  <li><p>Minimitzar la quantitat d'interacció de l'usuari (especialment el nombre de clics a enllaços o botons) necessària per assolir un objectiu comú, com ara una compra o el servei de recursos populars. A la pràctica, això generalment requereix posar-se en la pell del visitant i analitzar les seves opcions des del seu punt de vista. Tret que aquestes tasques es puguin completar i fins que això sigui possible, la drecera per complir aquesta directriu és seguir l'esperit del principi <a href="http://dev.opera.com/articles/view/opera-web-standards-curriculum-glossary/#kiss" hreflang="en">KISS</a>.</p></li>
+  </ul>
+  
+  <p>Quan es tracta d'etiquetatge i fulls d'estils, hi ha certes tècniques molt senzilles que fan que aquestes regles siguin fàcils de seguir:</p>
+  
+<ul>
+
+  <li><p><strong>A l'hora d'elaborar el vostre full d'estils, assigneu les màximes propietats possibles amb regles mitjançant selectors d'elements simples</strong>.
+  <br /> Les <code>id</code>, per definició, són úniques, i per a ser útils, les classes s'han de reservar preferentment per a casos poc comuns (o per a requisits de presentació que els navegadors heretats no accepten correctament). No obstant, moderant el seu ús, els especialistes en estils més atents estan al cas de les ocasions en què el dissenyador gràfic insisteix en nivells de detall potencialment cars en els seus dissenys.</p></li>
+  
+  <li><p><strong>Assigneu una <code>id</code> al <code>body</code> de cada pàgina</strong>.
+  <br /> Si s'assignen etiquetes de fulls d'estils a documents determinats (i no només a les seccions d'un web), els casos de presentació únics són més fàcils de manegar. Un altre avantatge de col·locar una ID en el text principal de cada pàgina és que quan s'utilitza conjuntament amb elements de navegació ponderats de forma similar, l'estilista pot proporcionar indicacions visuals a la navegació primària per a elements com la secció o web visualitzat actualment, sense necessitat de fer servir lògica verbosa de la banda del servidor.</p></li>
+  
+    <li><p><strong>Eviteu els dissenys que exigeixen un elevat control motriu per part del visitant</strong>.
+    <br />Una manera més directa de descriure aquesta instrucció és "eviteu els menús volants com els creats mitjançant les tècniques Suckerfish, també coneguts com a <em>menús desplegables</em>. Hi ha casos clars d'ús d'aquests dissenys i tots impliquen webs grans basats en disposicions d'una i dues columnes, però sovint es poden evitar. Per altra banda, els usuaris sense experiència i amb discapacitat de control motriu sovint troben problemàtics els menús desplegables:</p>  
+   
+	<div class="vegeu_tambe">
+	<p>Vegeu "<a href="http://www.alistapart.com/articles/dropdowns/" hreflang="en">Suckerfish Dropdowns</a>", de Patrick Griffiths i Dan Webb.</p>
+	<p>Vegeu "<a href="http://www.htmldog.com/articles/suckerfish/dropdowns/" hreflang="en">Son of Suckerfish Dropdowns</a>", de Patrick Griffiths i Dan Webb.</p>
+	</div>
+	
+  <ul class="guions">
+  <li><p>&ndash; Per ser efectius, aquests elements acostumen a requerir que els enllaços que contenen siguin més petits que la mida predeterminada del tipus de lletra del text, una indicació visual contraintuitiva que fa que els elements de menú semblin menys enllaços que altres elements del voltant de la pàgina.</p></li>
+  
+  <li><p>&ndash; El nivell de control motriu necessari per utilitzar aquests elements frustra fàcilment els visitants sense experiència, ocasionals i discapacitats.</p></li>
+  
+  <li><p>&ndash; L'abast de possibles destinacions disponibles que hi ha en una secció determinada del web roman ocult fins que el visitant interactua amb aquests elements i això limita la seva capacitat de mantenir un sentit d'ubicació al web fins que assoleixen experiència en el seu ús.</p></li>
+  </ul></li>
+</ul>
+
+<h3 id="contentclassification2">38.2.3. Classificació de continguts</h3>
+
+<p>Una vegada calculat l'abast dels continguts que s'han de presentar al web, podeu crear-li una arquitectura. L'arquitectura d'un lloc es pot elaborar de vàries maneres (vegeu alguns exemples a l'article 23).</p>
+  
+  <p>Generalment, podreu assignar prioritats al vostres continguts, que informaran de les composicions possibles:</p>
+  
+<ol>
+  <li><p><strong>Els continguts primaris</strong> són la matèria al voltant de la qual es construeixen els documents de destí individuals, com ara articles, àlbums de fotos o conjunts de dades.</p></li>
+  <li><p><strong>Els continguts secundaris</strong> inclouen metadades llegibles per a les persones que estan adjuntes als continguts primaris, i també continguts de barra lateral (p. ex. text d'exposició; extractes de revisió; enllaços a articles relacionats amb el web; llistes de gràfics, mapes o taules).</p></li>
+  <li><p><strong>Els continguts terciaris</strong> comprenen els enllaços continuats amb materials relacionats (com la llista d'enllaços d'un bloc), instantànies persistents de continguts d'altres fonts com ara webs de xarxes socials o entrades de comentaris i publicitat.</p></li>
+  </ol>
+  
+  <p>A més dels continguts, el vostre format és gairebé segur que inclourà dues altres seccions:</p>
+  
+  <p>L'<strong>encapçalament</strong> inclourà el títol del web (que sovint enllaça amb la portada del web), la navegació principal, enllaços a metadades del compte d'usuari (en una aplicació) i per últim el formulari de cerca de continguts principals (si està implementat).</p>
+  
+  <p>El <strong>peu</strong> conté la declaració de copyright, com a mínim. Els enllaços a documents compostos de metadades (com ara entrades RSS, mapes de llocs i la part de metacontinguts del web de la informació de contacte) també troben el seu camí a la <em>navegació secundària</em> d'un web, que acostuma a formar part del peu.</p>
+  
+  <p>La navegació principal i el títol d'un web quasi sempre formen part de (o estan al mateix nivell) l'encapçalament en un context visual; cada implementador pot decidir si hauran de formar part de l'encapçalament del web a nivell d'etiquetatge.</p>
+
+<h3 id="sourceorder">38.2.4. Ordre del codi: accessibilitat i altres consideracions</h3>
+
+<p>Una de les primeres passes del disseny de plantilles web és decidir l'ordre en el codi dels seus continguts, que hauria de ser consistents al llarg del web en conjunt.</p>
+  
+  <p>L'ordre del codi del document de manera que es pugui llegir correctament sense l'avantatge dels fulls d'estil és essencial per motius d'accessibilitat i suport entre mitjans. En el primer cas, els usuaris amb discapacitat visual poden utilitzar el que s'anomenen <em>lectors de pantalles</em>: aplicacions de programari que llegeixen els continguts en veu alta al visitant, continguts que no tenen cap sentit si estan ordenats de qualsevol manera per motius de presentació.</p>
+  
+  <p>...I de la mateixa manera que la informació disposada en l'ordre adequat per a la visualització en pantalla probablement exigeix claredat per a ser llegida en veu alta, aplicar-hi estils pot resultar impossible en altres mitjans com visualitzacions impreses o mòbils. En aquest cas, el resultat acostuma a ser la duplicitat de continguts, que presenta una sèrie d'inconvenients:</p>
+  
+<ul>
+  <li><p>Com a mínim, s'ha d'implementar lògica addicional a la capa de Vista per tenir en compte el fet que la sortida d'un registre individual d'una base de dades es pot oferir de més d'una manera.</p></li>
+ 
+  
+  <li><p>En el pitjor dels casos, els continguts es dupliquen no només a l'entorn que es troba el visitant, sinó també a la base de dades o en el sistema d'arxius del sistema principal. El resultat serà la duplicitat d'algunes despeses de manteniment.</p></li>
+  </ul>
+  
+  <p>Per tant, el més habitual és disposar las seccions més exteriors en l'ordre següent:</p>
+<ol>  
+  <li><p>Encapçalament</p>
+		<ul>
+    <li><p>Títol [preferiblement enllaçat amb la pàgina d'inici]</p></li>
+    <li><p>Navegació principal</p></li>
+		</ul></li>
+    <li><p>Contingut principal</p>
+			<ul>        
+				<li><p>Títol del document</p></li>
+<li><p>Text central</p></li>
+</ul></li>
+
+<li><p>Contingut secundari</p></li>
+<li><p>Contingut terciari</p></li>
+<li><p>Peu</p>
+<ul>        
+<li><p>Navegació secundària</p></li>
+<li><p>Parts addicionals (p. ex. avís de <em>copyright</em>)</p></li>
+</ul></li>
+</ol>
+  
+  <p>La manera en què s'imbricaran aquestes seccions dependrà d'una sèrie de requisits variables, el més habitual dels quals és el nombre de columnes estàtiques a la disposició del web.</p>
+
+<h3 id="namespacecreation">38.2.5. Assignació d'<em>ids</em>, classes i elements contenidors</h3>
+
+   <p>Questions de taxonomia al marge, podem assumir que qualsevol web donat cobrirà una sèrie de temes relacionat en un àmbit entès, ja siguin les operacions i productes d'una empresa, tipus específics d'esdeveniments, o tipus específics d'entreteniment, per anomenar alguns exemples amb què solen comptar per atreure l'interès de públics no tècnics.
+ </p>
+      
+      <p>Per tant, l'estilista es trobarà probablement associant les etiquetes de fulls d'estils tant amb elements estructurals dels continguts del web (p. ex. fragments de navegació, encapçalament, text principal) com a ventalls de continguts, ja siguin estrets o amples.</p>
+      
+      <p>Les pràctiques varien, però l'autor generalment assigna les següents etiquetes de format a les seves plantilles, etiquetes que veuran el seu ús en aquest mòdul.</p>
+     
+<ul>
+
+<li><p><code>#main</code>: llenç de continguts</p></li>
+<li><p><code>h1</code> (únic): títol del web</p></li>
+<li><p><code>ul#nav</code>: codi de navegació del lloc</p></li>
+<li><p><code>#breadcrumb</code>: rastre (si es fa servir)</p></li>
+<li><p><code>#bodyCopy</code>: article principal</p></li>
+<li><p><code>#bodyCopy&gt;h2</code> (únic): títol de document principal</p></li>
+<li><p><code>#sidebar</code>: contingut secundari</p></li>
+<li><p><code>#footer</code>: codi del peu</p></li>
+<li><p><code>ul#secondaryNav</code>: navegació secundària</p></li>
+</ul>
+      
+      <p>A més d'aquests i molt més important, s'afegeix una <code>id</code> al <code>body</code> de cada pàgina (com s'ha esmentat anteriorment) que dóna alguna indicació de l'abast del contingut primari associat amb tot el document. Alguns projectes també generen un requeriment per a l'assignació de <code>class</code><code>es</code> a elements <code>body</code>.</p>
+
+<h2 id="singlecolumn">38.3. Implementació de la composició a una columna</h2>
+
+<div class="imagen">
+	<img alt=" "  src="06510_m7_02.gif"/>
+	<p>Figura 2. Elements de la composició d'una columna; probablement l'etiquetatge s'imbricarà com es mostra aquí.</p>
+</div>
+  
+  <p>La figura 2 mostra que <code>#main</code> està immediatament dins de <code>body</code>, i a la vegada conté tot el <code>#header</code>, <code>#bodyCopy</code> i <code>#footer</code>.</p>
+
+<h3 id="centeringlayout">38.3.1. Centrat de la composició</h3>
+
+<p>El centrat del llenç de continguts és una qüestió d'inserir (en aquest cas) <code>#main { width: 960px; margin: auto; }</code> al vostre full d'estils (el valor <code>width</code> escollit és arbitrari).</p>
+
+<h3 id="documentcontainernecessary">38.3.2. És estrictament necessari un contenidor de tota l'amplada del document?</h3>
+
+<p>En un web que es basa completament en composicions d'una sola columna, no és <em>absolutament</em> necessari incloure <code>#main</code>; es podrien aplicar igual de fàcilment els mateixos parells de propietat/valor de composició emprats anteriorment a <code>#header</code>, <code>#bodyCopy</code> i <code>#footer</code> de manera combinada. No obstant això, no hi ha res <em>semànticament</em> incorrecte en incloure <code>#main</code> i la seva inclusió ofereix a l'especialista en estils més flexibilitat pel que fa a coses com les regles, canals, imatges de fons i construcció de la prominència de determinats elements a l'estructura de la plantilla.</p>
+
+<h2 id="doublecolumnlayout">38.4. Implementació de la composició a dues columnes</h2>
+
+<div class="imagen">
+	<img alt=" " src="06510_m7_03.gif"/>
+	<p>Figura 3. Elements d'una composició a dues columnes; probablement l'etiquetatge estarà imbricat com es mostra aquí, amb el benentès que <code>#sidebar</code> seguirà de fet a <code>#bodyCopy</code> en l'ordre d'origen.</p>
+</div>
+  
+  <p>La diferència entre les composicions a una i dues columnes és l'afegit d'un segon element contenidor per al contingut secundari (<code>#sidebar</code>, que de fet segueix a <code>#bodyCopy</code> en l'ordre d'origen), i alguns canvis al full d'estils que probablement es farà servir per a una disposició a una columna.</p>
+
+<h3 id="compositionissues">38.4.1. Problemes de composició en relació a les disposicions a una i dues columnes</h3>
+
+<p>El canvis en l'<em>etiquetatge</em> necessaris per a convertir una plantilla d'una columna en una plantilla de dos columnes són senzills, però en molts casos les noves <em>regles d'estil</em> necessàries no ho són.</p>
+
+<h3 id="sidebarplacement">Col·locació de <code>#sidebar</code> a l'esquerra en comptes del seu ordre original</h3>
+
+<p>Hi ha dos procediments per a fer això; un funcionarà independentment de la longitud de qualsevol de les columnes, mentre que l'altre requereix que <code>#bodyCopy</code> sigui més llarg que <code>#sidebar</code>.</p>
+  
+  <p>El plantejament principal i més comú és utilitzar <code>float</code>:</p>
+  
+  <ol>
+    <li><p>Assigneu un valor <code>width</code> a <code>#bodyCopy</code>.</p></li>
+    <li><p>Afegiu a aquesta regla un valor <code>float</code> de <code>right</code>.</p></li>
+    <li><p>Assigneu un <code>width</code> apropiat a <code>#sidebar</code>.</p></li>
+    <li><p>Assigneu valors de <code>margin</code> (marge) i <code>padding</co

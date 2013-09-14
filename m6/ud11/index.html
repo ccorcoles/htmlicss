@@ -1,0 +1,433 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Posicionament absolut i fix amb CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Posicionament absolut i fix amb CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud10/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m7/ud1/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	        
+<div id="main">
+<h1>37. Posicionament absolut i fix amb CSS</h1>
+<p class="by"><a href="../../index.html#olsson">Tommy Olsson</a>. 26 de setembre de 2008 Publicat a: índex z, apilament, recipient, bloc, contenidor.</p>
+
+<p>Ara és el moment de fixar-nos en el segon parell de valors de propietat de <code>position: absolute</code> (absoluta) i <code>fixed</code> (fixa). El primer parell de valors: <code>static</code> (estàtica) i <code>relative</code> (relativa), estan íntimament relacionats, i ja els vam veure al darrer apartat.</p>
+
+<p>Els elements posicionats absolutament s'eliminen completament del flux del document. Això significa que no tenen cap efecte sobre el seu element pare ni sobre els elements que els segueixen en el codi font. Per tant, un element posicionat absolutament es superposarà sobre altres continguts tret que prengui alguna mesura per evitar-ho. De vegades, per descomptat, aquesta superposició és exactament el que voldreu, però hauríeu de ser conscients d'això per assegurar-vos que obteniu la composició que desitgeu.</p>
+
+<p>El posicionament fix és de fet una forma especialitzada del posicionament absolut; els elements amb posicionament fix estan fixos en relació amb la finestra o <span lang="en">viewport</span> del navegador en comptes d'estar-ho en relació amb l'element contenidor; fins i tot si es desplaça la pàgina, es mantenen exactament a la mateixa posició a la finestra del navegador.</p>
+
+<p>En aquest apartat us donaré alguns exemples pràctics de l'ús dels posicionaments <code>absolute</code> i <code>fixed</code>, observarem alguns petits problemes de compatibilitat de navegadors i ens fixarem en el concepte d'índex <em>z</em>.</p>
+
+<p>Abans de començar a parlar de tot això, però, tractaré un concepte previ essencial: els blocs contenidors.</p>
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>37.1. <a href="#containingblocks" accesskey="1">Blocs continents</a></li>
+<li>37.2. <a href="#absolutepositioning" accesskey="2">Posicionament absolut</a>
+<ul class="index">
+<li>37.2.1. <a href="#specifyingposition">Especificació de la posició</a></li>
+<li>37.2.2. <a href="#specifyingdimensions">Especificació de les dimensions</a></li>
+<li>37.2.3. <a href="#zindex">La tercera dimensió: índex Z</a>
+<ul class="index">
+<li><a href="#localstackingcontexts">Contexts d'apilament local</a></li>
+</ul></li>
+</ul></li>
+<li>37.3. <a href="#fixedpositioning" accesskey="3">Posicionament fix</a></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+
+</ul>
+
+
+<h2 id="containingblocks">37.1. Blocs continents</h2>
+
+<p>Un concepte fonamental pel que fa al posicionament absolut és el bloc contenidor: la caixa de bloc respecte de la qual es troben la posició i les dimensions de la caixa posicionada absolutament.</p>
+
+<p>Per a les caixes estàtiques i posicionades relativament, la caixa contenidora és l'avantpassat a nivell de bloc més proper o, dit d'una altra manera, l'element pare. No obstant això, per als elements posicionats absolutament és una mica més complicat. En aquest cas, la caixa contenidora és l'avantpassat posicionat més proper. Amb "posicionat" em refereixo a un element la propietat position del qual està establerta en <code>relative</code>, <code>absolute</code> o <code>fixed</code>, és a dir, qualsevol cosa excepte elements estàtics normals.</p>
+
+<p>De manera que, establir <code>position:relative</code> per a un element el converteix en bloc contenidor de qualsevol descendent posicionat absolutament (elements fills), tant si apareixen immediatament a sota de l'element posicionat relativament a la jerarquia, o més avall.</p>
+
+<p>Si un element posicionat absolutament no té un avantpassat posicionat, aleshores el bloc contenidor és el que s'anomena <em>bloc contenidor inicial</em>, que a la pràctica equival a l'element <code>html</code>. Si esteu mirant la pàgina web en pantalla, això vol dir la finestra del navegador; si voleu imprimir la pàgina, significa els límits de la pàgina.</p>
+
+<p>Els elements amb posicionament fix difereixen lleugerament, ja que el seu bloc contenidor sempre és el bloc contenidor inicial.</p>
+
+<p>Així, doncs, resumim això en una sèrie de senzilles passes; per trobar el bloc contenidor d'un element amb <code>position:absolute</code>, això és el que heu de fer:</p>
+
+<ol>
+<li><p>Mireu l'element pare de l'element posicionat absolutament: la propietat position d'aquest element té un dels valors <code>relative</code>, <code>absolute</code> o <code>fixed</code>?</p></li>
+
+<li><p>Si és així, heu trobat el bloc contenidor.</p></li>
+
+<li><p>En cas contrari, passeu a l'element pare del pare i comenceu de nou des del pas 1 fins que trobeu el bloc contenidor o us quedeu sense avantpassats.</p></li>
+
+<li><p>Si heu arribat a l'element <code>html</code> sense trobar un avantpassat posicionat, aleshores el bloc contenidor és l'element <code>html</code>.</p></li>
+</ol>
+
+<h2 id="absolutepositioning">37.2. Posicionament absolut</h2>
+
+<p>El posicionament fix és una forma especial de posicionament absolut, de manera que l'estudiarem més endavant i ara ens concentrarem en el cas més generalitzat. Tret que s'indiqui el contrari, quan utilitzo el terme "posicionat absolutament" des d'ara fins al final de l'apartat em referiré tant a elements amb <code>position:fixed</code> com a elements amb <code>position:absolute</code>.</p>
+
+<h3 id="specifyingposition">37.2.1. Especificació de la posició</h3>
+
+<p>Amb el posicionament relatiu, heu après que les propietats <code>top</code>, <code>right</code>, <code>bottom</code> i <code>left</code> es podien utilitzar per especificar la posició de la caixa. Per especificar la posició d'una caixa posicionada absolutament es fan servir les mateixes propietats, però la forma d'utilitzar-les és força diferent.</p>
+
+<p>Per a un element posicionat relativament, les quatre propietats especifiquen la distància relativa per desplaçar la caixa generada. Recordeu que en el cas del posicionament relatiu es complementen entre si, de manera que <code>top:1em</code> i <code>bottom:-1em</code> volen dir el mateix, i no té gaire sentit especificar tant top com bottom (o <code>left</code> i <code>right</code>) per al mateix element, perquè un dels valors s'ignorarà.</p>
+
+<p>Aquests punts no són certs en el cas del posicionament absolut. En aquest cas, es poden utilitzar les quatre propietats al mateix temps per especificar la distància des de cada vora de l'element posicionat fins a la vora corresponent del bloc contenidor. També es pot especificar la posició d'una de les cantonades del quadre posicionat absolutament, per exemple utilitzant <code>top</code> i <code>left</code>, i aleshores especificar les dimensions del quadre mitjançant <code>width</code> i <code>height</code> (o simplement no utilitzar <code>width</code> i <code>height</code> si voleu deixar que s'ajusti per encaixar el seu contingut).</p>
+
+<p>La versió 6 del Microsoft Internet Explorer i anteriors no accepten el mètode d'especificar les quatre vores, però sí el mètode d'especificar una cantonada més les dimensions.</p>
+
+<pre><code>/* Aquest mètode funciona a IE6 */
+#foo {
+   position: absolute;
+   top: 3em;
+   left: 0;
+   width: 30em;
+   height: 20em;
+}
+/* Aquest mètode no funciona a IE6 */
+#foo {
+   position: absolute;
+   top: 3em;
+   right: 0;
+   bottom: 3em;
+   left: 0;
+}</code></pre>
+
+<p>El que heu de recordar en aquest cas és que els valors que heu establert per a les propietats <code>top</code>, <code>right</code>, <code>bottom</code> i <code>left</code> especifiquen les distancies des de les vores de l'element fins a les vores del seu bloc contenidor corresponent. No és com en un sistema de coordinades on cada valor és relatiu a un punt d'origen. Per exemple, <code>right:2em</code> significa que la vora dreta del quadre posicionat absolutament serà a 2em de la vora dreta del bloc contenidor.</p>
+
+<p>És absolutament essencial saber quin és el bloc contenidor quan s'utilitza el posicionament absolut. Per això és tan útil configurar <code>position:relative</code> en el bloc contenidor, fins i tot si no es desplaça realment la posició del quadre. Permet fer que un element sigui el bloc contenidor dels seus descendents posicionats absolutament, és a dir, us proporciona el control.</p>
+
+<p>Provem un exemple per veure com funciona.</p>
+     
+<ol>
+<li><p>Copieu el codi següent al vostre editor de text i guardeu el document com <code>absolute.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+   "http://www.w3.org/TR/html4/strict.dtd"&gt;
+   &lt;html&gt;
+   &lt;head&gt;
+      &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+      &lt;title&gt;Absolute Positioning&lt;/title&gt;
+      &lt;link rel="stylesheet" type="text/css" href="absolute.css"&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;div id="outer"&gt;
+         &lt;div id="inner"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre></li>
+
+<li><p>A continuació, copieu el codi següent a un nou arxiu i guardeu-lo com <code>absolute.css</code>.</p>
+
+<pre><code>html, body {
+   margin: 0;
+   padding: 0;
+}
+#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+}
+#inner {
+   width: 6em;
+   height: 4em;
+   background-color: #999;
+}</code></pre></li>
+
+<li><p>Guardeu els dos arxius i carregueu el document HTML al vostre navegador. Veureu un rectangle gris envoltat d'un marc una mica més ample de color vermell. L'element <code>#inner</code> té una amplada i alçada especificades i un color gris de fons. L'element <code>#outer</code>, que és el pare estructural de <code>#inner</code>, té un marc vermell. També té un marge de 5 em al voltant per allunyar-lo de les vores de la finestra del navegador i deixar-nos veure més clarament què és el que hi passa.</p>
+
+<p>Res sorprenent fins ara, oi? L'alçada de l'element <code>#outer</code> ve donada pel seu element fill (<code>#inner</code>) i l'amplada pels marges horitzontals.</p></li>
+
+<li><p>Mireu què passa ara si feu que l'element <code>#inner</code> estigui posicionat absolutament. Afegiu la següent línia ressaltada a la regla de <code>#inner</code>:</p>
+
+<pre><code>#inner {
+   width: 6em;
+   height: 4em;
+   background-color: #999;
+   <strong>position: absolute;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu. En comptes d'un marc vermell al voltant del rectangle gris, ara hi ha el que sembla un marc més gruixut només a la part superior. I el quadre gris no s'ha mogut en absolut. Us ho esperàveu?</p>
+
+<p>Passen dues coses interessants aquí: en primer lloc, fer que <code>#inner</code> estigui posicionat absolutament l'ha eliminat completament del flux del document. Això significa que el seu pare, <code>#outer</code>, ara no té fills que es trobin al flux normal, per tant la seva alçada es redueix a zero. El que sembla una línea vermella de 2 píxels de gruix és realment una vora d'1 píxel al voltant d'un element amb alçada zero: esteu veient les vores superior i inferior sense res al mig.</p>
+
+<p>La segona cosa interessant és que el quadre posicionat absolutament no s'ha mogut. El valor predeterminat per a les propietats <code>top</code>, <code>right</code>, <code>bottom</code> i <code>left</code> és <code>auto</code>, la qual cosa significa que el quadre posicionat absolutament apareixerà exactament on hauria estat si no hagués estat posicionat. Com que s'ha eliminat del flux, es superposarà a qualsevol element del flux normal que el segueixi, però.</p>
+
+<p>Això és realment molt útil: podeu fer-ho servir si només voleu moure un quadre generat en una dimensió. Per exemple, en un menú desplegable de CSS, els panells "desplegables" es poden posicionar absolutament especificant només la propietat <code>top</code>. Aleshores apareixeran automàticament a la coordinada prevista al llarg de l'eix X (el mateix que el seu pare).</p></li>
+
+<li><p>A continuació, establim una alçada per a l'element #outer de manera que torni a semblar un rectangle i movem <code>#inner</code> lateralment. Afegiu les següents línies ressaltades a les regles de CSS:</p>
+
+<pre><code>#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   <strong>height: 4em;</strong>
+}
+#inner {
+   width: 6em;
+   height: 4em;
+   background-color: #999;
+   position: absolute;
+   <strong>left: 1em;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu, i hi veureu alguns canvis. L'element <code>#outer</code> ara és un rectangle una altra vegada, ja que hi heu especificat una alçada. L'element <code>#inner</code> s'ha desplaçat lateralment, però no on es podria esperar trobar-lo. No és a 1 em de la vora esquerra del seu pare, sinó a 1 em de la vora esquerra de la finestra.</p>
+
+<p>El motiu és que, com s'ha explicat abans, <code>#inner</code> no té un avantpassat posicionat, de manera que el seu bloc contenidor és el bloc contenidor inicial. Si especifiqueu una posició diferent d'auto, és relativa a la vora corresponent del bloc contenidor. Quan heu establert <code>left:1em</code>, la vora esquerra de <code>#inner</code> ha acabat a 1 em de la vora esquerra de la finestra.</p></li>
+
+<li><p>Si en comptes d'això, el voleu a 1 em de la vora esquerra del seu element pare, heu de fer pare el bloc contenidor. Per a fer-ho, ara fareu servir el truc que he esmentat anteriorment en aquest apartat: fer que el bloc pare estigui posicionat relativament. Afegiu la següent línia ressaltada a la regla <code>#outer</code>:</p>
+
+<pre><code>#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   height: 4em;
+   <strong>position: relative;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu: passeu i vegeu! El rectangle gris ara és a 1 em de la vora esquerra de l'element pare. Establir <code>position:relative</code> a la regla <code>#outer</code> ha fet que estigui posicionat i l'ha establert com el bloc contenidor per a qualsevol descendent posicionat relativament que pugui tenir. El <code>left:1em</code> que heu establert per a <code>#inner</code> ara compta a partir de la vora esquerra de #outer, no la vora esquerra de la finestra del navegador.</p></li>
+</ol>
+
+<h3 id="specifyingdimensions">37.2.2. Especificació de les dimensions</h3>
+
+<p>Els elements posicionats absolutament s'ajustaran per encabir el seu contingut, tret que especifiqueu les seves dimensions. Podeu especificar l'amplada definint les propietats <code>left</code> i <code>right</code>, o bé definint la propietat <code>width</code>. Podeu especificar l'alçada definint les propietats <code>top</code> i <code>bottom</code>, o bé definint la propietat <code>height</code>.</p>
+
+<p>Qualsevol d'aquestes sis propietats es pot especificar com a percentatge. Els percentatges són, per la seva pròpia naturalesa, relatius a alguna altra cosa. En aquest cas són relatius a les dimensions del bloc contenidor.</p>
+
+<p>Per a un element posicionat absolutament, els valors de percentatge per a les propietats <code>left</code>, <code>right</code> i <code>width</code> són relatius a l'amplada del bloc contenidor. Els valors de percentatge per a les propietats <code>top</code>, <code>bottom</code> i <code>height</code> són relatius a l'alçada del bloc contenidor.</p>
+
+<p>El navegador Internet Explorer 6 i anteriors, i també Opera 8 i anteriors, ho van interpretar de manera totalment errònia i van utilitzar les dimensions del bloc pare en el seu lloc. Anem a provar amb un altre exemple per veure com això pot suposar una gran diferència.</p>
+
+<ol>
+<li><p>Comenceu especificant les dimensions de <code>#inner</code> mitjançant valors de percentatge; feu els següents canvis a la regla <code>#inner</code>:</p>
+
+<pre><code>#inner {
+   <strong>width: 50%;</strong>
+   <strong>height: 50%;</strong>
+   background-color: #999;
+   position: absolute;
+   left: 1em;
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu, i veureu que el rectangle gris es fa més ample i més curt (com a mínim si esteu fent servir un navegador modern). El bloc contenidor és encara <code>#outer</code>, perquè té <code>position:relative</code>. L'amplada de l'element <code>#inner</code> ara és la meitat de la de <code>#outer</code>, i la seva alçada és la meitat de l'alçada de <code>#outer</code>.</p></li>
+
+<li><p>Fem la finestra del bloc contenidor una vegada més, per veure la diferència. Feu el següent canvi a <code>#outer</code>:</p>
+
+<pre><code>#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   height: 4em;
+   <strong>position: static;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu; una diferència notable, oi? El quadre gris és ara la meitat d'ample i la meitat d'alt que la finestra del navegador.</p></li>
+</ol>
+
+<p>Com podeu veure, conèixer els vostres blocs contenidors és absolutament essencial.</p>
+
+<h3 id="zindex">37.2.3. La tercera dimensió: índex Z</h3>
+
+<p>És natural considerar que una pàgina web té dues dimensions. La tecnologia no ha evolucionat prou perquè les pantalles 3D estiguin generalitzades, de manera que ens hem de conformar amb amplada, alçada i falsos efectes 3D. Però la representació CSS realment és produeix en tres dimensions. Això no vol dir que pugui fer que un element voli davant del monitor (encara), però pot fer altres coses útils amb els elements posicionats.</p>
+
+<p>Els dos eixos principals d'una pàgina web són l'eix X horitzontal i l'eix Y vertical. L'origen d'aquest sistema de coordenades es troba a la cantonada superior esquerra de la finestra, és a dir, on tant el valor X com Y són 0.</p>
+
+<p>Però també hi ha un eix Z, que podem imaginar com perpendicular a la superfície del monitor (o del paper, si es tracta d'una impressió). El valors Z més alts indiquen una posició de "davant dels" valors Z més baixos. El valors Z també poden ser negatius, i en aquest cas indiquen una posició "darrera" d'algun punt de referència (explicaré aquest punt de referència d'aquí un moment).</p>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Abans de continuar, haig d'advertir-vos que aquest és un dels temes més complicats de CSS, així que no us desmoralitzeu si no ho enteneu a la primera.</p>
+</div>
+
+<p>Els elements posicionats (incloent-hi els elements posicionats relativament) es representen dintre del que es coneix com a context d'apilament. Els elements dins d'un context d'apilament tenen el mateix punt de referència al llarg de l'eix Z. Tot seguit ho explicaré més detalladament. Podeu canviar la posició Z (també denominada nivell de pila) d'un element posicionat utilitzant la propietat <code>z-index</code>. El valor pot ser un número sencer (que pot ser negatiu) o una de les paraules clau auto o inherit. El valor predeterminat és <code>auto</code>, la qual cosa vol dir que l'element té el mateix nivell de pila que el seu pare.</p>
+
+<p>Heu de tenir en compte que només podeu especificar una posició índex al llarg de l'eix Z. No podeu fer que un element aparegui 19 píxels darrera o 5 centímetres davant d'un altre. Penseu en això com si fos una baralla de cartes: Podeu apilar les cartes i decidir que l'as d'espases estigui sobre el tres de diamants; cada carta té el seu nivell de pila, o índex Z.</p>
+
+<p>Si especifiqueu <code>z-index</code> com un enter positiu, li assigneu un nivell de pila "davant de" la resta d'elements del mateix context d'apilament que tenen un nivell de pila inferior. Un <code>z-index</code> de 0 (zero) significa el mateix que <code>auto</code>, però hi ha una diferència de la qual parlaré en un moment. Un valor enter negatiu per a <code>z-index</code> assigna un nivell de pila "darrera" el nivell d'apilament pare.</p>
+
+<p>Quan dos elements del mateix context d'apilament tenen el mateix nivell de pila, el que apareix posteriorment al codi font apareixerà a sobre dels seus germans predecessors.</p>
+
+<p>De fet, no poden haver menys de set capes en un context d'apilament, i en cadascuna d'aquestes capes poden haver-hi qualsevol nombre d'elements, però no us preocupeu: el més probable és que mai hàgiu de tractar amb set capes en un context d'apilament. L'ordre en què els elements (tots els elements, no només els posicionats) es representen en un context d'apilament, des de darrera cap a davant, és el següent:</p>
+
+<ol>
+<li><p>El fons i les vores dels elements que formen el context d'apilament</p></li>
+<li><p>Descendents posicionats amb nivells de pila negatius</p></li>
+<li><p>Descendents a nivell de bloc en el flux normal</p></li>
+<li><p>Descendents flotants</p></li>
+<li><p>Descendents de nivell en línia en el flux normal</p></li>
+<li><p>Descendents posicionats amb el nivell de pila definit com <code>auto</code> o <code>0</code> (zero)</p></li>
+<li><p>Descendents posicionats amb nivells de pila positius</p></li>
+</ol>
+<p>Les entrades ressaltades són els elements amb un nivell de pila que es pot canviar mitjançant la propietat <code>z-index</code>.</p>
+
+<p>Tot plegat pot ser bastant difícil d'imaginar, així que fem alguns experiments pràctics per a il·lustrar l'índex Z.</p>
+
+<ol>
+<li><p>Comenceu afegint la següent línia ressaltada al vostre petit document de mostra:</p>
+
+<pre><code>&lt;body&gt;
+   &lt;div id="outer"&gt;
+      &lt;div id="inner"&gt;&lt;/div&gt;
+      <strong>&lt;div id="second"&gt;&lt;/div&gt;</strong>
+   &lt;/div&gt;
+&lt;/body&gt;</code></pre></li>
+
+<li><p>A continuació us explicaré com restaurar els CSS de manera que <code>#outer</code> sigui el bloc contenidor i com establir dimensions no percentuals de <code>#inner</code>. Fem que <code>#outer</code> sigui una mica més alt, també, per a tenir més espai per fer proves. Feu els següents canvis ressaltats a les dues regles:</p>
+
+<pre><code>#outer {
+   margin: 5em;
+   border: 1px solid #f00;
+   <strong>height: 8em;</strong>
+   <strong>position: relative;</strong>
+}
+#inner {
+   <strong>width: 5em;</strong>
+   <strong>height: 5em;</strong>
+   background-color: #999;
+   position: absolute;
+   left: 1em;
+}</code></pre></li>
+
+<li><p>Afegiu una regla per a l'element <code>#second</code>, també:</p>
+
+<pre><code>#second {
+   width: 5em;
+   height: 5em;
+   background-color: #00f;
+   position: absolute;
+   top: 1em;
+   left: 2em;
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu i veureu un quadre blau brillant que es superposa a un de gris. Els dos quadres tenen el mateix nivell de pila (<code>auto</code>, el valor inicial, que significa un nivell de pila 0) però el quadre blau es representa davant del quadre gris, perquè apareix més tard al codi font. Podeu fer que el quadre gris aparegui davant assignant-li un nivell de pila positiu. Només heu d'especificar que sigui més gran que 0: no cal exagerar i utilitzar un valor com ara 10.000. Afegiu la següent línia ressaltada a la regla <code>#inner</code>:</p>
+
+<pre><code>#inner {
+   width: 5em;
+   height: 5em;
+   background-color: #999;
+   position: absolute;
+   left: 1em;
+   <strong>z-index: 1;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu, i veureu com el quadre gris apareix davant del quadre blau.</p></li>
+</ol>
+
+<h3 id="localstackingcontexts">Contexts d'apilament local</h3>
+
+<p>La resta d'aquest subapartat tracta dels contexts d'apilament locals. Molt probablement, no us trobareu amb això gaire sovint treballant com a dissenyadors, tret que intenteu fer alguna cosa realment avançada amb posicionament absolut, però he decidit incloure-ho igualment per completitud. Si voleu, podeu saltar-vos aquesta secció.</p>
+
+<p>Cada element que tingui el <code>z-index</code> especificat com un enter estableix un context d'apilament nou, "local", en el qual el propi element té un nivell de pila 0. Aquesta és la diferencia que he mencionat abans entre <code>z-index: auto</code> i <code>z-index: 0</code>. L'anterior no estableix un nou context d'apilament, però el darrer, sí.</p>
+
+<p>Quan un element estableix un context d'apilament local, els nivells de pila dels seus descendents posicionats s'apliquen només en aquest context local. Aquests descendents es poden tornar a apilar els uns respecte dels altres, i respecte del seu pare, però no respecte dels germans del pare. És com si el pare formés una "gàbia" al voltat dels seus descendents de manera que no poden abandonar-la. Els descendents es poden moure amunt i avall en aquesta gàbia, però no poden abandonar-la. El pare i els seus descendents formaran una unitat indivisible en el context d'apilament que envolta el pare.</p>
+
+<p>Imagineu-vos que esteu classificant la paperassa abans de lliurar-la al contable que porta els vostres assumptes fiscals. Teniu informes de despeses, rebuts, confirmacions de comandes i tot això, i apileu un paper a sobre de l'altre: per facilitar-li la vida al vostre gestor, introduïu els tipus de documents que van junts en diferents sobres.</p>
+
+<p>Un context d'apilament local és semblant a aquest tipus de sobre. Manté els elements relacionats junts i impedeix que altres elements s'introdueixin entre ells. Podeu classificar el contingut de cada sobre com vulgueu, però aquest ordre de classificació només s'aplica a aquest sobre i no afecta a la pila de documents en conjunt. La vostra pila conté ara una barreja de documents independents (elements amb el nivell de pila <code>auto</code>) i sobres (elements amb un nivell de pila enter). Els sobres amb nivells de pila positius queden per sobre dels documents independents, mentre que els sobres amb nivells de pila negatius apareixen a sota de tot de la pila.</p>
+
+<p>Cada vegada que assigneu un valor enter a la propietat <code>z-index</code> d'un element, es crea un "sobre" que conté aquest element i els seus descendents.</p>
+
+<p>Vegem com funcionen aquests contexts d'apilament local. Pot semblar confús, però realment no és gaire diferent de tot el que ja heu vist. Si seguiu els exemples, acabareu obtenint fent-vos una bona idea de com funciona tot.</p>
+
+<ol>
+<li><p>Comenceu afegint algun contingut als vostres dos elements interns: afegiu les línies ressaltades al vostre document HTML:</p>
+
+<pre><code>&lt;div id="inner"&gt;
+   <strong>&lt;span&gt;&lt;/span&gt;</strong>
+&lt;/div&gt;
+&lt;div id="second"&gt;
+   <strong>&lt;span&gt;&lt;/span&gt;</strong>
+&lt;/div&gt;</code></pre></li>
+
+<li><p>Afegiu una regla CSS que s'aplicarà a aquest dos elements <code>span</code>:</p>
+
+<pre><code>span {
+   position: absolute;
+   top: 2em;
+   left: 2em;
+   width: 3em;
+   height: 3em;
+}</code></pre>
+
+<p>Això fa que els elements <code>span</code> quedin posicionats absolutament i estableix les seves posicions i dimensions. Però un moment, els elements <code>span</code> són en línia... Com es poden especificar les dimensions dels elements en línia? La resposta és que els elements posicionats absolutament, com els elements flotants, generen automàticament caixes de bloc.</p>
+
+<p>Les posicions que especifiqueu s'aplicaran en relació al bloc contenidor de cada span. Com que ambdós elements span tenen un <code>div</code> posicionat absolutament com a pare, aquests pares assumeixen la funció de blocs contenidors.</p></li>
+
+<li><p>Afegim ara una mica de color als elements <code>span</code> perquè podeu veure on apareixen; afegiu les següents regles al vostre full d'estils:</p>
+
+<pre><code>#inner span {
+   background-color: #ff0;
+}
+#second span {
+   background-color: #0ff;
+}
+</code></pre></li>
+
+<li><p>Guardeu i recarregueu i veureu un quadre groc a la cantonada inferior dreta del quadre gris més gran i un quadre de color cian a la cantonada inferior dreta del quadrat blau més gran. Els quadres gris i groc apareixen davant dels quadres blau i cian perquè el quadrat gris té un <code>z-index:1</code>.</p></li>
+
+<li><p>I si voleu que el quadrat cian quedi davant de tots els altres quadrats? Tot el que heu de fer és aplicar-li un nivell de pila més alt que al quadrat gris. De fet, n'hi ha prou amb donar-li exactament el mateix nivell de pila que el quadrat gris, ja que el quadrat cian apareix més endavant a l'etiquetatge. Provem-ho; feu el següent canvi al vostre CSS:</p>
+
+<pre><code>#second span {
+   background-color: #0ff;
+   <strong>z-index: 1;</strong>
+}
+</code></pre></li>
+
+<li><p>Guardeu i recarregueu. Si el vostre navegador admet correctament la recomanació CSS, el quadrat cian hauria de ser ara al davant.</p></li>
+</ol>
+
+<p>El quadrat gris té un <code>z-index:1</code>, la qual cosa vol dir que estableix un context d'apilament local. En altres paraules, heu creat un d'aquests "sobres" i heu col·locat el quadrat gris i el seu quadrat fill de color groc a l'interior.</p>
+
+<p>Seguiu sense veureu clar del tot? A veure si amb el següent experiment ho acabem d'aclarir.</p>
+
+<ol>
+<li><p>Establiu un nivell de pila alt per al quadrat groc per portar-lo al davant; feu el següent canvi al vostre CSS:</p>
+
+<pre><code>#inner span {
+   background-color: #ff0;
+   <strong>z-index: 4;</strong>
+}</code></pre></li>
+
+<li><p>Si guardeu i recarregueu, veureu... cap canvi en absolut. El nivell de pila que hem especificat per al quadrat groc s'aplica en el context d'apilament local establert pel quadrat gris, és a dir: el quadrat groc es troba en un sobre juntament amb el seu pare gris. Podríeu moure el quadrat cian fins al davant perquè el seu pare (el quadrat blau) no estableix un context d'apilament local: té un <code>z-index:auto</code> implícit. El quadrat blau és un paper independent a la pila. Els quadrats groc i cian estan realment sols en petits sobres individuals (tenen un nivell de pila enter i estableixen contexts d'apilament local pel seu compte).</p></li>
+
+<li><p>Si feu que el quadrat blau estableixi un context d'apilament local, no podreu moure el quadrat cian al davant tret que també porteu el seu pare (el quadrat blau) al davant. Provem-ho. Feu els següents canvis al vostre CSS:</p>
+
+<pre><code>#inner {
+   ...
+   <strong>z-index: 2;</strong>
+}
+#second {
+   ...
+   <strong>z-index: 1;</strong>
+}
+#second span {
+   ...
+   <strong>z-index: 3;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu i recarregueu. Ara, tant el quadrat gris com el quadrat blau estableixen contexts d'apilament local, de manera que es creen dos sobres. A la part inferior de la pila hi ha un sobre amb el nivell de pila 1 que inclou dos sobres interiors (el quadrat blau i el quadrat cian). A la part superior de la pila hi ha un sobre amb el nivell de pila 2 que inclou dos sobres interiors (el quadrat gris i el quadrat groc). En el primer sobre, el quadrat blau té un nivell de pila local 0 i, per tant, es mostra darrera del quadrat cian, que té un nivell de pila local 3. En el segon sobre, el quadrat gris té un nivell de pila local 0, de manera que apareix darrera del quadrat groc amb nivell de pila local 4.</p></li>
+</ol>
+
+<p>La figura 1 mostra els quatre quadres i els dos contexts d'apilament local des del lateral, al llarg de 

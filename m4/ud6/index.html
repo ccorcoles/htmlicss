@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El text central d'HTML - Formularis HTML: conceptes bàsics</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">El text central d'HTML</div>
+	<div id="subtitulo">Formularis HTML: conceptes bàsics</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud5/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud7/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+
+	<h1>20. Formularis HTML: conceptes bàsics</h1>
+  
+  <p class="by"><a href="../../index.html#hanen">Jenifer Hanen</a>. 8 de juliol del 2008. Publicat a: estructura, trametre, semàntic, entrada, accessible</p>
+  
+  <p>Tothom ha vist un formulari. Tothom n'ha utilitzat algun. Però n'heu codificat algun?</p>
+  
+  <p>Un formulari en línia és qualsevol àrea en la qual es pot introduir informació en una pàgina web; per exemple, introduint text o números en un quadre de text, marcant una casella de selecció, seleccionant un botó d'opció o escollint una opció d'una llista. Llavors, el formulari es tramet al lloc web prement el botó de trametre.</p>
+  
+  <p>Al web trobareu formularis per tot arreu: per a introduir noms d'usuari i contrasenyes en una pantalla d'accés, per a fer comentaris en blocs, per a escriure el vostre perfil en una xarxa social o per a especificar la informació de facturació en un lloc de compres. </p>
+  
+  <p>Crear un formulari és molt senzill, però què cal saber sobre els formularis perquè siguin conformes amb els estàndards del web? De moment, si heu anat seguint el programa d'estudis d'estàndards del web d'Opera, probablement ja tindreu molt clar que és molt important seguir sempre aquests estàndards. El codi necessari per a crear un formulari accessible i conforme amb els estàndards no suposa més feina que la creació d'un formulari malgirbat.</p>
+  
+  <p>Així, doncs, començarem amb el formulari més bàsic i senzill que podríem utilitzar i llavors ja l'anirem complicant; en aquest apartat explicaré tots els conceptes bàsics que cal conèixer per a crear unes estructures de formularis elegants i accessibles amb l'HTML. </p>
+  
+  <p>Els continguts d'aquest apartat són els següents:</p>
+  
+  <ul class="index">
+	<li>20.1. <a href="#stepone" accesskey="1">Pas u: El codi bàsic</a></li>
+  <li>20.2. <a href="#steptwo" accesskey="2">Pas dos: Afegir-hi estructura i comportament</a></li>
+  <li>20.3. <a href="#stepthree" accesskey="3">Pas tres: Afegir-hi semàntica, estil i una mica més d'estructura</a></li>
+  <li class="especial"><a href="#summary">Resum</a></li>                  
+  <li class="especial"><a href="#exercises">Preguntes de repàs</a></li> 
+  <li class="especial"><a href="#furtherreading">Lectures complementàries</a></li> 
+  </ul>
+                              
+  <h2 id="stepone">20.1. Pas u: El codi bàsic</h2>
+  
+  <p>Començarem amb un formulari de comentari molt i molt bàsic, el tipus de formulari que utilitzaríeu en un lloc web per a permetre que la gent pugui donar la seva opinió sobre alguna cosa com ara un article que hàgiu escrit, o per a permetre que pugui enviar-vos un missatge sense saber la vostra adreça electrònica. El codi és el següent:</p>
+                        
+  <pre><code>&lt;form&gt;
+Name: &lt;input type="text" name="name" id="name" value="" /&gt;
+Email: &lt;input type="text" name="email" id="email" value="" /&gt;
+Comments: &lt;textarea name="comments" id="comments" cols="25" rows="3"&gt;&lt;/textarea&gt;
+&lt;input type="submit" value="submit" /&gt;
+&lt;/form&gt;</code></pre> 
+
+  <p>Si introduïu aquest codi en un document HTML i llavors obriu aquest document en un navegador, el que veureu és el que apareix a la figura 1.</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_12.gif" alt="El primer exemple de formulari" />
+		<p>Figura 1. El primer exemple de formulari bàsic.</p>
+		<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/step-1-form.html" hreflang="en">step-1-form.html</a>"</p>
+	</div>
+
+
+  <p>Proveu-ho; introduïu aquest codi en el vostre document HTML de mostra i carregueu-lo en un navegador, o aneu a la
+<a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/step-1-form.html" hreflang="en">pàgina del primer exemple de formulari bàsic</a> per a navegar fins al formulari en una altra pàgina. Intenteu jugar una mica amb els diferents controls del formulari per a veure tot el que hi podeu fer.</p>
+  
+  <p>Si llegiu el codi, hi veureu una etiqueta <code>&lt;form&gt;</code> d'obertura, una etiqueta <code>&lt;/form&gt;</code> de tancament i algunes altres coses entre aquestes dues. L'element conté dos camps de text en els quals el lector de la pàgina pot introduir el seu nom i la seva adreça electrònica, i una àrea de text que es pot omplir amb un comentari per a trametre'l al propietari del lloc web.</p>
+  
+  <p>Què hi tenim, doncs, aquí?</p>
+  
+  <ul><li><p><code>&lt;form&gt;&lt;/form&gt;</code>: Aquestes dues etiquetes són essencials per a iniciar i acabar un formulari; sense aquestes no tindríem cap formulari web. Tots els formularis han de començar i acabar amb les etiquetes <code>&lt;form&gt;</code> i <code>&lt;/form&gt;</code> respectivament.</p>
+  
+  <p>L'etiqueta <code>&lt;form&gt;</code> pot tenir alguns atributs, que explicarem en el pas dos, però d'entrada cal tenir ben clar que no es poden imbricar formularis dintre de formularis.</p></li>  
+  
+  <li><p><code>&lt;input&gt;</code> (si utilitzeu un doctype XHTML hauria de ser <code>&lt;input /&gt;</code>): Aquesta etiqueta defineix l'àrea en la qual podreu inserir informació. En el nostre exemple anterior, les etiquetes <code>input</code> defineixen quadres de text en els quals els visitants poden escriure el seu nom i l'adreça electrònica.</p>
+  
+  <p>Totes les etiquetes d'entrada han de tenir un atribut <code>type</code> per a definir el tipus d'informació que rebran. Els valors possibles per a l'atribut són <code>text</code>, <code>button</code>, <code>checkbox</code>, <code>file</code>, <code>hidden</code>, <code>image</code>, <code>password</code>, <code>radio</code>, <code>reset</code> o <code>submit</code>. </p>
+  
+  <p>Totes les etiquetes <code>&lt;input&gt;</code> (introducció de dades) també han de tenir un nom (excepte en alguns casos especials en els quals l'atribut <code>value</code> &#8211;valor&#8211; té sempre el mateix valor que l'atribut <code>type</code> &#8211;tipus&#8211;, com per exemple <code>type="submit"</code> o <code>"reset"</code>), que ha de triar el codificador. L'atribut <code>name</code> (nom) informa sobre on s'envien les dades quan es tramet el formulari (el destí pot ser una base de dades, o un missatge electrònic que s'envia a l'administrador del lloc a través d'un script del servidor) i sobre el nom que té la informació del quadre d'introducció de dades. En trametre el formulari, la majoria dels scripts utilitzen l'atribut <code>name</code> per col·locar les dades del formulari en una base de dades o en un missatge electrònic que pot ser llegit per una persona.</p>
+  
+  <p>Per tant, si l'element <code>&lt;input&gt;</code> serveix perquè el visitant del lloc hi pugui introduir el seu nom, llavors l'atribut <code>name</code> seria <code>name="nom"</code><code>, </code><code>name="name"</code> o <code>name="first name"</code>, etc. Si l'etiqueta <code>&lt;input&gt;</code> és per a l'adreça electrònica, llavors l'atribut  <code>name</code> seria <code>name="email"</code>. Per a facilitar-vos les coses, i per a facilitar-les a la persona que utilitzarà el formulari, es recomana que poseu un nom descriptiu a l'element <code>&lt;input&gt;</code>.</p>
+  
+  <p>Per <em>nom descriptiu</em> s'entén un nom relacionat amb la seva funció, tal com s'ha explicat abans. Si l'objectiu és obtenir una adreça electrònica, llavors el nom hauria de ser <code>name="correu-electronic"</code>. Si ha de ser l'adreça postal de la persona que visita el lloc, llavors el nom hauria de ser  <code>name="street-address"</code> o <code>name="adreça-postal"</code>. Com més acurat sigui l'ús d'aquests noms, no només ho tindreu més fàcil per codificar el formulari i anar-ne realitzant el manteniment, sinó que la persona o la base de dades que el rebi també ho tindrà més fàcil per entendre'l. Cal que dediqueu tot el temps necessari a pensar bé aquests noms.</p></li>
+  
+		<li><p>Totes les etiquetes <code>&lt;input&gt;</code> també han de tenir un atribut <code>value</code>. El seu valor es pot deixar en blanc <code>(value="")</code>, amb la qual cosa indicareu a l'script de processament que hi insereixi qualsevol cosa que el visitant del lloc escrigui en aquest quadre. En el cas d'una casella de selecció (checkbox), un botó d'opcions (radio), ocult (hidden), trametre (submit) o qualsevol altre atribut, podeu definir el valor per tal que sigui igual al que voleu que sigui per defecte. En altres casos, com per exemple trametre o ocult, heu de definir el valor per tal que sigui igual a l'entrada final. Exemples: <code>value="yes"</code> per a sí, <code>value="submit"</code> per a un botó de tramesa, <code>value="reset"</code> per a un botó de reinicialització, <code>value="http://www.opera.com"</code> per a un redireccionament ocult, etc.</p>
+
+  
+  <div class="exemple">
+  <h3>L'atribut <code>value</code></h3>
+  
+  <p>Alguns exemples sobre l'ús de l'atribut <code>value</code>:</p>
+  
+  <ol>
+  	<li><p>Un atribut de valor en blanc el valor del qual ve determinat per allò que hi introdueixi l'usuari:</p>
+  <ul>
+	 <li><p>El codi diu: <code>&lt;input type="text" name="first-name" id="first-name" value="" /&gt;</code></p></li>
+  <li><p>L'usuari hi introdueix: Jenifer</p></li>
+  <li><p>El valor de <code>first-name</code> s'envia com a "Jenifer" en el moment de trametre el formulari.</p></li>
+	</ul></li>
+  
+  <li><p>Un valor predeterminat:</p>
+  
+  <ul>
+		<li><p>El codi diu: <code>&lt;input type="checkbox" name="mailing-list" id="mailing-list" value="yes" /&gt;</code></p></li>
+  <li><p>L'usuari selecciona la casella perquè es vol unir a la llista de correu del lloc web.</p></li>
+  <li><p>El valor de <code>mailing-list</code> s'envia com a <code>"yes" </code>en el moment de trametre el formulari.</p></li>
+   </ul></li>
+  </ol>
+	</div></li>
+
+  <li><p>Després dels dos elements <code>&lt;input&gt;</code> podeu veure una cosa una mica diferent: l'element <code>textarea</code>.</p>
+  
+  <p><code>textarea</code> és un espai nou i millorat molt adequat per a introduir-hi text. No és el mateix que l'antic quadre de text normal d'una única línia que ofereix el nostre amic <code>&lt;input&gt;</code>; l'element <code>textarea</code> permet introduir múltiples línies i fins i tot hi podeu definir quantes línies hi haurà disponibles per a introduir-hi text. Fixeu-vos en els atributs <code>cols</code> i <code>rows</code>; aquests atributs són necessaris per a tots els elements <code>textarea</code> i especifiquen les columnes i files que tindrà l'àrea de text. Aquests valors es mesuren en caràcters.</p></li>
+	
+  <li><p>I per a acabar, però no per això menys important, hi ha un element  <code>&lt;input&gt;</code> especial amb l'atribut <code>value="submit"</code>. En lloc de mostrar un quadre d'una única línia per a introduir-hi text, la tramesa del text introduït mostrarà un botó de tramesa que, en clicar-lo, tramet el formulari al destí que especifiqui el formulari per a enviar-hi les dades (en aquest moment això encara no està definit, i ara per ara la tramesa del formulari no farà res).</p></li>
+	</ul>
+  
+		<h2 id="steptwo">20.2. Pas dos:  Afegir-hi estructura i comportament</h2>
+  
+  <p>Així, doncs, heu clicat l'enllaç del formulari #1 anterior, l'heu omplert i heu clicat el botó Trametre; per què no ha passat res? I per què té tan mal aspecte i apareix tot en una línia? La resposta és que encara no l'heu estructurat ni heu definit cap lloc on trametre les dades que recull el formulari.</p>
+  
+  <p>Tornem a la taula de dibuix per crear un formulari nou:</p>
+                     
+  <pre><code>&lt;form id="contact-form" action="script.php" method="post"&gt;
+  &lt;input type="hidden" name="redirect" value="http://www.opera.com" /&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;label for="name"&gt;Name:&lt;/label&gt;
+      &lt;input type="text" name="name" id="name" value="" /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;label for="email"&gt;Email:&lt;/label&gt;
+      &lt;input type="text" name="email" id="email" value="" /&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;label for="comments"&gt;Comments:&lt;/label&gt;
+      &lt;textarea name="comments" id="comments" cols="25" rows="3"&gt;&lt;/textarea&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;input type="submit" value="submit" /&gt;
+      &lt;input type="reset" value="reset" /&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/form&gt;</code></pre>   
+  
+  <p>Quan l'obriu en un navegador, aquest formulari té l'aspecte que es pot veure a la figura 2:</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_13.gif" alt="El segon exemple de formulari" />
+		<p>Figura 2. El segon exemple de formulari; el seu aspecte és millor, però encara no és perfecte.</p>
+		<p class="font"><strong>Podeu jugar amb aquest formulari millorat a:</strong> "<a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/step-2-form.html" hreflang="en">step-2-form.html</a>"</p>
+	</div>                                        
+
+  
+  <p>Aquí he afegit algunes coses al formulari bàsic. Vegem-ho per a saber què és el que he fet:</p>
+  
+  <ul>
+		<li><p>Dintre de l'etiqueta <code>&lt;form&gt;</code> hi ha alguns atributs nous. Hi he afegit un atribut <code>id</code> no només per donar un nom semànticament descriptiu al formulari, sinó també per oferir un ID únic per identificar-lo de manera que s'hi puguin posar estils més fàcilment amb el CSS o es pugui manipular utilitzant JavaScript si és necessari. Només podeu tenir un <code>id</code> de cada per pàgina; en aquest cas jo l'he anomenat <code>contact-form</code> (formulari de contacte).</p></li>
+  
+ <li><p>Llums, càmera, acció! Quan heu premut el botó de tramesa en el primer formulari i no ha passat res, la raó era que no incloïa cap acció ni mètode. L'atribut <code>method</code> (mètode) especifica com s'envien les dades a l'script que les processarà. Els dos mètodes més comuns són "GET" i "POST". El mètode "GET" enviarà les dades de la URL de la pàgina (sempre veureu URL de l'estil <code>http://www.example.com/page.php?data1=value1&amp;data2=value2...</code>; aquestes són dades que es transporten amb el mètode "GET"). Si no és que teniu una raó concreta per a utilitzar "GET", probablement és millor no utilitzar-lo si intenteu enviar informació segura, ja que tothom pot veure la informació mentre es transmet a través de la URL. "POST" envia les dades a través de l'script que ofereix el formulari; aquestes dades es poden enviar a un missatge electrònic que s'envia a l'administrador de lloc o bé a una base de dades que s'emmagatzemarà i a la qual es podrà accedir més endavant, i no a la URL del "GET". "<a href="http://www.w3.org/2001/tag/doc/whenToUseGet.html" hreflang="en">POST</a>" és l'opció més segura i normalment la millor.</p>
+  
+  <p>Si la seguretat de les dades del formulari és un aspecte que us preocupa especialment, per exemple si trameteu un número de targeta de crèdit a un lloc de compres, llavors hauríeu d'utilitzar el protocol https amb una capa de sòcols segurs (SSL, secure socket layer). Bàsicament, això significa que les dades s'enviaran a través del protocol https i no del protocol http. La propera vegada que pagueu alguna cosa en un lloc de compres o que utilitzeu la banca en línia, observeu les URL; és molt probable que hi veieu https:// en lloc de http://. La diferència és que una connexió https és una mica més lenta de transmetre que una http, però les dades s'encripten de manera que cap pirata que hi furgui pugui entendre res de les dades mentre estan en trànsit. Parleu amb l'hostatjador del vostre web per a saber com us pot oferir una connexió https i una SSL.</p></li>
+  
+ <li><p>L'atribut <code>action</code> (acció) especifica el fitxer de script al qual s'han d'enviar les dades del formulari per al seu processament. Molts hostatjadors de webs tenen un script genèric d'enviament de correu electrònic o altres scripts de formularis disponibles per al seu ús (consulteu aquesta informació a la documentació del vostre hostatjador) que han adaptat per als seus servidors. Per altra banda, podeu utilitzar un script de servidor que vosaltres mateixos o algú més hagi creat per a oferir el vostre formulari. La majoria de les vegades es fan servir llenguatges com PHP, Perl o Ruby per crear un script que processarà el formulari; per exemple, podeu enviar un missatge electrònic que contingui la informació del formulari, o bé introduir la informació del formulari en una base de dades que s'emmagatzemarà per al seu ús en el futur.</p>
+  
+  <p>L'abast d'aquest curs no ens permet explicar-vos la manera de redactar un script de servidor ni ensenyar-vos a escriure un codi de servidor pel vostre compte; us haureu de limitar a demanar al vostre hostatjador què és el que us ofereix o a fer-vos amics d'un bon programador.</p>
+  
+  <p>Aquí us donem uns quants recursos per a començar a introduir-vos en aquest camp en cas que vulgueu investigar els scripts de servidor:</p>
+         
+	<ul>
+  <li><p>Perl: <a href="http://www.perl.com/" hreflang="en">http://www.perl.com/</a></p></li>
+	<li><p>PHP: <a href="http://www.php.net/">http://www.php.net</a></p></li>
+	<li><p>Documentació PHP sobre formularis: <a href="http://uk3.php.net/manual/en/tutorial.forms.php">http://uk3.php.net/manual/en/tutorial.forms.php</a></p></li> 
+  <li><p>Python: <a href="http://python.org/">http://python.org/</a></p></li> 
+  <li><p>Ruby: <a href="http://www.ruby-lang.org/">http://www.ruby-lang.org</a></p></li> 
+  <li><p>Sendmail: <a href="http://www.sendmail.org/">http://www.sendmail.org/</a></p></li> 
+  <li><p>SP.NET: <a href="http://www.asp.net/">http://www.asp.net/</a></p></li>
+  </ul></li>
+																 
+  <li><p>La segona línia que hem afegit al nostre formulari del pas dos és el camp d'entrada "ocult", que és un redireccionament. Què? </p>
+  
+  <p>Amb l'objectiu de separar l'estructura de l'etiquetatge per una banda i la presentació i el comportament per l'altra, el millor és utilitzar l'script que oferirà el formulari també per redirigir l'usuari una vegada el formulari ja s'hagi tramès. El que no voleu de cap de les maneres és que els usuaris es trobin mirant la pàgina del formulari sense saber què han de fer una vegada l'han tramès; estic ben segura que tots estareu d'acord que és molt millor redirigir l'usuari a una pàgina d'agraïment que inclogui uns enllaços sobre "què heu de fer a continuació" una vegada el formulari s'hagi tramès correctament. Aquesta línia en concret especifica que, després de trametre el formulari, l'usuari passarà a la pàgina inicial d'Opera.</p></li>
+  
+  <li><p>Per a millorar l'aspecte del formulari, he posat tots els seus elements en una llista no ordenada per així poder utilitzar l'etiquetatge per a alinear-los i llavors utilitzar el CSS per a polir-ne l'aspecte.</p>
+  
+  <p>Algú podria dir que no hauríem d'utilitzar una llista no ordenada per a etiquetar un formulari, sinó una llista de definicions. Altres podrien dir que ni tan sols hauríem de fer servir una llista, sinó el CSS per a aplicar estils a les etiquetes  <code>&lt;label&gt;</code> i <code>&lt;input&gt;</code>. Jo no entraré en aquest debat i deixaré que feu investigacions pel vostre compte sobre aquest tema i arribeu a una conclusió pròpia sobre què és semànticament més correcte. Per al nostre exercici tan senzill jo utilitzaré la llista no ordenada.</p></li>
+  
+ <li><p>I l'última cosa del pas dos, però no per això menys important, és que he etiquetat els elements del formulari. Tant en termes de significat com d'accessibilitat del formulari en una gamma àmplia de dispositius habilitats per a Internet, el millor és posar etiquetes a tots els elements del formulari; comproveu el contingut dels elements  <code>label</code>, ja que aquestes etiquetes estan lligades als elements respectius del formulari mitjançant els elements <code>id</code> dels elements <code>input</code> i <code>textarea</code> que tenen el mateix valor que els atributs <code>for</code> de les etiquetes. Això és perfecte perquè no només aporta un indicador visual sobre la finalitat de cadascun dels camps del formulari en pantalla, sinó que també dóna més significat semàntic als camps del formulari. Per exemple, una persona amb alguna deficiència visual que utilitzi la pàgina amb un lector de pantalla podrà veure quina etiqueta correspon a cadascun dels elements del formulari. Els <code>id</code> també es poden utilitzar per a aplicar estils als camps individuals del formulari amb el CSS.</p>
+  
+  <p>És molt probable que en aquest moment us estigueu preguntant per què, a més a més dels atributs <code>name</code>, s'inclouen atributs <code>id</code> com a identificadors en els elements del formulari. La resposta és que els elements <code>input</code> sense atributs <code>name</code> no es trameten al servidor i, per tant, són absolutament necessaris. Els atributs <code>id</code> són necessaris per a associar els elements del formulari amb els seus elements<code>label</code> corresponents. Per tant, els hauríeu de fer servir tots dos.</p></li>
+	</ul>
+  
+  <p>El segon formulari té un aspecte una mica millor, però encara el podem seguir millorant una mica més. Ja ha arribat el moment d'afegir-hi alguns altres detalls abans d'aplicar-hi estils.</p>
+
+  <h2 id="stepthree">20.3. Pas tres: Afegir-hi semàntica, estil i una mica més d'estructura</h2>
+  
+  <p>Ara acabaré el que he començat al principi d'aquest apartat amb la versió definitiva del meu formulari d'exemple:</p>
+              
+  <pre><code>&lt;form id="contact-form" action="script.php" method="post"&gt; 
+  &lt;fieldset&gt;
+    &lt;legend&gt;Contact Us:&lt;/legend&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;label for="name"&gt;Name:&lt;/label&gt;
+        &lt;input type="text" name="name" id="name" value="" /&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;label for="email"&gt;Email:&lt;/label&gt;
+        &lt;input type="text" name="email" id="email" value="" /&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;label for="comments"&gt;Comments:&lt;/label&gt;
+        &lt;textarea name="comments" id="comments" cols="25" rows="3"&gt;&lt;/textarea&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;label for="mailing-list"&gt;Would you like to sign up for our mailing list?
+		&lt;/label&gt;
+        &lt;input type="checkbox" checked="checked" id="mailing-list" value="Yes,
+ 		sign me up!" /&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;input type="submit" value="submit" /&gt;
+        &lt;input type="reset" value="reset" /&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>  
+  
+  <p>Quan es mostra en un navegador, aquest formulari té l'aspecte que es pot veure a la figura 3:</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_14.gif" alt="El tercer i definitiu exemple de formulari" />
+		<p>Figura 3. El formulari d'exemple definitiu en tota la seva esplendor.</p>
+		<p class="font"><strong>Podeu veure la versió real d'aquest formulari en un navegador i jugar-hi a</strong>: "<a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/step-3-form.html" hreflang="en">step-3-form</a>".</p>
+	</div>                         
+
+
+  <p>Els dos últims elements principals que he afegit a aquest formulari són <code>fieldset</code> (conjunt de camps) i <code>legend</code> (llegenda). Cap d'aquests és obligatori, però són molt útils per a formularis més complexos i per a la presentació.</p>
+  
+  <p>L'element <code>fieldset</code> us permet organitzar el formulari en mòduls semàntics. En un formulari més complex, podríeu per exemple utilitzar diferents <code>fieldset</code> per a contenir informació de l'adreça, informació de facturació, informació sobre les preferències del client... L'element <code>legend</code> permet donar un nom a cadascuna de les seccions <code>fieldset</code>.</p>
+  
+  <p>També he aplicat una mica de CSS a aquest formulari per a donar estil a l'etiquetatge estructural. Això s'aplica al tercer formulari d'exemple amb un full d'estils extern; per veure els estils, aneu a la <a href="http://dev.opera.com/articles/view/20-html-forms-the-basics/form.css" hreflang="en">pàgina d'exemple</a>. Les dues coses més importants que volia que fes el CSS bàsic eren afegir marges per a alinear les etiquetes i els quadres d'introducció de dades, i eliminar els pics de la llista desordenada. Aquest és el CSS que resideix al full d'estils extern:</p>
+                       
+  <pre><code>#contact-form fieldset {width:40%;}
+#contact-form li {margin:10px; list-style: none;}
+#contact-form input  {margin-left:45px; text-align: left;}
+#contact-form textarea {margin-left:10px; text-align: left;}</code></pre>     
+  
+  <p>Què fa aquest CSS? La primera línia defineix l'estil de la vora del conjunt de camps per tal que no ocupi tota la pàgina; també podeu definir que no hi hagi cap vora amb <code>{border:</code><code> none;}</code> en cas que no en vulgueu. La segona línia afegeix un marge de 10 píxels als elements <code>li</code> per posar una mica d'espai visual entre cadascun dels elements de la llista. Les línies tercera i quarta defineixen un marge esquerre en els elements <code>input</code> i <code>textarea</code> per tal que no quedin a la mateixa alçada que les etiquetes i s'alineïn adequadament. Si voleu més informació sobre els estils d'un formulari, consulteu l'apartat sobre els estils dels formularis d'aquest currículum d'estàndards web o bé l'article de <cite>Nick Rigby</cite> a <cite>A List Apart</cite>, "<em><a href="http://alistapart.com/articles/prettyaccessibleforms" hreflang="en">Prettier Accessible Forms</a></em>". També podreu trobar més informació sobre els marges i les vores més endavant en aquest curs.</p>
+  
+        <h2 id="summary">Resum</h2> 
+  
+  <p>En aquest apartat he explicat els tres passos més bàsics per a crear un formulari conforme amb els estàndards del web. El món dels formularis inclou moltes més coses que no he explicat aquí i que, en cas que vulgueu, haureu d'explorar pel vostre compte. Hi ha les tecles d'accés, les caselles de selecció i els botons d'opció, els botons de tramesa i reinicialització personalitzats i els quadres de selecció.</p>
+  
+  <p>En el formulari anterior del pas tres he afegit una casella de selecció (<code>checkbox</code>) per tal de mostrar que es poden fer servir els atributs addicionals de l'element <code>input</code> per a recollir informació que queda més enllà de la introducció de text en una única línia o de la introducció de text en una àrea de múltiples línies. Els valors dels atributs de botó <code>checkbox</code> i <code>radio</code> es poden fer servir per a afegir-hi la possibilitat de fer preguntes curtes i donar al lector una llista d'opcions entre les quals podrà escollir (les caselles de selecció permeten seleccionar diverses opcions, mentre que els botons d'opció només en permeten seleccionar una). Els botons d'opció poden ser molt útils en un formulari d'enquesta.</p>
+  
+  <p>L'element <code>select</code>, que tampoc s'ha tractat en aquest apartat, es pot utilitzar per a un menú desplegable amb opcions (per exemple, una llista de països o d'estats/províncies).</p>
+  
+  
+        <h2 id="exercises">Preguntes de repàs</h2> 
+  
+  <p>Ja és hora que escriviu el codi del vostre formulari de contacte.</p>
+  
+  <ol>
+		<li><p>Creeu un formulari de contacte senzill que demani a l'usuari el seu nom, l'adreça electrònica i un comentari.</p></li>
+    <li><p>Afegiu-hi una casella de selecció que demani al lector si es vol unir a la vostra llista de correu.</p></li>
+    <li><p>Utilitzeu el CSS per a aplicar estils al formulari: definiu una amplada per al formulari, alineeu les etiquetes a l'esquerra, poseu un color de fons a la pàgina, etc.</p></li>
+  </ol>
+  
+  <ul>
+		<li><p><strong>Deures voluntaris</strong>: Com més jugueu amb els elements del formulari i amb diferents CSS, més bé veureu tot el que podeu fer amb un formulari de contacte molt senzill.</p></li>
+  
+  <li><p><strong>Deures encara més voluntaris</strong>: Si voleu endinsar-vos encara més en aquest tema, busqueu un script o utilitzeu-ne un que us ofereixi el vostre hostatjador web per a enviar-vos el formulari a vosaltres mateixos. Si l'script per crear el formulari es complica excessivament, també podeu provar de subornar algun bon programador...</p></li>
+   </ul>
+                            
+  <h2 id="furtherreading">Lectures complementàries</h2>
+  
+  <p>Cameron Adams, "Accessible, stylish form layout". <br/>
+  <a href="http://www.themaninblue.com/writing/perspective/2004/03/24/" hreflang="en">http://www.themaninblue.com/writing/perspective/2004/03/24/</a></p>    
+  
+  <p>Brian Crescimanno, "Sensible Forms: A Form Usability Checklist".<br/>
+  <a href="http://www.alistapart.com/articles/sensibleforms/" hreflang="en">http://www.alistapart.com/articles/sensibleforms/</a></p>
+  
+  <p>Simon Willison, "Easier form validation with PHP".<br/>
+  <a href="http://simonwillison.net/2003/Jun/17/theHolyGrail/" hreflang="en">http://simonwillison.net/2003/Jun/17/theHolyGrail/</a></p>
+
+  
+  <p>Les especificacions. No qualsevol especificació antiga, sinó <a href="http://www.w3.org/TR/html401/interact/forms.html" hreflang="en">L'ESPECIFICACIÓ W3C</a>.</p>
+  
+  <p>Si mai patiu d'insomni i un vas de llet calenta, o comptar xais no us solucionen el problema, llegiu les especificacions completes de l'HTML 4.01 o l'XHTML 1.0 a w3.org. És molt més barat i més efectiu que qualsevol altre remei. Que [inseriu aquí el nom de la deïtat] beneeixi els enginyers de tot el món.</p>
+  
+  <p>Els amables integrants de W3.org han definit les <a href="http://www.w3.org/2001/tag/doc/whenToUseGet.html" hreflang="en">diferències entre "GET" i "POST"</a> i quan s'han d'utilitzar: </p>     
+
+  <p>I tot l'agraïment del món per al Sr. Rigby: <br/>            
+  <a href="http://alistapart.com/articles/prettyaccessibleforms" hreflang="en">http://alistapart.com/articles/prettyaccessibleforms</a></p>
+
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud5/index.html" title="Anar a l'article anterior" accesskey="8"><img src="

@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Elements flotants i clearing</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Elements flotants i <em>clearing</em></div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud8/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud10/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	        
+<div id="main">
+<h1>35. Elements flotants i <em>clearing</em></h1>
+<p class="by"><a href="../../index.html#olsson">Tommy Olsson</a>. 26 de setembre de 2008 Publicat a: marges, quadres, ajustar, errors, contenir.</p>
+
+<p>En aquest apartat veurem què són els elements flotants i el <span lang="en">clearing</span>, dues eines indispensables per al dissenyador de webs moderns. Són unes eines molt versàtils que podeu utilitzar per fer que el text flueixi al voltant de les imatges o fins i tot crear composicions de múltiples columnes.</p>
+
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>35.1. <a href="#whatarefloatandclear" accesskey="1">Per a què serveixen <code>float</code> i <code>clear</code>?</a></li>
+<li>35.2. <a href="#boringtheory" accesskey="2">Una mica de teoria molt avorrida</a></li>
+<li>35.3. <a href="#howdoesfloatingwork" accesskey="3">Com funcionen els elements flotants?</a>
+<ul class="index">
+<li>35.3.1. <a href="#minutiae">Els detalls</a></li>
+<li>35.3.2. <a href="#morefloats">Més elements flotants</a></li>
+<li>35.3.3. <a href="#floatmargins">Marges en els elements flotants</a></li>
+</ul></li>
+<li>35.4. <a href="#clearing" accesskey="4">"Clearing"</a></li>
+<li>35.5. <a href="#containingfloats" accesskey="5">Elements flotants contenidors</a></li>
+<li>35.6. <a href="#shrinkwrapping" accesskey="6">Ajustar</a></li>
+<li>35.7. <a href="#centeringfloats" accesskey="7">Centrar elements flotants</a></li>
+<li>35.8. <a href="#bugs" accesskey="8">Errors!</a></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercisequestions">Preguntes de repàs</a></li>
+
+</ul>
+                 
+<h2 id="whatarefloatandclear">35.1. Per a què serveixen <code>float</code> i <code>clear</code>?</h2>
+<p>Si mireu qualsevol revista veureu que hi ha imatges que il·lustren els apartats i que el text les envolta i flueix al seu voltant. La propietat <code>float</code> del CSS es va crear per permetre aquest estil de composició a les pàgines web. Quan es fa "flotar" una imatge o qualsevol altre element, aquesta es desplaça cap a una banda i permet que el text flueixi per l'altra. Aplicar <span lang="en">clearing</span> a un element flotant empeny aquest element cap avall, si cal, per evitar que aparegui al costat del text.</p>
+
+<p>Tot i que en principi qualsevol element pot ser un element flotant, els dissenyadors utilitzen aquesta propietat bàsicament per aconseguir composicions de múltiples columnes sense necessitat d'abusar de l'etiquetatge de taula.</p>
+
+<h2 id="boringtheory">35.2. Una mica de teoria molt avorrida</h2>
+
+<p>Per explicar com funcionen els elements flotants, primer haurem de fer una mica de teoria i veure com s'ho fa un navegador web per mostrar un document HTML/CSS. No us preocupeu, seré breu.</p>
+
+<p>Tots els elements HTML visibles generen una "caixa" que immediatament es delimita. Si mireu el document en una pantalla d'ordinador o en un telèfon mòbil, els quadres apareixen a la pantalla. Si imprimiu el document, els quadres apareixen en el paper.  Si utilitzeu un lector de pantalla, el contingut dels quadres es reprodueix oralment en forma de parla.</p>
+
+<p>De la mateixa manera que en l'HTML hi ha elements de bloc i elements en línia, en el CSS hi ha caixes de bloc i quadres en línia. Per defecte, els elements de bloc generen caixes de bloc i els elements en línia generen caixes en línia. A banda de les caixes generades pels elements, també es generaran altres caixes; per exemple, per al contingut textual del document. Les caixes de bloc es presenten normalment en l'ordre en el qual apareixen els elements en l'etiquetatge, de dalt a baix. Les caixes de bloc no poden aparèixer unes al costat de les altres, si no és que hi apliquem CSS. Les caixes en línia es distribueixen horitzontalment. La propietat <code>direction</code> determina si es distribueixen d'esquerra a dreta o de dreta a esquerra (si no s'especifica aquesta propietat, aquestes caixes es distribueixen per defecte d'esquerra a dreta).</p>
+
+<p>Això es coneix com el flux de document: les caixes en línia flueixen horitzontalment dins de les seves caixes de bloc mare, i les caixes de bloc hi flueixen verticalment. Les caixes apareixen en el mateix ordre que els elements de l'etiquetatge HTML.</p>
+
+<p>Posem per cas el següent document HTML, que és molt bàsic (només hi he inclòs la part que hi ha dintre de l'element body):</p>
+
+<pre><code>&lt;p&gt;This is a very simple document.&lt;/p&gt;
+&lt;p&gt;It consists of &lt;em&gt;two&lt;/em&gt; paragraphs.&lt;/p&gt;</code></pre>
+
+<p>La figura 1 mostra una captura de pantalla d'aquest document amb una sobreimpressió que mostra les dues caixes de bloc generades pels elements
+p i la caixa en línia generada per l'element <code>em</code>.</p>
+
+<div class="imagen">
+<img src="06510_m6_86.gif" alt="Els elements P generen quadres de bloc i l'element EM genera un quadre en línia."/>
+<p>Figura 1. Mostra de les caixes de bloc generades pels elements <code>p</code> i de la caixa en línia generada per l'element <code>em</code></p>
+</div>
+
+<p>Totes les caixes en línia que formen una "línia" en el dispositiu de sortida estan tancades en rectangles imaginaris que es coneixen com a caixes de línia. Les caixes de línia es distribueixen sempre de dalt a baix sense cap espai entre elles, tal com podeu veure a la figura 2.</p>
+
+<div class="imagen">
+<img src="06510_m6_87.gif" alt="Cada línia representada està tancada en una caixa de línia."/>
+<p>Figura 2. Cada línia representada està tancada en una caixa de línia independent</p>
+</div>
+
+<h2 id="howdoesfloatingwork">35.3. Com funcionen els elements flotants?</h2>
+
+<p>Molt bé! Ara que ja hem vist totes aquestes qüestions teòriques tan avorrides, passem a veure la sintaxi dels elements <code>float</code> i <code>clear</code> i a veure'n alguns exemples.</p>
+
+<p>La propietat <code>float</code> té quatre valors vàlids: <code>left</code>, <code>right</code>, <code>none</code> i <code>inherit</code>. Els dos primers valors són de lluny els que s'utilitzen més habitualment, i fan que una caixa floti cap a la dreta o cap a l'esquerra.  La declaració <code>float:none</code>, que és el valor per defecte, es fa servir normalment només per "desfer" una declaració d'alguna altra regla. L'ús de <code>float:inherit</code> no és gens habitual; jo no l'he vist mai enlloc i probablement només existeix per una qüestió de coherència. Fa que l'element hereti el valor de <code>float</code> del seu element pare.</p>
+
+<p>Una caixa flotant s'extreu del flux del document i es desplaça tot el possible cap a l'esquerra o cap a la dreta, segons la direcció de flotació especificada. "Tot el possible" significa normalment fins que la vora exterior de l'element flotant toca la vora del bloc que el conté (l'interior del seu farcit, si està definit). Així, doncs, en el cas de <code>float:left</code>, la caixa es desplaça cap a l'esquerra fins que el marge esquerre de l'element flotant toca la vora esquerra del pare.</p>
+
+<p>Els lectors que hagin estat alerta poden haver vist que he anat fent servir "normalment". Si ja hi ha una caixa flotada cap a l'esquerra quan en flotem una altra en aquesta mateixa direcció, la segona caixa s'aturarà quan toqui aquesta primera. És a dir, que els elements flotants no es poden posar uns sobre els altres.</p>
+
+<p>Ja ha arribat el moment de veure els elements flotants en acció, o sigui que ja podeu preparar el vostre editor de textos.</p>
+
+<ol>
+<li><p>Creeu un arxiu nou, copieu-hi el codi següent i guardeu el document com a <code>float.html</code>.</p>
+
+<pre><code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"&gt;
+   &lt;html&gt;
+      &lt;head&gt;
+         &lt;meta http-equiv="Content-Type" content="text/html;
+          charset=utf-8"&gt;
+         &lt;title&gt;Floating&lt;/title&gt;
+      &lt;/head&gt;
+   &lt;body&gt;
+      &lt;p id="p1"&gt;&lt;span id="span-a"&gt;Lorem ipsum&lt;/span&gt;
+      &lt;span id="span-b"&gt;dolor sit amet&lt;/span&gt;
+      &lt;span id="span-c"&gt;consectetuer&lt;/span&gt; adipiscing elit.
+Curabitur feugiat feugiat purus.
+Aenean eu metus. Nulla facilisi.
+Pellentesque quis justo vel massa suscipit sagittis.
+Class aptent taciti sociosqu ad litora torquent per conubia nostra, 
+per inceptos hymenaeos.
+Quisque mollis, justo vel rhoncus aliquam, urna tortor varius lacus, ut 
+tincidunt metus arcu vel lorem.
+Praesent metus orci, adipiscing eget, fermentum ut, pellentesque non, dui.
+Sed sagittis, metus a semper dictum, sem libero sagittis nunc, vitae 
+adipiscing leo neque vitae tellus.
+Duis quis orci quis nisl nonummy dapibus.
+Etiam ante.  Phasellus imperdiet arcu at odio.
+In hac habitasse platea dictumst. Aenean metus.
+Quisque a nibh.  Morbi mattis ullamcorper ipsum.
+Nullam odio urna, feugiat sed, bibendum sed, vulputate in, magna.
+Nulla tortor justo, convallis iaculis, porta condimentum, interdum nec, arcu.
+Proin lectus purus, vehicula et, cursus ut, nonummy et, diam.&lt;/p&gt;
+      &lt;p id="p2"&gt;Nunc ac elit. Vestibulum placerat dictum nibh. Proin massa.
+Curabitur at lectus egestas quam interdum mollis.
+Cras id velit a lacus sollicitudin faucibus.
+Proin at ante id nisi porttitor scelerisque.
+In metus.  Aenean nonummy semper enim.
+Aenean tristique neque quis arcu tincidunt auctor.
+Fusce consequat auctor ligula.
+Fusce nulla lorem, sagittis a, lacinia et, nonummy in, eros.
+In nisi augue, aliquam eget, convallis vel, malesuada quis, libero.&lt;/p&gt;
+      &lt;p id="p3"&gt;Hello, World!&lt;/p&gt;
+   &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>Ja sé que és molt de contingut, però el necessitem per veure bé com funciona.</p></li>
+
+<li><p>Obriu el document en el vostre navegador web per veure quin aspecte té. Avorrit, oi?</p></li>
+
+<li><p>Creeu un altre document amb l'editor de textos, copieu-hi el codi següent i guardeu-lo amb el nom <code>style.css</code> en el mateix directori que el fitxer HTML del pas 1.</p>
+
+<pre><code>#span-a {
+   float: left;
+   background-color:  #cfc;
+   color: #030;
+}</code></pre></li>
+
+<li><p>Enllaceu el full d'estil al document HTML inserint la línia següent just abans de l'etiqueta <code>&lt;/head&gt;</code>.</p>
+
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="style.css"&gt;</code></pre></li>
+
+<li><p>Guardeu-lo i actualitzeu la pàgina en el navegador. Veureu que l'element span que conté les paraules "Lorem ipsum" s'ha desplaçat flotant cap a l'esquerra. També hi he posat un fons de color verd clar per fer que destaqui una mica.</p></li>
+
+<li><p>Encara no és fàcil veure què passa aquí, o sigui que farem que l'element flotant sigui una mica més gran. Afegiu al vostre full d'estils la següent declaració:</p>
+
+<pre><code>#span-a {
+   float: left;
+   background-color:  #cfc;
+   color: #030;
+   <strong>padding: 1em;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu i actualitzeu, i veureu que l'àrea de color ara és una mica més gran, ja que hi hem afegit una mica de farcit pels quatre costats del quadre. L'element flotant ocupa l'alçada de tres línies de text i podem veure clarament que l'altre text flueix al voltant d'aquest element flotant.</p></li>
+</ol>
+
+<h3 id="minutiae">35.3.1. Els detalls</h3>
+
+<p>Ara analitzarem amb més detall què és el que passa realment aquí. La caixa flotant generada pel primer element <code>span</code> s'ha desplaçat cap a l'esquerra, fins a la vora del document, i les caixes de línia adjacents s'han reduït. Tot i que encara no és visible, la caixa de bloc generada pel paràgraf que conté l'element flotant no es veu afectada.  Ara destacarem el paràgraf perquè quedi més clar.</p>
+
+<ol> 
+<li><p>Afegiu la següent regla CSS al full d'estils:</p>
+
+<pre><code>p {
+   border: 1px solid #f00;
+}</code></pre></li>
+
+<li><p>Torneu a guardar l'arxiu CSS i actualitzeu la finestra del navegador. Ara hauríeu de veure una vora vermella al voltant de cadascun dels paràgrafs; observeu que l'element flotant es troba dintre d'un dels paràgrafs.</p></li>
+ 
+<li><p>Ara modificarem l'última regla per verificar que l'element flotant s'atura quan arriba a la vora interior de l'àrea de separació del pare:</p>
+
+<pre><code>p {
+   border: 1px solid #f00;
+   <strong>padding: 1em;</strong>
+   <strong>background-color:  #ff9;</strong>
+}</code></pre></li>
+
+<li><p>Guardeu i actualitzeu, i veureu la prova del que us he dit abans: El quadre flotant es desplaça fins a la vora del bloc que el conté, mentre que la separació del pare queda fora d'aquest. També veureu que el fons groc del paràgraf s'estén per sota de la caixa flotant. Clarament, el fet de flotar una caixa filla no afecta en absolut la caixa del paràgraf, només les caixes de línia que hi ha al seu interior.</p></li>
+
+<li><p>Ara farem uns quants experiments més: què passa si l'element flotant és més alt que el seu pare? Modifiqueu la regla per a l'element flotant de la manera següent:</p>
+
+<pre><code>#span-a {
+   float: left;
+   background-color: #cfc;
+   color: #030;
+   <strong>padding: 1em 1em 10em;</strong>
+}</code></pre></li>
+</ol>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Si la finestra del navegador és estreta, és possible que hàgiu d'utilitzar un valor més gran que 10 em per a la separació inferior perquè l'àrea verda s'estengui més enllà de la vora inferior del paràgraf. </p>
+</div>
+
+<p>Ara veureu una cosa ben interessant: la caixa flotant sobresurt fora de la caixa mare; la caixa mare no s'amplia per poder contenir la seva caixa filla flotant. També podeu veure (si heu utilitzat una separació inferior prou gran) que les caixes de línia adjacents a l'element flotant del segon paràgraf s'han escurçat.</p>
+
+<h3 id="morefloats">35.3.2. Més elements flotants</h3>
+
+<p>Ara crearem un altre element flotant per veure què passa quan es desplacen dos elements flotants en la mateixa direcció.</p>
+
+<ol>
+<li><p>Afegiu una regla nova al full d'estils, guardeu i actualitzeu igual que heu fet abans.</p>
+
+<pre><code>#span-b {
+   float: left;
+   background-color: #ccf;
+   color: #003;
+   padding: 1em;
+}</code></pre>
+
+<p>L'element <code>span</code> que conté les paraules "dolor sit amet" també s'ha desplaçat flotant cap a l'esquerra. Veureu que s'ha desplaçat cap a l'esquerra fins que toca el primer element flotant; és a dir, "tot el possible".</p></li>
+
+<li><p>I per què només dos elements flotants? En crearem encara un tercer. Afegiu la regla següent al vostre full d'estils:</p>
+
+<pre><code>#span-c {
+   float: left;
+   background-color: #fcc;
+   color: #300;
+   padding:2em 1em;
+}</code></pre></li>
+
+<li><p>També hi vull afegir una regla temporal per veure un exemple de què passa quan no hi ha prou espai per a un element flotant en una línia. Afegiu la regla següent al final del full d'estils:</p>
+
+<pre><code>span {
+   width: 34%;
+}</code></pre></li>
+
+<li><p>Igual que abans, guardeu el vostre full d'estils i actualitzeu el document al navegador; veureu alguna cosa similar al que hi ha a la figura 3.</p></li>
+</ol>
+
+<div class="imagen">
+<img src="06510_m6_88.gif" alt="El tercer element flotant apareix sota del segon, la qual cosa no era el que us esperàveu."/>
+<p>Figura 3. No ben bé el que esperàveu?</p>
+</div>          
+<p>Ves per on! Què ha passat? El tercer element flotant apareix ara sota el segon. (I l'Internet Explorer 6 fa algunes altres coses estranyes, que de moment ignoraré). Com que l'amplada de cadascun dels elements <code>span</code> és el 34% de l'amplada del paràgraf (tal com especifica la regla afegida en el pas 3), més una mica de separació, no hi ha prou espai per a tots tres l'un al costat de l'altre (3 &times; 34% = 102%). Els dos primers elements flotants caben a la mateixa línia, però el tercer no i es desplaça cap avall. El que és important és que es desplaça cap avall només el necessari per cabre a la línia. No es desplaça sota del primer element flotant més alt perquè hi ha espai suficient a la seva dreta.</p>
+
+<p>Una altra cosa interessant que cal tenir en compte és que heu assignat una amplada als elements span. Això no hauria de representar cap diferència, perquè <code>span</code> és un tipus d'element en línia. No obstant això, quan es fa flotar una caixa, aquesta es converteix automàticament en caixa de bloc, la qual cosa significa que li podem assignar dimensions i marges verticals.</p>
+
+<h3 id="floatmargins">35.3.3. Marges en els elements flotants</h3>
+
+<p>Ara veurem el que es pot fer amb els marges dels elements flotants:</p>
+
+<ol> 
+<li><p>En primer lloc, elimineu la regla temporal per als elements span que heu afegit abans i llavors guardeu i actualitzeu, de manera que els tres elements flotants tornin a quedar l'un al costat de l'altre. És a dir: esborreu aquesta regla:</p>
+
+<pre><code>span {
+   width: 34%;
+}</code></pre>
+
+<p>Ara els tres elements flotants estan totalment junts i el text adjacent comença immediatament després de l'últim element flotant (tret que utilitzeu el Microsoft Internet Explorer 6 o una versió anterior, ja que en aquest cas hi haurà un espai de 3 píxels a la dreta a causa del <a href="http://positioniseverything.net/explorer/threepxtest.html" hreflang="en">problema dels tres píxels</a>). Com es pot crear una mica d'espai al voltant d'un quadre flotant? La resposta són els <strong>marges</strong>.</p></li>
+
+
+<li><p>Ho provarem amb l'element flotant central; canviarem la regla CSS per a l'element flotant central de la manera següent i llavors guardarem i actualitzarem:</p>
+
+<pre><code>#span-b {
+   float: left;
+   background-color: #ccf;
+   color: #003;
+   padding: 1em;
+   <strong>margin-left: 1em;</strong>
+   <strong>margin-right: 1em;</strong>
+}</code></pre>
+
+<p>Ara sí que hi ha una mica d'espai als dos costats de l'element flotant central.</p></li>
+
+<li><p>També podeu definir marges verticals per a una caixa flotant; feu els canvis següents en la regla per al tercer element flotant, guardeu i actualitzeu.</p>
+
+<pre><code>#span-c {
+   float: left;
+   background-color:  #fcc;
+   color: #300;
+   padding:2em 1em;
+   <strong>margin-top:  2em;</strong>
+   <strong>margin-bottom:  2em;</strong>
+}</code></pre>
+
+<p>El tercer element flotant s'ha desplaçat cap avall i també hi ha una mica d'espai addicional a sota.</p></li>
+
+<li><p>Com que ja anem llançats cap a l'aventura, vegem què passa si comencem a jugar amb marges negatius. Feu els cavis següents en la regla per al tercer element flotant, guardeu i actualitzeu:</p>
+
+<pre><code>#span-c {
+   float: left;
+   background-color: #fcc;
+   color: #300;
+   padding:2em 1em;
+   margin-top: 2em;
+   margin-bottom: 2em;
+   <strong>margin-left: -4em;</strong>
+}</code></pre></li>
+</ol>
+
+<p>Ara veureu el resultat que es mostra a la figura 4:</p>
+
+<div class="imagen">
+<img src="06510_m6_89.gif" alt="Element flotants a sobre d'un altre a causa dels marges negatius."/>
+<p>Figura 4. Ara els elements flotants apareixen els uns sobre els altres!</p>
+</div>          
+<p>Com pot ser? Qui ha dit que els elements flotants no poden aparèixer els uns sobre els altres? El marge negatiu desplaça tot l'element flotant cap a l'esquerra.</p>
+<p>L'ús de marges negatius en els elements flotants pot ser molt útil per crear alguns tipus de composicions de múltiples columnes.</p>
+
+<h2 id="clearing">35.4. "Clearing"</h2>
+
+<p>Ara que ja hem vist els fonaments dels elements flotants, podem passar a un altre tema molt relacionat: el <em>clearing</em>.</p>
+
+<p>Tal com hem vist en els exemples al llarg d'aquest apartat, el text flueix al voltant d'un element flotant i les caixes de bloc no es veuen afectades pels elements flotants. Algunes vegades és preferible que un element no acabi col·locat just al costat d'un element flotant. Per exemple, un títol que introdueix una secció nova d'un apartat no ha d'aparèixer al costat d'una imatge de la secció prèvia. És molt millor fer que el títol aparegui sota la imatge, fins i tot encara que la imatge sobresurti per sota de l'últim paràgraf.  L'única manera de fer-ho és fer servir la propietat <code>clear</code> (distanciar) en el títol.</p>
+
+<p>Un altre exemple és l'omnipresent composició de tres columnes amb un peu de pàgina que ocupa tota l'amplada. Si les columnes són flotants, llavors utilitzareu la propietat <code>clear</code> al peu per garantir que aparegui sota totes les columnes, sigui quina sigui la més llarga.</p>
+
+<p>La propietat <code>clear</code> té tres valors útils: <code>left</code> (esquerra), <code>right</code> (dreta) i <code>both</code> (ambdós). També són vàlids els valors <code>none</code> (cap), que és el valor per defecte i <code>inherit</code> (heretar).</p>
+
+<p>L'ús de <code>clear:left</code> en un element garanteix que la seva caixa generada apareixerà sota de qualsevol caixa flotada prèviament cap a l'esquerra. Si utilitzeu <code>clear:both</code> apareixerà sota de tots els elements flotants previs dels dos costats.</p>
+
+<p>La distància s'aconsegueix desplaçant l'element cap avall (l'espai en blanc s'afegeix sobre el seu marge superior), si és necessari, fins que la seva vora superior es troba sota les vores inferiors de tots els quadres flotants en la o les direccions especificades. Vegem-ne un exemple per il·lustrar-ho millor.</p>
+
+<ol>
+<li><p>Abans de fer la prova, netegem primer el full d'estils. Elimineu les regles per a <code>#span-b</code> i <code>#span-c</code> de manera que quedi només l'element flotant verd de l'esquerra. Comproveu que la seva separació inferior sigui prou gran com per estendre's dins el segon paràgraf.</p></li>
+
+<li><p>Afegiu la regla següent per al segon paràgraf, guardeu i actualitzeu:</p>
+
+<pre><code>#p2 {
+   clear: left;
+}</code></pre>
+
+<p>Mireu! El segon paràgraf es desplaça cap avall fins que queda per sota de l'element flotant, tal com podeu veure a la figura 5.</p>
+
+<div class="imagen">
+<img src="06510_m6_90.gif" alt="Distanciament del segon paràgraf per sota del primer."/>
+<p>Figura 5. Ara el segon paràgraf queda per sota del primer</p>
+</div><p>Per complicar encara més les coses, podem utilitzar float i clear en el mateix element.</p></li>
+
+<li><p>Afegiu una regla al segon element flotant per separar-lo del primer, guardeu i actualitzeu:</p>
+
+<pre><code>#span-b {
+   float: left;
+   clear: left;
+   padding: 1em;
+   background-color: #ccf;
+   color: #003;
+}</code></pre>
+
+<p>L'element flotant blau apareix ara sota l'element flotant verd, totalment fora del paràgraf pare. Com que també ha flotat cap a l'esquerra, el segon paràgraf es desplaça una mica més cap avall per quedar-ne separat.</p></li>
+</ol>
+
+<h2 id="containingfloats">35.5. Elements flotants contenidors</h2>
+
+<p>Tal com ja hem vist abans, la caixa mare no s'amplia normalment per contenir els fills flotants. Això sovint pot provocar confusions, per exemple quan tots els fills d'un element floten en crear un menú horitzontal a partir d'una llista no ordenada mitjançant la flotació de tots els elements <code>li</code>. Com que les caixes flotants es treuen del flux i no afecten la caixa mare, el fet de fer flotar totes les filles fa que en realitat la mare quedi buida i passi a tenir una altura zero. Algunes vegades això no és el que volem, per exemple a l'hora de definir un fons per a la mare. Si la mare té una altura zero, el fons no es veurà.</p>
+
+<p>És evident que necessitem algun mecanisme per aconseguir que una caixa mare s'ampliï per incloure-hi les filles flotants. El mètode tradicional consistia a incloure un element addicional a l'etiquetatge, just abans de l'etiqueta de tancament de la caixa mare, i definir-hi
+<code>clear:both</code>. Això funciona, però no és gaire acceptable perquè implica introduir un etiquetatge addicional poc semàntic i innecessari. Per sort, hi ha altres maneres que explicaré a continuació.</p>
+
+<p>El primer mètode consisteix senzillament a fer flotar també la mare. Les caixes flotants s'amplien sempre per incloure totes les seves caixes filles.</p>
+
+<ol>
+<li><p>Per provar-ho en el nostre document d'exemple, elimineu una altra vegada la regla per a <code>#span-b</code>, feu flotar el primer paràgraf de la manera següent i guardeu i actualitzeu:</p>
+
+<pre><code>#p1 {
+   float: left;
+}</code></pre>
+
+<p>El paràgraf s'amplia ara fins a incloure l'element flotant de color verd. Tot això està molt bé, però algunes vegades no tenim l'opció de fer flotar la caixa mare. Una altra manera de fer el mateix sense fer flotar el pare és definint la propietat <code>overflow</code> (desbordament) del pare a un valor diferent de <code>visible</code>. Si hi definiu el valor <code>hidden</code> i no especifiqueu cap altura, la caixa mare inclourà les caixes filles flotants.</p></li>
+
+<li><p>Substituïu l'última regla per la següent, guardeu-ho i actualitzeu-ho:</p>
+
+<pre><code>#p1 {
+   overflow: hidden;
+}</code></pre>
+
+<p>Tingueu en compte que l'últim mètode no funciona amb l'Internet Explorer 6 o anterior.</p></li>
+</ol>
+
+<h2 id="shrinkwrapping">35.6. Ajustar</h2>
+
+<p>Ja he comentat abans que el fet de fer flotar una caixa inserida feia que es convertís en una caixa en línia, la qual cosa permet especificar les seves dimensions i marges verticals. Fer flotar una caixa de <em>bloc</em> també té una conseqüència sorprenent: si no s'especifica l'amplada de la caixa, aquesta "s'ajusta" per adaptar-se al seu contingut. Això no era visible en el document d'exemple quan heu fet flotar el primer paràgraf perquè ja tenia prou contingut com per omplir tota la finestra (tret que tinguéssiu un monitor realment ample).</p>
+
+<p>Ara farem flotar l'últim paràgraf per veure'n l'efecte. De fet, només per tenir una mica de variació, farem una bogeria i el farem flotar a la dreta.</p>
+
+<p>Afegiu la regla següent al full d'estils, guardeu i actualitzeu:</p>
+
+<pre><code>#p3 {
+   float: right;
+}</code></pre>
+
+<p>El paràgraf que diu "Hello, World!" flotarà cap a la dreta i tindrà només l'amplada del text més una mica de farcit que heu especificat en una regla anterior per a tots els paràgrafs.</p>
+
+
+<h2 id="centeringfloats">35.7. Centrar elements flotants</h2>
+
+<p>Algunes vegades voldreu fer flotar un element, potser perquè inclogui fills flotants, però a la vegada mantenir-lo centrat horitzontalment dintre del seu pare. Això representa un problema: no és possible utilitzar el truc habitual de definir els marges esquerre i dret a <code>auto</code> per als elements flotants, i no existeix cap valor <code>float:center</code>. Hi ha alguna manera de solucionar-ho?</p>
+
+<p>De fet, n'hi ha. El guru del CSS Paul O'Brien explica com fer-ho en el seu article <cite><a href="http://www.search-this.com/2007/09/19/when-is-a-float-not-a-float/" hreflang="en">When is a float not a float?</a></cite>. Implica l'ús d'un element d'embolcall addicional, però és perfectament assumible. El principi utilitza el posicionament relatiu, que explicarem a l'apartat següent. Desplaçant l'element d'embolcall cap a la dreta i a continuació l'element flotant cap a l'esquerra, es pot arribar a centrar un element flotant ajustat d'una amplada desconeguda. (Podeu fer servir aquest coneixement per impressionar la vostra parella en la vostra pròxima cita.  No falla mai).</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Vegeu l'apartat 36 d'aquest mòdul.</p>
+</div>
+
+<p>Intentem-ho. A l'exemple següent afegirem una barra de menú horitzontal a la vostra pàgina. El menú estarà basat en una llista no ordenada amb elements flotants.</p>
+
+<ol>
+<li><p>Inseriu l'etiquetatge següent just després de l'etiqueta <code>&lt;body&gt;</code> del vostre document HTML:</p>
+
+<pre><code>&lt;div class="wrap"&gt;
+   &lt;ul id="menu"&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;News&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Products&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Services&lt;/a&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/div&gt;
+&lt;!--Això ens cal per a l'Internet Explorer--&gt;
+&lt;div class="clear"&gt;&lt;/div&gt;</code></pre></li>
+
+<li><p>Afegiu les regles següents de CSS al full d'estils per aplicar estils al menú:</p>
+
+<pre><code>#menu {
+   margin: 0;
+   padding: 0.5em;
+   font-family:  Verdana,sans-serif;
+}
+#menu li {
+   float: left;
+   list-style-type:  none;
+   margin: 0 0 0 0.5em;
+   padding: 0.25em;
+   background-color: #600;
+   color: #ff9;
+   border: 2px solid #f00;
+}
+#menu a {
+   color: #ff9;
+   text-decoration:  none;
+}
+.wrap {
+   float: left;
+   margin-bottom:  2em;
+}
+.clear {
+   clear: left;
+   height: 1px;
+   margin-top: -1px;
+}</code></pre></li>
+
+<li><p>Guardeu els dos arxius i actualitzeu el navegador. Veureu el menú a la part superior esquerra: ara el centrarem horitzontalment.</p></li>
+
+<li><p>Desplaceu l'element d'embolcall fins al punt central modificant la regla de <code>.wrap</code> tal com s'indica a continuació:</p>
+
+<pre><code>.wrap {
+   float: left;
+   margin-bottom: 2em;
+   <strong>position: relative;</strong>
+   <strong>left: 50%;</strong>
+}</code></pre>
+
+<p>El menú començarà en el centre horitzontal de la pàgina, però això no és el que volíem; està massa desplaçat cap a la dreta, o sigui que l'haurem de desplaçar una mica cap a l'esquerra. Com que heu fet flotar l'element d'embolcall, aquest s'ha ajustat per adaptar-se a la llista. Heu de desplaçar la llista una distància equivalent a la meitat de la seva amplada, la qual cosa també significa la meitat de l'amplada de l'embolcall, o sigui que l'haurem de desplaçar un -50%.</p></li>
+
+<li><p>Modifiqueu la regla <code>#menu</code> de la manera següent:</p>
+
+<pre><code>#menu {
+   margin: 0;
+   padding: 0.5em;
+   font-family: Verdana,sans-serif;
+   <strong>position: relative;</strong>
+   <strong>left: -50%;</strong>
+}</code></pre>
+
+<p>El menú ja està centrat; l'únic problema és que pot haver-hi una barra de desplaçament horitzontal segons l'amplada de la llista i de la finestra del navegador. Això passa perquè heu desplaçat l'element d'embolcall fins al centre de la pantalla; si la llista és més ampla que la meitat de la finestra, una part d'aquesta quedarà fora.</p></li>
+
+<li><p>Podeu evitar-ho definint <code>overflow:hidden</code> en un element pare adequat per ocultar el desbordament. En aquest cas, el pare de l'embolcall és el body. Algunes vegades no és factible ocultar el desbordament de l'element body, i en aquest cas necessitareu un embolcall per a l'embolcall; aquí, però, tot funciona correctament.</p>
+
+<p>Afegiu la regla següent al vostre full d'estils:</p>
+
+<pre><code>body{
+   overflow: hidden;
+}</code></pre></li>
+
+<li><p>De fet, encara hi ha un altre problema. Si ho obriu amb l'Internet Explorer veureu que encara no funciona del tot bé. La manera de solucionar-ho és fent flotar la llista mateixa, però només a l'Internet Explorer, ja que en altres navegadors quedaria tre

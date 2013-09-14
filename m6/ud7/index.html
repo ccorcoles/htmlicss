@@ -1,0 +1,690 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Estils de les taules</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Estils de les taules</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud6/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud8/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	             
+<div id="main">
+<h1>33. Estils de les taules</h1>
+<p class="by"><a href="../../index.html#buchanan">Ben Buchanan</a>. 26 de setembre de 2008 Publicat a: fons, zebra, error, vores, alinear.</p>
+
+<p>A vegades sembla que en el món actual del desenvolupament web les taules estiguin una mica marginades. Es fa tant de cas a la norma de "no feu servir taules!" que a vegades la gent s'oblida que en realitat la frase és: "no feu servir taules per a la composició". Les taules van molt bé per al seu objectiu original, que és mostrar dades tabulars. Per això és útil saber com aplicar-los estils correctament.</p>
+
+<p>Aquesta guia es centra en com aplicar CSS d'una manera eficaç per obtenir estils de taules de dades clares i llegibles. A més, també parlaré d'alguns requeriments habituals de disseny pel que fa a les taules.</p>
+
+<div class="note">
+<h3>Nota</h3>
+<p>Pot ser que us resulti útil descarregar-vos els exemples de codi per a les taules que es mostren en aquest apartat des de l'arxiu "table-examples.zip", de manera que pugueu anar seguint l'apartat.</p>
+
+<p class="font"><strong>Descarregueu els exemples a:</strong> "<a href="http://dev.opera.com/articles/view/33-styling-tables/table-examples.zip" hreflang="en">table-examples.zip</a>"</p>
+</div>
+
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>33.1. <a href="#tablestructure" accesskey="1">Estructura de les taules</a></li>
+<li>33.2. <a href="#tablebasics" accesskey="2">Conceptes bàsics</a>
+<ul class="index">              
+<li>33.2.1. <a href="#tableandcellwidth">Amplada de taula i de cel·la</a></li>
+<li>33.2.2. <a href="#textalignment">Alineació del text</a></li>
+<li>33.2.3. <a href="#borders">Vores</a></li>
+<li>33.2.4. <a href="#padding">Farcit</a></li>
+<li>33.2.5. <a href="#captionplacement">Col·locació del <code>caption</code></a></li>
+<li>33.2.6. <a href="#backgrounds">Fons</a></li>
+<li>33.2.7. <a href="#fixingie">Arreglar l'IE amb estils condicionals</a></li>
+<li>33.2.8. <a href="#simpledesign">Un disseny senzill</a></li>    
+</ul></li>
+<li>33.3. <a href="#variations" accesskey="3">Variacions habituals</a>
+<ul class="index">
+<li>33.3.1. <a href="#zebrastriping">Aplicar línies de zebra</a></li>
+<li>33.3.2. <a href="#unevencolumns">Graelles incompletes</a></li>
+<li>33.3.3. <a href="#incomplete-grids">Graelles interiors</a>
+<ul class="index">
+<li><a href="#inner-grids">Graelles interiors amb:lastchild</a></li>
+</ul></li>
+</ul></li>
+<li>33.4. <a href="#commonbugs" accesskey="4">Dos errors comuns</a>
+<ul class="index">
+<li>33.4.1. <a href="#bordercollapse">Error de superposició de les vores</a></li>
+<li>33.4.2. <a href="#margincaption">Error de marge/<code>caption</code></a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+<li class="especial"><a href="#furtherreading">Lectures complementàries</a></li>
+
+</ul>
+
+
+
+<h2 id="tablestructure">33.1. Estructura de les taules</h2>
+
+<p>Abans de centrar-nos en el CSS, fixem-nos en els elements estructurals bàsics de les taules a les quals haureu d'aplicar estils de manera clara:</p>
+
+<ul>
+<li><p>Encapçalaments de les taules.</p></li>
+<li><p>Cel·les de dades de les taules.</p></li>
+<li><p>Títols de les taules.</p></li>
+</ul>
+
+<p>Quan els usuaris del vostre lloc llegeixin la vostra taula, haurien de poder entendre i seguir fàcilment la seva estructura. La manera més senzilla d'aconseguir-ho és fent servir vores, colors de fons o totes dues coses.</p>
+
+<p>No cal que seguiu aquestes convencions estilístiques, però sí hauríeu de garantir que existeix una diferència clara entre les cel·les <code>th</code> i <code>td</code>; a més, el
+<code>caption</code> hauria d'estar associat clarament amb la taula i diferenciat de la resta del text de la pàgina.</p>
+
+<h2 id="tablebasics">33.2. Conceptes bàsics</h2>
+
+<p>Fixeu-vos com es representa aquesta taula sense estil:</p>
+
+<table summary="a summary of recent major volcanic eruptions in the Pacific Northwest" id="table_exemple">
+	<caption>Recent Major Volcanic Eruptions in the Pacific Northwest</caption>
+	<thead>
+		<tr>
+			<th scope="col">Volcano Name</th>
+			<th scope="col">Location</th>
+			<th scope="col">Last Major Eruption</th>
+			<th scope="col">Type of Eruption</th>
+		</tr>
+	</thead>
+	<tfoot><tr><td colspan="4">Compiled in 2008 by Ms Jen</td></tr></tfoot>
+	<tbody>
+		<tr>
+			<th scope="row">Mt. Lassen</th>
+			<td>California</td>
+			<td>1914-17</td>
+			<td>Explosive Eruption</td>
+		</tr>
+		<tr>
+			<th scope="row">Mt. Hood</th>
+			<td>Oregon</td>
+			<td>1790s</td>
+			<td>Pyroclastic flows and Mudflows</td>
+		</tr>
+		<tr>
+			<th scope="row">Mt. St. Helens</th>
+			<td>Washington</td>
+			<td>1980</td>
+			<td>Explosive Eruption</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Podeu veure el mateix exemple a l'apartat 19 del mòdul "El text central d'HTML".</p>
+</div>
+
+<p>Les dades són comprensibles, però cal esforçar-se una mica per veure com va tot. Afegim-li uns estils per fer que sigui més fàcil de llegir.</p>
+
+<h3 id="tableandcellwidth">33.2.1. Amplada de taula i de cel·la</h3>
+
+<p>La primera decisió que cal prendre és quina amplada ha de tenir la taula. L'opció per defecte del navegador és la mateixa que establir <code> table { width: auto; }</code>, que dóna com a resultat que la taula s'estengui a l'amplada del contingut. Això en general queda desordenat.</p>
+
+<p>Posem per cas que la nostra taula ha d'entrar en una columna de contingut de 600 píxels d'amplada. Especifiquem que la taula s'ampliï fins al 100% de l'amplada disponible per aprofitar millor l'espai. Com que hi ha quatre columnes, establim també l'amplada de les cel·les de taula a un 25% cadascuna.</p>
+
+<pre><code>table {
+   width: 100%;
+}
+th, td {
+   width: 25%;
+}</code></pre>
+
+<p>De fet podeu limitar-vos a establir l'amplada a <code>th</code> i definirà l'amplada de totes les columnes; tot i així, sempre va bé ser rigorós. Aquest estil tan senzill donarà el resultat que es veu a la figura 1:</p>
+
+<div class="imagen">
+<img src="06510_m6_66b.gif" alt="Captura de pantalla que mostra columnes de la mateixa mida."/>
+<p>Figura 1. La taula d'exemple amb una configuració senzilla d'amplada.</p>
+</div>
+
+<p>Ara les cel·les queden amb una amplada igualada. Més endavant ja veurem com especificar amplades desiguals, però de moment seguim amb el següent pas.</p>
+
+<h3 id="textalignment">33.2.2. Alineació del text</h3>
+
+<p>La taula encara és una mica confosa de llegir, de manera que especificarem que l'alineació del text sigui una mica més clara. La norma addicional que es mostra tot seguit alinearà a l'esquerra els encapçalaments perquè encaixin amb el contingut (per defecte, els navegadors centren els títols de les taules):</p>
+
+<pre><code>table {
+   width: 100%;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+}</code></pre>
+
+<p>Així es clarifica una mica la taula tal com es pot veure a la figura 2:</p>
+
+<div class="imagen">
+<img src="06510_m6_67.gif" alt="Captura de pantalla que mostra el text dels títols de columna alineat a l'esquerra."/>
+<p>Figura 2. Taula amb alineació a l'esquerra.</p>
+</div>
+
+<p>Ara mateix, totes les cel·les estan alineades verticalment al centre. Si ho preferiu, podeu definir que el text s'alineï a la part superior o inferior de la cel·la, o qualsevol <a href="http://www.w3.org/TR/REC-CSS2/visudet.html#line-height" hreflang="en">posició de <code>vertical-align</code></a> que vulgueu. Les regles següents estableixen que el text s'alineï a la part superior.</p>
+
+<pre><code>table {
+   width: 100%;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   <strong>vertical-align: top;</strong>
+}</code></pre>
+
+<p>Ara la taula queda com es veu a la figura 3:</p>
+
+<div class="imagen">
+<img src="06510_m6_68.gif" alt="Captura de pantalla que mostra les cel·les alineades a la part superior."/>
+<p>Figura 3. La taula amb alineació vertical.</p>
+</div>
+
+<p>Fixeu-vos com ara tots els títols de la fila superior queden tocant a dalt encara que "Last Major Eruption" queda en dues línies.</p>
+
+<h3 id="borders">33.2.3. Vores</h3>
+
+<p>La taula ja queda una mica millor, però encara costa una mica llegir cada línia. Ara aplicarem algunes vores per fer que tot sigui més fàcil de llegir. Heu d'establir les vores de manera independent per a cada part de la taula i després decidir com s'haurien de combinar.</p>
+
+<p>Per mostrar-vos on quedaran les vores, la figura 4 mostra diferents vores per a <code>table</code> (<code>solid black</code>) (taula (negre sòlid)), <code>caption</code> (<code>solid grey</code>) (títol (gris sòlid)), <code>th</code> (<code>dashed blue</code>) (línia discontinua blava) i <code>td</code> (<code>dotted red</code>) (línia de punts vermella):</p>
+
+<div class="imagen">
+<img src="06510_m6_69.gif" alt="Captura de pantalla que mostra la disposició de les vores descrita en el text"/>
+<p>Figura 4. Mostra de les diferents vores en una taula.</p>
+</div>
+
+<p>Fixeu-vos com la vora de la <code>table</code> (taula) recorre el contorn exterior de totes les cel·les d'encapçalament i de dades i després passa per entre les cel·les i el títol de la taula. També podeu veure que, per defecte, les vores th i td es distancien una mica una de l'altra. </p>
+
+<p>Passem ara a un altre estil de taula. Podeu crear una vora negra senzilla per a la taula i les cel·les mitjançant la propietat <code>border</code> (vora). Això es fa amb les regles següents:</p>
+
+<pre><code>table {
+   width: 100%;
+   <strong>border: 1px solid #000;</strong>
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   <strong>border: 1px solid #000;</strong>
+}</code></pre>
+
+<p>I dóna com a resultat el que es mostra a la figura 4b:</p>
+
+<div class="imagen">
+<img src="06510_m6_70.gif" alt="Captura de pantalla que mostra les vores negres senzilles."/>
+<p>Figura 4b. Taula amb vores negres senzilles.</p>
+</div>
+
+<p>Això fa que les files siguin més fàcils de llegir, però pot ser que no us agradi l'espai que queda entre les cel·les. Hi ha dues maneres de canviar-ho.</p>
+<p>Primer, podeu limitar-vos a tancar els buits fent servir la propietat <code>border-spacing</code> (espaiat de vores), per exemple així:</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   <strong>border-spacing: 0;</strong>
+}</code></pre>
+
+
+<p>D'aquesta manera les vores es tocaran en lloc de quedar separades. Així es canvia la vora d'1 píxel en una vora de 2 píxels tal com es veu a la figura 5:</p>
+
+<div class="imagen">
+<img src="06510_m6_71.gif" alt="Captura de pantalla de cel·les amb les vores sumades."/>
+<p>Figura 5. Taula sense espaiat entre vores que produeix un efecte de vora de 2 píxels.</p>
+</div>
+
+<p>També podeu augmentar l'espai entre les cel·les fent servir <code>border-spacing</code>, encara que cal tenir en compte que aquesta propietat no funciona amb l'Internet Explorer.</p>
+
+<p>Si voleu mantenir l'efecte de vora d'1 píxel, necessitareu definir la taula de manera que les vores "col·lapsin" les unes sobre les altres. Podeu aconseguir-ho utilitzant la propietat <code>border-collapse</code> (superposició de vores) en lloc de la de border-spacing (espaiat de vores):</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   <strong>border-collapse: collapse;</strong>
+}</code></pre>
+
+<p>D'aquesta manera obtindreu una taula amb una vora d'1 píxel tal com s'observa a la figura 6:</p>
+
+<div class="imagen">
+<img src="06510_m6_72.gif" alt="Captura de pantalla de taula amb vores uniformes d'1 píxel sense espai entre cel·les."/>
+<p>Figura 6. Taula amb <code>border-collapse</code> (superposició de vores) definit per a superposar-se i així reduir la vora a 1 píxel.</p>
+</div>
+
+<p>Quan definiu que les vores se superposin, heu de tenir en compte que això us pot causar problemes si teniu estils de vores diferents aplicats a les cel·les adjacents. Quan els estils de vores diferents se superposin els uns sobre els altres, entraran en "conflicte" entre ells. Això se soluciona mitjançant les <a href="http://www.w3.org/TR/REC-CSS2/tables.html#border-conflict-resolution" hreflang="en">regles de resolució de conflictes de vores de taula de la W3C CSS2</a>, que determinen quin estil "guanya" quan se superposen.</p>
+
+<h3 id="padding">33.2.4. Farcit</h3>
+
+<p>Ara que ja heu aplicat vores a les cel·les, pot ser que vulgueu afegir una mica d'espai en blanc a les cel·les del títol i de la taula. Per fer-ho només heu de fer servir el <code>padding</code> (farcit). </p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   <strong>padding: 0.3em;</strong>
+}
+caption {
+   <strong>padding: 0.3em;</strong>
+}</code></pre>
+
+<p>Això fa que el text "respiri" una mica, tal com es veu a la figura 7:</p>
+
+<div class="imagen">
+<img src="06510_m6_73.gif" alt="Captura de pantalla que mostra el farcit augmentat."/>
+<p>Figura 7. Taula amb farcit aplicat a totes les cel·les</p>
+</div>
+
+
+<h3 id="captionplacement">33.2.5. Col·locació del <code>caption</code></h3>
+
+<p>Fins ara el <code>caption</code> ha estat sempre a la part superior de la taula. Tanmateix, pot ser que vulgueu moure'l a un altre lloc. Per desgràcia, en l'IE no es pot fer, però en tots els altres navegadors podeu canviar-ne la posició fent servir la propietat <code>caption-side</code>. Les opcions possibles són: <code>top</code> (superior), <code>bottom</code> (inferior), <code>left</code> (esquerra) i <code>right</code> (dreta). Ara el posarem a la part inferior:</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   <strong>caption-side: bottom;</strong>
+}
+caption {
+   padding: 0.3em;
+}</code></pre>
+
+<p>A la figura 8 es mostra el resultat:</p>
+
+<div class="imagen">
+<img src="06510_m6_74.gif" alt="Captura de pantalla del títol a la part inferior."/>
+<p>Figura 8. Taula amb el <code>caption</code> mogut a la part inferior</p>
+</div>
+
+<p>Si voleu canviar la posició del <code>caption</code>, recordeu que cap canvi de costat no funcionarà amb l'IE. Per exemple, si voleu afegir tres vores per fer que el títol "s'uneixi" a la part inferior de la taula, a l'IE no quedarà així perquè el títol seguirà quedant a la part superior. Haureu de fer servir <a href="http://dev.opera.com/articles/view/supporting-ie-with-conditional-comments/" hreflang="en">comentaris condicionals</a> per reaplicar l'estil a la taula per a l'IE.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Per saber-ne més, vegeu també el subapartat 33.2.7.</p>
+</div>
+
+<p>Per a la resta d'exemples deixaré el <code>caption</code> a la part superior.</p>
+
+<h3 id="backgrounds">33.2.6. Fons</h3>
+
+<p>Una altra manera molt senzilla d'aplicar estils a les taules és afegir colors i imatges de fons. Això es fa amb la propietat <code>background</code> (fons), encara que heu de tenir present que les diferents parts de la taula actuaran com "capes" una a sobre de l'altra. <a href="http://www.w3.org/TR/REC-CSS2/tables.html#table-layers" hreflang="en">L'especificació CSS2 explica els efectes de capes de fons força detalladament</a> però, en poques paraules: els fons es taparan els uns als altres en aquest ordre:</p>
+<ol>
+<li><p>taula (que queda "al fons de tot" o "darrere de tot")</p></li>
+<li><p>grups de columnes</p></li>
+<li><p>columnes</p></li>
+<li><p>grups de files</p></li>
+<li><p>files</p></li>
+<li><p>cel·les (per "dalt" o "davant" de tot, és a dir, que el seu fons tapa tots els altres)</p></li>
+</ol>
+<p>Per tant, si establiu un fons per a la taula i un color diferent per a les cel·les, el fons de la cel·la taparà el fons de la taula. Si heu fet que les vores es superposin amb <code>collapse</code>, el fons de la taula no es veurà gens. No obstant això, si heu establert <code>border-collapse</code> en <code>separate</code>, el fons de la taula es veurà per entre les vores.</p>
+
+<div class="note">
+<h3>Nota</h3> 
+<p>Fixeu-vos que el concepte d'elements diferents un a sobre de l'altre a la pàgina és controlable; podeu controlar a quina alçada de la "pila" queda un element en relació amb els altres canviant la seva propietat z-index.</p>
+</div>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>A l'apartat 37 d'aquest mòdul aprendreu més coses sobre <code>z-index</code>.</p>
+</div>
+
+<p>Imagineu-vos que definiu la taula de manera que tingui un fons vermell i les cel·les amb fons blanc. Entre la separació de les cel·les es veu el vermell, però les cel·les segueixen sent blanques, tal com es mostra a la figura 9:</p>
+
+<div class="imagen">
+<img src="06510_m6_75.gif" alt="Captura de pantalla de fons vermell per entre les cel·les."/>
+<p>Figura 9. Taula que demostra com l'element de fons de taula vermell es veu entre els fons blancs de les cel·les.</p>
+</div>
+
+<p>També podeu fer servir una imatge de fons. Per exemple, si voleu tenir una gradació que es vegi entre les cel·les, podríeu definir <code>th</code> i  <code>td</code> amb fons blancs, però establir el fons de <code>table</code> amb una gradació de colors:</p>
+
+<pre><code>table {
+   border-collapse: separate;
+   border-spacing: 5px;
+   background: #000 url("gradient.gif") bottom left repeat-x;
+   color: #fff;
+}
+td, th {
+   background: #fff;
+   color: #000;
+}</code></pre>
+
+<p>Fixeu-vos que el color de fons s'estableix en negre, que omple l'espai a la part superior on acaba la gradació cromàtica (sempre heu de tenir en compte que pot ser que la taula sigui més alta que la imatge de fons). El color de davant de tot s'estableix en blanc per si en algun moment aquests colors per defecte es veuen a través del contingut de les cel·les. En general, els estils de les cel·les cancel·laran la configuració del color del text de l'estil de <code>table {}</code>, però sempre s'haurien de definir colors de fons i de primer pla que facin contrast.</p>
+
+<p>Aquests estils creen una taula que quedaria com a la figura 10 a la majoria de navegadors.</p>
+
+<div class="imagen">
+<img src="06510_m6_76.gif" alt="Captura de pantalla de fons de gradació per entre les cel·les."/>
+<p>Figura 10. Taula amb una imatge de fons amb gradació de colors que es veu entre les cel·les.</p>
+</div>
+
+<p>Per defecte, amb l'IE no es veurà tant el fons perquè no reconeix <code>border-spacing</code>. Tanmateix, s'aconsegueix el mateix efecte, tal com s'observa a la figura 11:</p>
+
+<div class="imagen">
+<img src="06510_m6_77.gif" alt="Captura de pantalla que mostra un espai més petit a l'IE."/>
+<p>Figura 11. L'IE proporciona menys espai entre vores.</p>
+</div>
+
+<p>Depenent de les circumstàncies, pot ser que us conformeu amb aquesta diferència de representació entre navegadors. Lògicament, però, això no sempre és possible, per exemple quan un client especifica que vol que un disseny quedi exactament igual a tots els navegadors. </p>
+
+<h3 id="fixingie">33.2.7. Arreglar l'IE amb estils condicionals</h3>
+
+<p>Existeix una manera de solucionar els problemes de l'IE que hem mencionat abans. Cal furgar una mica en l'IE i un full d'estil extra, però funciona. Podeu fer servir una <code>expression</code> per fer l'espai més ample i després carregar aquesta expressió mitjançant comentaris condicionals. La sintaxi de l'expressió és aquesta:</p>
+
+<pre><code>table {
+   <strong>border-collapse: expression("separate", cellSpacing = "5px");</strong>
+}</code></pre>
+
+<p>Aquest CSS només serveix per a l'IE, de manera que només l'IE l'ha de poder aplicar. L'expressió també invalidarà el full d'estil, de manera que els desenvolupadors prefereixen aïllar les manipulacions de l'IE a un full d'estil apart que només carregui l'IE. </p>
+
+<p>Per fer-ho, creeu un full d'estil nou que es digui ie-only.css ("només IE") i enllaceu-lo dins de comentaris condicionals:</p>
+
+<pre><code><strong>&lt;!--[if lte IE 7]&gt;</strong>&lt;link rel="stylesheet" media="screen" href="ie-only.css" /&gt;
+<strong>&lt;![endif]--&gt;</strong></code></pre>
+
+<p>Fixeu-vos que <code>[if lte IE 7]</code> significa "si menys que o igual a la versió 7 de l'IE". Això revela el codi a l'IE7 i a totes les versions anteriors de l'IE, però el comentari d'HTML que l'envolta oculta el codi a tots els altres navegadors. Podeu ajustar-ho a qualsevol versió de l'IE que necessiteu, per exemple, si es tracta de la versió IE6 i anterior feu servir: <code>[if lte IE 6]</code>.</p>
+
+<p>Al vostre full d'estil principal, establiu l'estil normal:</p>
+
+<pre><code>table {
+   border: 1px solid #000;
+   border-collapse: separate;
+   border-spacing: 5px;
+   background: #000 url("gradient.gif") bottom left repeat-x;
+}</code></pre>
+
+<p>I aleshores establiu l'estil únicament per a l'IE com ie-only.css: </p>
+
+<pre><code>table {
+   border-collapse: expression("separate", cellSpacing = "5px");
+}</code></pre>
+
+<p>Així, l'IE mostrarà una taula amb espais amples entre les cel·les. Només heu de recordar-vos de conservar la configuració d'amplada addicional. Si actualitzeu el vostre full d'estil principal, també haureu d'actualitzar <code>ie-only.css</code>. Com és lògic, els comentaris condicionals permeten fer moltes coses més, a part d'aplicar estils a les taules, perquè el full d'estil extra pot incloure tot el CSS que necessiteu per arreglar errors de l'IE. </p>
+
+<h3 id="simpledesign">33.2.8. Un disseny senzill</h3>
+
+<p>La majoria de dissenys utilitzen combinacions senzilles de fons. Per tant, ara aplicarem als encapçalaments de la taula un fons gris i canviarem el títol de manera que sigui text blanc sobre fons negre:</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   <strong>color: #fff;</strong>
+   <strong> background: #000;</strong>
+}
+th {
+   <strong>background: #eee;</strong>
+}</code></pre>
+
+<p>Això queda com es veu a la figura 12:</p>
+
+<div class="imagen">
+<img src="06510_m6_78.gif" alt="Captura de pantalla de taula amb fons negres i grisos."/>
+<p>Figura 12. Taula amb títol de text blanc sobre fons negre i fons gris clar a les cel·les d'encapçalament</p>
+</div>
+
+<h2 id="variations">33.3. Variacions habituals</h2>
+
+<p>En aquest subapartat em centraré en alguns arquetips de disseny habituals que veureu moltes vegades a moltes taules del web.</p>
+
+<h3 id="zebrastriping">33.3.1. Aplicar línies de zebra</h3>
+
+<p>Una cosa que s'acostuma a demanar molt pel que fa a les taules és crear files de colors alterns. Es solen anomenar "línies de zebra". Malgrat que hi ha certa <a href="http://www.alistapart.com/articles/zebrastripingdoesithelp" hreflang="en">polèmica sobre si les línies de zebra ajuden o no realment al lector</a>, són un estil molt popular. A la figura 13 es mostra un exemple:</p>
+
+
+<div class="imagen">
+<img src="06510_m6_79.gif" alt="Captura de pantalla de taula amb files de fons alterns."/>
+<p>Figura 13. Taula amb "línies de zebra", files alternatives de color blanc o gris clar.</p>
+</div>
+
+<p>La manera més fàcil d'aplicar l'efecte de les línies de zebra és afegir una classe per alternar files de la taula i després utilitzar un selector de CSS contextual per aplicar estils a les cel·les d'aquestes files. Primer de tot s'afegeixen les classes "parell" (odd) i "senar" (even) a les files de la taula, així:</p>
+
+<pre><code>...
+&lt;tr class="odd"&gt;
+...
+&lt;tr class="even"&gt;
+...</code></pre>
+
+<p>Podeu saltar-vos la fila del títol perquè ja té un estil propi. Llavors afegiu una classe contextual per definir el fons de totes les cel·les de les files de la classe senar ("odd"). </p>
+
+<pre><code>.odd th, .odd td {
+background: #eee;
+
+}</code></pre>
+
+<p>Aquesta és la manera més senzilla d'afegir línies de zebra a una taula d'HTML que funcioni en tots els navegadors, però no és del tot perfecta perquè, què passa si després afegiu una fila a la taula? Doncs que hauríeu de desplaçar tots els noms de classe odd i even perquè tot quedés bé.</p>
+
+<p>Hi ha dues opcions alternatives:</p>
+
+<ul>
+<li><p>Podeu afegir les classes mitjançant JavaScript no obstrussiu, tal com es mostra a <span lang="en"><a href="http://www.alistapart.com/articles/zebratables/" hreflang="en">A List Apart: Zebra Tables</a></span>. La majoria de <span lang="en">frameworks</span> de JavaScript també tenen un mètode adequat: <cite><a href="http://jquery.com/blog/2006/10/18/zebra-table-showdown/" hreflang="en">Zebra Table Showdown</a></cite> compara una gamma d'implementacions.</p></li>
+
+<li><p>Podeu fer servir el selector de CSS3 :nthchild, però encara no el reconeixen tots els navegadors. De tota manera, amb el pas del temps això anirà millorant.</p></li>
+</ul>
+
+<p>Podeu trobar més informació sobre les línies de zebra amb <code>nth-child</code> en un <a href="http://dev.opera.com/articles/view/zebra-striping-tables-with-css3/" hreflang="en">apartat de dev.opera.com</a>.</p>
+
+
+<h3 id="unevencolumns">33.3.2. Graelles incompletes</h3>
+
+<p>Alguns dissenys responen bé amb graelles d'aspecte més obert i menys estructurat. Una variant molt senzilla consisteix a eliminar les vores verticals i deixar que el fons ompli el títol, com a la figura 14:</p>
+
+<div class="imagen">
+<img src="06510_m6_80.gif" alt="Captura de pantalla de disseny de graella oberta."/>
+<p>Figura 14. Taula amb vores gris clar només pels extrems i per sota de cada cel·la.</p>
+</div>
+
+<p>El CSS per aconseguir aquest efecte és:</p>
+
+<pre><code>table {
+   width: 100%;
+   border: 1px solid #999;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+}
+caption, td, th {
+   padding: 0.3em;
+}
+th, td {
+   border-bottom: 1px solid #999;
+   width: 25%;
+}
+caption {
+   font-weight: bold;
+   font-style: italic;
+}</code></pre>
+
+<p>També podeu anar un pas més enllà i eliminar totes les vores tret de la vora superior i inferior per donar una mica més de definició a la taula central. Vegeu la figura 15:</p>
+
+<div class="imagen">
+<img src="06510_m6_81.gif" alt="Captura de pantalla de taula amb vores a la part superior i inferior del text central."/>
+<p>Figura 15. Taula amb vores només a la part superior i inferior de la taula central.</p>
+</div>
+
+<p>El CSS per aconseguir aquest efecte és el següent:</p>
+
+<pre><code>table {
+   width: 100%;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+}
+caption, td, th {
+   padding: 0.3em;
+}
+tbody {
+   border-top: 1px solid #000;
+   border-bottom: 1px solid #000;
+}
+tbody th, tfoot th {
+   border: 0;
+}
+th.name {
+   width: 25%;
+}
+th.location {
+   width: 20%;
+}
+th.lasteruption {
+   width: 30%;
+}
+th.eruptiontype {
+   width: 25%;
+}
+tfoot {
+   text-align: center;
+   color: #555;
+   font-size: 0.8em;
+}</code></pre>
+
+<h3 id="incomplete-grids">33.3.3. Graelles interiors</h3>
+
+<p>Pot ser que a vegades us interessi eliminar la vora exterior però conservar la graella interior de vores com a la figura 16:</p>
+
+<div class="imagen">
+<img src="06510_m6_82.gif" alt="Captura de pantalla de taula amb disseny de graella interior."/>
+<p>Figura 16. Taula amb un disseny de graella interior</p>
+</div>
+
+<p>Per aplicar aquest efecte a tots els navegadors actuals, heu d'afegir una classe a les cel·les <code>th</code> i <code>td</code> que apareixen en últim lloc de cada fila, així:</p>
+
+<pre><code>...
+&lt;tr&gt;
+   &lt;th scope="col"&gt;Volcano Name&lt;/th&gt;
+   &lt;th scope="col"&gt;Location&lt;/th&gt;
+   &lt;th scope="col"&gt;Last Major Eruption&lt;/th&gt;
+   &lt;th scope="col" <strong>class="last"</strong>&gt;Type of Eruption&lt;/th&gt;
+&lt;/tr&gt;
+...</code></pre>
+
+<p>Aleshores utilitzem la classe per eliminar la vora dreta d'aquestes cel·les. El CSS complet és el següent:</p>
+
+<pre><code>table {
+   width: 100%;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+}
+caption, td, th {
+   padding: 0.3em;
+}
+th, td {
+   border-bottom: 1px solid #000;
+   border-right: 1px solid #000;
+}
+th.last, td.last {
+   border-right: 0;
+}
+tfoot th, tfoot td {
+   border-bottom: 0;
+   text-align: center;
+}
+th {
+   width: 25%;
+}</code></pre>
+
+<h3 id="inner-grids">Graelles interiors amb:lastchild</h3>
+
+<p>Quan millori la compatibilitat dels navegadors, podrem utilitzar el pseudoselector <code>:lastchild</code> per aconseguir aquest efecte sense classes. El CSS seria:</p>
+
+<pre><code>table {
+   width: 100%;
+   text-align: left;
+   border-collapse: collapse;
+   margin: 0 0 1em 0;
+   caption-side: top;
+}
+caption, td, th {
+   padding: 0.3em;
+}
+th, td {
+   border-bottom: 1px solid #000;
+   border-right: 1px solid #000;
+}
+<strong>th:lastchild, td:lastchild {
+   border-right: 0;
+}</strong>
+th {
+   width: 25%;
+}</code></pre>
+
+<p>Això ja funciona actualment a les darreres versions d'Opera, Firefox i Safari.</p>
+
+<h2 id="commonbugs">33.4. Dos errors comuns</h2>
+
+<p>En aquest últim subapartat parlaré de dos errors realment molt habituals perquè estigueu preparats per quan us els trobeu. Tenen a veure amb les vores i els títols.</p>
+
+<h3 id="bordercollapse">33.4.1. Error de superposició de les vores</h3>
+
+<p>Quan definiu la taula amb <code>border-collapse: collapse;</code> descobrireu que Firefox i Safari no mostren correctament l'amplada dels elements de la taula. Per exemple, si establiu una vora d'1 píxel per a la taula, les cel·les i el títol, Firefox mostrarà el títol 1 píxel més curt per la banda esquerra, tal com es veu a la figura 17:</p>
+
+<div class="imagen">
+<img src="06510_m6_83.gif" alt="Captura de pantalla de la manca d'1 píxel."/>
+<p>Figura 17. L'error de border-collapse afecta Firefox i Safari.</p>
+</div>
+
+<p>Safari fa el mateix, però a la banda dreta. Aquest error es basa en una qüestió d'arrodoniment que es redueix al problema de com representar un "mig píxel". Es podria afirmar que no es tracta d'un error <span lang="la">per se</span>, però els navegadors no hi estan d'acord, de manera que en la pràctica, sí que es tracta d'un error.</p>
+
+<p>Com es pot solucionar? Si voleu fer servir una vora d'1 píxel i un fons de títol, no hi ha cap altra solució a part d'acceptar-ho. És una diferència molt petita i no es tracta d'un problema greu. És a dir, la taula segueix sent perfectament llegible. Per tant, molta gent opta per acceptar les diferències entre navegadors. El web té aquestes coses. </p>
+
+<p>Si no us fa res utilitzar una vora més gran, com per exemple de

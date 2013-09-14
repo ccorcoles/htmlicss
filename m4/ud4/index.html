@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El text central d'HTML - Enllaços HTML: construïm un web!</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">El text central d'HTML</div>
+	<div id="subtitulo">Enllaços HTML: construïm un web!</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud3/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud5/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+
+	<h1>18. Enllaços HTML: construïm un web!</h1>
+
+  <p class="by"><a href="../../index.html#heilmann">Christian Heilmann</a>. 8 de juliol del 2008. Publicat a: alt, href, àncora, títol, enllaç</p>
+  
+  <p>En aquest apartat trobareu informació sobre un dels invents més revolucionaris de tota la història del web: els enllaços. Els enllaços permeten que el lector d'un document els segueixi per anar cap a un altre document i pugui passar d'un servidor a un altre sense necessitat de desconnectar-se i tornar-se a connectar cada vegada. Des que es van inventar han passat moltes coses, però n'hi ha una que no ha canviat gens: els enllaços són una part molt important de l'experiència en el web, i segons com els utilitzeu podeu posar les coses fàcils o difícils a les persones que visitin el vostre web. </p>
+  
+  <p>Una vegada hàgiu llegit aquest apartat sabreu com crear enllaços que siguin fàcils d'entendre i que funcionin en qualsevol entorn. A més a més, també aprendreu la manera en què els enllaços afecten la vostra popularitat en els motors de cerca i rebreu alguns consells sobre la descripció dels enllaços. </p>
+  
+  <div class="note">
+  <h3>Nota</h3>
+  <p>Com ja és habitual, aquest apartat va acompanyat d'un arxiu "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/links_code.zip" hreflang="en">links_code.zip</a>" que conté diversos arxius als quals aniré fent referència. </p>
+  </div>
+  
+  <p>Els continguts d'aquest apartat són els següents:</p>
+  
+  <ul class="index">
+	<li>18.1. <a href="#whatarelinks" accesskey="1">Què són els enllaços?</a></li>
+  <li>18.2. <a href="#anchoranatomy" accesskey="2">L'anatomia d'un enllaç àncora</a></li>
+  <li>18.3. <a href="#linkortarget" accesskey="3">Enllaç o destinació?  Els atributs <code>id</code> i <code>href</code></a></li>
+  <li>18.4. <a href="#noambiguity" accesskey="4">No permeteu cap ambigüitat en els enllaços</a>
+   <ul class="index">  
+	<li>18.4.1. <a href="#extrainfotitle">Oferir informació addicional amb un atribut <code>title</code></a></li>
+  <li>18.4.2. <a href="#linktononhtml">Enllaços a recursos no HTML: no obligueu els visitants a fer conjectures</a></li>
+  <li>18.4.3. <a href="#externalinternal">Enllaços externs i enllaços interns</a></li>
+  </ul></li>
+	<li>18.5. <a href="#badhabits" accesskey="5">Marcs i finestres emergents: ni parlar-ne!</a></li>
+  <li>18.6. <a href="#linkbenefits" accesskey="6">Avantatges dels enllaços de sortida i dels enllaços d'entrada</a></li>
+  <li>18.7. <a href="#linkwording" accesskey="7">Descripció dels enllaços</a></li>
+  <li>18.8. <a href="#linkstyling">Estils dels enllaços</a></li>
+  <li class="especial"><a href="#summary">Resum</a></li> 
+  <li class="especial"><a href="#exercises">Preguntes de repàs</a></li> 
+  </ul>
+                        
+  <h2 id="whatarelinks">18.1. Què són els enllaços?</h2>
+  
+  <p>Els enllaços són parts d'un lloc web (normalment creats amb l'HTML, però no sempre) que apunten cap a altres recursos, com per exemple altres documents HTML, arxius de text, PDF, etc. Hi ha enllaços que el navegador ha de seguir automàticament i que es creen amb elements <code>link</code> (ja n'heu trobat alguns en apartats anteriors, els quals s'utilitzaven per a importar arxius CSS a un document HTML) i també hi ha enllaços que l'usuari pot activar opcionalment. Aquests es coneixen com a <strong>àncores</strong> i podeu afegir-los al document amb l'element <code>a</code>. </p>
+
+  <h2 id="anchoranatomy">18.2. L'anatomia d'un enllaç àncora</h2>
+  
+  <div class="text-clau">
+  <p>Podeu convertir qualsevol element inserit en el document en un enllaç àncora afegint un element
+<code>a</code> al davant i al darrere. </p>
+  </div>
+  
+  <p>Per exemple, en el següent document HTML el text <code>Yahoo Developer Network</code> es converteix en un enllaç.</p>
+                      
+  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;title&gt;Link Example&lt;/title&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;A link to the YDN&lt;/h1&gt;
+  &lt;p&gt;&lt;a href="http://developer.yahoo.com"&gt;Yahoo Developer Network&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre> 
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/linkexample.html" hreflang="en">linkexample.html</a>"</p>
+
+  <p>Les persones que visitin el web i activin aquest enllaç (clicant-hi amb el ratolí o activant-lo amb el teclat o, en alguns casos, amb la veu) deixaran el lloc actual i passaran a YDN. L'enllaç en si experimenta altres canvis, que ja veurem quan parlem dels estils dels enllaços.</p>
+  
+  <p>L'àncora té diversos atributs que podeu afegir-hi: </p>
+  
+  <ul>
+	<li><p><code>href</code>: el recurs cap al qual apunta (ja sigui un arxiu extern o un ID d'àncora).</p></li>
+  
+  <li><p><code>id</code>: l'ID d'àncora si l'àncora es una destinació i no un enllaç.</p></li>
+  
+  <li><p><code>title</code>: informació addicional sobre el recurs extern.</p></li>
+  </ul> 
+
+  <p>Ara veurem en primer lloc els atributs més importants i llavors parlarem sobre el que podeu fer per tal que tot sigui més comprensible per a les persones que visitin el vostre web. </p>  
+
+  <h2 id="linkortarget">18.3. Enllaç o destinació? Els atributs <code>id</code> i <code>href</code></h2>
+  
+  <p>Un element <code>a</code> pot tenir diverses funcions segons els atributs que hi definiu. L'atribut més habitual que utilitzareu és <code>href</code>, que defineix el recurs al qual apunta l'enllaç. Aquest atribut pot contenir diferents valors: </p>
+  
+  <ul>
+	<li><p>Una URL a la mateixa carpeta (help.html), relativa a la carpeta actual (per exemple "../../help/help.html"; els 2 punts signifiquen "puja un nivell dins la jerarquia de carpetes del lloc") o absoluta a l'arrel del servidor. Per exemple "/help/help.html"; una barra inclinada al principi de l'adreça significa que aquesta comença a l'arrel de l'ordinador en el qual es troba la pàgina.</p></li>
+  
+  <li><p>Una URL en un servidor totalment diferent. Per exemple "<a href="http://wait-till-i.com" hreflang="en">http://wait-till-i.com</a>" o "ftp://ftp.opera.com/" o "<a href="http://developer.yahoo.com/yui" hreflang="en">http://developer.yahoo.com/yui</a>".</p></li>
+  
+  <li><p>Un identificador de fragment o un nom d'àncora precedit d'un coixinet. Aquest apunta a una destinació dins del mateix document. Per exemple <code>"#menu"</code>.</p></li>
+  
+  <li><p>Una combinació d'URL i identificadors de fragments: podeu enllaçar directament amb una secció d'un document diferent fent que l'atribut <code>href</code> apunti cap a una URL seguida d'un identificador de fragment. Per exemple, "<a href="http://developer.yahoo.com/yui/#cheatsheets" hreflang="en">http://developer.yahoo.com/yui/#cheatsheets</a>".</p></li>
+	</ul>
+  
+  <p>Qualsevol d'aquests valors el convertirà en un enllaç, ja que apuntarà cap a un altre lloc. Per altra banda, un atribut  <code>id</code> el convertirà en una àncora dins la pàgina; alguna cosa a la qual apunta un altre enllaç. Això pot ser una mica confús, ja que els dos utilitzen l'element d'àncora (<code>a</code>). Per a poder-ho recordar més fàcilment podeu veure-ho de la manera següent: un atribut <code>id</code> converteix un enllaç en una àncora i el podeu utilitzar per a enllaçar amb seccions específiques del document. </p>
+  
+  <p>El següent bloc de codi HTML conté exemples de tots els tipus diferents d'enllaços:</p>                                                                                          
+
+  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;title&gt;Different Link Example&lt;/title&gt;
+&lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Different Link examples&lt;/h1&gt;
+
+  &lt;h2&gt;Example of in-page navigation with fragment identifiers, links and anchors&lt;/h2&gt;
+  &lt;div id="nav"&gt;
+    &lt;ul id="toc"&gt;
+      &lt;li&gt;&lt;a href="#sec1"&gt;Section One&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#sec2"&gt;Section Two&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#sec3"&gt;Section Three&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#sec4"&gt;Section Four&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#sec5"&gt;Section Five&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;  
+
+  &lt;div id="content"&gt;
+    &lt;div&gt;
+      &lt;h2&gt;&lt;a id="sec1"&gt;Section #1&lt;/a&gt;&lt;/h2&gt;
+      &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h2&gt;&lt;a id="sec2"&gt;Section #2&lt;/a&gt;&lt;/h2&gt;
+      &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h2&gt;&lt;a id="sec3"&gt;Section #3&lt;/a&gt;&lt;/h2&gt;
+      &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h2&gt;&lt;a id="sec4"&gt;Section #4&lt;/a&gt;&lt;/h2&gt;
+      &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;h2&gt;&lt;a id="sec5"&gt;Section #5&lt;/a&gt;&lt;/h2&gt;
+      &lt;p&gt;&lt;a href="#toc"&gt;Back to menu&lt;/a&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;h2&gt;Some other link examples&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="http://developer.yahoo.com"&gt;Yahoo Developer Network&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://dev.opera.com/articles/view/the-freelancing-
+     business-part-1-pricing/#marketing"&gt;Tips on marketing yourself&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="ftp://get.opera.com/pub/opera/win/"&gt;Download different
+     Opera versions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="http://farm1.static.flickr.com/56/188791635_0b8bdd808d.jpg?v=0"&gt;
+     Photo of my book&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>   
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/linkexamples.html" hreflang="en">linkexample.html</a>"</p>
+
+  <p>Obriu aquest arxiu en el navegador i experimenteu-hi. Veureu que si activeu qualsevol dels enllaços de la primera llista passareu a la secció corresponent del document. Això és així perquè estan connectats pel mateix identificador de fragment; el primer enllaç de la llista, per exemple, té un atribut <code>href</code> de <code>#sec1</code>, que és el mateix que el valor ID de l'enllaç que hi ha a l'interior del primer element <code>h2</code> del contingut. Això és tot el que necessiteu per a connectar dos elements d'àncora en un document; si us hi enllaceu en un atribut <code>href</code>, utilitzeu el mateix valor precedit per un coixinet. També pot ser que us hagueu adonat que la URL de la barra d'ubicació del navegador ha canviat i que ara mostra un identificador de segment al final, la qual cosa significa que els visitants poden afegir aquesta secció a les adreces d'interès o enviar l'enllaç per correu electrònic a altres persones per a indicar-los exactament on han d'anar. </p>
+  
+  <p>No obstant això, si activeu qualsevol dels enllaços "Back to menu" (tornar al menú) ocorrerà el mateix. Com pot ser? Els identificadors de fragment poden ser qualsevol element amb un ID.</p>
+  
+  <p>Per a recapitular: </p>
+  
+  <ul>
+		<li><p>Els enllaços d'àncora poden tenir un identificador de fragment com a valor de l'atribut <code>ref</code>; aquest identificador de fragment ha de començar amb un coixinet (<code>#</code>).</p></li>
+  
+  <li><p>En activar-lo, aquest enllaç portarà cap a qualsevol element HTML amb un <code>id</code> d'aquest valor. Aquests ID de cada pàgina han de ser únics.</p></li>
+  
+  <li><p>Els ID segueixen algunes convencions pel que fa als noms. Les més importants és que han de començar amb un caràcter alfanumèric i que no poden contenir espais.</p></li>
+   </ul> 
+
+  <p>Tot això cobreix el menú i les diferents seccions de l'exemple, però què passa amb els altres enllaços? Si els proveu veureu que apunten cap a destinacions diferents: un va a un altre lloc, un altre mostra una fotografia i el tercer mostra una secció concreta d'una altra pàgina web (que es troba passant a un ID específic). Si tot ha funcionat bé, perfecte! Però què passa si no heu entès, o el navegador no ha entès, alguns d'aquests recursos? </p>
+
+
+  <h2 id="noambiguity">18.4. No permeteu cap ambigüitat en els enllaços</h2>
+  
+  <p>El més important que cal que recordeu sobre els enllaços és que són una part bàsica per a la vostra relació amb les persones que us visitin. Aquestes persones es refien que quan els oferiu un enllaç podran seguir-lo i accedir a una informació bona i pertinent. Si els vostres enllaços no funcionen perquè el recurs al qual apunten no està disponible o es troba en un format que el visitant no pot llegir, haureu traït la seva confiança i haureu perdut credibilitat. No heu de permetre mai que això passi.</p>
+                         
+  <h3 id="extrainfotitle">18.4.1. Oferir informació addicional amb un atribut <code>title</code></h3>
+  
+  <div class="text-clau">
+  <p>Igual que amb qualsevol altre element HTML, podeu afegir un atribut <code>title</code> a un element <code>a</code> per afegir-hi informació addicional. Els navegadors mostraran el que es coneix com un indicador de funció quan els visitants passin el cursor del ratolí sobre l'enllaç. Aquest indicador de funció els indica la naturalesa d'aquest enllaç. </p>
+  </div>
+  
+  <p>Per exemple, podeu escriure una petita introducció al contingut i la ubicació del document enllaçat:</p>
+                      
+
+  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/
+ html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;title&gt;Adding extra information with a title attribute&lt;/title&gt;
+&lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Adding extra information with a title attribute&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Find more information on the &lt;a title="The Yahoo Developer
+     Network is the main hub for all the developer tools Yahoo offers,
+     including the Yahoo User Interface Library (YUI) and the Design
+     Patterns repository" href="http://developer.yahoo.com"&gt;Yahoo
+     Developer Network&lt;/a&gt;.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>  
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/titleexample.html" hreflang="en">titleexample.html</a>"</p>
+                                    
+	<div class="imagen">
+			<img src="06510_m4_10.gif" alt=" " />
+			<p>Figura 1. Afegir un atribut de títol per a mostrar la informació com un indicador de funció quan els visitants passen per sobre l'enllaç.</p>
+		</div>
+
+  <p>Però no podeu esperar que els visitants tinguin prou paciència i coordinació mà-ull per a poder-vos refiar d'aquest recurs per a donar informació crucial. És molt probable que els usuaris amb alguna discapacitat visual, que no poden veure la pàgina, no puguin accedir a aquesta informació. Tot i que els lectors de pantalla inclouen l'opció de llegir en veu alta els atributs
+<code>title</code> per a l'usuari final, aquesta opció està desactivada per defecte; és per aquest motiu que no hauríeu de fer servir mai l'atribut <code>title</code> per a donar informació crucial sobre l'enllaç. La informació crucial: </p>
+  
+  <ul><li><p>Enllaçar amb recursos no HTML com arxius PDF, imatges, vídeos, arxius de so o descàrregues.</p></li>
+  
+  <li><p>Fer que sortim del lloc actual i que passem a un altre servidor (enllaços externs i enllaços interns).</p></li>
+  
+  <li><p>Enllaçar amb un document que s'obrirà en un marc o en una finestra emergent diferent.</p></li>
+	</ul>                         
+	
+  <h3 id="linktononhtml">18.4.2. Enllaços a recursos no HTML: no obligueu els visitants a fer conjectures</h3>
+  
+  <p>Hi ha una situació molt empipadora, que és quan cliqueu un enllaç i el navegador no sap què ha de fer amb allò a què apunta l'enllaç que heu clicat. No obstant això, no és gens estrany veure llocs web que enllacen amb imatges, documents PDF i vídeos sense avisar els visitants perquè estiguin preparats. Els vídeos són una causa molt habitual de problemes dels navegadors. A més a més, també és possible que el recurs tingui un volum molt gran (un PDF de 20 MB, per exemple), la qual cosa significa que potser el visitants preferirien descarregar-lo en lloc d'obrir-lo dintre del navegador i afegir-lo així a un consum de memòria que ja és considerable; o potser fins i tot decidirien ni tan sols accedir-hi. </p>
+  
+  <div class="text-clau">
+  <p>Uns dels factors principals de l'èxit d'un producte web és el fet de no obligar les persones que el visiten a fer conjectures sobre què passarà quan hi facin alguna cosa; sempre s'ha d'explicar clarament quins efectes tindran les seves accions. En el cas dels enllaços, tot el que cal que feu per a evitar moltes frustracions és explicar bé als visitants què és el recurs al qual porta l'enllaç. </p>
+  </div>
+  
+  <p>Aquí trobareu alguns exemples:</p>
+  
+  <pre><code>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+&lt;title&gt;Linking non-HTML resources&lt;/title&gt;
+&lt;link rel="stylesheet" href="linkexamplestyles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Linking non-HTML resources&lt;/h1&gt;
+  
+  &lt;ul&gt;
+    &lt;li&gt;Find more information on the &lt;a href="http://developer.yahoo
+     .com"&gt;Yahoo Developer Network site (external)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Download the &lt;a href="http://www.wait-till-i.com/stuff/JavaScript
+     -DOM-Cheatsheet.pdf"&gt;Dom Cheatsheet (PDF, 85KB)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Pick and &lt;a href="ftp://get.opera.com/pub/opera/win/"&gt;download
+     different Opera versions from their FTP (external)&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Check out a &lt;a href="http://farm1.static.flickr.com/56/188791635_
+     0b8bdd808d.jpg?v=0"&gt;Photo of my book (JPG, 200KB)&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>   
+
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/18-html-links-let-s-build-a-web/linkingnonhtml.html" hreflang="en">linkingnonhtml.html</a>"</p>
+
+  <p>Si oferiu tota aquesta informació sobre l'arxiu enllaçat i l'espai que ocupa, els visitants podran decidir què en faran i no haureu de suposar que tenen el navegador configurat d'una manera concreta o alguns programes instal·lats. Si ho combineu amb uns estils intel·ligents, fins i tot podreu aconseguir que tingui un bon aspecte i que tot sigui molt intuïtiu. Si us en voleu assegurar del tot, també podeu oferir una secció d'ajuda que expliqui què són els diferents formats d'arxiu i on es poden aconseguir els programes necessaris per obrir-los. </p>
+
+
+  <h3 id="externalinternal">18.4.3. Enllaços externs i enllaços interns</h3>
+  
+  <p>Una de les coses que més temen els responsables dels negocis pel que fa als llocs web de les seves companyies és que la gent que els visiti en surti prematurament. Aquesta és sovint la raó per no oferir mai enllaços cap a tercers (a menys que aquests tercers paguin diners pel privilegi del redireccionament del trànsit cap a ells). Més endavant ja tornaré a parlar d'aquest criteri tan equivocat; de moment parlarem del que fa la gent per a evitar que els visitants abandonin el seu lloc i les conseqüències que tenen aquestes mesures per a l'èxit del lloc web. </p>  
+
+  <h2 id="badhabits">18.5. Marcs i finestres emergents: ni parlar-ne!</h2>
+  
+  <p>El temor de perdre visitants que van cap a altres llocs web, combinat amb el desig de seguir-nos enllaçant amb aquests altres llocs, ens ha portat alguns invents en el desenvolupament dels webs que s'han convertit durant anys en un veritable problema per a la usabilitat dels llocs: els marcs i les finestres emergents. </p>
+  
+  <p>L'ús de marcs HTML significa que esteu separant la pàgina que apareix en el navegador en diferents documents. L'avantatge és que el document segueix essent aparentment el mateix fins i tot en carregar-ne parts d'aquest, ja sigui des del servidor propi o des de servidors de tercers. Però aquí és on acaba la seva utilitat; els marcs són una experiència terrible per a l'usuari i en realitat són perniciosos: </p>
+  
+  <ul>
+		<li><p>Els motors de cerca no poden indexar mai tota la pàgina, sinó que en els resultats de la cerca només en mostren parts que no tenen cap sentit fora de context.</p></li>
+  
+  <li><p>Els visitants no poden afegir la pàgina a la llista d'adreces d'interès; la propera vegada que obrin la pàgina des d'aquesta llista veuran l'estat inicial del conjunt de marcs i no la pàgina tal com la van deixar l'última vegada.</p></li>
+  
+  <li><p>Els visitants que depenguin de tecnologies d'assistència ho tenen molt difícil per navegar per conjunts de marcs.</p></li>
+  
+  <li><p>És possible que els llocs web de tercers no vulguin aparèixer dintre d'un conjunt de marcs i que utilitzin scripts "trencadors de marcs", que substituiran els conjunts de marcs per a la URL real quan intenteu incrustar-los. Això es fa, per exemple, per evitar que els delinqüents aconsegueixin amb enganys que els usuaris d'Internet introdueixin informació com ara el número de la targeta de crèdit en un lloc web que aparentment sembla d'un banc (el que es coneix com a "phishing").</p></li>
+	</ul>
+  
+  <div class="text-clau">
+  <p>Els enllaços dintre d'un conjunt de marcs utilitzen l'atribut <code>target</code> de l'àncora per adreçar-se al marc correcte. Cadascun dels marcs d'un conjunt de marcs té un nom concret i en activar l'enllaç s'obre el document definit a l'atribut <code>href</code> d'aquest marc. Si el conjunt de marcs no està disponible (per exemple, quan un visitant ha trobat el document amb els enllaços a través d'un motor de cerca), cadascun dels enllaços s'obre en una nova instància del navegador. </p>
+  </div>
+  
+  <p>Obrir una nova instància del navegador és una altra de les maneres habituals d'enllaçar amb llocs web de tercers, ja sigui amb una finestra emergent de scripts o amb un atribut <code>target</code> amb el valor <code>_blank</code>. El fet que tots els navegadors moderns tinguin un bloquejador de finestres emergents ja és tota una indicació de si és segur o no refiar-se d'aquesta tècnica... No ho és en absolut!</p>
+  
+  <p>Ras i curt: <strong>no utilitzeu l'atribut <code>target</code> per a crear enllaços tret que sapigueu exactament què esteu fent</strong>. De totes maneres, aquesta ja és una idea antiquada; actualment la majoria dels navegadors tenen interfícies amb pestanyes, amb la qual cosa els usuaris poden obrir llocs de tercers en el fons per a tornar-hi més tard i mentrestant quedar-se al vostre lloc web. En algunes circumstàncies és possible que vulgueu indicar la diferència entre els enllaços externs i interns, però heu de deixar sempre que sigui el visitant el que decideixi què en farà.</p>
+
+
+  <h2 id="linkbenefits">18.6. Avantatges dels enllaços de sortida i dels enllaços d'entrada</h2>
+  
+  <p>Hi ha algunes bones raons per enllaçar amb llocs de tercers fins i tot quan aquests són de la competència.</p>
+  
+  <ul><li><p>Us dóna credibilitat davant els vostres visitants; esteu tan segurs de la qualitat del vostre contingut que no us espanteu davant de la competència.</p>
+  </li>
+  
+  <li><p>És una oportunitat per a oferir un servei complet; us podeu vincular al contingut i a articles o fins i tot a productes d'altres llocs web que vosaltres no oferiu però que poden ser d'interès per als visitants que volen aprofundir més en el tema en qüestió.</p>
+  </li>
+  
+  <li><p>Podeu demostrar que teniu raó agafant un article anterior d'un tercer i oferint una solució millor o diferent i fer referència a aquest article mitjançant un enllaç.</p>
+  </li>
+  </ul>
+
+  <p>La utilitat dels enllaços d'entrada (els enllaços que apunten des del lloc web d'un tercer cap al vostre) genera molt menys debat. Com més llocs web vàlids i d'alta qualitat s'enllacin amb el vostre amb les paraules clau pertinents, més amunt apareixereu en els motors de cerca com el Google. Abans que això passi, però, cal que demostreu que no teniu por d'enllaçar-vos amb altres llocs. </p>
+  
+  <p>Les paraules clau pertinents ens porten cap a una altra part molt important de la creació d'uns bons enllaços: com descriure'ls. </p>        
+
+  <h2 id="linkwording">18.7. Descripció dels enllaços</h2>
+  
+  <p>Ja n'he parlat una mica en el subapartat sobre els enllaços cap a recursos no HTML, però sempre és bo recordar que els enllaços no només són part del text de la pàgina, sinó que també són uns elements interactius del document. </p>
+  
+  <p>Algunes tecnologies d'assistència ofereixen una llista dels enllaços en lloc de tot el document per tal de permetre als usuaris que puguin navegar ràpidament per ell, la qual cosa significa que heu de comprovar que els textos dels vostres enllaços tinguin sentit fora del context en què es troben. Podeu comprovar-ho molt fàcilment a Opera obrint qualsevol lloc web i seleccionant Tools &gt; Links (eines &gt; enllaços) en el menú o prement 'Ctrl' + 'Majúscules' + 'L'. S'obrirà una pestanya nova en la qual podreu veure tots els enllaços del document i cap a on apunten. </p>
+  
+  <p>Això significa que heu de comprovar no només que tots els textos dels enllaços tinguin sentit, sinó també que no hi hagi diversos enllaços amb la mateixa descripció però que apuntin cap a recursos diferents. L'error clàssic que es comet és el dels enllaços "cliqueu aquí" que es descriuen, per exemple, com a "Per descarregar l'última versió de la nostra eina, cliqueu aquí". És molt millor utilitzar un text de l'enllaç que expliqui cap on apunta; en aquest cas, "Podeu descarregar i provar l'última versió de la nostra eina".</p>
+  
+  <p>Això mateix també s'aplica als enllaços "més". Els trobareu en els llocs de notícies, en els quals veureu un titular i un text resumit i un enllaç "més" o "notícia completa" que s'ha de seguir. La solució d'aquest problema és utilitzar una imatge "més" enllaçada i donar-li un text alternatiu únic o afegir un espai dins l'enllaç després de "més" i ocultar-lo amb el CSS. Explicarem tots aquests trucs més detalladament a l'apartat sobre els menús i la navegació, que trobareu més endavant en aquest curs. </p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'apartat 23 d'aquest mòdul.</p>
+  </div>           
+
+  <h2 id="linkstyling">18.8. Estils dels enllaços</h2>
+  
+  <p>Encara no ha arribat el moment de parlar del CSS, però en aquest punt és útil tenir en compte que l'aspecte dels enllaços és molt important i que hi ha diversos i diferents estats d'enllaços que cal considerar. Els estats dels enllaços (que més endavant es relacionen amb els pseudoselectors del CSS; pot sonar complex, però no ho és) són: </p>
+  
+  <ul>
+		<li><p><code>link</code>: és l'estat per defecte; defineix l'aspecte que han de tenir els enllaços en una part concreta del document. Per defecte, els enllaços no visitats són de color blau.</p></li>
+  
+  <li><p><code>visited</code>: l'estil d'un enllaç que ja s'ha visitat (i que potser ja es troba a la memòria cau del navegador). Per defecte, els enllaços ja visitats són de color porpra.</p></li>
+  
+  <li><p><code>hover</code>: l'estil d'un enllaç mentre el cursor del ratolí es troba sobre ell.</p></li>
+  
+  <li><p><code>active</code>: l'estil de l'enllaç mentre està activat; és a dir, mentre està en curs la connexió amb l'altre lloc; també és l'estil de l'últim enllaç activat quan arribeu al document anant enrere en el navegador.</p></li>            
+	</ul>
+  
+  <h2 id="summary">Resum</h2> 
+  
+  <p>Aquesta vegada hem explicat moltes coses, però és molt important recordar el funcionament dels enllaços i què han de fer. Al llarg de la vostra trajectòria professional com a desenvolupadors de webs aprendreu molts trucs i tècniques per a anul·lar aquests comportaments per defecte, i espero que us pareu a pensar si el que voleu fer és realment necessari. </p>
+  
+  <p>He parlat de:</p>
+  
+  <ul><li><p>L'anatomia de l'element <code>a</code> i els seus atributs (no desaprovats).</p></li>
+  
+  <li><p>La diferència entre els elements <code>a</code> com a enllaços (amb un atribut  <code>href</code>) i com a àncores (amb un atribut <code>name</code>).</p></li>
+  
+  <li><p>La necessitat que el nom d'una àncora sigui únic.</p></li>
+  
+  <li><p>La necessitat d'explicar als visitants què poden esperar quan segueixen un enllaç (el format de l'arxiu i si és molt gran). </p></li>
+  
+  <li><p>Com afegir informació amb l'atribut de títol que es mostra com un indicador de funció; i per què aquesta no és una manera segura d'oferir informació crucial.</p></li>
+  
+  <li><p>La diferència entre els enllaços externs (que apunten cap a llocs web de tercers) i els interns (que apunten cap a documents del mateix servidor).</p></li>
+  
+  <li><p>Les pràctiques antiquades, com ara les finestres emergents i els marcs, i per què cal evitar-les.</p></li>
+  
+  <li><p>Els avantatges d'enllaçar-se amb altres llocs i que altres llocs s'enllacin amb el vostre.</p></li>
+  
+  <li><p>Com descriure adequadament els enllaços de manera que tinguin sentit fora de context, i per què és necessari.</p></li>
+  
+  <li><p>Els antecedents dels estils bàsics dels enllaços.</p></li>
+	</ul>
+  
+  <p>Amb tots aquests coneixements hauríeu de ser capaços d'escriure documents HTML que s'enllacin adequadament, i ja esteu preparats per a començar a pensar en els menús i la navegació del lloc.</p>
+  
+  
+	<h2 id="exercises">Preguntes de repàs</h2> 
+  
+  <ol>
+		<li><p>Quin problema té l'enllaç següent: <code>&lt;a href="report.pdf" title="report as PDF, 2.3MB"&gt;get our latest report&lt;/a&gt;</code>?</p></li>
+    <li><p>Per a què serveix l'atribut <code>target</code> en els enllaços? Es pot fer servir d'alguna manera positiva?</p

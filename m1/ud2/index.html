@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Introducció al món dels estàndards web - Com funciona Internet?</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+	<div id="titulo">Introducció al món dels estàndards web</div>
+	<div id="subtitulo">Com funciona Internet?</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud3/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+
+<h1>3. Com funciona Internet?</h1>
+<p class="by"><a href="../../index.html#lane">Jonathan Lane</a>. 8 de juliol del 2008 Publicat a: dinàmic, servidor, estàtic, web, HTTP, </p>
+
+<p>Molt de tant en tant és possible aconseguir veure els engranatges i les corretges que actuen entre bastidors. Avui és el vostre dia de sort. Us duré a donar un tomb per darrere dels telers d'una de les tecnologies més interessants que és possible que ja coneixeu bé: el web.</p>
+<p>Aquest apartat tracta sobre la tecnologia subjacent que fa funcionar el web:</p>
+
+<ul>
+<li><p>Llenguatge d'etiquetatge d'hipertext (HTML)</p></li>
+<li><p>Protocol de transferència d'hipertext (HTTP)</p></li>
+<li><p>Sistema de noms de domini (DNS)</p></li>
+<li><p>Servidors web i navegadors web</p></li>
+<li><p>Contingut estàtic i dinàmic</p></li>
+</ul>
+
+<p>Són matèries força bàsiques i, encara que la majoria del que aquí s'explica no us ajudarà a construir una pàgina web millor, sí que us proporcionarà el llenguatge adequat per parlar amb clients i d'altres sobre el web. És com el que una institutriu molt intel·ligent va dir una vegada a <cite>Somriures i llàgrimes</cite>: "Quan llegim, comencem per ABC. Quan cantem, comencem per Do Re Mi". En aquest apartat descriuré breument com els ordinadors es comuniquen realment utilitzant HTTP i TCP/IP, i després ens fixarem en els diferents llenguatges que es combinen per a crear les pàgines web que conformen Internet. </p>
+<ul class="index">
+	<li>3.1. <a href="#internetcommunication" accesskey="1">Com es comuniquen els ordinadors a través d'Internet?</a>
+	<ul class="index">
+		<li>3.1.1. <a href="#requestresponse">Dissecció d'un cicle de sol·licitud/resposta</a></li>
+	</ul></li>
+	<li>3.2. <a href="#contenttypes" accesskey="2">Tipus de contingut</a>
+	<ul class="index">
+		<li>3.2.1. <a href="#plaintext">Text normal</a></li>
+		<li>3.2.2. <a href="#webstandards">Estàndards web</a></li>
+		<li>3.2.3. <a href="#dynamicpages">Pàgines web dinàmiques</a></li>
+		<li>3.2.4. <a href="#proprietaryformats">Formats que requereixen altres aplicacions o connectors</a></li>
+	</ul></li>
+	<li>3.3. <a href="#staticdynamic" accesskey="3">Pàgines web estàtiques o dinàmiques</a></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+	<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+	<li class="especial"><a href="#furtherreading">Lectures complementàries</a></li>
+</ul>
+
+<h2 id="internetcommunication">3.1. Com es comuniquen els ordinadors a través d'Internet?</h2>
+<p>Per sort, hem mantingut les coses simples per als ordinadors. Quan es tracta del web, la majoria de les pàgines estan escrites utilitzant el mateix llenguatge, l'HTML, que passa d'un lloc a un altre utilitzant un protocol comú: <strong>HTTP</strong> (<span lang="en">hypertext transfer protocol</span> o protocol de transferència d'hipertext). L'HTTP és el dialecte (especificació) comú d'Internet que permet, per exemple, que un equip amb Windows canti en harmonia amb un ordinador que executi la versió més recent i més fantàstica de Linux (¡Do Re Mi!). Mitjançant l'ús d'un navegador web un programari especial que interpreta l'HTTP i entrega l'HTML en una forma llegible pels humans, les pàgines web creades amb HTML i amb qualsevol tipus d'ordinador es poden llegir en qualsevol mitjà, incloent-hi telèfons, PDA i fins i tot en els sistemes de videojocs més populars. </p>
+<p>Encara que parlin el mateix llenguatge, els diferents dispositius que accedeixen al web han de tenir algunes normes establertes per a poder parlar entre ells; és com aprendre a alçar la mà per preguntar a classe. L'HTTP estableix aquestes normes bàsiques per a Internet. Gràcies a l'HTTP, un equip client (com el vostre ordinador) sap que ha de ser ell qui iniciï una petició d'una pàgina web des d'un <strong>servidor</strong>. Un servidor és un ordinador on resideixen les pàgines web; quan escriviu una adreça web al vostre navegador, un servidor rep la petició, troba la pàgina web que desitgeu i l'envia al vostre ordinador perquè es vegi al vostre navegador. </p>
+
+<h3 id="requestresponse">3.1.1. Dissecció d'un cicle de sol·licitud/resposta</h3>
+<p>Ara que hem vist totes les parts que permeten als ordinadors comunicar-se a través d'Internet, tractaré amb més detall el cicle de sol·licitud/resposta d'HTTP. A continuació es presenten una sèrie de passos numerats perquè pugueu treballar seguint-los i, així, us podré demostrar alguns conceptes de manera més eficaç:</p>
+<ol>
+<li><p>Totes les sol·licituds/respostes comencen quan s'escriu un URL (<span lang="en">Universal Resource Locator</span>, Localitzador universal de recursos) a la barra d'adreces del navegador web, com ara http://dev.opera.com. Obriu un navegador i feu-ho ara mateix.</p>
+<p>Una cosa que potser no sabeu és que els navegadors realment no fan servir els URL per sol·licitar pàgines web als servidors; utilitzen el <strong>Protocol d'Internet</strong> o <strong>adreces IP</strong> (que són gairebé com números de telèfon o adreces postals que identifiquen els servidors.) Per exemple, l'adreça IP d'http://dev.opera.com és 213.236.208.98.</p></li>
+<li><p>Obriu una nova pestanya o finestra del navegador, escriviu http://www.apple.com i premeu intro; a continuació, escriviu http://17.149.160.10/ i premeu intro: arribareu al mateix lloc. Escriviu http://213.236.208.98 a la barra d'adreces i premeu intro: anireu a parar al mateix lloc que en el pas 1, però obtindreu un error 403 "Accés Denegat" error, això és perquè no teniu permís per a accedir a l'arrel real d'aquest servidor. </p>
+<p>http://www.apple.com actua bàsicament com un àlies per a http://17.149.160.10/, però per què? I com? Això és perquè a les persones els resulta més fàcil recordar paraules que llargues cadenes de números. El sistema que fa aquesta feina s'anomena <span lang="en">Domain name system</span> (DNS) o Sistema de noms de domini, que és essencialment un directori automàtic complet de tots els ordinadors connectats a Internet. Quan escriviu http://dev.opera.com a la barra d'adreces i premeu intro, aquesta adreça s'envia a un servidor de noms que intenta associar-la a la vostra adreça IP. Hi ha molts ordinadors connectats a Internet, i no tots els servidors DNS tenen un llistat de cada ordinador que hi ha connectat, de manera que hi ha un sistema creat on es pot adreçar la sol·licitud al servidor correcte per atendre-la. </p>
+<p>Així, doncs, el sistema DNS cerca la pàgina web www.opera.com, esbrina que es troba a 17.149.160.10 i retorna l'adreça IP al navegador. </p>
+<p>L'ordinador envia una sol·licitud a l'ordinador de l'adreça IP especificada i espera obtenir una resposta. Si tot va bé, l'ordinador del servidor envia un breu missatge de retorn al client amb un missatge dient que tot és correcte (vegeu la figura 1) seguit de la pròpia pàgina web. Aquest tipus de missatge està inclòs en un <strong>encapçalament HTTP</strong>. </p>
+<div class="imagen">
+	<img src="06510_m1_02.gif" alt="Cicle reeixit de sol·licitud i resposta" />
+	<p>Figura 1. En aquest cas tot és correcte i el servidor retorna la pàgina web correcta.</p>
+</div>
+
+<p>Si alguna cosa va malament, per exemple si s'escriu incorrectament l'URL, en el seu lloc s'obtindrà un <strong>error HTTP</strong>: el famós error 404 "no es troba la pàgina" és l'exemple més comú que es pot trobar.</p></li>
+<li><p>Escriviu http://dev.opera.com/joniscool.html: la pàgina no existeix, o sigui que obtindreu un error 404. Proveu-ho amb algunes pàgines, a diferents pàgines web que no existeixin i us retornaran pàgines diferents. Això és deu al fet que alguns desenvolupadors web han deixat que el servidor web només emeti la pàgina d'error predeterminada i d'altres han codificat pàgines d'error personalitzades perquè apareguin quan es retorna una pàgina no existent. Es tracta d'una tècnica avançada que no tractarem en aquesta assignatura, però que afortunadament es tractarà aviat en un article a part a dev.opera.com. </p></li>
+</ol>
+
+<p>Per últim, una nota sobre els URL: generalment el primer URL al qual s'accedeix en una pàgina web no té un nom d'arxiu real al final (per exemple, http://www.mysite.com/), i a continuació les pàgines subsegüents a vegades en tenen i a vegades no. Sempre accedeixes a arxius reals, però de vegades el desenvolupador web ha configurat el servidor web perquè no mostri els noms d'arxiu a l'URL; això sovint permet aconseguir URL més nets i fàcils de recordar, que condueixen a una millor experiència per a l'usuari de la vostra pàgina web. </p>
+
+
+<h2 id="contenttypes">3.2. Tipus de contingut</h2>
+<p>Ara que ja us he ensenyat una sol·licitud/resposta HTTP, vull que us fixeu en els diferents tipus de contingut que poden trobar-se a Internet. Ho he agrupat en 4 tipus: text normal, estàndards web, pàgines web dinàmiques i formats que requereixen altres aplicacions o connectors.</p>
+
+<h3 id="plaintext">3.2.1. Text normal</h3>
+<p>Durant els veritables primers dies d'Internet, abans que aparegués qualsevol estàndard web o connector, Internet era principalment imatges i text normal, arxius amb una extensió .txt o similar. Quan es troba un text normal a Internet, el navegador el mostra tal com és, sense cap mena de procés. Encara poden trobar-se fitxers de text normal a pàgines web universitàries. </p>
+
+<h3 id="webstandards">3.2.2. Estàndards web</h3>
+<p>Les eines de construcció bàsiques del web són el tres principals estàndards web: HTML (o XHTML, aquí utilitzaré ambdós indistintament per a les nostres finalitats), CSS i JavaScript:</p>
+<ol class="lletres">
+<li><p><strong>Llenguatge de marcat d'hipertext</strong> (HTML) és un nom realment bo pel que fa a definir el seu objectiu. L'HTML és el que s'empra per a dividir un document, especificar el seus continguts i estructura, i definir el significat de cada part (és el que inclou tot el text, etc., que es veu a les pàgines web). Utilitza elements per a identificar els diferents components d'una pàgina.</p></li>
+<li><p>Els <strong>fulls d'estil en cascada</strong> (CSS) donen un control total sobre com es visualitza un element. </p>
+<div class="exemple">
+	<h3>Canvis de format</h3>
+<p>Utilitzant declaracions d'estil és molt senzill canviar tots els paràgrafs perquè quedin a doble espai:</p>
+
+<p><code>line-height: 2em;</code></p>
+<p>O bé fer que tots els encapçalaments de segon nivell siguin verds:</p>
+
+<p><code>color: green;</code></p>
+</div>
+<p>Hi ha molts avantatges per a separar l'estructura del format i ho veurem amb més detall en el següent apartat. Per a demostrar la potència de l'HTML i CSS emprats de manera combinada, la figura 2 mostra a l'esquerra HTML normal, sense cap format afegit, mentre que a la dreta pot veure's exactament el mateix HTML amb alguns estils de CSS aplicats. </p>
+<div class="imagen">
+	<img src="06510_m1_03.gif" alt="Cicle reeixit de sol·licitud i resposta" />
+	<p>Figura 2. HTML normal a l'esquerra, HTML amb CSS aplicat a la dreta.</p>
+</div>
+</li>
+<li><p>Per últim, el <strong>llenguatge JavaScript</strong> aporta funcions dinàmiques a les pàgines web. Es poden escriure petits programes en JavaScript que s'executaran a l'ordinador client i que no requereixen que hi hagi cap programari especial instal·lat al servidor. JavaScript permet afegir algunes funcions bàsiques i interactivitat a les pàgines web, però té les seves limitacions, la qual cosa ens porta a parlar de llenguatges de programació de la banda del servidor i a pàgines web dinàmiques. </p></li>
+</ol>
+
+
+<h3 id="dynamicpages">3.2.3. Pàgines web dinàmiques</h3>
+<p>A vegades, quan navegueu per Internet us trobareu pàgines web que no tenen una extensió .html: és possible que tinguin una extensió .php, .asp, .aspx, .jsp, o d'altres extensions estranyes. Tots són exemples de tecnologies web dinàmiques que es poden utilitzar per a crear pàgines web que tinguin seccions dinàmiques: codi que mostra diferents resultats segons els valors que rebi, per exemple d'una base de dades, d'un formulari o d'una altra font de dades. Tractarem aquests tipus de pàgines web al subapartat <em>Pàgines web estàtiques o dinàmiques</em>, tot seguit. </p>
+
+<h3 id="proprietaryformats">3.2.4. Formats que requereixen altres aplicacions o connectors</h3>
+<p>Com que els navegadors web només estan equipats per a interpretar i mostrar determinades tecnologies com ara estàndards web, si sol·liciteu un URL que apunta a un format d'arxiu complex o a una pàgina web que conté una tecnologia que requereix connectors (plugins), es descarregarà al vostre ordinador o s'obrirà utilitzant el connector necessari si el navegador el té instal·lat. </p>
+<div class="exemple">
+	<h3>Exemples de connectors</h3>
+<p>Si us trobeu un document de Word, d'Excel, PDF, fitxer comprimit (per exemple, ZIP o SIT), fitxer d'imatges complexes com Photoshop PSD, o un altre fitxer complex que el navegador no comprèn, generalment el navegador us preguntarà si desitgeu descarregar o obrir el fitxer. Ambdues accions generalment tenen resultats similars, tret que la darrera farà que el fitxer es descarregui i a continuació s'obri amb una aplicació que el comprèn, si està instal·lada.</p>
+<p>Si us trobeu una pàgina que contingui una pel·lícula Flash, MP3 o un altre format de música, MPEG o un altre format de vídeo, el navegador el reproduirà utilitzant un connector instal·lat, si n'hi ha un d'instal·lat. En cas contrari, se li proporcionarà un enllaç per a instal·lar el connector necessari, o l'arxiu es descarregarà i cercarà una aplicació d'escriptori per a executar-lo.</p>
+</div>
+<p>Naturalment, hi ha algunes àrees grises: per exemple, SVG (Scalable Vector Graphics, gràfics vectorials escalables) és un estàndard web que s'executa de manera nativa en alguns navegadors, com l'Opera, però no en d'altres, com Internet Explorer. L'IE necessita un connector per comprendre els SVG. Hi ha una sèrie de navegadors que inclouen alguns connectors prèviament instal·lats, de manera que és possible que no sigueu conscients que el contingut s'està visualitzant mitjançant un connector i no nativament al navegador.</p>
+
+
+<h2 id="staticdynamic">3.3. Pàgines web estàtiques o dinàmiques</h2>
+<p>Així, doncs, què són les pàgines web estàtiques i dinàmiques i quina és la diferència entre ambdues? Com en una capsa de bombons, tot es basa en el farciment.</p>
+<div class="text-clau">
+<p>Una <strong>pàgina web estàtica</strong> és una pàgina web on el contingut, l'HTML i els gràfics, són sempre estàtics se serveix a qualsevol visitant de la mateixa manera, tret que la persona que ha creat el web decideixi canviar manualment la seva còpia al servidor, exactament el que hem estat repassant a la major part d'aquest apartat.</p>
+<p>Contràriament, en una <strong>pàgina web dinàmica</strong>, el contingut del servidor és el mateix, però en comptes de ser només HTML, també conté codi dinàmic, que pot mostrar dades diferents segons la informació que subministri a la pàgina web.</p>
+</div>
+<div class="exemple">
+	<h3>Pàgina web dinàmica</h3>
+<p>Vegeu un exemple de pàgina web dinàmica: aneu <a href="http://www.amazon.com" hreflang="en">Amazon</a> amb el vostre navegador web i cerqueu 5 productes diferents. Amazon no us ha enviat 5 pàgines diferents; us ha enviat la mateixa pàgina 5 vegades, però amb diferent informació dinàmica completada cada vegada. Aquesta informació diferent es guarda en una base de dades, que entrega la informació corresponent quan es sol·licita, i l'envia al servidor web per a inserir-la a la pàgina dinàmica.</p>
+</div>
+<p>Una altra cosa a tenir en compte és que s'ha d'instal·lar un programari especial al servidor per a crear una pàgina web dinàmica. Mentre que els fitxers HTML estàtics normals es guarden amb una extensió de fitxer .html, aquests fitxers contenen codi dinàmic especial a més de l'HTML i es guarden amb extensions d'arxiu especials per a indicar-li al servidor web que necessiten un processat addicional abans d'enviar-los al client (com per exemple que s'insereixin les dades des de la base de dades); els arxius PHP, per exemple, generalment tenen una extensió d'arxiu .php.</p>
+<p>Hi ha molts llenguatges dinàmics per a escollir: el PHP que he esmentat abans i d'altres com ara Python, Ruby on Rails, ASP.NET i Coldfusion. En definitiva, tots aquests llenguatges tenen més o menys les mateixes capacitats, com ara parlar amb bases de dades, validar la informació introduïda als formularis, etc., però fan les coses lleugerament diferent i tenen alguns avantatges i desavantatges. Tot es redueix a la forma més senzilla que millor s'adapti.</p>
+
+
+<h2 id="summary">Resum</h2>
+<p>Fins aquí el recorregut per la sala de màquines d'Internet. Aquest apartat realment només tracta de passada molts dels temes que inclou, però resulta útil perquè els posa en perspectiva entre ells i mostra com es relacionen i funcionen entre ells. Encara queda molt per aprendre sobre la sintaxi real del llenguatge que conforma l'HTML, el CSS i JavaScript, i això és el que farem a continuació: l'apartat següent se centra en el model d'estàndards web HTML, CSS i JavaScript de desenvolupament web, i fa una ullada al codi de la pàgina web.</p>
+
+
+<h2 id="exercises">Preguntes de repàs</h2>
+<ol>
+<li><p>Feu una breu descripció d'HTML i HTTP i expliqueu la diferència entre tots dos.</p></li>
+<li><p>Expliqueu la funció d'un navegador web.</p></li>
+<li><p>Navegueu per Internet durant 510 minuts i intenteu trobar alguns tipus diferents de continguts: text normal, imatges, HTML, pàgines dinàmiques com pàgines PHP i .NET (.aspx), PDF, documents de Word, pel·lícules Flash, etc. Accediu a alguns d'aquests continguts i penseu com us els mostra l'ordinador.</p></li>
+<li><p>Quina és la diferència entre una pàgina estàtica i una pàgina dinàmica?</p></li>
+<li><p>Trobeu una llista de codis d'error HTTP, enumereu-ne 5 i expliqueu què significa cadascun.</p></li>
+</ol>
+
+<h2 id="furtherreading">Lectures complementàries</h2>
+<p>En aquesta assignatura ja no tornarem a parlar dels llenguatges dinàmics, però he creat una llista de recursos en cas que vulgueu llegir-vos-els:</p>
+
+<ul>
+<li><p>Rails: Fernandez, Obie. (2007), <cite>The Rails Way. Addison-Wesley Professional Ruby Series</cite>. </p></li>
+<li><p><a href="http://www.rubyonrails.org/screencasts" hreflang="en">Rails screencasts</a></p></li>
+<li><p>PHP: Powers, David (2006), <cite>PHP Solutions: Dynamic web development made easy, friends of ED</cite>. </p></li>
+<li><p><a href="http://www.php.net/docs.php" hreflang="en">Documentació en línia de PHP</a></p></li>
+<li><p>ASP.NET: Lorenz, Patrick. (2003). <cite>ASP.NET 2.0 Revealed</cite>. Apress. </p></li>
+<li><p><a href="http://asp.net" hreflang="en">ASP.NET</a>: documentació i guies en línia d'ASP.NET</p></li>
+</ul>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud1/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+<a rel="next" href="../ud3/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

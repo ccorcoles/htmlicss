@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>Accessibilitat - Proves d'accessibilitat</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">Accessibilitat</div>
+	<div id="subtitulo">Proves d'accessibilitat</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud1/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../../m6/ud1/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>26. Proves d'accessibilitat</h1>
+<p class="by"><a href="../../index.html#hawkes">Benjamin Hawkes Lewis</a>. 26 de setembre de 2008. Publicat a: usuari, personatges, verificador, prova, inspeccionar.</p>
+
+<p>Les proves d'accessibilitat del web són un subgrup de les proves d'usabilitat en les quals els usuaris que es tenen en compte tenen discapacitats que afecten la seva manera d'utilitzar el web. L'objectiu final, tant pel que fa a la usabilitat com a l'accessibilitat, és descobrir la facilitat amb la qual es pot fer servir un lloc web i fer servir aquesta informació per millorar futurs dissenys i implementacions.</p>
+
+<p>L'avaluació de l'accessibilitat està mes formalitzada, en general, que les proves d'usabilitat. Les lleis i l'opinió pública desaproven totalment la discriminació de les persones amb discapacitats. Per ser justos amb tothom, els governs i altres organitzacions intenten complir diversos estàndards d'accessibilitat del web, com per exemple la legislació de la Secció 508 del Govern Federal dels Estats Units i les directrius d'accessibilitat del contingut web (WCAG) del W3C. </p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Vegeu la legislació de la Secció 508 i les directrius d'accessibilitat del contingut web a l'apartat anterior d'aquest mòdul didàctic.</p>
+</div>
+
+<p>No obstant això, és important distingir entre complir un estàndard i maximitzar l'accessibilitat d'un lloc web. En una situació ideal, les dues coses serien la mateixa, però qualsevol estàndard pot fallar a l'hora de complir amb els objectius següents:</p>
+
+<ul>
+<li><p>Satisfer les necessitats de totes les persones amb discapacitats.</p></li>
+<li><p>Trobar l'equilibri entre les necessitats de les persones amb diferents discapacitats.</p></li>
+<li><p>Fer correspondre aquestes necessitats amb les tècniques òptimes.</p></li>
+<li><p>Utilitzar un llenguatge clar per expressar les necessitats o les tècniques.</p></li>
+</ul>
+
+<p>Aquests punts dèbils poden fer que les persones amb les més bones intencions vagin pel mal camí i poden ser aprofitats pels qui pretenen l'aprovació oficial de productes inaccessibles.</p>
+
+<p>A més, l'accessibilitat del web és un objectiu i no una qüestió de sí/no. És un nexe entre les necessitats humanes i la tecnologia.  A mesura que el nostre coneixement de les necessitats humanes vagi evolucionant i a mesura que la tecnologia es vagi adaptant a aquestes necessitats, els requisits d'accessibilitat canviaran i els estàndards actuals quedaran desfasats. Els diferents llocs web, i els diferents webs, satisfaran necessitats diferents amb tecnologies diferents. Els serveis de tertúlia per veu com l'Skype són ideals per a les persones cegues, mentre que els
+<a href="http://developer.yahoo.net/blog/archives/2008/05/yahoo_live_empo.html" hreflang="en">serveis de tertúlia per vídeo</a> són una gran ajuda per als usuaris del llenguatge de signes.</p>
+
+
+<p>A l'hora de determinar la facilitat d'ús d'un producte les discapacitats plantegen uns reptes especials, ja que poden introduir uns buits addicionals entre els usuaris i els avaluadors. L'avaluació de l'accessibilitat ha de tenir en compte com es pot experimentar el web amb els diferents sentits i amb diferents capacitats cognitives, i també les diverses opcions de configuració inusuals i el programari especialitzat que permetrà l'accés al web a les persones amb discapacitats concretes.</p>
+
+<p>Si intenteu avaluar la usabilitat o l'accessibilitat del vostre lloc web, és molt difícil que us pugueu posar en el lloc d'un adolescent amant del cinema o d'un director de banc de 59 anys que utilitzen el vostre lloc, fins i tot abans de tenir en compte les discapacitats. Però què passa si l'adolescent amant del cinema és sord i necessita que les pel·lícules estiguin subtitulades? I si el director de banc és cec i utilitza un tecnologia especial (com ara un lector de pantalla) per interactuar amb el seu entorn d'escriptori i el navegador web amb la qual l'avaluador no està gens familiaritzat?</p>
+
+<p>Les directrius i les eines d'accessibilitat ajuden a salvar aquestes manques d'experiència. Malgrat això, no deixen de ser un complement, i no una substitució, per a la imaginació empàtica, la ingenuïtat tècnica i les converses amb els usuaris.</p>
+
+<p>En aquest apartat parlaré de diversos enfocaments per avaluar l'accessibilitat del web, tant des de la perspectiva de l'establiment de la conformitat formal com des de la perspectiva de la maximització de l'accessibilitat. </p>
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+    
+<ul class="index">
+	<li>26.1. <a href="#whentotest" accesskey="1">Quan s'han de realitzar les proves?</a></li>
+    <li>26.2. <a href="#understandingrequirements" accesskey="2">Entendre els requisits</a>
+	<ul class="index">
+    <li>26.2.1. <a href="#externalreqs">Requisits externs</a></li>
+    <li>26.2.2. <a href="#conformance">Detalls de la conformitat</a></li>
+    <li>26.2.3. <a href="#exceedingexpectations">Superar les expectatives</a></li>
+    <li>26.2.4. <a href="#importanceUI">La importància de la interfície d'usuari</a></li>
+    <li>26.2.5. <a href="#personas">Personatges amb discapacitats</a></li>
+    <li>26.2.6. <a href="#choosingastandard">Escollir un estàndard d'accessibilitat</a></li>
+    <li>26.2.7. <a href="#spiritofthelaw">L'esperit de la llei</a></li>
+</ul></li>
+    <li>26.3. <a href="#whoshouldtest" accesskey="3">Qui ha de fer les proves?</a></li>
+    <li>26.4. <a href="#experttesting" accesskey="4">Proves avançades</a>
+	<ul class="index">
+    <li>26.4.1. <a href="#semiautomatedcheckers">Comprovadors d'accessibilitat semiautomatitzats</a></li>
+    <li>26.4.2. <a href="#structuralinspectors">Inspectors estructurals</a></li>
+    <li>26.4.3. <a href="#screening">Simulació i ús de tecnologies d'assistència d'usuari final</a></li>
+    <li>26.4.4. <a href="#detailedinspection">Inspecció detallada</a>
+    <ul class="index">
+	    <li><a href="#perceivability">Perceptibilitat</a></li>
+  	  <li><a href="#operability">Operativitat</a></li>
+  	  <li><a href="#understandability">Comprensibilitat</a></li>
+  	  <li><a href="#robustness">Robustesa</a></li>
+  	</ul></li>
+</ul></li>
+    <li>26.5. <a href="#usertesting" accesskey="5">Proves d'usuari</a>
+	<ul class="index">
+    <li>26.5.1. <a href="#recruitingtesters">Trobar verificadors</a></li>
+    <li>26.5.2. <a href="#practicalconsiderations">Consideracions pràctiques</a></li>
+    <li>26.5.3. <a href="#choosingtasks">Escollir les tasques</a></li>
+    <li>26.5.4. <a href="#interpretingresults">Interpretar els resultats</a></li>
+</ul></li>
+    <li>26.6. <a href="#communicatingresults" accesskey="6">Comunicar els resultats de les proves d'accessibilitat</a></li>
+	<li class="especial"><a href="#summary">Resum</a></li>
+	<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+</ul>
+
+
+
+<h2 id="whentotest">26.1. Quan s'han de realitzar les proves?</h2>
+
+<p>Una de les dites de sempre del món de l'enginyeria de programari és "Feu proves aviat i feu-les sovint". El fet de realitzar les proves al final de tot el procés de desenvolupament comporta dos riscos:</p>
+
+<ol>
+<li><p>Els projectes solen durar més del previst i tenir un preu més alt del pressupostat. A causa d'aquestes pressions, les proves es fan normalment amb presses, no es fan o s'ignoren.</p></li>
+<li><p>Normalment suposa més feina solucionar els problemes que es descobreixen una vegada el procés ja està molt avançat que fer-ho ja des del principi.</p></li>
+</ol>
+
+<div class="text-clau">
+<p>Així, doncs, per garantir la qualitat i estalviar temps i diners, les avaluacions d'accessibilitat haurien de començar ja des del primer moment del disseny del producte i s'haurien d'incloure a totes les versions de desenvolupament següents fins al lliurament del producte acabat.</p>
+</div>
+
+<h2 id="understandingrequirements">26.2. Entendre els requisits</h2>
+
+<p>Abans de començar a avaluar l'accessibilitat d'un projecte cal que determineu quins són els requisits clau tenint el compte el seu entorn, el públic al qual va destinat i els recursos. Alguns requisits vindran imposats per tercers com governs i clients; altres els podreu escollir pel vostre compte.</p>
+
+<h3 id="externalreqs">26.2.1. Requisits externs</h3>
+
+<p>Normalment els requisits venen imposats des de fora, com per exemple:</p>
+
+<ul>
+<li><p><strong>Governs</strong>. Els requisits adopten normalment la forma d'una legislació general contra la discriminació de les persones amb discapacitats, i molt poques vegades exigeixen l'ús d'un estàndard concret o enumeren uns requisits precisos de conformitat. Una excepció important és quan la legislació obliga el sector públic a utilitzar un estàndard concret. Per exemple, la <a href="http://www.section508.gov/" hreflang="en">Secció 508</a> forma part de la legislació dels Estats Units i obliga els llocs web produïts per a agències federals a satisfer com a mínim un grup concret de requisits definits. La <a href="http://www.w3.org/WAI/Policy/" hreflang="en">pàgina de les polítiques de la WAI relatives a l'accessibilitat del web</a> ofereix una llista parcial de legislacions similars. Però si voleu saber exactament quines obligacions teniu a la vostra jurisdicció, consulteu un advocat.</p></li>
+<li><p><strong>Polítiques del client</strong>. Per exemple, Shell està intentant garantir que els seus llocs web compleixin el nivell de conformitat "Doble A" del WCAG 1.0, per la qual cosa, si esteu desenvolupant un lloc web per a Shell haureu de satisfer (com a mínim) aquest estàndard.</p></li>
+<li><p><strong>Utilitat de màrqueting</strong>. La conformitat amb un estàndard concret, com per exemple la Secció 508, pot ajudar a vendre un projecte a clients que es preocupen per l'accessibilitat.</p></li>
+<li><p><strong>Política d'accessibilitat interna a la vostra organització</strong>. Per exemple, els productes produïts per a la BBC han de satisfer les <a href="http://www.bbc.co.uk/guidelines/futuremedia/accessibility/" hreflang="en">directrius d'accessibilitat de la BBC v1.3</a>.</p></li>
+</ul>
+
+<h3 id="conformance">26.2.2. Detalls de la conformitat</h3>
+
+<p>És molt important tenir tant clar com sigui possible quins són els requisits externs. Alguns estàndards d'accessibilitat incorporen més d'un nivell o tipus de conformitat, per la qual cosa cal concretar molt bé quin és el que s'exigeix. Per exemple, el WCAG 1.0 té tres nivells de conformitat:</p>
+
+<ol>
+<li><p>Les persones amb alguna discapacitat "no podran accedir de cap manera a la informació" d'un document que no superi el nivell "A".</p></li>        
+<li><p>Les persones amb alguna discapacitat "ho tindran difícil per accedir a la informació" d'un document que no superi el nivell "Doble A".</p></li>
+<li><p>Les persones amb alguna discapacitat "trobaran algunes dificultats per accedir a la informació" d'un document que no superi el nivell "Triple A".</p></li>
+</ol>
+
+<p>L'esborrany del WCAG 2.0 també incorpora tres nivells, però les possibilitats de conformitat són més complicades. Quan un recurs forma part d'una sèrie de recursos que formen tot un procés (per exemple la cerca, selecció, compra i pagament d'un producte en una botiga en línia), el nivell de conformitat per a tots els recursos de la sèrie és el del recurs amb el nivell més baix.</p>
+
+<p>Les declaracions de conformitat s'han de basar en la tecnologia de contingut "compatible amb l'accessibilitat". Per poder ser una tecnologia de contingut compatible amb l'accessibilitat, una tecnologia ha de fer el següent:</p>
+
+<ul>
+<li><p>Haver demostrat que funciona amb la tecnologia d'assistència dels usuaris.</p></li>
+
+<li><p>Tenir uns agents d'usuari (navegadors, connectors, etc.) que funcionin amb la tecnologia d'assistència dels usuaris i estar disponible per als usuaris amb discapacitats sense cap cost addicional en comparació amb el que té per a un usuari sense cap discapacitat.</p></li>
+</ul>
+
+<p>Tingueu en compte que en un entorn d'intranet sí que potser podreu garantir que aquests agents d'usuari estaran disponibles per als usuaris, però al web serà impossible garantir-ho. Per exemple, és possible que una aplicació es pugui fer servir sense cap tecnologia comercial, però que sigui accessible només amb lectors de pantalla amb un connector comercial per al qual l'organització ha comprat una llicència.  Aquesta aplicació podria ser conforme al WCAG 2.0 quan s'utilitza a la intranet de l'organització, però no quan s'utilitza al web públic.</p>
+
+<p>El WCAG 2.0 també permet unes declaracions de conformitat més limitades. Un recurs no accessible pot ser conforme si s'ofereix una alternativa accessible. Els editors poden fer una declaració de conformitat parcial quan s'afegeixi contingut procedent d'altres fonts.</p>
+
+<h3 id="exceedingexpectations">26.2.3. Superar les expectatives</h3>
+
+<p>La determinació dels requisits externs hauria de ser només el principi de tot el procés; aquests requisits s'haurien de considerar com els requisits mínims als quals cal afegir uns objectius més alts per tal de maximitzar l'accessibilitat. Com sou la persona que avalueu l'accessibilitat, la vostra tasca és estimular la conscienciació sobre l'accessibilitat, ja que sou l'expert en el tema.</p>
+
+<p>Quan lliureu un informe final és possible que hàgiu de distingir els dos. Per exemple, les instruccions d'un client per a un supermercat en línia poden especificar que la botiga sigui accessible per als usuaris cecs. Tenint en compte el públic al qual va dirigida, també hauríeu d'avaluar si la botiga serà accessible per a usuaris amb altres discapacitats.</p>
+
+<p>Tingueu en compte que els requisits externs de conformitat amb un estàndard concret no impedeixen necessàriament l'aplicació de directius de bones pràctiques d'altres estàndards. Per exemple, podeu avaluar un lloc web d'una agència federal pensat per al seu ús per part de persones de la tercera edat i que ha de complir amb la Secció 508.
+</p>
+
+<blockquote>
+<p>La Secció 508 estipula el següent:</p>
+
+<p>"&sect; 1194.22 (c) Les pàgines web han d'estar dissenyades de manera que tota la informació que es transmet mitjançant colors estigui disponible també sense colors, per exemple a partir del context o de l'etiquetatge."</p>
+</blockquote>
+
+<p>Aquesta disposició ajuda els usuaris que saben com adaptar la presentació del contingut del web, però no maximitza l'accessibilitat de la presentació per defecte del contingut a l'audiència destí ja que no garanteix que hi haurà el contrast suficient entre els colors suggerits. Per sort, no hi ha res que impedeixi que un lloc web satisfaci aquest requisit i, a més, satisfaci les disposicions del següent nivell de l'esborrany de les directrius d'accessibilitat del contingut web 2.0.</p>
+
+<blockquote>
+<h3>Esborrany de les directrius d'accessibilitat del contingut web 2.0.</h3>
+
+<p>"1.4.3 Contrast (mínim): El text i les imatges de text tenen una relació de contrast de com a mínim 5:1, excepte en els casos següents (nivell AA):</p>
+
+<ul>        
+<li><p>Text gran: El text i les imatges de text de mida gran tenen una relació de contrast de 3:1 com a mínim.</p></li>
+
+<li><p>El text o les imatges de text que formen part d'un component inactiu de la interfície d'usuari, que són purament decoratius, que són text secundari en una imatge o que no són visibles per a ningú no tenen cap requisit de contrast mínim.</p></li>
+</ul>
+
+<p>1.4.6 Contrast (millorat): El text i les imatges de text tenen una relació de contrast de com a mínim 7:1, excepte en els casos següents (nivell AAA):</p>
+
+<ul>        
+<li><p>Text gran: El text i les imatges de text de mida gran tenen una relació de contrast de 5:1 com a mínim.</p></li>
+
+<li><p>El text o les imatges de text que formen part d'un component inactiu de la interfície d'usuari, que són purament decoratius, que són text secundari dintre d'una imatge o que no són visibles per a ningú no tenen cap requisit de contrast mínim."</p></li>
+</ul>
+
+<p>Els criteris 1.4.3 i 1.4.6 es poden satisfer mitjançant un control de contrast disponible a la pàgina o des d'aquesta."</p>
+</blockquote>
+
+<div class="note">
+<h3>Nota</h3>
+<p>Quan parla del control de contrast, aquest criteri es refereix al fet que hauríeu d'oferir una manera de canviar els colors o una variació d'alt contrast. Per comprovar els esquemes de control de contrast, podeu fer servir l'<a href="http://juicystudio.com/services/luminositycontrastratio.php" hreflang="en">analitzador de contrast de color de Juicystudio</a>.</p>
+</div>
+<p>El WCAG 2.0 s'està dissenyant perquè tingui una gran compatibilitat amb versions anteriors d'altres estàndards, especialment el WCAG 1.0 i la Secció 508.</p>
+
+<h3 id="importanceUI">26.2.4. La importància de la interfície d'usuari</h3>
+
+<p>Penseu en la importància que té el fet d'aconseguir que la interfície d'usuari d'un lloc web sigui accessible. Encara que el contingut no estigui disponible d'una manera adequada, una interfície d'usuari accessible pot ajudar els usuaris a identificar el contingut d'interès i sol·licitar ajuda externa per convertir-lo a un format en el qual el pugui utilitzar. Per exemple, una persona amb una discapacitat auditiva es pot trobar amb un vídeo d'una xerrada o en un lloc on es comparteixen vídeos sense subtítols. Com que la URL identifica el vídeo d'una manera exclusiva, i com que la persona pot seguir utilitzant el reproductor per veure el vídeo, el podrà enviar a un tercer, com per exemple el servei gratuït <a href="http://www.projectreadon.com/" hreflang="en">Project readOn</a>, per afegir-hi subtítols.</p>
+
+<h3 id="personas">26.2.5. Personatges amb discapacitats</h3>
+
+<p>Un enfocament ideal és integrar les discapacitats clau per al vostre projecte directament als personatges que actuaran com a <a href="http://www.usability.gov/analyze/personas.html" hreflang="en">usuaris</a>: uns usuaris ficticis que faran d'arquetips per veure la manera en què alguns tipus d'usuaris particulars utilitzaran un lloc web.  Imaginem-nos que esteu avaluant prototips per a un lloc on es compartiran vídeos i que els vostres personatges inclouen:</p>
+
+
+<ul>
+<li><p>James Smith, de 23 anys, que està boig pel futbol i que el que desitja per sobre de qualsevol altra cosa és compartir imatges interessants d'esports amb els seus amics.</p></li>
+
+<li><p>Sarah Maddison, de 34 anys, que és una mare treballadora que normalment no tindria temps per dedicar-se a visitar un lloc com aquest. Però resulta que la seva filla de tres anys és molt aficionada a mirar vídeos, i per això la Sarah vol seure amb ella i ajudar-la a trobar els vídeos adequats que vol mirar.</p></li>
+</ul>
+
+<p>Podeu agafar aquests personatges i incorporar-hi discapacitats, com ara (per exemple):</p>
+
+
+<ul>
+<li><p>discapacitat visual</p></li>
+  <li><p>daltonisme</p></li>
+  <li><p>ceguesa</p></li>
+  <li><p>sordesa</p></li>
+  <li><p>discapacitat auditiva</p></li>
+  <li><p>sordceguesa</p></li>
+  <li><p>epilèpsia</p></li>
+  <li><p>dislèxia</p></li>
+</ul>
+
+<p>Per exemple, podeu decidir que en James també és sord i que vol subtítols dels comentaris que s'escolten als vídeos, i que la Sarah s'hi veu malament i té problemes per veure els tipus de lletra de fantasia i el text de mida molt petita. Aquests personatges us serveixen de guia per rebutjar prototips que no incloguin la utilitat de subtítols en el reproductor de vídeo o que utilitzin uns tipus de lletra molt elaborats que exigirien imatges.</p>
+
+<p><span lang="en"><a href="http://www.w3.org/WAI/EO/Drafts/PWD-Use-Web/" hreflang="en">How People with Disablities Use the Web</a></span> de la WAI i <span lang="en"><a href="http://www.uiaccess.com/accessucd/personas.html" hreflang="en">Just Ask: Integrating Accessibility Throughout Design</a></span> de Shawn Lawton Henry contenen alguns altres exemples de personatges afectats per discapacitats que podeu fer servir per començar a treballar en aquest aspecte.</p>
+
+
+<p>No hauria de ser necessari dir-ho, però no penseu que les persones amb discapacitats són totes iguals. La discapacitat és un fenomen increïblement divers i, a més a més, les persones amb discapacitats són tan variades com les persones sense discapacitats; les seves diferències (per exemple) poden ser de gènere, edat, interessos, valors i habilitats (i potser les més importants són les relacionades amb la seva experiència informàtica).</p>
+
+<p>De nou, la comparació de productes pel que fa a les directrius d'accessibilitat pot ajudar a omplir els buits que els vostres personatges no cobreixen. Per exemple, potser seguiu el WCAG 2.0 amb el lloc per compartir vídeos però els vostres personatges no inclouen cap usuari amb epilèpsia. Tot i així, llegiu la Directriu 2.3 ("Atacs: no s'ha de dissenyar el contingut de cap manera que pugui provocar atacs") i decidiu que el sistema ha de poder filtrar els vídeos carregats abans de mostrar-los per si contenen centelleigs.</p>
+
+<h3 id="choosingastandard">26.2.6. Escollir un estàndard d'accessibilitat</h3>
+
+<p>Si heu d'escollir un estàndard d'accessibilitat per gestionar les qüestions d'accessibilitat del web en un equip o senzillament per fer-lo servir com a guia durant les proves, jo aconsello el WCAG 2.0 per aquests motius:</p>
+
+<ul>
+<li><p>Està dissenyat a partir de les necessitats humanes bàsiques que són aplicables a tecnologies diferents d'HTML i CSS (com ara Flash).</p></li>
+
+<li><p>Documenta de manera molt acurada les raons de cadascun dels criteris de conformitat.</p></li>
+
+<li><p>Suggereix tècniques pràctiques per satisfer els criteris de conformitat utilitzant tecnologies actuals.</p></li>
+
+<li><p>Garanteix que totes les disposicions es puguin sotmetre a proves.</p></li>
+
+<li><p>Incorpora estudis més recents que les alternatives actuals.</p></li>
+
+<li><p>Està dissenyat per ser clarament compatible amb els estàndards d'accessibilitat existents.</p></li>
+
+<li><p>Serà un estàndard internacional.</p></li>
+</ul>
+
+<p>Podeu citar la conformitat amb un esborrany concret del WCAG 2.0; per qüestions de màrqueting, però el millor és buscar també la conformitat amb estàndards acabats com ara la Secció 508 i el WCAG 1.0, a més d'aquest esborrany.</p>
+
+<h3 id="spiritofthelaw">26.2.7. L'esperit de la llei</h3>
+
+<p>A l'hora de fer proves en comparació amb unes directrius, és important tenir en compte la base fonamental de qualsevol orientació tècnica específica, que és complir l'esperit de la llei i no només la seva lletra.</p>
+
+<p>A continuació s'explica una història molt alliçonadora. La Secció 508 (&sect; 1194.22) inclou un requisit que diu:  "S'oferirà un equivalent de text per a tots els elements que no siguin de text (per exemple, amb <code>alt</code>, <code>longdesc</code> o en el contingut de l'element)." </p>
+
+<p>De manera similar, el WCAG 1.0 inclou un punt de control que diu: "Oferiu un equivalent de text per a tots els elements que no siguin de text (per exemple, amb <code>alt</code>, <code>longdesc</code> o en el contingut de l'element). Això inclou: imatges, representacions gràfiques de text (incloent-hi símbols), regions de mapa d'imatge, animacions (GIF animats, per exemple), miniaplicacions i objectes programàtics, art ascii, marcs, scripts, imatges utilitzades com a pics per a llistes, separadors, botons gràfics, sons (reproduïts amb interacció de l'usuari o sense), arxius d'àudio autònoms, pistes d'àudio de vídeo i vídeo."</p>
+
+<p>Desafortunadament, molta gent que llegeix aquesta directriu interpreta malament el que ha de ser un equivalent de text genuí per a un separador i els elements decoratius i generen un etiquetatge com el següent:</p>
+
+<pre><code>&lt;img alt="vora decorativa" src="fancy-border.gif" border="0"&gt;</code></pre>
+
+<p>De fet, com que aquestes imatges no transmeten cap informació nova i no tenen cap funció, el seu equivalent de text correcte seria una cadena buida (<code>alt=""</code>), que fa que el lector de pantalla passi per alt l'atribut <code>alt</code> i no el llegeixi. Per a un usuari d'un lector de pantalla és molt empipador haver d'escoltar en veu alta un text com ara "vora decorativa " una vegada i una altra quan en realitat no els ofereix cap informació útil.</p>
+
+<p>El WCAG 2.0 intenta ser més clar. La <a href="http://www.w3.org/TR/WCAG20/#text-equiv" hreflang="en">directriu equivalent</a> diu: "Tot el contingut que no sigui text té una alternativa de text que presenta una informació equivalent, excepte per a les situacions llistades més avall". Una d'aquestes situacions és: "Decoració, format, invisible: si és purament decoració, o si es fa servir només per al format visual, o si no es presenta als usuaris, llavors s'implementa de manera que la tecnologia d'assistència la pugui ignorar". I també, molt important, el WCAG 2.0 intenta detallar el raonament que hi ha rere la <a href="http://www.w3.org/TR/2007/WD-UNDERSTANDING-WCAG20-20071211/text-equiv.html#text-equiv" hreflang="en">directriu</a>.</p>
+
+
+<blockquote>
+<p>"L'objectiu d'aquesta directriu és garantir que tot el contingut que no sigui text també estigui disponible com a text. "Text" es refereix al text electrònic i no a un imatge de text. El text electrònic té l'avantatge especial que és neutre pel que fa a la presentació. És a dir, que es pot reproduir visualment, per àudio, per tacte o en qualsevol combinació.  Així, doncs, la informació tramesa com a text electrònic es pot presentar en la forma que millor satisfaci les necessitats de l'usuari. També es pot ampliar molt fàcilment, es pot trametre per una veu fàcil d'entendre o es pot reproduir en qualsevol format tàctil que millor s'adeqüi a les necessitats d'un usuari."</p>
+</blockquote>
+
+<h2 id="whoshouldtest">26.3. Qui ha de fer les proves?</h2>
+
+<div class="text-clau">
+<p>Hi ha bàsicament dos grups que realitzen proves: experts i usuaris.</p>
+
+<p>Les proves realitzades per experts són importants perquè aquests entenen la manera en què interactuen les tecnologies web subjacents, poden actuar com a nexe d'unió per al coneixement sobre els diferents grups d'usuaris i tenen una inclinació a aprendre a utilitzar eines de proves especialitzades.</p>
+
+<p>Les proves fetes per usuaris són crucials perquè aquests són els veritables experts sobre les seves capacitats i la seva tecnologia d'assistència. Les proves fetes per usuaris també poden posar de manifest els problemes d'usabilitat entre usuaris més tècnics i menys, i entre persones familiaritzades amb el lloc web en qüestió (com per exemple els verificadors experts mateixos) i persones que no ho estan (usuaris nous).</p>
+</div>
+<p>És molt improbable que un desenvolupador de webs que sàpiga com utilitzar un lector de pantalla explori un lloc de la mateixa manera que un usuari normal d'un lector de pantalla; i també és molt improbable que els usuaris de lectors de pantalla que programen els seus scripts explorin el lloc utilitzant les mateixes estratègies que els usuaris de lectors de pantalla que es limiten a fer les tasques informàtiques normals, com per exemple escriure missatges electrònics.</p>
+
+<p>La propera vegada que es realitzen proves (ja siguin unes altres proves del mateix projecte o bé proves d'un projecte totalment diferent), el coneixement adquirit amb les proves d'usuaris s'incorpora al procés de proves avançades. Les proves d'usuaris també tenen un avantatge més subtil.  Pel fet d'humanitzar l'accessibilitat i de reunir desenvolupadors i usuaris finals, aquestes proves poden fer augmentar la motivació per construir uns llocs web accessibles.</p>
+
+<h2 id="experttesting">26.4. Proves avançades</h2>
+
+<p>Les proves avançades inclouen quatre components:</p>
+
+<ul>
+<li><p><strong>Avaluació guiada per eines</strong>: en què una eina localitza problemes d'accessibilitat i els presenta a l'avaluador (això inclouria els comprovadors d'accessibilitat i els analitzadors de codi).</p></li>
+
+<li><p><strong>Simulació</strong>: en què l'expert simula una experiència d'usuari final del lloc web. Sovint no caldrà que busqueu gaire per trobar problemes d'accessibilitat. És possible que no hàgiu de fer res més que carregar la pàgina al vostre navegador i ja veureu que el text és molt difícil de llegir.</p></li>
+
+<li><p><strong>Inspecció basada en eines</strong>: Quan l'avaluador utilitza una eina per investigar la manera en què funcionen juntes les diferents parts d'un lloc web.</p></li>
+
+<li><p><strong>Revisió del codi</strong>: l'avaluador mira directament el codi i els actius d'un lloc web per localitzar-hi problemes.</p></li>
+</ul>
+
+<p>És molt probable que els principiants depenguin especialment de l'avaluació guiada per eines, però els avaluadors de tots els nivells d'experiència es poden beneficiar de cadascun dels components. Fins i tot els principiants poden detectar elements <code>img</code> sense equivalents de text en un etiquetatge HTML i, a mesura que aneu guanyant experiència, us serà cada vegada més fàcil detectar problemes abans que passeu a proves més rigoroses. Per als experts en grans projectes, la revisió manual de tot el codi del client o la inspecció de totes les parts d'un lloc web pot no ser factible; en aquests casos, una avaluació guiada per eines pot localitzar àrees amb un problema concret que mereixin una atenció especial. A més, els avaluadors humans poden passar per alt coses que l'avaluació d'una màquina hauria detectat.</p>
+
+<p>Desafortunadament, tot i que hi ha moltes eines d'accessibilitat, la majoria fallen en algun o altre aspecte. Per exemple, una eina que enumera els títols dels documents HTML comet l'error de no incloure el text <code>alt</code> dels elements <code>img</code>. De la mateixa manera que heu de tenir en compte l'esperit de la llei pel que fa a la conformitat amb els estàndards, també l'hauríeu de tenir en compte a l'hora de fer servir eines. Abans de queixar-vos a algú sobre un problema d'accessibilitat, comproveu que es tracta d'un problema real i no d'un error de l'eina.</p>
+
+<h3 id="semiautomatedcheckers">26.4.1. Comprovadors d'accessibilitat semiautomatitzats</h3>
+
+<p>Una vegada s'han solucionat els problemes que es poden detectar a simple vista, una bona manera de prosseguir és passar la pàgina per una eina de comprovació de l'accessibilitat semiautomatitzada. Si avalueu la conformitat amb un estàndard concret, probablement en voldreu fer servir una de dissenyada per al seu ús amb aquest estàndard.</p>
+
+<p>Si avalueu la conformitat amb la Secció 508 o el WCAG 1.0, <a href="http://www.cynthiasays.com/" hreflang="en">Cynthia Says</a> és una opció raonable. Si comproveu la conformitat amb el nivell 2 de la llei alemanya BITV 1.0, la llei italiana Stanca o l'esborrany del WCAG 2.0, l'ún

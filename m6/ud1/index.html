@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Conceptes bàsics de CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Conceptes bàsics de CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../../m5/ud2/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>27. Conceptes bàsics de CSS</h1>
+<p class="by"><a href="../../index.html#heilmann">Christian Heilmann</a>. 26 de setembre de 2008. Publicat a: extern, selectors, regla, incrustat, comentaris.</p>
+
+<p>En aquest curs ja hem parlat sobre el contingut dels llocs web i com estructurar el contingut amb l'HTML. Això és molt important, ja que vol dir que donem significat i estructura als nostres documents perquè altres tecnologies s'hi puguin relacionar sense problemes. La tecnologia web més important que discutirem a continuació és el CSS (fulls d'estils en cascada), que es fa servir per aplicar estils a l'HTML i situar-lo en la pàgina web. En aquest apartat parlaré del CSS: què és, com aplicar-lo a l'HTML i quina n'és la sintaxi bàsica. </p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu També</h3>    
+<p>Vegeu com estructurar el contingut dels llocs web en el mòdul "Fonaments d'HTML".</p>
+</div>
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+<li>27.1. <a href="#whatiscss" accesskey="1">Què és el CSS?</a></li>
+<li>27.2. <a href="#definingstylerules" accesskey="2">Definir les regles dels estils</a>
+<ul class="index">
+<li>27.2.1. <a href="#csscomments">Comentaris del CSS</a></li>
+<li>27.2.2. <a href="#groupingselectors">Agrupar selectors</a></li>
+</ul></li>
+<li>27.3. <a href="#advancedselectors" accesskey="3">Selectors avançats de CSS</a>
+<ul class="index">
+<li>27.3.1. <a href="#universal">Selectors universals</a></li>
+<li>27.3.2. <a href="#attribute">Selectors d'atributs</a></li>
+<li>27.3.3. <a href="#child">Selectors de fills</a></li>
+<li>27.3.4. <a href="#descendent">Selectors de descendents</a></li>
+<li>27.3.5. <a href="#adjacent">Selectors de germans adjacents</a></li>
+<li>27.3.6. <a href="#pseudoclasses">Pseudoclasses</a></li>
+<li>27.3.7. <a href="#pseudoelements">Pseudoelements</a></li>
+</ul></li>
+<li>27.4. <a href="#shorthand" accesskey="4">CSS abreujat</a>
+<ul class="index">
+<li>27.4.1. <a href="#comparingvalues">Comparar valors individuals i abreujats</a></li>
+<li>27.4.2. <a href="#lessthanfourvalues">Donar menys de quatre valors per a una propietat abreujada</a></li>
+<li>27.4.3. <a href="#singlepropertyorshorthandvalue">Escollir entre utilitzar una propietat única o un valor abreujat</a></li>
+<li>27.4.4. <a href="#shorthandreference">Referència abreujada</a></li>
+</ul></li>
+<li>27.5. <a href="#applyingcsstohtml" accesskey="5">Aplicar el CSS a l'HTML</a>
+<ul class="index">
+<li>27.5.1. <a href="#inline">Estils en línia</a></li>
+<li>27.5.2. <a href="#embedded">Estils incrustats</a></li>
+<li>27.5.3. <a href="#external">Fulls d'estils externs</a></li>
+<li>27.5.4. <a href="#import">Importar fulls d'estils amb @import</a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+</ul>
+
+<h2 id="whatiscss">27.1. Què és el CSS?</h2>
+
+<div class="text-clau">
+<p>Mentre que l'HTML estructura el document i indica als navegadors quina és la funció d'un element concret (és un vincle cap a una altra pàgina?, és un títol?), el CSS dóna instruccions al navegador sobre com ha de mostrar un element concret: estil, espaiat i posició. Si l'HTML són els puntals i els maons que formen l'estructura d'una casa, el CSS és el guix i la pintura que la decoren.</p>
+</div>
+
+<p>Això es fa utilitzant un sistema de regles, la sintaxi exacta de les quals veurem més avall. Aquestes regles diuen quins elements de l'HTML han de tenir estils afegits, i a cada regla enumeren les propietats (per exemple, color, mida, tipus de lletra, etc.) d'aquells elements HTML que volen manipular i els valors nous que els volen aplicar. </p>
+
+<div class="exemple">
+<p>Una regla del CSS podria dir, per exemple: "Vull trobar tots els elements h2 i aplicar-los el color verd"; o bé: "Vull trobar tots els paràgrafs amb el nom de classe <code>author-name</code>, aplicar-los un fons de color vermell, fer que el text del seu interior sigui el doble de gran que el text dels paràgrafs normals i afegir 10 píxels d'espaiat al seu voltant".</p>
+</div>
+
+<p>El CSS no és un llenguatge de programació com JavaScript ni tampoc és un llenguatge d'etiquetes con HTML; de fet, no hi ha res amb què es pugui comparar. Les tecnologies que definien les interfícies abans del desenvolupament del web barrejaven sempre la presentació i l'estructura. Tanmateix, en un entorn que canvia tan sovint com el web aquesta no és una manera gaire intel·ligent de fer les coses, i és per això que es va inventar el CSS.</p>
+
+<h2 id="definingstylerules">27.2. Definir les regles dels estils</h2>
+
+<p>Així, doncs, vegem un exemple de codi del CSS i després l'analitzarem:</p>
+                        
+<pre><code>selector {
+	propietat1:valor;
+	propietat2:valor;
+	propietat3:valor;
+}</code></pre>
+
+<p>Les parts pertinents són les següents:</p>
+
+<ul>
+<li><p>El selector identifica els elements de l'HTML als quals s'aplicarà la regla, que s'identifiquen amb el nom de l'element en si, com per exemple <code>body</code>, o amb algun altre mètode, com els valors de l'atribut <code>class</code>; ja en tornarem a parlar més endavant.</p></li>
+
+<li><p>Les claus contenen les parelles de propietat/valor, que se separen entre elles amb un signe de punt i coma; les propietats se separen dels seus valors respectius amb el signe de dos punts.</p></li>
+
+<li><p>Les propietats defineixen el que voleu fer amb els elements que heu seleccionat. Poden ser molt variades i poden modificar el color, el color de fons, la posició, els marges, la separació, el tipus de lletra i molts altres aspectes de l'element.</p></li>
+
+<li><p>Els valors són els valors als quals voleu canviar cadascuna de les propietats dels elements seleccionats. Els valors depenen de la propietat; per exemple, les propietats que afecten el color poden tenir valors hexadecimals com ara #336699, valors RGB com ara rgb (12,134,22) o noms de colors com vermell, verd o blau. Les propietats que afecten la posició, els marges, l'amplada, l'altura... es poden mesurar en píxels, ems, percentatges, centímetres o altres unitats similars.</p></li>
+</ul>     
+   
+<p>Ara en veurem un exemple concret:</p>
+
+<pre><code>p {
+	margin:5px;
+	font-family:arial;
+	color:blue;
+}</code></pre> 
+
+<p>L'element HTML que selecciona aquesta regla és p; aquesta regla s'aplicarà a tots els p dels documents HTML que utilitzin aquest CSS, a menys que hi hagi regles més concretes que se'ls apliquin, ja que en aquest cas les regles més concretes tindran prioritat sobre aquesta regla. Les propietats que es veuen afectades per aquesta regla són els marges al voltant dels paràgrafs, el tipus de lletra del text dels paràgrafs i el color d'aquest text. Els marges estan definits a 5 píxels, el tipus de lletra està definit a Arial i el color del text és blau.</p>
+
+<p>Ja tornarem a parlar de tots aquests detalls més endavant; l'objectiu principal d'aquest apartat és explicar els fonaments del CSS i no els detalls més petits.</p>
+
+<p>Totes aquestes regles s'uneixen per formar un full d'estils. Aquesta és la sintaxi més bàsica del CSS. Hi ha més coses, però no moltes més; probablement, el millor que té el CSS és la seva senzillesa.</p>
+
+<h3 id="csscomments">27.2.1. Comentaris del CSS</h3>
+
+<p>Una de les primeres coses que cal saber és com fer comentaris en el CSS. Podeu afegir-hi comentaris posant-los entre /* i */. Els comentaris poden ocupar diverses línies, que el navegador ignorarà:</p>
+
+<pre><code>/* Aquests són selectors d'elements bàsics */
+selector{
+	propietat1:valor;
+	propietat2:valor;
+	propietat3:valor;
+}</code></pre> 
+
+<p>Podeu afegir comentaris entre regles o en un bloc de propietats; per exemple, en el següent CSS les propietats 2a. i 3a. es troben entre delimitadors de comentari, per la qual cosa el navegador les ignorarà. Això pot ser molt útil quan vulgueu comprovar els efectes que tenen parts concretes del CSS a la vostra pàgina web; podeu eliminar-les convertint-les en comentaris, guardar el CSS i tornar a carregar l'HTML.</p>
+
+<pre><code>selector{
+	propietat1:valor;
+	/*
+	propietat2:valor;
+	propietat3:valor;
+	*/
+}</code></pre>
+
+<p>A diferència d'altres llenguatges, el CSS només té comentaris de bloc; els comentaris de línia no existeixen. Evidentment, si ho voleu, podeu restringir el comentari a una única línia, però haureu de seguir-hi incloent els delimitadors d'obertura i de tancament de comentari (/* i */).</p>
+
+<h3 id="groupingselectors">27.2.2. Agrupar selectors</h3>
+
+<p>També podeu agrupar diferents selectors. Posem per cas que voleu aplicar el mateix estil a <code>h1</code> i <code>p</code>; podríeu escriure el següent CSS:</p>
+
+<pre><code>h1 {color:red}
+p {color:red}</code></pre>
+
+<p>Aquesta, però, no és la manera ideal de fer les coses, ja que repetiu informació que és la mateixa. Per tant, podeu escurçar el CSS agrupant els selectors amb una coma; les regles entre claus s'apliquen als dos selectors:</p>
+<pre><code>h1, p {color:red}</code></pre>
+
+<p>Hi ha diferents selectors, cadascun dels quals es correspon amb una part diferent de l'etiquetatge. Els tres més bàsics que trobareu més sovint són els següents:</p>
+
+<ul>
+<li><p>p {}: selector d'elements. Es correspon amb tots els elements d'aquest nom de la pàgina (en el cas anterior, elements p).</p></li>
+
+<li><p><code>.example{}</code>: selector de classe. Es correspon amb tots els elements que tenen l'atribut class amb el valor especificat; per tant, el selector anterior es correspondria amb <code>&lt;p class="example"&gt;</code>, <code>&lt;li class="example"&gt;</code> o <code>&lt;div class="example"&gt;</code>, o amb qualsevol altre element amb class definit com a <code>example</code>. Tingueu en compte que els selectors de classe no comproven cap nom d'element concret.</p></li>
+
+<li><p><code>#example{}</code>: selector d'<code>id</code>. Es correspon amb tots els elements que tenen un atribut id amb el valor especificat; així, doncs, el selector anterior es correspondria amb <code>&lt;p id="example"&gt;</code>, <code>&lt;li id="example"&gt;</code> o &lt;div id="example"&gt;, o amb qualsevol altre element amb <code>id</code> definit com a <code>example</code>. Tingueu en compte que els selectors d'ID no comproven cap nom d'element i que podeu tenir només un ID de cada per document HTML, ja que són únics per a cada pàgina.</p></li>
+</ul>
+
+<p>En els següents exemples podeu veure els selectors anteriors en acció. Observeu que quan obriu l'exemple en un navegador, l'estil <code>warning</code> s'aplica tant al punt de la llista com al paràgraf (si desapareix el pic és perquè definiu un color de text blanc sobre un fons blanc).</p>
+
+<ul>
+<li><p>"<a href="http://dev.opera.com/articles/view/27-css-basics/example-selectors.html" hreflang="en">Selectors example</a>"</p></li>
+                                  
+<li><p> "<a href="http://dev.opera.com/articles/view/27-css-basics/selectors.css" hreflang="en">Selectors.css</a>"</p></li>
+</ul>
+
+<p>També podeu unir diversos selectors per definir unes regles encara més específiques:</p>
+
+<ul>
+<li><p><code>p.warning{}</code>. Es correspon amb tots els paràgrafs amb el valor <code>warning</code> de <code>class</code>.</p></li>
+
+<li><p><code>div#example{}</code>. Es correspon amb l'element amb <code>example</code> com a atribut <code>id</code>, però només quan és un <code>div</code>.</p></li>
+
+<li><p><code>p.info</code>, <code>li.highlight{}</code>. Es correspon amb el valor <code>info</code> de <code>class</code> i amb els punts de llista amb el valor <code>highlight</code> de <code>class</code>.</p>
+
+<p>En el següent exemple utilitzo selectors específics per diferenciar els diferents estils d'advertències.</p></li>
+
+<li><p>"<a href="http://dev.opera.com/articles/view/27-css-basics/example-specificselectors.html" hreflang="en">Specificselectors example</a>"</p></li>
+               
+<li><p>"<a href="http://dev.opera.com/articles/view/27-css-basics/specificselectors.css" hreflang="en">Specificselectors.css</a>"</p></li>
+</ul>
+
+<h2 id="advancedselectors">27.3. Selectors avançats de CSS</h2>
+
+<p>Al subapartat anterior he explicat els selectors més bàsics del CSS, que són els selectors d'element, <code>classe</code> i <code>id</code>. Amb aquests selectors es poden fer moltes coses, però això no ho és tot; hi ha altres selectors que permeten seleccionar elements per aplicar-los en funció de criteris més específics:</p>
+
+<ul>
+<li><p>Selectors universals: els selectors universals es poden fer servir per seleccionar tots els elements de la pàgina.</p></li>
+
+<li><p>Selectors d'atributs: tal com indica el seu nom, els selectors d'atributs permeten seleccionar elements en funció dels seus atributs.</p></li>
+
+<li><p>Selectors de fills: si voleu seleccionar elements concrets que són fills d'altres elements concrets, utilitzeu aquest selector.</p></li>
+
+<li><p>Selectors de descendents: si voleu seleccionar elements concrets que són descendents d'altres elements concrets (no només fills directes, sinó també més avall de l'arbre), podeu utilitzar aquest tipus de selector.</p></li>
+
+<li><p>Selectors de germans adjacents: si voleu seleccionar només elements concrets que segueixen altres elements concrets, utilitzeu aquests selectors.</p></li>
+
+<li><p>Pseudoclasses: permeten aplicar estils a elements, no en funció de què són els elements, sinó en funció de factors més estranys com per exemple l'estat dels enllaços (per exemple, si s'hi és al damunt o si ja s'han visitat).</p></li>
+
+<li><p>Pseudoelements: permeten aplicar estils a parts concretes dels elements i no a tot l'element (per exemple, la primera lletra d'aquest element); també us permeten inserir contingut abans o després d'elements concrets.</p></li>
+</ul>
+
+<div class="note">
+<h3>Nota</h3>                  
+<p>A mesura que aneu progressant per aquest curs trobareu referències a alguns d'aquests selectors més complicats. Si no els enteneu a la primera no cal que us preocupeu; ja els anireu dominant a mesura que guanyeu experiència en els estils de les pàgines web. El millor és començar amb els tres selectors bàsics mencionats al subapartat anterior i anar utilitzant els altres una vegada us aneu sentint més segurs.</p>
+</div>
+
+<h3 id="universal">27.3.1. Selectors universals</h3>
+
+<p>Per dir-ho ràpidament, els selectors universals seleccionen tots els elements d'una pàgina per aplicar-hi estils. Per exemple, la regla següent diu que tots els elements de la pàgina han de tenir una vora sòlida de color negre d'1 píxel:</p>
+
+<pre><code>* {
+	border: 1px solid #000000;
+}</code></pre>
+
+<h3 id="attribute">27.3.2. Selectors d'atributs</h3>
+
+<p>Els selectors d'atributs permeten seleccionar elements en funció dels atributs que contenen. Per exemple, amb el selector següent podeu seleccionar tots els elements
+<code>img</code> amb un atribut <code>alt</code>:</p>
+
+<pre><code>img[alt]{
+	border: 1px solid #000000;
+}</code></pre>   
+
+<p>Tingueu en compte els claudàtors.</p>
+
+<p>Amb el selector anterior potser podríeu definir una vora negra al voltant de totes les imatges amb un atribut alt i una vora vermella al voltant de totes les altres imatges, una cosa molt útil per a les proves d'accessibilitat.</p>
+<p>Però els atributs us poden ser molt més útils si teniu en compte que podeu fer seleccions a partir del valor dels atributs, i no només a partir dels seus noms. La regla següent s'aplica a totes les imatges que tenen un atribut <code>src</code> amb el valor <code>alert.gif</code>:</p>
+
+<pre><code>img[src="alert.gif"]{
+	border: 1px solid #000000;
+}</code></pre>
+
+<p>Potser penseu que no és gaire útil, però pot ser-ho molt per a la depuració. I encara molt més útil és la possibilitat de seleccionar parts concretes d'atributs, com per exemple extensions d'arxius. I això ja està arribant: el CSS 3 introdueix tres tipus nous de selectors d'atributs que poden fer seleccions en funció de les cadenes de text dels valors dels atributs (al principi, al final o a qualsevol punt del valor). Llegiu l'apartat de Christopher Schmitt sobre els <a href="http://dev.opera.com/articles/view/css-3-attribute-selectors/" hreflang="en">selectors d'atributs del CSS 3</a>.</p>
+
+<h3 id="child">27.3.3. Selectors de fills</h3>
+
+<p>Si voleu seleccionar elements concrets que són fills d'altres elements concrets podeu utilitzar aquest selector. Per exemple, la regla següent posarà de color blau el text dels elements <code>strong</code> que són fills d'elements <code>h3</code>, però cap dels altres elements <code>strong</code>: </p>
+
+<pre><code>h3 &gt; strong {
+	color: blue;
+}</code></pre>
+
+<div class="note">
+<h3>Nota</h3>    
+<p>L'IE 6 i les versions anteriors no accepten els selectors de fills.</p>
+</div>
+
+<h3 id="descendent">27.3.4. Selectors de descendents</h3>
+
+<p>Els selectors de descendents són molt similars als selectors de fills, excepte que aquests últims seleccionen només els descendentsdirectes; els selectors de descendents seleccionen els elements pertinents en qualsevol punt de la jerarquia de l'element, i no només els descendents directes. Fixem-nos bé en què vol dir això. Posem per cas el següent fragment d'HTML:</p>
+
+<pre><code>&lt;div&gt;
+	&lt;em&gt;hello&lt;/em&gt;
+	&lt;p&gt;In this paragraph I will say
+		&lt;em&gt;goodbye&lt;/em&gt;.
+	&lt;/p&gt;
+&lt;/div&gt;</code></pre> 
+
+<p>En aquest fragment, l'element <code>div</code> és el pare de tots els altres. Té dos fills, un <code>em</code> i un <code>p</code>. L'element <code>p</code> té un únic element fill, que és un altre <code>em</code>.</p>
+
+<p>Podeu utilitzar un selector de fills per seleccionar només l'element <code>em</code> que hi ha immediatament dintre de <code>div</code>, de la següent manera:</p>
+
+<pre><code>div &gt; em {
+	...
+}</code></pre>
+
+<p>Si utilitzeu un selector de descendents de la següent manera:</p>
+
+<pre><code>div em {
+	...
+}</code></pre>
+
+<p>Llavors se seleccionaran els dos elements <code>em</code>.</p>
+
+<h3 id="adjacent">27.3.5. Selectors de germans adjacents</h3>
+
+<p>Aquests selectors permeten seleccionar un element concret que apareix directament després d'un altre element concret al mateix nivell de la jerarquia de l'element. Per exemple, si volguéssiu seleccionar tots els elements <code>p</code> que apareixen immediatament després dels elements <code>h2</code>, però no els altres elements p, podríeu utilitzar la següent regla:</p>
+
+<pre><code>h2 + p {
+	...
+}</code></pre>  
+
+<div class="note">
+<h3>Nota</h3>    
+<p>L'IE 6 i les versions anteriors no accepten els selectors de germans adjacents.</p>
+</div>
+
+<h3 id="pseudoclasses">27.3.6. Pseudoclasses</h3>
+
+<p>Les pseudoclasses s'utilitzen per definir estils no per als elements sinó per a diversos estats dels elements. L'ús més habitual que en fareu és per aplicar estils als estats dels enllaços; per tant, són els que veurem en primer lloc. La llista següent especifica les diferents pseudoclasses i descriu l'estat de l'enllaç que seleccionen:</p>
+
+<ul>
+<li><p><code>:link</code>: l'estat normal per defecte dels enllaços, tal com es troben quan es veuen per primera vegada.</p></li>
+
+<li><p><code>:visited</code>: enllaços que ja heu visitat en el navegador que esteu utilitzant.</p></li>
+
+<li><p><code>:focus</code>: enllaços (o camps de formularis, o qualsevol altra cosa) que tenen en aquest moment el cursor del teclat en el seu interior.</p></li>
+
+<li><p><code>:hover</code>: enllaços que tenen en aquest moment el punter del ratolí sobre ells.</p></li>
+
+<li><p><code>:active</code>: un enllaç que cliqueu.</p></li>
+</ul>
+
+<p>Les regles següents del CSS defineixen que, per defecte, els enllaços siguin de color blau (el valor per defecte a la majoria dels navegadors). En posar-vos-hi a sobre desapareix el subratllat de l'enllaç. També volem aconseguir aquest mateix efecte quan se selecciona l'enllaç amb el teclat, per la qual cosa dupliquem la regla <code>:hover</code> amb <code>:focus</code> . Una vegada ja s'ha visitat un enllaç, aquest queda de color gris. Per últim, quan un vincle està actiu apareix en negreta per donar una pista addicional que passarà alguna cosa.</p>
+
+<pre><code>a:link{
+	color: blue;
+}
+a:visited{
+	color: gray;
+}
+a:hover a:focus{
+	text-decoration: none;
+}
+a:active{
+	font-weight: bold;
+}</code></pre>  
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Vigileu si no definiu aquestes regles en l'ordre en què apareixen a l'exemple anterior, ja que d'altra forma podria ser que no funcionessin de la manera esperada. Això és per la manera en què l'especificitat fa que les regles posteriors del full d'estils anul·lin les regles anteriors. En el següent apartat aprendrem <a href="../ud2/index.html" hreflang="cat">més detalls sobre l'especificitat</a>.</p>
+</div>
+
+<p>La pseudoclasse <code>:focus</code> també és útil com a contribució a la usabilitat en els formularis. Per exemple, podeu destacar el camp d'introducció de dades que té el cursor intermitent actiu en el seu interior amb una regla com la següent:</p>
+
+<pre><code>input:focus {
+	border: 2px solid black;
+	background color:  lightgray;
+}</code></pre>  
+
+<p>A continuació explicaré <code>:first-child</code>. Aquesta pseudoclasse selecciona qualsevol aparició de l'element que és el primer element fill del seu pare; així que, per exemple, la regla següent selecciona el primer punt (amb pic o numerat) de qualsevol llista i posa el text en negreta:</p>
+
+<pre><code>li:first-child {
+	font-weight: bold;
+}</code></pre>  
+
+<p>Finalment, comentaré breument la pseudoclasse <code>:lang</code>, que selecciona elements que tenen un idioma concret definit amb l'atribut <code>lang</code>. Per exemple, l'element següent:</p>
+
+<pre><code>&lt;p lang="en-US"&gt;A paragraph of American text, gee whiz!&lt;p&gt;</code></pre>
+  
+<p>Es podria seleccionar de la manera següent:</p>
+
+<pre><code>p:lang(en-US) {
+	...
+}</code></pre>   
+
+<h3 id="pseudoelements">27.3.7. Pseudoelements</h3>
+
+<p>Els pseudoelements tenen dues finalitats. En primer lloc, els podeu fer servir per seleccionar la primera lletra o la primera línia del text de l'interior d'un element concret. Per crear una caplletra al principi de cada paràgraf del document podeu utilitzar la regla següent:</p>
+
+<pre><code>p:first-letter {
+	font-weight:  bold;
+	font-size: 300%
+	background-color:  red;
+}</code></pre>   
+
+<p>La primera lletra de cada paràgraf apareixerà en negreta, un 300% més gran que la resta del paràgraf i amb un fons vermell.</p>
+
+<p>Per fer que la primera línia de cada paràgraf aparegui en negreta podeu utilitzar la regla següent:</p>
+
+<pre><code>p:first-line {
+	font-weight:  bold; 
+}</code></pre>      
+
+<p>El segon ús dels pseudoelements és generar contingut a través del CSS, cosa que és més complicada. Podeu utilitzar els pseudoelements <code>:before</code> o <code>:after</code> per especificar que el contingut s'ha d'inserir abans o després de l'element que seleccioneu. Llavors podeu especificar què és el que voleu inserir-hi. Com a exemple molt senzill, podeu utilitzar la regla següent per inserir una imatge decorativa després de cadascun dels enllaços de la pàgina:</p>
+
+<pre><code>a:after{
+	content: " " url(flower.gif);
+}</code></pre>   
+
+<p>També podeu utilitzar la funció <code>attr()</code> per inserir els valors dels atributs dels elements després de l'element. Per exemple, amb la regla següent podeu inserir el destí de cadascun dels enllaços del document entre parèntesis després de l'enllaç:</p>
+
+<pre><code>a:after{
+	content: "(" attr(href) ")";
+}</code></pre>
+
+<p>Les regles d'aquesta mena són ideals per a fulls d'estils d'impressió, que són fulls d'estils que podeu escriure i que s'apliquen automàticament quan un usuari imprimeix una pàgina. L'avantatge per a l'usuari és que podeu ocultar tota la navegació que un usuari no podrà seguir en una còpia impresa i utilitzar la tècnica anterior perquè el lector pugui veure les URL a què es fa referència en una pàgina.</p>
+
+<p>També podeu inserir valors numèrics incrementats després dels elements que es repeteixen (com per exemple pics o paràgrafs) amb la funció counter(); això s'explica amb molt més detall a l'<a href="http://dev.opera.com/articles/view/automatic-numbering-with-css-counters/" hreflang="en">apartat de dev.opera.com sobre els comptadors del CSS</a>.</p>
+
+               
+<div class="note"> 
+<h3>Nota</h3> 
+<p>L'IE 6 i les versions anteriors no accepten aquests selectors. També cal tenir en compte que no heu de donar informació important amb el CSS, ja que el contingut no estarà disponible per a les tecnologies d'assistència o si un usuari decideix no utilitzar el vostre full d'estils. La norma bàsica és que el CSS és per als estils i l'HTML és per al contingut important. </p>
+</div>
+
+<h2 id="shorthand">27.4. CSS abreujat</h2>
+
+<p>Una altra cosa amb què us trobareu normalment en aquest curs és el CSS abreujat. És possible combinar diverses propietats del CSS relacionades en una única propietat per estalviar-vos temps i esforç. En aquest apartat veurem els tipus de propietats abreujades disponibles.</p>
+
+<div class="note">
+<h3>Nota</h3>                
+<p>En aquest subapartat ja he utilitzat el CSS abreujat sense dir-ho. La regla <code>border: 2px solid black;</code> és la regla abreujada per especificar per separat <code>border-width: 2px;</code>, <code>border-style: solid;</code> i <code>border-color: black;</code>.</p>
+</div>
+
+<h3 id="comparingvalues">27.4.1. Comparar valors individuals i abreujats</h3>
+
+<p>Observeu la regla següent per al marge (les regles abreujades per a separació i vora funcionen de la mateixa manera):</p>
+
+<pre><code>div.foo {
+	margin-top: 1em;
+	margin-right:  1.5em;
+	margin-bottom:  2em;
+	margin-left:  2.5em;
+}</code></pre>    
+
+<p>Aquesta regla també es podria escriure:</p>
+
+<pre><code>div.foo {
+	margin: 1em 1.5em 2em 2.5em;
+}</code></pre> 
+
+<h3 id="lessthanfourvalues">27.4.2. Donar menys de quatre valors per a una propietat abreujada</h3>
+
+<ol>
+<li><p>Un valor abreujat pot incloure menys de quatre valors, que s'aplicaran segons s'especifica a continuació. Els resultats s'ordenen segons el nombre de valors especificats:</p></li>
+<li><p>El mateix valor s'aplica als quatre costats, per exemple margin: <code>2px;</code></p></li>
+<li><p>El primer valor s'aplica als marges superior i inferior, i el segon als marges esquerre i dret, per exemple <code>margin: 2px 5px;</code>.</p></li>
+<li><p>Els valors primer i tercer s'apliquen als marges superior i inferior respectivament, i el segon als marges esquerre i dret, per exemple margin: 2px 5px 1px;.</p></li>
+<li><p>Els valors s'apliquen als marges superior, dret, inferior i esquerre respectivament en l'ordre en què apareixen en el CSS, tal com hem vist abans.</p></li>
+</ol>
+
+<p>En general, la manera més intel·ligent de fer és especificar els quatre valors en les propietats abreujades, per qüestions de llegibilitat. Aquest consell també serveix per a la propietat abreujada <code>padding</code>.</p>	
+
+<h3 id="singlepropertyorshorthandvalue">27.4.3. Escollir entre utilitzar una propietat única o un valor abreujat</h3>
+
+<p>Les propietats margin i padding abreujades són les que s'utilitzen més, tot i que hi ha situacions en què és millor no fer servir les propietats abreujades, o com a mínim fer-les servir amb molta cura, com per exemple les següents:</p>
+
+<ul>
+<li><p><strong>Només s'ha de definir un únic marge.</strong> En una situació en la qual només s'ha de definir una propietat, el fet de definir alhora múltiples propietats representa normalment una violació del principi KISS (<span lang="en">Keep It Simple, Stupid</span> o "No ho compliquis, estúpid").</p></li>
+
+<li><p><strong>El selector al qual s'apliquen les propietats està subjecte a molts casos diferents.</strong> Quan això passi, i tard o d'hora acabarà passant, l'inevitable piló de valors abreujats farà que tot plegat sigui difícil d'entendre quan hàgiu de reparar o modificar la composició.</p></li>
+
+<li><p><strong>El manteniment del full d'estils que esteu escrivint anirà a càrrec de persones amb un nivell d'habilitats (o de capacitat de raonament espacial) deficient.</strong> Si compteu que llegiran aquest apartat, llavors no cal que us preocupeu, però potser és millor no suposar segons quines coses...</p></li>
+
+<li><p><strong>Heu de canviar un valor per a un cas concret.</strong> Això és normalment conseqüència d'un document o d'un full d'estils mal dissenyat, però tampoc és una situació excepcional.</p></li>
+</ul>
+
+<h3 id="shorthandreference">27.4.4. Referència abreujada</h3>
+
+<ol>
+<li><p>Definició abreujada de vores per a diferents propietats: Ja s'han explicat al principi d'aquest subapartat. Una qüestió addicional que cal mencionar és que fins i tot podeu definir els valors de les propietats de la vora només per a una única vora de l'element al qual s'aplica, de la següent manera:</p>
+
+<pre><code>	border-left-width: 2px;
+	border-left-style: solid;
+	border-left-color: black;</code></pre></li>
+
+<li><p>Definició abreujada de marge, farcit i vora per a les mateixes propietats: Totes actuen de la mateixa manera.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3> 
+<p>Vegeu la definició abreujada de marge, farcit i vora per a les mateixes propietats en el subapartat  30.4.1 d'aquest mòdul.</p>
+</div></li>
+
+<li><p>Definició abreujada de tipus de lletra: Podeu especificar la mida del tipus de lletra, el pes, l'estil, la família i l'interlineat fent servir una definició abreujada d'una única línia. Posem per cas el CSS següent:</p>
+
+<pre><code>font-size: 1.5em;
+line-height: 200%;
+font-weight: bold;
+font-style: italic;
+font-family: Georgia, "Times New Roman", serif;</code></pre>
+
+<p>Podríeu especificar exactament el mateix amb la línia següent:</p>
+
+<pre><code>font: 1.5em/200% bold italic Georgia,"Times New Roman",serif;</code></pre></li>
+
+<li><p>Definició abreujada de fons: podeu especificar el color de fons, la imatge de fons, la repetició de la imatge i la posició de la imatge amb una única línia del CSS. Imaginem-nos el següent:</p>
+
+<pre><code>background-color: #000;
+background-image: url(image.gif);
+background-repeat: no-repeat;
+background-position: top left;</code></pre>
+
+<p>Tot això mateix es podria representar amb la següent definició abreujada:</p>
+
+<pre><code>background: #000 url(image.gif) no-repeat top left;</code></pre></li>
+
+<li><p>Definició abreujada de llista:  Aquí també trobem un codi similar amb propietats d'una llista que permet definir els valors per al tipus de pic, la posició i la imatge en una única línia. Imaginem-nos el següent CSS:</p>
+
+<pre><code>list-style-type: circle;
+list-style-position: inside;
+list-style-image: url(bullet.gif);</code></pre>
+
+<p>Això és equivalent a:</p>
+
+<pre><code>list-style: circle inside url(bullet.gif);</code></pr

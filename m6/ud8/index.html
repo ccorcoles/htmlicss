@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Disseny, composició i presentació de formularis amb CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Disseny, composició i presentació de formularis amb CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud7/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud9/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+<h1>34. Disseny, composició i presentació de formularis amb CSS</h1>
+<p class="by"><a href="../../index.html#henick">Ben Henick</a>. 26 de setembre del 2008 Publicat a: alineació, seleccionar, terços, composició, quadrícules.</p>
+    
+<p>L'apartat dels formularis HTML us va presentar els conceptes bàsics de creació de formularis i estils. Aquest apartat continua on va acabar l'altre, ofereix més detalls sobre els elements i estils de formulari i sobre com s'inclouen els formularis en els dissenys d'aplicació web del món real.</p>
+
+<div class="note">
+<h3>Nota</h3>
+<p>Podeu descarregar-vos el fitxer de codi d'exemple complet "styling_forms_code.zip" perquè pugueu jugar-hi en el vostre ordinador. A més, en diversos punts de l'apartat s'ofereixen enllaços als fitxers d'exemple.</p>
+
+<p class="font"><strong>Descarregeu el fitxer de codi d'exemple complet a:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/styling_forms_code.zip" hreflang="en">Styling forms code examples</a>"</p>
+</div>        
+
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>34.1. <a href="#newconcepts" accesskey="1">Conceptes nous que presenta aquest apartat</a>
+<ul class="index">   
+<li>34.1.1. <a href="#ruletokenoverloading">Sobrecàrrega de regles i etiquetes</a></li>
+<li>34.1.2. <a href="#newformelements">Elements de camp de formulari nous</a></li>
+<li>34.1.3. <a href="#formdesignprinciples">Principis del disseny de formularis</a></li>
+<li>34.1.4. <a href="#ruleofthirds">La regla dels terços</a></li>
+<li>34.1.5. <a href="#grids">Quadrícules</a></li>
+<li>34.1.6. <a href="#platformsupport">Capes de suport de plataforma</a></li>
+</ul></li>          
+<li>34.2. <a href="#simpleform" accesskey="2">Un formulari de contacte senzill</a>
+<ul class="index">
+<li>34.2.1. <a href="#markup">Etiquetatge</a></li>
+<li>34.2.2. <a href="#changesfrompreviousform">Canvis pel que fa al formulari anterior</a></li>
+<li>34.2.3. <a href="#shortcomings">Defectes aparents</a></li>
+<li>34.2.4. <a href="#newformfields">Camps de formulari nous? Què és això?</a>
+<ul class="index">
+<li><a href="#checkbox">Escollir descripcions: <code>input type="checkbox"</code></a></li>
+<li><a href="#radio">Escollir un de dos possibles estats mútuament excloents: <code>input type="radio"</code></a></li>
+<li><a href="#select">Quan hi ha massa opcions per escollir: <code>select/option</code></a></li>
+<li><a href="#select2">Agrupar sèries de controls: <code>fieldset</code></a></li>
+</ul></li>
+</ul></li>
+<li>34.3. <a href="#walkthrough" accesskey="3">De zero fins a un formulari complet</a>
+<ul class="index">
+<li>34.3.1. <a href="#demo1">Demostració 1</a></li>
+<li>34.3.2. <a href="#demo1background">Demostració 1: consideracions prèvies</a></li>
+<li>34.3.3. <a href="#demo2">Demostració 2</a></li>
+<li>34.3.4. <a href="#demo2background">Demostració 2: consideracions prèvies</a></li>
+<li>34.3.5. <a href="#demo3">Demostració 3</a></li>
+<li>34.3.6. <a href="#demo3background">Demostració 3: consideracions prèvies</a></li>
+<li>34.3.7. <a href="#creatingagrid">Crear una quadrícula</a>
+<ul class="index">
+<li><a href="#gridframeworkwithincomposite">Crear l'estructura d'una quadrícula en un compost</a></li>
+<li><a href="#enforcingthegrid">Aplicar la quadrícula al full d'estil</a></li>
+</ul></li>
+<li>34.3.8. <a href="#demo4">Demostració 4</a></li>
+<li>34.3.9. <a href="#demo4background">Demostració 4: consideracions prèvies</a></li>
+<li>34.3.10. <a href="#ruleofthirdsexplanation">La regla dels terços</a></li>
+<li>34.3.11. <a href="#demo5">Demostració 5</a></li>
+<li>34.3.12. <a href="#demo5background">Demostració 5: consideracions prèvies</a></li>
+<li>34.3.13. <a href="#demo6">Demostració 6</a></li>
+<li>34.3.14. <a href="#demo6background">Demostració 6: consideracions prèvies</a></li>
+<li>34.3.15. <a href="#demo7">Demostració 7</a></li>
+<li>34.3.16. <a href="#demo7background">Demostració 7: consideracions prèvies</a></li>
+<li>34.3.17. <a href="#demo8">Demostració 8</a></li>
+<li>34.3.18. <a href="#demo8background">Demostració 8: consideracions prèvies</a></li>
+<li>34.3.19. <a href="#demo9">Demostració 9</a></li>
+<li>34.3.20. <a href="#demo9background">Demostració 9: consideracions prèvies</a></li>
+<li>34.3.21. <a href="#demo10">Demostració 10</a></li>
+<li>34.3.22. <a href="#demo10background">Demostració 10: consideracions prèvies</a></li>
+<li>34.3.23. <a href="#demo11">Demostració 11</a></li>
+<li>34.3.24. <a href="#demo11background">Demostració 11: consideracions prèvies</a></li>
+<li>34.3.25. <a href="#demo12">Demostració 12</a></li>
+<li>34.3.26. <a href="#demo12background">Demostració 12: consideracions prèvies</a></li>
+</ul></li>  
+<li>34.4. <a href="#establishingplatformsupporttiers" accesskey="4">Establir capes de suport de plataforma</a></li>
+<li>34.5. <a href="#complexformlayouts" accesskey="5">Composicions de formulari complexes en la pràctica (... en lloc d'<em>en teoria</em>)</a></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+<li class="especial"><a href="#bibliography">Lectures complementàries</a></li>
+
+</ul>
+
+
+<h2 id="newconcepts">34.1. Conceptes nous que presenta aquest apartat</h2>
+
+<p>En aquest apartat trobareu informació sobre la implementació de formularis i la composició d'interfícies.</p>
+
+<h3 id="ruletokenoverloading">34.1.1. Sobrecàrrega de regles i etiquetes</h3>
+
+<p>Es pot dir que fer servir moltes etiquetes <code>class</code> i <code>id</code> incompleix el principi KISS. Tanmateix, les composicions exigents sovint provoquen conflictes de cascada, conflictes que es poden resoldre molt fàcilment afegint etiquetes i redactant regles de full d'estil que continguin diversos selectors.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>El principi KISS s'explica a l'apartat 30 d'aquest mòdul.</p>
+</div>
+
+<p>Les composicions més exigents estan plenes de casos límit, els quals és millor solucionar assignant un <code>id</code> als elements que defineixen un context molt concret i especial.</p>
+
+
+<h3 id="newformelements">34.1.2. Elements de camp de formulari nous</h3>
+
+<p>Un formulari efectiu sovint ha de ser quelcom més que un conjunt de botons i camps d'introducció de text, perquè és habitual estructurar les respostes de l'usuari en termes d'opcions. L'HTML proporciona diverses opcions per als dissenyadors que es trobin amb aquest requisit.</p>
+
+<h3 id="formdesignprinciples">34.1.3. Principis del disseny de formularis</h3>
+
+<p>Els formularis d'un lloc web són normalment punts centrals per a la interacció amb l'usuari i l'obtenció de dades. Per tant, acostumen a ser fonamentals per a l'èxit d'un web, la qual cosa exigeix dissenyar-los amb tota la cura possible.</p>
+
+
+<h3 id="ruleofthirds">34.1.4. La regla dels terços</h3>
+
+<p>Els usuaris acostumen a centrar la seva atenció en quatre punts d'un llenç (i en les línies que el travessen). Aquest apartat presenta aquest fenomen al lector i ofereix suggeriments per aprofitar-lo al màxim amb el CSS.</p>
+
+
+<h3 id="grids">34.1.5. Quadrícules</h3>
+
+<p>En apartats anteriors ja s'ha explicat com garantir unes tipografies consistents i treure el màxim profit de l'espai en blanc. Aquest apartat va una mica més enllà i explica com es poden fer servir les unitats em per aplicar un grau de consistència a la composició, que seria impossible sense CSS.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Podeu veure com garantir unes tipografies consistents a l'apartat 29 d'aquest mòdul i com treure el màxim profit de l'espai en blanc a l'apartat 10 del mòdul "Conceptes de disseny web".</p>
+</div>       
+
+<h3 id="platformsupport">34.1.6. Capes de suport de plataforma</h3>
+
+<p>Un requisit habitual dels projectes comercials és la representació gairebé exacta del disseny aprovat del web en un o més navegadors. En aquest apartat es tractarà breument les causes, els efectes i els processos relacionats amb el compliment d'aquest requisit.</p>
+
+<h2 id="simpleform">34.2. Un formulari de contacte senzill</h2>
+
+<p>Els formularis de contacte amb què els visitants d'un web poden enviar un correu electrònic directament a un compte de correu són molt habituals per raons òbvies: són accessibles a qualsevol persona que tingui una adreça activa de correu electrònic i són fàcils de filtrar a una carpeta de correu específica.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Podeu veure els formularis de contacte a l'apartat 20 del mòdul "El text central d'HTML".</p>
+</div>
+
+<p>L'etiquetatge que s'ha utilitzat en un mòdul anterior sobre formularis fa servir un d'aquests formularis, que s'ha decorat molt.</p>
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+<p>Vegeu l'apartat 20 del mòdul "El text central d'HTML".</p>
+</div>
+
+<h3 id="markup">34.2.1. Etiquetatge</h3>
+
+<pre><code>&lt;form id="contactForm" method="post" action="/cgi-bin/service_email_script.php"&gt;
+   &lt;ul&gt;
+      &lt;li id="nameField" class="required"&gt;&lt;label for="realname"&gt;Name:&lt;/label&gt;
+      &lt;input type="text" name="name" value="" class="medium" id="realname" /&gt;
+      &lt;span class="note"&gt;required&lt;/span&gt;&lt;/li&gt;
+      &lt;li id="addressField" class="required"&gt;&lt;label for="address"&gt;Email:&lt;/label&gt;
+      &lt;input type="text" name="email" value="" class="medium" id="address" /&gt;
+      &lt;span class="note"&gt;required&lt;/span&gt;&lt;/li&gt;
+      &lt;li id="subjectField"&gt;&lt;label for="natureOfInquiry"&gt;General subject:&lt;/label&gt;
+         &lt;select name="subject" class="medium" id="natureOfInquiry"&gt;
+            &lt;option value="support"&gt;Support&lt;/option&gt;
+            &lt;option value="billing"&gt;Accounts &amp; billing&lt;/option&gt;
+            &lt;option value="press"&gt;Press&lt;/option&gt;
+            &lt;option value="other_q"&gt;Other questions&lt;/option&gt;
+         &lt;/select&gt;
+      &lt;/li&gt;
+      &lt;li id="acctTypeField"&gt;&lt;label for="acctNone"&gt;Account type:&lt;/label&gt;
+         &lt;fieldset&gt;
+            &lt;label for="acctGold"&gt;Gold&lt;/label&gt;&lt;input type="radio"
+             name="acct_type" id="goldAcct" class="rInput" /&gt;
+         &lt;label for="acctSilver"&gt;Silver&lt;/label&gt;&lt;input type="radio"
+          name="acct_type" id="acctSilver" class="rInput" /&gt;
+         &lt;label for="acctBronze"&gt;Bronze&lt;/label&gt;&lt;input type="radio" 
+         name="acct_type" id="acctBronze" class="rInput" /&gt;
+         &lt;label for="acctNone"&gt;None&lt;/label&gt;&lt;input type="radio" name="acct_type" 
+         id="acctNone" class="rInput" checked="checked" /&gt;
+         &lt;/fieldset&gt;
+         &lt;span class="note"&gt;required&lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li id="availabilityField"&gt;
+         &lt;label for="availability"&gt;My account is unavailable:&lt;/label&gt;
+         &lt;input type="checkbox" name="is_down" id="availability" 
+         class="rInput" /&gt;&lt;/li&gt;
+      &lt;li id="messageField"&gt;&lt;label for="messageBody"&gt;Comments:&lt;/label&gt;
+      &lt;textarea name="comments" cols="32" rows="8" class="long"
+       id="messageBody"&gt;&lt;/textarea&gt;&lt;/li&gt;
+      &lt;li class="submitField"&gt;&lt;input type="submit" value="Send"
+       class="submitButton"  /&gt;&lt;/li&gt;
+   &lt;/ul&gt;
+&lt;/form&gt;</code></pre>
+
+
+<h3 id="changesfrompreviousform">34.2.2. Canvis pel que fa al formulari anterior</h3>
+
+<p>A més d'incloure diversos elements nous, s'han afegit algunes classes i ID a l'etiquetatge als quals es pot fer referència des del full d'estil. D'aquesta manera es pot fer referència a cada formulari, parella de camp/valor i camp de forma individual, sigui quin sigui el context.</p>
+
+<p>Els nous identificadors també fan que sigui més fàcil que el dissenyador pugui distingir els camps que s'han d'omplir obligatòriament dels que no.</p>
+
+<p>Per acabar, hi ha algunes classes noves que ofereixen suggeriments de la quantitat i del tipus d'informació que haurien de mostrar els elements de formulari als quals estan adjuntats. Aquestes classes permeten aplicar detalls de composició a elements arbitraris múltiples de forma simultània.</p>
+
+<h3 id="shortcomings">34.2.3. Defectes aparents</h3>
+
+<p>Com se suposa que el formulari de demostració és el contingut principal, la legend (llegenda) utilitzada en formularis anteriors s'ha substituït per un títol.</p>
+<p>Les llegendes són molt adients en els <code>fieldset</code>s (conjunts de camps) en comptes de les <code>label</code>s o etiquetes (que poden identificar-se amb controls únics). En aquest cas, l'element <code>legend</code> s'ha omès completament perquè és difícil aplicar-hi estils.</p>
+
+<p>Cal destacar també que és millor col·locar les etiquetes "obligatori" sobre els camps als quals els correspongui abans que el camp al codi font, per facilitar les coses als usuaris amb programari de lector de pantalla. No obstant això, la propietat <code>position</code> (de la qual no parlarem en aquest apartat) és necessària per disposar aquests elements de forma adequada. Per tant, les etiquetes "obligatori" s'han col·locat <em>després</em> dels seus controls associats en el codi font (tot i que en el mateix context).</p>
+
+<h3 id="newformfields">34.2.4. Camps de formulari nous? Què és això?</h3>
+
+<p>A l'apartat anterior ja es va parlar dels camps de text i dels controls de tramesa. Tal com ja s'ha mencionat anteriorment, hi ha diversos casos d'ús que requereixen que l'usuari pugui seleccionar una de dues o tres opcions. Aquests elements es descriuen breument tot seguit.</p>
+
+<h3 id="checkbox">Escollir descripcions: <code>input type="checkbox"</code></h3>
+
+<pre><code>...
+&lt;label for="availability"&gt;My account is unavailable:&lt;/label&gt;
+&lt;input type="checkbox" name="is_down" id="availability" class="rInput" /&gt;</code></pre>
+
+<p>Les preguntes de participació o no participació acostumen a gestionar-se amb un d'aquests controls. Un altre cas en què es fan servir és quan cal escollir arbitràriament entre diverses opcions com, per exemple, una llista d'interessos personals.</p>
+
+<h3 id="radio">Escollir un de dos possibles estats mútuament excloents: <code>input type="radio"</code></h3>
+
+<pre><code>
+   &lt;label for="acctNone"&gt;Account type:&lt;/label&gt;
+   &lt;fieldset&gt;
+      &lt;label for="acctGold"&gt;Gold&lt;/label&gt;&lt;input type="radio" 
+       name="acct_type" id="goldAcct" class="rInput" /&gt;
+      &lt;label for="acctSilver"&gt;Silver&lt;/label&gt;&lt;input type="radio"
+       name="acct_type" id="acctSilver" class="rInput" /&gt;
+      &lt;label for="acctBronze"&gt;Bronze&lt;/label&gt;&lt;input type="radio"
+       name="acct_type" id="acctBronze" class="rInput" /&gt;
+      &lt;label for="acctNone"&gt;None&lt;/label&gt;&lt;input type="radio" 
+       name="acct_type" id="acctNone" class="rInput" checked="checked" /&gt;
+   &lt;/fieldset&gt;
+</code></pre>
+
+<p>Un grup d'aquests permet presentar diverses opcions l'una al costat de l'altra i de les quals només se'n pot escollir una. Un bon exemple de cas d'ús d'un conjunt de controls de <code>radio</code> (tria d'un element entre diversos) és l'assignació d'una nota en una escala d'1 a 5 o d'1 a 10.</p>
+
+<p>Al contrari que altres controls de formulari, els controls de <code>radio</code> no només permeten sinó que, de fet, requereixen que els controls associats tinguin el mateix name (nom).</p>
+
+<p>Aquests elements prenen el seu nom d'una interfície habitual en els aparells de ràdio de cotxe sintonitzats mecànicament. Al contrari que els canals programables típics dels aparells de sintonització digital, els botons mecànics de memòria, quan es premen acostumen a centrar el receptor en una gama de freqüències de la banda que s'està sintonitzant.</p>
+
+<p>Els controls de <code>checkbox</code> (casella de selecció) i <code>radio</code> permeten un atribut checked (comprovat) que, si s'aplica, activa el control per defecte la primera vegada que es representa.</p>
+
+<p>Abans de respondre a la pregunta de si fer servir controls de <code>radio</code> en lloc de controls de <code>checkbox</code> cal tenir en compte diversos factors. Si voleu que l'usuari confirmi una decisió subjectiva (com per exemple ser membre d'una llista de correu), probablement seran millors els controls <code>checkbox</code>. Si us estimeu més que l'usuari esculli entre dues opcions objectives (com, posem per cas, el gènere), és millor fer servir els controls de <code>radio</code>.</p>
+
+
+<h3 id="select">Quan hi ha massa opcions per escollir: <code>select/option</code></h3>
+
+<pre><code>...
+&lt;label for="natureOfInquiry"&gt;General subject:&lt;/label&gt;
+   &lt;select name="subject" class="medium" id="natureOfInquiry"&gt;
+      &lt;option value="support"&gt;Support&lt;/option&gt;
+      &lt;option value="billing"&gt;Accounts &amp; billing&lt;/option&gt;
+      &lt;option value="press"&gt;Press&lt;/option&gt;
+      &lt;option value="other_q"&gt;Other questions&lt;/option&gt;
+   &lt;/select&gt;</code></pre>
+
+<p>Els elements <code>select</code> i <code>option</code> ofereixen resultats semblants als proporcionats per una sèrie de controls de <code>radio</code> però ocupen molt menys espai. Escollir un element <code>select</code> en lloc d'una sèrie de controls de <code>radio</code> sol ser una qüestió de com es fa servir l'espai a la interfície d'usuari; una llista llarga de zones geogràfiques o departaments en un web de comerç electrònic acostuma a ser més adient per a elements <code>select</code>, mentre que una sèrie més curta d'opcions (com ara sí/no, veritat/mentida, gamma d'edat, gamma d'ingressos) hauria d'establir-se com una sèrie de controls de <code>radio</code>.</p>
+
+<p>Si posem a prova de manera meticulosa la nostra creació comprovarem que el nivell de control motriu necessari per manipular una llista <code>select</code> és elevat, però augmenta lleugerament en proporció amb el nombre de <code>option</code>s que inclou. El resultat pràctic és que a les llistes curtes d'opcions mútuament excloents és millor aplicar-hi un format com una sèrie de controls <code>radio</code> amb <code>label</code>s ben escrites.</p>
+
+<h3 id="select2">Agrupar sèries de controls: <code>fieldset</code></h3>
+
+<p>La funció principal de l'element <code>fieldset</code> és assignar un únic context a una sèrie de controls íntimament relacionats (controls <code>text</code> per a un número de telèfon, elements <code>select</code> per a una data, etc.).</p>
+
+<h2 id="walkthrough">34.3. De zero fins a un formulari complet</h2>
+
+<p>Ara que ja hem presentat breument el material nou d'aquest apartat, ha arribat el moment de veure aquest material en acció: les dotze demostracions que progressen a través de diversos conceptes de disseny i reptes d'aplicar estils que es poden trobar a l'hora de crear formularis web.</p>
+
+<div class="text-clau">
+<p>Es recomana als lectors que guardin el material de demostració al seu disc dur i que facin proves amb les regles de full d'estil.</p>
+</div>
+
+<div class="note">
+<h3>Nota</h3>
+
+<p>Aquestes demostracions avancen per ordre de codi font, en lloc de per l'ordre de creació del full d'estil. Més endavant, en aquest apartat, es parla dels motius i les implicacions d'aquesta divergència.</p>
+</div>
+
+<h3 id="demo1">34.3.1. Demostració 1</h3>
+
+<p>Començant amb una regla com: <code>html { margin: 0; padding: 0; }</code>, el primer pas és configurar el body (text central) de la pàgina.</p>
+
+<pre><code>body{
+   margin: 0;
+   padding: 1.714em;
+   background-image: url(images/bg_grid.gif);
+   font-size: 14px;
+   font-family: Helvetica,Arial,sans-serif;
+   line-height: 1.714em;
+}</code></pre>
+
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form_unstyled.html" hreflang="en">Pàgina sense gaires estils</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form01.html" hreflang="en">Pàgina amb estils >body> aplicats</a>"</p>
+
+<h3 id="demo1background">34.3.2. Demostració 1: consideracions prèvies</h3>
+
+<ul>
+
+<li><p>Quan l'XHTML conté el <code>Content-Type</code> adequat, per a un agent d'usuari que l'accepti com cal, el <code>margin</code> (marge) i/o <code>padding</code> (farcit) de la pàgina per defecte es representen a l'element <code>html</code>.</p></li>         
+
+<li><p>En la resta de casos no descrits en el paràgraf anterior, es col·loca un canal de 10 píxels al voltant del perímetre de la pàgina; Opera ofereix aquest element com a valor de <code>padding</code>, però d'altres navegadors populars ho ofereixen (d'una manera una mica contraintuïtiva) com a valor <code>margin</code>. El full d'estil de demostració normalitza el resultat.</p></li>
+
+<li><p>Tot i que molts puristes de l'accessibilitat s'oposen al valor de mida de lletra de 14 px, és integral de les propietats de caixa i tipografia que s'han especificat en una altra part del full d'estil, bàsicament denominats en setenes parts d'un em. Al final de l'apartat es proporciona una taula de conversió de fraccions a decimals per a aquells que vulguin saber com és l'aritmètica utilitzada.</p></li>
+
+<li><p>S'ha escollit el valor 14 px perquè és la mida més petita de text central que pot llegir gairebé tothom amb la vista corregida.</p></li>
+
+<li><p>Ja que un dels objectius d'aquest apartat és demostrar la feina que cal fer per obtenir una quadrícula extremadament consistent, s'ha aplicat a la pàgina un fons de quadrícula en increments de 24 píxels.</p></li>
+</ul>
+
+<h3 id="demo2">34.3.3. Demostració 2</h3>
+
+<p>Ara que hem parlat dels contenidors de la pàgina, els pròxims dos passos modifiquen o eliminen els estils d'agent d'usuari.</p>
+
+<pre><code>h3 {
+   margin: 0 0 1.2em 0;
+   border-bottom: .05em solid rgb(0,96,192);
+   font-size: 1.429em;
+   line-height: 1.15em;
+}
+form {
+   width: 35.929em;
+   margin: 0;
+}
+ul {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}</code></pre>
+
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form02.html" hreflang="en">Aplicar estil al títol principal i eliminar els canals no desitjats</a>"</p>
+
+<h3 id="demo2background">34.3.4. Demostració 2: consideracions prèvies</h3>
+
+<ul>
+
+<li><p>La progressió de la mida de la lletra dels títols és diferent a cada plataforma; tanmateix, els valors predeterminats sempre són una proporció del valor medium utilitzat per al text de paràgraf sense estil i, per tant, s'hereten a través de la cascada. El resultat del valor proporcionat ha de canviar la proporció predeterminada.</p></li>
+
+<li><p>Es considera òptim utilitzar <code>h1</code> per al primer títol d'una pàgina. En aquest cas aquesta pràctica s'ignora perquè en un entorn de producció comercial, el títol del lloc generalment es troba en un <code>h1</code> de la pàgina i el títol de la pàgina hauria d'estar més baix en la jerarquia d'encapçalaments. En molts casos, la prominència del formulari serà igual a la prominència d'altres continguts o formularis del mateix document.</p></li>
+
+<li><p>L'objectiu de l'aplicació d'estils <code>h3</code> és crear una caixa de contingut de 24 píxels d'alçada amb 24 píxels de canal just a sota, de manera que:</p></li>
+</ul>
+
+<pre><code>(((14 &#215; 1.429) &#215; 1.15) + (20 &#215; .05)) &#8776; 24
+14 * 1.429 &#8776; 20; 20 * 1.15 == 23; 20 * .05 == 1;
+
+(20 &#215; 1.2) = 24</code></pre>
+    
+<ul>
+<li><p>L'assignació d'un valor <code>width</code> (amplada) tant al form (formulari) com als objectes de la llista és necessària si els elements s'han de justificar adequadament sense confiar en el posicionament. El valor utilitzat produeix un valor estàtic de 503 píxels; l'única discrepància de píxels (tenint en compte una unitat de quadrícula atòmica de 24 píxels) és un producte d'errors produïts per l'arrodoniment i l'antialiàsing.</p></li>
+
+<li><p>Els estils predeterminats d'agent d'usuari per a llistes varien d'un navegador a un altre. Internet Explorer dóna a cada element de la llista un marge esquerre de 40 píxels i col·loca el símbol d'entrada de llista al canal creat, mentre que d'altres navegadors apliquen farcit a la part esquerra del bloc de contingut del formulari en general. De la mateixa manera que les propietats de composició modificades a la regla <code>body</code>, aquesta regla està pensada específicament per normalitzar la presentació en tots els navegadors.</p></li>
+</ul>
+
+<h3 id="demo3">34.3.5. Demostració 3</h3>
+
+<p>Passem ara a establir els contenidors dels elements del formulari.</p>
+
+<pre><code>li {
+   clear: both;
+   height: 1.714em;
+   margin: 0;
+}
+fieldset {
+   height: 1.429em;
+   margin: 0 0 -.143em 0;
+   border: 0;
+}</code></pre>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form03.html" hreflang="en">Elements de la llista d'estil (contenidors de la parella d'etiqueta/valor) i del <code>fieldset</code></a>"</p>
+
+
+
+<h3 id="demo3background">34.3.6. Demostració 3: consideracions prèvies</h3>
+
+<ul>
+
+<li><p>Si considerem el formulari com una sèrie de <em>files</em>, veurem que és necessari aplicar estils a l'alçada de cadascun per preservar una quadrícula. Els marges dels elements de la llista s'estableixen a zero de cara a l'Internet Explorer i, per si de cas, de cara a la resta.</p></li>
+
+<li><p>Com que a molts dels elements del formulari se'ls aplicarà valors <code>float</code>, als elements de la llista que inclou se'ls aplica un valor de <code>clear: both</code> per garantir que cadascun quedarà per sota del seu predecessor automàticament.</p></li>
+
+<li><p>A part de l'eliminació del marge (que és part de l'estil per defecte de l'agent d'usuari), les propietats de composició del <code>fieldset</code> semblen haver-se establert de forma arbitrària. De fet, van ser assignades després de les proves en tots els navegadors, de la qual cosa parlaré de nou breument en les notes adjuntes a la "Demostració 11".</p></li>
+
+<li><p>Arribats en aquest punt, no s'han assignat valors <code>display</code> ni <code>float</code>, la qual cosa explica per què el contingut del fieldset xoca amb el següent control <code>select</code>.</p></li>
+</ul>
+
+
+<h3 id="creatingagrid">34.3.7. Crear una quadrícula</h3>
+
+<p>Un dels punts més significatius del bon disseny gràfic (i, de retruc, del bon disseny d'interfícies) és que els elements es disposen a intervals regulars. A aquests intervals, se'ls sol anomenar <strong>quadrícula</strong>.</p>
+
+<p>Tal com ja s'ha mencionat anteriorment, la unitat atòmica de la quadrícula del formulari de demostració són 24 píxels quadrats, però la composició coherent va més enllà de garantir que els elements de disseny es situïn a intervals petits però regulars. Una quadrícula realment efectiva té les característiques següents:</p>
+
+<ul>
+<li><p>Els marges de columna se situen a intervals consistents de la quadrícula en tot el document.</p></li>
+
+<li><p>Les seccions seqüencials d'un mateix document comparteixen els mateixos marges superiors amb els elements de les columnes adjacents.</p></li>
+
+<li><p>Les il·lustracions d'una composició es retallen o es redueixen fins que tenen unes dimensions que respecten les amplades de les dues columnes i els intervals de quadrícula atòmica.</p></li>
+
+<li><p>Fins i tot en els casos en què el contingut cap en una sola columna amb uns quants elements <code>float</code>, tots aquests últims elements tenen els mateixos estàndards de mida i composició.</p></li>
+</ul>
+
+<p>Les composicions que manifesten aquestes característiques són més atractives i fàcils de seguir, la qual cosa contribueix a la usabilitat del lloc.</p>
+
+<h3 id="gridframeworkwithincomposite">Crear l'estructura d'una quadrícula en un compost</h3>
+
+<p>L'eina que fan servir la majoria de professionals per crear compostos de composicions per al web és Adobe Photoshop, i un dels avantatges que té és l'accés fàcil a les línies de quadrícula que ofereix. Per visualitzar una quadrícula atòmica amb el Photoshop, es pot seleccionar <samp>View</samp> (Vista) &#8594; <samp>Show</samp> (Mostrar) &#8594; <samp>Grid</samp> (Quadrícula), amb la qual cosa es mostraran les línies de la quadrícula en els intervals establerts a <samp>Guides &amp; Grid Preferences</samp> (Guies i preferències de quadrícula).</p>
+
+<p>Superposar guies sobre elements com ara columnes s'aconsegueix seleccionant <samp>View</samp> (Vista) &#8594; <samp>Rulers</samp> (Regles), canviant a l'eina <samp>Move</samp> (Moure) i arrossegant el punter des de la regla com faci falta.</p>
+
+<h3 id="enforcingthegrid">Aplicar la quadrícula al full d'estil</h3>
+
+<p>Tal com es comenta a l'apartat dels estils, reforçat per algunes de les regles que s'inclouen al full d'estil de demostració, la millor manera d'aplicar una quadrícula atòmica en una composició és la de confiar en les unitats em. Tanmateix, només amb això no n'hi ha prou; l'especialista en estils també ha de mantenir la correcció de les conversions de fraccions a decimals quan tracta amb altres mides de tipografia, canals i marges.</p>
+
+<p>Al full d'estil de la demostració es pot veure una altra tècnica per aplicar quadrícules: la provisió d'etiquetes <code>class</code> (classe) que poden fer referència a diverses mides d'elements i columnes d'un document. Quan es fa servir de forma consistent, aquestes etiquetes s'encarreguen de gairebé tot el procés d'aplicació de la quadrícula.</p>
+
+<h3 id="demo4">34.3.8. Demostració 4</h3>
+
+<p>Mantenir els elements alineats a una quadrícula significa assignar propietats de composició a les etiquetes i controls de formulari.</p>
+
+<pre><code>label {
+   display: block;
+   float: left;
+   clear: left;
+   width: 10.286em;
+   overflow: auto;
+   padding-right: 1.714em;
+   text-align: right;
+}
+input {
+   height: 1.143em;
+   border: .071em solid rgb(96,96,96);
+   padding: .071em;
+   line-height: 1;
+}</code></pre>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/34-styling-forms/demo_form04.html" hreflang="en">Alinear les dues columnes principals</a>"</p>
+
+<h3 id="demo4background">34.3.9. Demostració 4: consideracions prèvies</h3>
+
+<ul>
+<li><p><em>Tots</em> els controls de formulari, incloent-hi les àrees de text i les etiquetes, es representen com elements en línia per defecte.</p></li>
+
+<li><p>Per crear una columna esquerra consistent cal assignar una <code>width</code> (amplada) als elements <code>label;</code> en el mode "estricte" de representació, el <code>padding</code> proporcionat fa possible un canal factible e

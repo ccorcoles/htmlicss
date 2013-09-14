@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>CSS - Creació d'estils de text amb CSS</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">CSS</div>
+	<div id="subtitulo">Creació d'estils de text amb CSS</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud2/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud4/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">    
+<h1>29. Creació d'estils de text amb CSS</h1>
+<p class="by"><a href="../../index.html#henick">Ben Henick</a>. 3 d'octubre de 2008. Publicat a: alineació, text, aliàsing, font, tipografia</p>
+
+<p>Com el web és una col·lecció de documents, alguns dinàmics, d'altres estàtics i d'altres funcionals, les convencions amb què se'ls aplica un format s'extreuen del nostre millor punt de referència: els sis segles d'història de la impremta. I això inclou la tipografia. Tanmateix, el web és un mitjà nou i diferent, i la tipografia del lloc web necessita un conjunt de competències de disseny editorial molt diferent que, a més, està molt més limitat.</p>
+
+<p>Aquest apartat es basa en els coneixements adquirits prèviament en el curs i ofereix una guia detallada per aplicar estil a un text de manera efectiva fent servir CSS.</p>
+
+<div class="note">
+<h3>Nota</h3>
+<p>A continuació es presenten diversos exemples enllaçats que demostren les tècniques mencionades; podeu descarregar-vos els 29 exemples de l'apartat al fitxer "article29_examples.zip".</p>
+
+<p class="font"><strong>Descarregueu els exemples a:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/article29_examples.zip" hreflang="en">article29_examples.zip</a>"</p>
+</div>
+
+<p>Els continguts d'aquest apartat són els següents:</p>
+
+<ul class="index">
+
+<li>29.1. <a href="#webtypographyreview" accesskey="1">Repàs de tipografia al web</a>
+<ul class="index">
+<li>29.1.1. <a href="#contrast">Contrast</a></li>
+<li>29.1.2. <a href="#legibilityreadability">Facilitat de lectura</a></li>
+</ul></li>
+<li>29.2. <a href="#cssfonttext" accesskey="2">Propietats de les fonts CSS: canviar l'aspecte del text</a>
+<ul class="index">
+<li>29.2.1. <a href="#fontsizeunittype"><code>font-size</code> i selecció del tipus d'unitat</a>
+<ul class="index">
+<li><a href="#howitsdone">Com es fa</a></li>
+<li><a href="#whatunittypesforcss">Quins tipus d'unitat poden aplicar-se a les propietats de text CSS?</a></li>
+<li><a href="#sizeunitbestpractices">Per a què serveix tenir tants tipus d'unitat diferents?</a></li>
+<li><a href="#pixelphysicalequivalent">Quin és l'equivalent físic d'un píxel?</a></li>
+<li><a href="#emspercentagepoints">Ems, percentatges i punts segons el CSS</a></li>
+<li><a href="#CSS21TRNote">Breu comentari sobre la recomanació oficial de CSS 2.1</a></li>
+<li><a href="#sizekeywords">Paraules clau de mida</a></li>
+</ul></li>
+<li>29.2.2. <a href="#fontfamilytypeface"><code>font-family</code> i selecció de tipus de lletra</a></li>
+<li>29.2.3. <a href="#fontstylevariantweight"><code>font-style</code>, <code>font-variant</code> i <code>font-weight</code>: canviar els detalls</a>
+<ul class="index">
+<li><a href="#whyfontstyle">Per què cal fer servir la propietat <code>font-style</code> quan els elements "em" i "i" ja semblen prou adients?</a></li>
+</ul></li>
+<li>29.2.4. <a href="#fontvariantstandout"><code>font-variant</code> com a eina per ressaltar passatges curts</a></li>
+<li>29.2.5. <a href="#fontweightboldness"><code>font-weight</code>: negreta i la manca d'aquesta</a></li>
+<li>29.2.6. <a href="#fontshorthand">La propietat abreujada <code>font</code></a></li>
+</ul></li>
+<li>29.3. <a href="#textalignmentproperties" accesskey="3">Les propietats de text i alineació de CSS.  Modificar la composició</a>
+<ul class="index">
+<li>29.3.1. <a href="#textalignjustification">Alineació i justificació del text</a>
+<ul class="index">
+<li><a href="#properwesternjustification">Justificació adequada del text escrit en alfabets occidentals</a></li>
+</ul></li>
+<li>29.3.2. <a href="#changingtracking">Modificar l'espaiat: Les propietats <code>letter-spacing</code> i <code>word-spacing</code></a>
+<ul class="index">
+<li><a href="#emunitscontrol">Utilitzar unitats <em>em</em> per a un bon control</a></li>
+</ul></li>
+<li>29.3.3. <a href="#initialindentation">Sagnar les primeres línies: la propietat <code>text-indent</code></a></li>
+<li>29.3.4. <a href="#capitalisation">Majúscules: La propietat <code>text-transform</code></a></li>
+<li>29.3.5. <a href="#linksanddeletions">Aplicar estils als enllaços i mostrar les eliminacions: La propietat <code>text-decoration</code></a>
+<ul class="index">
+<li><a href="#borders">Marges, no subratllats, amb <code>acronym</code> i <code>abbr</code></a></li>
+</ul></li>
+<li>29.3.6. <a href="#leadingadjustment">Ajust de l'espai interlineal i <code>line-height</code></a></li>
+<li>29.3.7. <a href="#supplantingprebr">Suplantar <code>pre</code> i <code>br</code>: La propietat <code>white-space</code></a></li>
+</ul></li>
+<li class="especial"><a href="#summary">Resum</a></li>
+<li class="especial"><a href="#exercises">Preguntes de repàs</a></li>
+<li class="especial"><a href="#furtherreading">Lectures complementàries</a></li>
+</ul>
+
+<h2 id="webtypographyreview">29.1. Repàs de tipografia al web</h2>
+
+<p>Al web, els dissenyadors tenen molt menys control sobre la presentació que en altres mitjans. Aquest fet es veu clarament quan es tracta de les propietats del llenç del document com ara la mida, la resolució i el contrast. També hi ha moltes limitacions pel que fa a la qualitat de la tipografia del web, un tema que ja s'ha tractat.</p>
+
+<div class="vegeu_tambe">
+<h3>Vegeu també</h3>
+
+<p>Podeu veure els conceptes bàsics de tipografia en l'apartat 11 del mòdul "Conceptes de disseny web".</p>
+</div>
+
+<p>Altres aspectes que mereixen ser tractats són el contrast i la facilitat de lectura, dels quals parlaré tot seguit.</p>
+
+<h3 id="contrast">29.1.1. Contrast</h3>
+
+<p>El <strong>contrast</strong> del tipus de lletra, la facilitat amb què poden distingir-se les línies de l'espai en blanc i de les línies adjacents, depèn de diversos factors com ara la lluminositat, el color, la mida i la composició. Es menciona en aquest apartat pel sol fet de destacar que el text de contrast baix s'hauria d'establir en la mida més gran possible.</p>
+
+<h3 id="legibilityreadability">29.1.2. Facilitat de lectura</h3>
+
+<p>En un context de disseny utilitzem les paraules angleses <span lang="en">legibility</span> per a referir-nos a la facilitat amb què podem buscar fragments específics d'informació, mentre que amb el seu sinònim <span lang="en">readabilty</span> ens referim a la facilitat de comprensió d'un text. Les decisions de disseny que potencien una o altra qualitat s'enumeren a la Taula 1.</p>
+         
+<table summary="">
+<thead>      
+<tr>
+<th><strong>Objectiu</strong></th>
+<th><strong>Longitud de línia</strong></th>
+<th><strong>Canals i <a href="http://en.wikipedia.org/wiki/Leading" hreflang="en">espai interlineal</a></strong></th>
+<th><strong>Tipus</strong></th>
+<th><strong>Justificat</strong></th>
+</tr>
+</thead>
+<tfoot>
+	<tr><th colspan="5">Taula 1: Característiques de la facilitat de lectura.</th></tr>
+ </tfoot>
+<tbody>
+<tr>
+<th><strong>'Readability'</strong></th>
+<td>moderada</td>
+<td>augmentats</td>
+<td>serif</td>
+<td>inexistent [esquerra]</td>
+</tr>
+<tr>
+<th><strong>'Legibility'</strong></th>
+<td>curta</td>
+<td>normals</td>
+<td>sans-serif</td>
+<td>variable, sovint completa</td>
+</tr>
+</tbody>
+</table>
+                
+<p>En el pròxim apartat, "El model de composició de CSS", es parlarà sobre l'amplada òptima de columna.</p>
+
+<h2 id="cssfonttext">29.2. Propietats de les fonts CSS: canviar l'aspecte del text</h2>
+
+<p>La composició de textos és la manipulació del text pel que fa a la composició general i a l'aspecte de les lletres i les paraules. Aquesta segona tasca es porta a terme mitjançant les propietats de font de CSS, de les quals parlarem tot seguit.</p>
+
+<h3 id="fontsizeunittype">29.2.1. <code>font-size</code> i selecció del tipus d'unitat</h3>
+
+<p>Com els documents generalment varien de mida de font més que de tipus de lletra i les variants de fonts acostumen a manipular-se amb els fulls d'estil d'usuari, la propietat principal d'interès és font-size (mida de la font). Quan es fa servir en una regla, va seguida d'un valor que especifica una mesura d'unitat o, de vegades, una mida de paraula clau (com ara petita o mitjana).</p>
+
+<h3 id="howitsdone">Com es fa</h3>
+
+<p>La declaració de font-size més important d'un full d'estil és més o menys així:</p>
+
+<pre><code>body {...
+	font-size: 14px;
+...}</code></pre>
+
+<p>L'herència fa que totes les especificacions de mida de la font d'un document es basin en la mida declarada pel document body, ja sigui en el full d'estil del navegador o en el nostre.</p>
+
+<p>El valor per defecte típic de 16 píxels dels navegadors és un bon punt d'inici per a la part central del text, però la majoria de visitants poden llegir sense problemes tipus de lletra més petits. Per tant, la majoria de dissenyadors escullen una mida més petita, d'uns 11-14 píxels.</p>
+
+<p>L'herència s'aplica a la mida del tipus de lletra quan s'especifica una mida relativa i quan s'especifica una mida de paraula clau per a un element amb un progenitor la mida del qual no s'especifica amb una paraula clau.</p>
+
+<h3 id="whatunittypesforcss">Quins tipus d'unitat poden aplicar-se a les propietats de text CSS?</h3>
+
+<p>A les regles de full d'estil, els tipus d'unitat que acostumen a aplicar-se més sovint al text són píxels (<code>px</code>), ems (<code>em</code>, s'explica més endavant), percentatges (<code>%</code>) i punts (<code>pt</code>). A la Taula 2 es descriu el comportament del text redimensionat amb aquestes unitats.</p>
+       
+<table summary="">
+<thead>      
+<tr>
+<th><strong>Unitat</strong></th>
+<th><strong>Definició<sup>1</sup></strong></th>
+<th><strong>Ús</strong></th>
+</tr>
+</thead>
+<tfoot>
+	<tr>
+		<th colspan="3">Taula 2. Unitats de CSS convenients per a dimensionar un text.
+		<br /><strong><sup>1</sup></strong> &#8710; és la <strong>proporció</strong> de canvi en la mida de la font a partir del valor heretat.
+		<br /><strong><sup>2</sup></strong> Només s'hereta el valor de la mida no especificat en paraula clau més proper.
+</th>
+	</tr>
+</tfoot>
+<tbody>
+<tr>
+<th><strong>Ems de CSS</strong></th>
+<td>&#8710; = <em>x</em></td>
+<td><code>1,333 em</code></td>
+</tr>
+<tr>
+<th><strong>Paraules clau</strong></th>
+<td>Definit per l'agent d'usuari<sup>2</sup></td>
+<td><code>large</code>, <em>etc.</em></td>
+</tr>
+<tr>
+<th><strong>Percentatge</strong></th>
+<td>&#8710; = <em>x</em> / 100</td>
+<td><code>133.3%</code></td>
+</tr>
+<tr>
+<th><strong>Píxels</strong></th>
+<td>Unitat absoluta</td>
+<td><code>16 px</code></td>
+</tr>
+<tr>
+<th><strong>Punts</strong></th>
+<td>Unitat absoluta</td>
+<td><code>12 pt</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p>Altres tipus d'unitat possibles són paraules clau de mida, piques (<code>pc</code>, una pica equival exactament a 12 punts) i exes (<code>ex</code>). També estan disponibles la majoria dels altres tipus d'unitat que accepta CSS2, però no es fan servir gairebé mai quan es treballa amb text.</p>
+
+<h3 id="sizeunitbestpractices">Per a què serveix tenir tants tipus d'unitat diferents?</h3>
+
+<p>Tal com s'indica a la Taula 2, hi ha unitats de mida relativa i absoluta. Les paraules clau inclouen ambdues característiques, és a dir, mida absoluta entre si, però relatives al valor no especificat en paraula clau que hereten. La millor forma de fer-les servir és aquesta:</p>
+
+<ul>
+<li><p>Les mides <strong>absolutes</strong> (<code>px</code>, unitats estandarditzades com <code>pt</code>) és millor aplicar-les a composicions que no canviïn en relació amb les propietats de llenç del document, les anomenades composicions "fixes", "estàtiques" o "gel".</p></li>
+
+<li><p>Les mides <strong>relatives</strong> (<code>em</code>, <code>%</code>) haurien de fer-se servir en composicions no estàtiques i en situacions en què cal establir un compromís entre usabilitat del lloc i el control del dissenyador de la composició.</p></li>
+
+<li><p>Les mides de <strong>paraula clau</strong> (que s'expliquen a continuació) haurien d'utilitzar-se quan la usabilitat prevalgui per sobre de totes les altres consideracions del disseny.</p></li>
+</ul>
+
+<h3>Mides absolutes i usabilitat</h3>
+
+<p>Les versions antigues d'Internet Explorer no permeten al visitant modificar la mida del text que s'ha establert en mides absolutes i les interfícies de modificació de la mida del text d'alguns navegadors que sí permeten aquest nivell de control d'usuari poden costar de trobar (els usuaris d'Opera i Firefox ho tenen fàcil amb Shift + Ctrl/Cmd + més/menys i Ctrl/Cmd + més/menys respectivament). A causa d'aquestes limitacions, s'acostuma a establir el <code>font-size</code> de <code>body</code> a un valor relatiu, normalment en unitats em que se suposa que el navegador controla per defecte.</p>
+
+<h3 id="pixelphysicalequivalent">Quin és l'equivalent físic d'un píxel?</h3>
+
+<p>La resposta estrictament correcta és que no existeix. Els píxels són una unitat de resolució de maquinari de visualització i prou. Això no obstant...</p>
+
+<p>Malgrat que és estrictament impossible definir o predir les dimensions literals d'un píxel, els patrocinadors de projectes comercials més nerviosos acostumen a sorprendre's quan descobreixen que el disseny del seu lloc adquireix un aspecte diferent en els ordinadors dels clients que tenen una configuració diferent de la seva i escridassen el dissenyador web per aquest motiu. Per tant, pot ser útil comprendre com funcionen els píxels. Aquesta informació us servirà per quan algú que us hagi manat crear una pàgina web es queixi que el text no queda exactament igual en diferents ordinadors.</p>
+
+<p>Les empreses de programari mantenen un acord informal segons el qual, 96 ppp (píxels per polzada) és una mida raonable. D'aquesta manera, un text central de 16 píxels s'imprimirà a una mida de una sisena part d'una polzada o 12 punts. A la pantalla de cristall líquid cada vegada més habitual de 17'' 1280&times;800, un text de 16 píxels tindrà una mida aproximada de 13 punts a la pantalla, però en una pantalla semblant d'ordinador portàtil de 15'', la mida serà de 11,44 punts.</p>
+
+<p>Aquestes mesures són efectives amb la configuració per defecte. La majoria d'entorns permeten a l'usuari final establir una mesura habitual de ppp, de manera que sempre es donaran casos diferents.</p>
+
+<p>En conclusió: un píxel és un píxel, però tota la resta és variable.</p>
+
+<h3 id="emspercentagepoints">Ems, percentatges i punts segons el CSS</h3>
+
+<p>Tradicionalment, l'em és l'equivalent a l'alçada d'una "M" majúscula de la font a la qual s'aplica. Tanmateix, en CSS, la unitat <em>em</em> és l'equivalent a l'alçada total d'una línia; o, dit d'una altra manera, per a un element al qual se li ha establert la <code>font-size</code> a 14 píxels:</p>
+
+<pre><code>1em = 100% = 14px</code></pre>
+
+<p>En entorns normals, aquesta declaració pot ampliar-se a:</p>
+
+<pre><code>1em = 100% = 14px = 10,5pt</code></pre>
+
+<p>L'augment i la reducció de la mida funcionen de forma multiplicativa, de manera que si hi ha un segon element que es vulgui definir amb una mida de 16 píxels, tenint en compte l'herència habitual, tot el que es mostra a continuació obtindria el resultat desitjat:</p>
+
+<pre><code>1,143em = 114,3% diferent de 16px = 12pt</code></pre>
+
+<h3 id="CSS21TRNote">Breu comentari sobre la recomanació oficial de CSS 2.1</h3>
+
+<p>De vegades us diran que consulteu la recomanació candidata o <em><a href="http://www.w3.org/TR/CSS21/" hreflang="en">Candidate Recommendation</a></em> del <em>World Wide Web Consortium</em> per a l'especificació CSS 2.1. Com totes les recomanacions del W3C, aquest document pot considerar-se la definició d'un estàndard web; alguns es segueixen més que d'altres, tant per fabricants de navegadors com per desenvolupadors de webs.</p>
+
+
+<p>Tot i que va bé conèixer de dalt a baix les recomanacions del W3C, aquest curs s'ha dissenyat per proporcionar una introducció concisa i fàcil d'assimilar al disseny/desenvolupament del web i les recomanacions del W3C poden ser una mica farragoses. En tots els casos en què se us demani visitar la recomanació de CSS 2.1, se us dirigirà cap a un material massa confús com per justificar una explicació acurada en aquest apartat.</p>
+
+<h3 id="sizekeywords">Paraules clau de mida</h3>
+
+<p>També es poden fer servir paraules clau de mida tal, com s'ha mencionat anteriorment. N'hi ha set, des de <code>xx-small</code> fins a <code>xx-large</code>, i <code>medium</code> és el valor mig (i predeterminat). La llista completa dels set valors es mostra més endavant a la Taula 3, que inclou totes les paraules clau que accepten les diverses propietats de CSS mencionades en aquest apartat.</p>
+
+<p>La recomanació de CSS 2.1 ofereix una gran quantitat d'informació addicional sobre les <a href="http://www.w3.org/TR/CSS21/fonts.html#font-size-props" hreflang="en">paraules clau de <code>font-size</code></a>.</p>
+
+<h3>Demostració 1</h3>
+<p>De tant en tant, aquest text enllaçarà amb un document de demostració cada vegada amb més estil que mostrarà les propietats CSS de què parlem en el seu ús real. Aquest primer exemple mostra el document HTML de mostra sense cap mena d'estil aplicat.</p>
+
+<pre><code>body { font-size: 14px; }
+h1 { font-size: x-large; }
+.sectionNote { font-size: medium; }
+.attribution { font-size: small; }</code></pre>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/copy_example1.html" hreflang="en">Exemple sense estils</a>"</p>
+
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/copy_example2.html" hreflang="en">Exemple amb títol redimensionat, atribucions i part central del text>aplicats</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/text_01.css" hreflang="en">Exemple de full d'estil de la demostració 1</a>"</p>
+
+<h3 id="fontfamilytypeface">29.2.2. <code>font-family</code> i selecció de tipus de lletra</h3>
+
+<p>Quan tingueu el text a la mida que us agradi, ja podeu passar a seleccionar un o dos tipus de lletra. Això es fa amb la propietat font-family, que es fa servir tal com es mostra tot seguit a la demostració 2.</p>
+
+<p>Quan s'ofereix un valor per a la propietat <code>font-family</code>, cal seguir aquestes regles:</p>
+
+<ol>
+<li><p>Les tipografies s'han d'anomenar exactament com s'anomenen a la biblioteca de fonts de l'ordinador client fent servir de guia la font no variant.</p></li>
+<li><p>Totes les tipografies amb nom han de separar-se amb comes, amb espai al darrere o sense.</p></li>
+<li><p>En els casos en què el nom d'una tipografia contingui més d'una paraula, cal posar cometes simples o dobles al principi i al final. <strong>Exemple:</strong> '<code>Times New Roman</code>'.</p></li>
+<li><p>Cal anomenar les tipografies per ordre ascendent de possible disponibilitat. Per exemple, si voleu que els usuaris de Macintosh vegin una pàgina amb el text en Palatino, la declaració de valor de propietat probablement hauria de ser així: <code>font-family: Palatino, Georgia, serif;</code>. La Palatino és exactament la que voleu, però pot ser que alguns usuaris no la tinguin; la Georgia té més probabilitats d'estar disponible i s'assembla a la Palatino; serif fa referència a la font serif predeterminada genèrica, si no es disposa de la Palatino ni de la Georgia, el sistema tornarà a la seva font serif per defecte.</p></li>
+<li><p>Com a mètode de seguretat el valor <code>font-family</code> sempre hauria d'acabar amb el nom genèric apropiat tal com s'ha explicat anteriorment. A la figura 1 es mostren les tipografies que es fan servir en les famílies genèriques a MacOS 10.5.</p></li>
+</ol>
+<div class="imagen">
+<img src="06510_m6_05.gif" alt="Tipografia genèrica per defecte de MacOs 10.5."/>
+<p>Figura 1. Les tipografies "genèriques" predeterminades de MacOS 10.5 tal com queden representades a 24 píxels al Safari 3.1.</p>
+</div>        
+<p>A la recomanació del CSS 2.1 s'enumeren <a href="http://www.w3.org/TR/CSS21/fonts.html#generic-font-families" hreflang="en">diverses tipografies més que poden aplicar-se a cada família genèrica</a>.</p>
+
+<h3>Demostració 2</h3>
+
+<p>Ara que la mida del text és previsible, volem optimitzar les tipografies utilitzades. El millor és aplicar una tipografia sans serif al títol perquè sigui de fàcil lectura i al text en si una tipografia serif.</p>
+
+<pre><code>body { font-family: Palatino,'Palatino Linotype',Georgia, sans-serif; }
+h1 { font-family: Helvetica,Arial,sans-serif; }
+blockquote { font-family: Helvetica,Arial,sans-serif; }</code></pre>
+
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/text_02.css" hreflang="en">Full d'estil de la demostració 2</a>"</p>
+
+
+<h3 id="fontstylevariantweight">29.2.3. <code>font-style, font-variant i font-weight:</code> canviar els detalls</h3>
+
+<p>La propietat <code>font-style</code> manipula la cursiva sense haver de fer servir l'element i; els seus tres valors vàlids són <code>italic</code>, <code>oblique</code> i <code>normal</code>.</p>
+
+<p>Els valors <code>italic</code> i <code>oblique</code> proporcionen resultats funcionalment idèntics a les versions més recents de tots els navegadors web del mercat general, encara que hi ha una diferència tècnica significativa entre els dos estils tal com s'explica al glossari que acompanya aquest curs.</p>
+
+<h3 id="whyfontstyle">Per què cal fer servir la propietat <code>font-style</code> quan els elements "em" i "i" ja semblen prou adients?</h3>
+
+<p>Cadascun d'aquests elements té usos específics: el de l'em és proporcionar èmfasi i el de i ser l'alternativa de <code>&lt;span style="font-style: italic;"&gt;...&lt;/span&gt;</code> en els pocs casos que el seu ús seria poc adequat. En general, <code>&lt;i&gt;</code> no és gens adequat perquè és un element presentacional, però hi ha determinades parts del text central que s'escriuen en cursiva per convenció, com ara els títols dels llibres (encara que això és discutible, ja que hi ha qui creu que l'element <code>cite</code> és més adequat per als títols de llibre, així que feu el que us sembli adequat). <code>&lt;em&gt;</code> acostuma a ser més apropiat perquè especifica l'èmfasi com a concepte en lloc de com la cursiva com a estil específic: l'aparença real de l'èmfasi pot variar entre diferents navegadors.</p>
+
+<p>Hi ha situacions en què l'ús d'<code>em</code> i el seu germà <code>strong</code> poden requerir un punt de vista diferent. Per exemple, suposem que voleu donar èmfasi al text fent-lo més gran. El que caldria fer per donar un bon èmfasi seria afegir cursiva, la qual cosa donaria lloc a regles com les següents:</p>
+
+<pre><code>em {
+	font-size: large;
+	font-style: normal;
+}
+strong {
+	font-size: large;
+	font-weight: normal;
+	font-style: italic;
+}</code></pre>
+
+<p>Les regles del full d'estil precedent donarien uns resultats semblants als següents:</p>
+<div class="exemple">
+<p>The <strong><em>quick</em></strong> red fox jumped over the <strong>lazy</strong> brown dog.</p>
+</div>
+<h3>Demostració 3</h3>
+
+<p>Al text de demostració no hi ha paraules ni fragments en cursiva, i les atribucions ja contenen la cursiva necessària gràcies a l'ús de l'element <code>cite</code>. Tenint en compte la manca d'opcions, el títol és el millor candidat per estar en cursiva.</p>
+
+<pre><code>h1 { font-style: italic; }
+.sectionNote { font-style: normal; }</code></pre>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/copy_example4.html" hreflang="en">Exemple amb títol en cursiva</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/text_03.css" hreflang="en">Full d'estil de la demostració 3</a>"</p>
+
+
+<h3 id="fontvariantstandout">29.2.4. <code>font-variant</code> com a eina per ressaltar passatges curts</h3>
+
+<p>La propietat <code>font-variant</code> té dos valors possibles, <code>small-caps</code> i <code>normal</code>. Alguns dissenyadors utilitzen "small caps" o versaletes per ressaltar la frase inicial d'un text llarg o per donar èmfasi a la indicació d'una cita, com ara:</p>
+
+<p style="font-variant:small-caps;">Abandoneu tota esperança els qui ací entreu.</p>
+
+<h3>Demostració 4</h3>
+
+<pre><code>opening { font-variant: small-caps; }</code></pre>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/copy_example5.html" hreflang="en">Exemple amb la frase inicial en versaletes</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/text_04.css" hreflang="en">Full d'estil de la demostració 4</a>"</p>
+
+
+<h3 id="fontweightboldness">29.2.5. <code>font-weight</code>: negreta i la manca d'aquesta</h3>
+
+<p>La propietat <code>font-weight</code> (pes de la font) permet modificar el nivell de negreta de qualsevol fragment de text al qual s'apliqui.</p>
+<p>Els valors habituals de la propietat <code>font-weight</code> són <code>normal</code> i <code>bold</code>. Mentre que la recomanació CSS 2.1 proporciona <a href="http://www.w3.org/TR/CSS21/fonts.html#font-boldness" hreflang="en">diversos valors</a>, l'estat actual de compatibilitat amb la tipografia web fa que els altres valors no tinguin valor funcional tret de per als usuaris especialistes.</p>
+
+<h3>Demostració 5</h3>
+
+<p>Posar el nom d'un autor en negreta és una tècnica de disseny que s'acostuma a fer servir en les publicacions periòdiques, però que encara encaixa en diverses situacions del web.</p>
+
+<pre><code>author { font-weight: bold; }</code></pre>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/copy_example6.html" hreflang="en">Exemple amb el nom de l'autor en negreta</a>"</p>
+
+<p class="font"><strong>Arxiu font de:</strong> "<a href="http://dev.opera.com/articles/view/29-text-styling-with-css/text_05.css" hreflang="en">Full d'estil de la demostració 5</a>"</p>
+
+
+<h3 id="fontshorthand">29.2.6. La propietat abreujada <code>font</code></h3>
+
+<p>Moltes propietats de text poden proporcionar-se en el valor per a una única propietat, si cal, d'una manera semblant a les propietats de fons.</p>
+<p>A continuació es mostra un exemple de regla abreujada de font:</p>
+
+<pre><code>h1 { font: italic normal bold x-large/1.167em Helvetica,Arial,sans-serif; }</code></pre>
+
+<p>Per obtenir els millors resultats, el valor pel qual s'aporta aquesta propietat hauria d'incloure els valors pretesos per a totes les propietats individuals següents en l'ordre següent, separades amb espais:</p>
+
+<ol>
+<li><p><code>font-style</code></p></li>
+<li><p><code>font-variant</code></p></li>
+<li><p><code>font-weight</code></p></li>
+<li><p><code>font-size</code>, seguit, si cal, d'un guionet i del valor de <code>line-height</code> (vegeu a continuació)</p></li>
+<li><p><code>font-family</code>, que en aquest cas també pot ser una paraula reservada que especifica una font de sistema; els valors múltiples haurien d'estar separats per comes, però no per espais</p></li>
+</ol>
+<table summary="">
+<thead>      
+<tr>
+<th><strong>Propietat</strong></th>
+<th><strong>Valors</strong></th>
+</tr>
+</thead>
+<tfoot>
+	<tr>
+		<th colspan="2">Taula 3: valors de paraula clau acceptats per a les propietats que s'han tractat en aquest apartat</th>
+	</tr>
+</tfoot>
+<tbody>
+<tr>
+<th><strong>font-family</strong></th>
+<td><code>cursive, fantasy, monospace, sans-serif, serif</code></td>
+</tr>
+<tr>
+<th><strong>font-size</strong></th>
+<td><code>xx-small, x-small, small, medium, large, x-large, xx-large</code></td>
+</tr>
+<tr>
+<th><strong>font-style</strong></th>
+<td><code>italic, normal, oblique</code></td>
+</tr>
+<tr>
+<th><strong>font-variant</strong></th>
+<td><code>normal, small-caps</code></td>
+</tr>
+<tr>
+<th><strong>font-weight</strong></th>
+<td><code>bold, normal</code></td>
+</tr>
+<tr>
+<th><strong>line-height</strong></th>
+<td><code>normal</code></td>
+</tr>
+<tr>
+<th><strong>text-align</strong></th>
+<td><code>center, justify, left, right</code></td>
+</tr>
+<tr>
+<th><strong>text-decoration</strong></th>
+<td><code>line-through, none, overline, underline</code></td>
+</tr>
+<tr>
+<th><strong>text-transform</strong></th>
+<td><code>capitalize, lowercase, none, uppercase</code></td>
+</tr>
+<tr>
+<th><strong>white-space</strong></th>
+<td><code>normal, nowrap, pre, pre-line, pre-wrap</code></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="textalignmentproperties">29.3. Les propietats de text i alineació de CSS.  Modificar la composició</h2>
+
+<p>Un especialista en estils que treballi amb lletres i paraules tracta amb detalls: Línies, corbes, punts, píxels i altres parts <em>cel·lulars</em> d'un disseny. Un disseny, però, és tot un conjunt; té components més grans que es destaquen mitjançant el control de la composició principalment a través del model de disposició de CSS. A més d'aquest model de disposició, CSS també implementa propietats de text i alineació que afecten la composició. La resta d'aquest apartat tracta sobre aquestes propietats.</p>
+
+<h3 id="textalignjustification">29.3.1. Alineació i justificació del text</h3>
+
+<p>Tal com passa amb els entorns de processament de text, la propietat text-align accepta quatre valors de justificació: <code>left</code>, <code>right</code>, <code>center</code>, i <code>justify</code>. L'últim d'aquests proporciona justificació completa: Marges de text visibles que són consistents tant per l'esquerra com per la dreta d'un bloc de text.</p>
+
+<h3 id="properwesternjustification">Justificació adequada del text escrit en alfabets occidentals</h3>
+
+<p>La millor manera de fer servir les diferents alineacions disponibles és així:</p>
+
+<ul>
+<li><p>La <strong>justificació esquerra</strong> és més adequada per a fragments de text llargs.</p></li>
+
+<li><p>La <strong>justificació dreta</strong> és més adequada per a la columna de l'esquerra del tot de taules de dades i disposicions de columna múltiple. Quan la columna adjacent es deixa justificada i col·locada a l'altra banda d'un canal adequadament ample, el resultat és millorar la llegibilitat d'ambdues columnes.</p></li>
+
+<li><p>La <strong>justificació completa</strong> funciona bé per a blocs petits com ara cites de blocs i textos d'exemple. Quan es fa servir en fragments llargs de text d'amplada òptima amb marges amples, la justificació completa també millora la coherència de la maquetació.</p></li>
+
+<li><p>El <strong>centrat</strong> s'acostuma a fer servir per als elements d'interfície i llistes en sèrie com les que es troben als peus de pàgina.</p></li>
+</ul>
+
+
+<h3>Demostració 6</h3>
+
+<p>Com que la demostració es basa en un fragment de text de ficció extret d'un llibre, per què no li apliquem la

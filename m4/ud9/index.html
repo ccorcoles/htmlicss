@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El text central d'HTML - Creació de múltiples pàgines amb menús de navegació</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">El text central d'HTML</div>
+	<div id="subtitulo">Creació de múltiples pàgines amb menús de navegació</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud8/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud10/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+	<h1>23. Creació de múltiples pàgines amb menús de navegació</h1>
+  
+  <p class="by"><a href="../../index.html#heilmann">Christian Heilmann</a>. 26 de setembre de 2008. Publicat a: seleccionar, menú, navegació, mapa, imatge, </p>
+
+  
+  <p>En aquest apartat parlaré sobre la navegació en llocs web i els menús. Veureu els diferents tipus de menús i la manera de crear-los amb HTML. També parlaré sobre la qüestió de la usabilitat i l'accessibilitat dels menús. No entraré encara en l'aplicació d'estils als menús, però sí que establiré els fonaments per a un altre apartat posterior d'aquest curs sobre el CSS.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  
+  <p>Vegeu el mòdul "CSS" d'aquest curs.</p>
+  </div>
+  
+  <div class="note">
+  <h3>Nota</h3>         
+  <p>Podeu descarregar-vos codis d'exemple a "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/menu_examples.zip" hreflang="en">menu_examples.zip</a>" per anar seguint les explicacions; jo m'hi aniré referint al llarg d'aquest apartat. </p>
+  </div>
+  
+  <p>Els continguts d'aquest apartat són els següents:</p>
+  
+  <ul class="index">
+	<li>23.1. <a href="#menutools" accesskey="1">Les eines del vostre menú HTML: enllaços, àncores i llistes</a></li>
+  <li>23.2. <a href="#flexibility" accesskey="2">La necessitat de flexibilitat</a></li>
+  <li>23.3. <a href="#typesofmenu" accesskey="3">Diferents tipus de menús</a>
+	 <ul class="index"> 
+  <li>23.3.1. <a href="#inpagenav">Navegació per la pàgina (contingut)</a></li>
+  <li>23.3.2. <a href="#sitenavigation">Navegació pel lloc</a></li>
+  <li>23.3.3. <a href="#contextualmenu">Menús contextuals</a></li>
+  <li>23.3.4. <a href="#sitemaps">Mapes del lloc</a></li>
+  <li>23.3.5. <a href="#pagination">Paginació</a></li>
+	</ul></li>
+  <li>23.4. <a href="#imagemapsforms" accesskey="4">Quan les llistes no són suficients: mapes d'imatge i formularis</a>
+	 <ul class="index"> 
+  <li>23.4.1. <a href="#hotspots">Definir zones sensibles amb mapes d'imatge</a></li>
+  <li>23.4.2. <a href="#forms">Estalviar espai de pantalla i evitar la sobrecàrrega d'enllaços amb formularis</a></li>
+  </ul></li>
+	<li>23.5. <a href="#skiplinks" accesskey="5">On posar el menú, i oferir opcions per saltar-se'l</a></li>             
+  <li class="especial"><a href="#summary">Resum</a></li> 
+  <li class="especial"><a href="#exercises">Preguntes de repàs</a></li> 
+  </ul>
+  
+                     
+  <h2 id="menutools">23.1. Les eines del vostre menú HTML: enllaços, àncores i llistes</h2>
+  
+  <p>Amb l'HTML cal considerar diversos tipus diferents de menús i sistemes de navegació, tots ells molt relacionats amb els elements <code>link</code> i <code>a</code> (àncora). Per explicar-ho ràpidament:</p>
+  
+  <ul>
+		<li><p>Els elements <code>link</code> descriuen relacions a través de diversos documents. Per exemple, podeu dir a un agent d'usuari que el document actual forma part d'un curs més ampli que inclou diversos documents i quin altre document és el contingut.</p></li>
+  
+  <li><p>Les àncores (també conegudes com a elements<code>a</code>) permeten enllaçar amb un altre document o amb una secció concreta del document actual. L'agent d'usuari no les segueix automàticament; cal que els visitants les activin amb el mitjà que sigui que tinguin a la seva disposició (ratolí, teclat, reconeixement de veu, accés per commutador...).</p></li>
+	</ul>
+  
+  <p>Si no heu llegit els apartats anteriors d'aquest curs sobre els enllaços i sobre les llistes, us aconsello que els llegiu, ja que aquí dono per coneguda part de la informació que trobareu en aquests apartats per així evitar repeticions.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu les llistes i els enllaços en els apartats 16 i 18 d'aquest mòdul.</p>
+  </div>
+  
+  <p>Les àncores i els enllaços no es converteixen en menús sense més ni més; cal donar-los una estructura i aplicar-los estils perquè tant el navegador com els usuaris sàpiguen que funcionen com un menú de navegació i no només com un grup d'enllaços aleatoris. Si l'ordre de les pàgines no és important, podeu utilitzar una llista desordenada igual que a l'exemple de menú de llista desordenada de l'arxiu "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/unordered.html" hreflang="en">unordered.html</a>".</p>
+  
+	<p>Observeu que he posat un <code>id</code> als elements <code>ul</code>. Ho he fet per oferir un lligam per aplicar-los estils amb el CSS i per afegir-los més endavant un comportament especial amb JavaScript. Un <code>id</code> és una manera molt eficaç de permetre que altres tecnologies escullin un element concret amb l'HTML.</p>
+  
+  <p>Si l'ordre en què els visitants van passant per tots els documents és important, llavors hauríeu de fer servir una llista ordenada. Si, per exemple, teniu un curs en línia format per múltiples documents i cadascun parteix d'allò que s'ha explicat a l'anterior, podeu utilitzar una llista ordenada com la de l'exemple de llista ordenada de l'arxiu "<a href="http://devfiles.myopera.com/articles/377/ordered.html" hreflang="en">ordered.html</a>".</p>
+  
+  <p>L'ús de llistes per crear menús és ideal per diverses raons:</p>
+  
+  <ul>
+		<li><p>Tot l'HTML es troba en un únic element de llista (<code>ul</code>, per exemple), la qual cosa significa que podeu utilitzar la cascada del CSS per aplicar un estil diferent a cadascun d'ells i que és molt fàcil arribar fins als elements en JavaScript baixant des del nivell superior.</p>
+  </li>
+  
+  <li><p>Les llistes es poden imbricar, la qual cosa significa que podeu crear fàcilment una navegació amb diversos nivells de jerarquia.</p>
+  </li>
+  
+  <li><p>Fins i tot si no s'aplica cap estil a la llista, la representació de l'HTML per part del navegador és lògica i per a un visitant és molt fàcil veure que aquests enllaços van junts i que formen una única unitat lògica.</p>
+  </li>
+	</ul>
+  
+  <p>Les llistes s'imbriquen incrustant la llista imbricada a l'element <code>li</code>, i no després d'aquest. Podeu veure'n un exemple correcte i un d'incorrecte a l'arxiu "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/nesting.html" hreflang="en">nesting.html</a>".</p>
+  
+  <p>Tingueu en compte que els navegadors mostren els dos exemples de la mateixa manera. </p>
+  
+  <div class="text-clau">
+  <p>La visualització en el navegador no hauria de ser mai un indicador de la qualitat del codi. </p>
+  </div>
+  
+  <p>Una construcció HTML no vàlida com la de l'exemple erroni anterior farà que sigui molt difícil aplicar-hi estils, afegir-hi comportament amb el JavaScript o de convertir a un altre format. L'estructura des elements UL imbricats ha de ser sempre
+<code>&lt;ul&gt;&lt;li&gt;&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</code> i mai
+<code>&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;</code>.</p>    
+
+  <h2 id="flexibility">23.2. La necessitat de flexibilitat</h2>
+  
+  <p>És molt probable que el menú d'un lloc canviï sovint; els llocs web tenen tendència a créixer orgànicament a mesura que s'hi van afegint funcions i que creix la base d'usuaris, per la qual cosa hauríeu de crear els menús tenint en compte que s'hi afegiran i se'n trauran entrades a mesura que el lloc vagi progressant, i també que potser es traduiran a diferents llenguatges (amb la qual cosa canviarà la longitud dels enllaços). També us podeu trobar treballant en llocs en els quals l'HTML dels menús es crea dinàmicament utilitzant llenguatges del servidor i no HTML estàtic. Això, però, no significa que el coneixement de l'HTML ja no tingui cap utilitat. De fet, serà cada vegada més important perquè aquests coneixements se seguiran necessitant per crear plantilles HTML amb les quals treballarà l'<em>script</em> del servidor.</p>
+
+
+  <h2 id="typesofmenu">23.3. Diferents tipus de menús</h2>
+  
+  <p>Hi ha diversos tipus de menús que haureu de crear en HTML quan aneu treballant en diferents llocs web. La majoria es poden crear amb llistes, tot i que algunes vegades les restriccions de la interfície obliguen a seguir un altre camí (ja en parlarem més endavant). Els menús basats en llistes que molt probablement creareu són els següents:</p>
+  
+  <ul>
+		<li><p>Navegació per la pàgina:  per exemple, un contingut per a una única pàgina amb enllaços que condueixen a diferents seccions d'aquesta.</p>
+  </li>
+  
+  <li><p>Navegació pel lloc:  una barra de navegació per a tot el lloc web (o una subsecció d'aquest) amb enllaços que condueixen a pàgines diferents del mateix lloc.</p>
+  </li>
+  
+  <li><p>Navegació contextual segons el contingut: una llista d'enllaços que condueixen a pàgines estretament relacionades amb el tema de la pàgina actual, tant del mateix lloc com d'altres.</p>
+  </li>
+  
+  <li><p>Mapes del lloc:  llistes llargues d'enllaços que condueixen a totes les pàgines diferents d'un lloc web; els enllaços s'agrupen en subllistes relacionades perquè sigui més fàcil entendre-ho tot plegat.</p>
+  </li>
+  
+  <li><p>Paginació: enllaços que condueixen a altres pàgines que constitueixen altres seccions o parts de tot un conjunt juntament amb la pàgina actual, com per exemple part 1, part 2 i part 3 d'un article.</p>
+  </li>
+	</ul>
+                                
+
+  <h3 id="inpagenav">23.3.1. Navegació per la pàgina (contingut)</h3>
+                                  
+  <p>Ja n'he parlat una mica a l'apartat sobre els enllaços, però aquí trobareu una descripció més detallada de què significa la navegació per la pàgina i què cal fer perquè funcioni.</p>
+  
+  <p>A l'exemple relatiu a aquest subapartat de navegació per la pàgina (arxiu "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/inpagenavigation.html" hreflang="en">inpagenavigation.html</a>") he fet servir una llista d'enllaços que condueixen a àncores que es troben més avall a la mateixa pàgina. Per connectar les àncores cal fer servir un atribut <code>id</code> en els elements cap als quals es navegarà i un atribut <code>href</code> consistent en un símbol de coixinet seguit del mateix nom que el valor <code>id</code> de l'àncora a la qual voleu que condueixi aquest enllaç. Cadascuna de les seccions de la pàgina també té un enllaç per tornar al menú que funciona de la mateixa manera, però que condueix de tornada cap al menú.</p>
+  
+  <p>Tècnicament, això és tot el que necessiteu perquè aquest tipus de navegació funcioni sense problemes, però Internet Explorer presenta un problema molt empipador que ens obliga a treballar una mica més.</p>
+  
+  <p>Podeu comprovar aquest error vosaltres mateixos:</p>
+  
+ 	<ol>
+		<li><p>Obriu el document amb l'Internet Explorer 6 o 7.</p></li>
+  
+  <li><p>No utilitzeu el ratolí, feu servir el teclat per navegar pel document. Podeu prémer la tecla del tabulador per passar d'un enllaç a un altre i la tecla de retorn per activar un enllaç; en aquest cas, per passar a la secció a la qual apunta.</p></li>
+  
+  <li><p>Aparentment tot funciona sense problemes; el navegador va fins al punt de la pàgina on volíeu anar.</p></li>
+  
+  <li><p>Si torneu a prémer la tecla del tabulador, el que hauria de fer un navegador seria portar-vos a (o marcar) el primer enllaç de la secció escollida. L'Internet Explorer, però, us enviarà al principi del menú del principi de la pàgina!</p></li>
+	</ol>
+  
+  <p>La manera de solucionar aquest problema és molt confusa i té a veure amb una propietat especial de l'Internet Explorer anomenada <code>hasLayout</code>. Podeu fer-ho de diverses maneres, i totes elles s'expliquen a l'excel·lent article d'<a href="http://www.satzansatz.de/cssd/onhavinglayout.html" hreflang="en">Ingo Chao "On having layout</a>". La manera més senzilla és definir l'amplada de l'element <code>div</code> amb el CSS, igual que a l'exemple de l'arxiu "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/inpagenavigationmsiefix.html" hreflang="en">inpagenavigationmsiefix.html</a>". El que exigeix l'IE és que l'àncora es trobi en un element amb
+<code>hasLayout</code>.</p>
+  
+  <p>Haver-ho de fer és molt empipador, però també va bé en cas que vulgueu aplicar estils diferents a les seccions. També soluciona un dels problemes dels títols en HTML: Els títols no contenen les seccions a les quals s'apliquen; simplement s'assumeix que tot el que segueix fins al proper títol forma part de la mateixa secció del document. Això fa que sigui impossible aplicar estils diferents a les seccions d'un document sense afegir-hi un <code>&lt;div&gt;</code>. Altres llenguatges de marques proposen un element <code>&lt;section&gt;</code> amb un <code>&lt;title&gt;</code> en el seu interior, de manera similar a com
+<code>&lt;fieldset&gt;</code> i <code>&lt;legend&gt;</code> us permeten etiquetar parts d'un formulari.</p>
+  
+  <div class="note">
+  <h3>Navegació espacial</h3>
+  
+  <p>Tingueu en compte que amb Opera la navegació pels enllaços amb el teclat funciona una mica diferent; mireu l'exemple anterior amb Opera, mantingueu premuda la tecla <kbd>Majúscules</kbd> i utilitzeu les tecles de les fletxes per navegar pels enllaços (també funciona amb els elements dels formularis). Això es coneix com a navegació espacial.</p>
+  </div>         
+
+  <h3 id="sitenavigation">23.3.2. Navegació pel lloc</h3>
+  
+  <p>La navegació pel lloc és probablement el tipus de menú més habitual que haureu de crear. És el menú de tot el lloc (o d'una subsecció) que mostra tant les opcions que poden escollir els visitants com la jerarquia del lloc. Per a aquests menús les llistes són l'opció perfecta, tal com veureu a l'exemple de navegació pel lloc de l'arxiu "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/home.html" hreflang="en">home.html</a>".</p>
+
+  <p>No hi trobareu gaires sorpreses, com a mínim des del punt de vista de l'HTML en si. Més endavant en aquest curs parlaré sobre l'aplicació d'estils a aquests tipus de menús amb el CSS i sobre la manera d'afegir-hi comportament amb el JavaScript. Una cosa important que cal tenir en compte és la manera de destacar el document actual del menú, per tal de donar a l'usuari la sensació de ser en un lloc concret i que s'està movent d'un lloc a l'altre (encara que en realitat no es mou en absolut, tret que faci servir algun dispositiu mòbil per navegar pel web). Això és el que veurem a continuació.</p>
+  
+  <p><strong>1) Donar als visitants la sensació de "Vostè es troba aquí"</strong></p>
+  
+  <p>La regla principal per al desenvolupament de webs i la navegació és que el document actual no s'ha d'enllaçar mai amb ell mateix sinó que ha de ser clarament diferent de les altres entrades del menú. Això és important perquè dóna als visitants alguna cosa a la qual aferrar-se i perquè els explica on es troben en el seu viatge pel lloc. Hi ha molts casos diferents, com ara aplicacions web, enllaços permanents en blocs i el que es coneix com a llocs web "d'una pàgina", però en el 99% dels casos un enllaç cap al document que ja esteu mirant és redundant i resulta confús per al visitant.</p>
+  
+  <p>A l'apartat sobre els enllaços ja he explicat que un enllaç és un acord i una responsabilitat: s'ofereix als visitants una manera d'arribar a més informació que necessiten, però cal tenir molta cura perquè si l'enllaç no dóna als usuaris allò que volen, o si té un comportament inesperat, perdreu credibilitat i la seva confiança. Si, per exemple, oferiu un enllaç que apunta cap al document actual, en activar-lo es tornarà a carregar el document. Com a usuari això és una cosa que no espereu: de què serveix clicar aquest enllaç? L'únic que s'aconsegueix és que els usuaris quedin perplexos.</p>
+  
+  <p>És per això que des del menú no hi ha d'haver mai cap enllaç fins a la pàgina actual. Podríeu eliminar l'enllaç o, millor encara, fer que deixi d'actuar com un enllaç però destacar-lo (per exemple amb un element <code>strong</code>); amb això els usuaris tindrien una indicació visual i també diria als visitants cecs que és important i que és l'entrada actual del menú.</p>
+  
+<p class="font"><strong>Podeu veure un exemple de pàgina actual destacada a:</strong> "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/about.html" hreflang="en">about.html</a>"</p>
+  
+  <p><strong>2) Quantes opcions cal donar als usuaris en cada moment?</strong></p>
+  
+  <p>Una altra qüestió que cal tenir en compte és quantes opcions voleu donar als visitants. Molts dels menús que veieu al web intenten garantir que es podrà accedir a totes les pàgines del lloc des d'un únic menú. Aquí és on entren en joc els trucs dels scripts i del CSS; podeu fer que els menús siguin més fàcils de fer servir ocultant-ne parts fins que els usuaris en seleccionin algunes àrees concretes (és el que algunes vegades es coneix com a menús desplegables). Des d'un punt de vista tècnic és perfecte, però aquest enfocament presenta uns quants problemes:</p>
+  
+  <ul>
+		<li><p>No tots els usuaris podran utilitzar aquest truc tan intel·ligent de la manera esperada; els usuaris del teclat, per exemple, hauran de passar per tots els enllaços de la pàgina amb el tabulador per arribar al que busquen.</p></li>
+  
+  <li><p>Per aconseguir-ho haureu d'afegir molt d'HTML a cada document del vostre lloc, i una bona part d'aquest pot ser redundant en moltes pàgines. Si baixo tres nivells dintre d'un menú d'aquesta mena per arribar al document que vull llegir, no cal que pugui veure les opcions que em porten a un profunditat de 4, 5 i 6 nivells.</p></li>
+  
+  <li><p>Si oferiu massa opcions a la vegada podeu aclaparar els visitants; als éssers humans no els agrada prendre decisions. Només cal que penseu en tot el temps que necessiteu per triar un plat en una carta de restaurant una mica llarga.</p></li>
+  
+  <li><p>Si en una pàgina no hi ha gaire contingut però sí molts enllaços, els motors de cerca assumiran que no hi ha gaire informació vàlida i no li faran gaire cas, amb la qual cosa serà difícil de trobar quan es facin cerques al web.</p></li>
+	</ul>
+  
+  <p>Fet i fet, la decisió sobre les entrades que posareu en un menú és vostra, ja que els diferents dissenys exigiran unes opcions diferents; però si teniu algun dubte, sempre hauríeu d'intentar reduir els menús als enllaços fins a les seccions principals del lloc. Sempre podeu oferir altres menús en els llocs on sigui oportú.</p>                     
+
+  <h3 id="contextualmenu">23.3.3. Menús contextuals</h3>
+  
+  <p>Els menús contextuals són enllaços que es basen en contingut del document actual i ofereixen més informació relacionada amb la pàgina a la qual us trobeu. Un exemple clàssic són els enllaços "notícies relacionades" que s'acostumen a trobar al final de les notícies que llegiu, tal com podeu veure a la figura 1.</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_15.gif" alt="Captura de pantalla d'un menú contextual, en aquest cas titulars de notícies relacionades" />
+		<p>Figura 1. Exemple de menú contextual: una notícia que ofereix notícies relacionades.</p>
+	</div>
+
+  <p>Aquests menús són una mica diferents dels menús contextuals de les interfícies d'usuari, que ofereixen opcions diferents segons el lloc des d'on s'hi accedeix (com els menús que apareixen amb un clic del botó dret del ratolí o amb 'Ctrl' + clic en les aplicacions d'escriptori que ofereixen unes opcions concretes segons el punt on es troba el punter del ratolí en cada moment).</p>
+  
+  <p>Els menús contextuals dels llocs web són una manera perfecta de presentar el contingut d'altres parts del lloc; i pel que fa a l'HTML, no són res més que una altra llista d'enllaços.</p>   
+
+  <h3 id="sitemaps">23.3.4. Mapes del lloc</h3>
+  
+  <p>Els mapes del lloc són ben bé el que indica el seu nom: mapes de totes les pàgines diferents (o de les seccions principals si parlem de llocs realment molt grans) del lloc. Permeten als visitants del lloc veure'n ràpidament l'estructura general i anar ràpidament allà on vulguin, fins i tot si la pàgina que necessiten es troba en un nivell molt profund de la jerarquia.</p>
+  
+  <p>Tant els mapes del lloc com les cerques en el lloc són una manera perfecta d'oferir als visitants una opció alternativa quan es troben perduts, o d'oferir-los un accés ràpid quan tenen pressa.</p>
+  
+  <p>Des del punt de vista de l'HTML, poden ser una llista molt gran imbricada plena d'enllaços o bé, en el cas de llocs web molt grans, títols de secció amb enllaços imbricats de jerarquies específiques de cada secció, o fins i tot formularis de cerca per a cadascuna de les seccions.</p>
+
+  <h3 id="pagination">23.3.5. Paginació</h3>
+  
+  <p>La paginació és necessària quan cal oferir una manera de navegar per documents molt grans dividits en diverses pàgines. Trobareu paginació, per exemple, als arxius d'imatges molt grans o a les pàgines de resultats de cerca (com Google o Yahoo).</p>
+  
+  <p>La paginació és diferent d'altres tipus de navegació perquè normalment enllaça cap al mateix document, però amb un enllaç que conté més informació, com per exemple la pàgina des de la qual cal començar. La figura 2 mostra alguns exemples de paginació:</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_16.gif" alt="Diferents tipus de menús de paginació" />
+		<p>Figura 2. Els menús de paginació permeten que els visitants naveguin per grans conjunts de dades sabent en tot moment on es troben.</p>
+	</div>  
+	
+  <p>L'HTML no és gens revolucionari, ja que no deixa de ser una altra llista d'enllaços amb l'enllaç actual (el que indica les dades actuals i el nivell que ocupen a la paginació) desactivat i destacat (amb un element <code>strong</code>, per exemple).</p>
+  
+  <p>La diferència principal amb la navegació pel lloc és que la paginació inclou una lògica de programació important. Segons el lloc on us trobeu de tot el conjunt de dades, haureu de mostrar o ocultar els vincles previ, següent, primer i últim. Si teniu un volum d'informació realment enorme pel qual navegar, també és recomanable oferir enllaços a punts de referència com 100, 200 i moltes més opcions. És per aquesta raó que molt probablement no codificareu menús d'aquesta mena en HTML sinó que els creareu en el servidor. Això, però, no fa que canviïn les normes; les dades actuals no s'han d'enllaçar amb elles mateixes i no heu d'oferir enllaços que no portin enlloc.</p>
+
+  <h2 id="imagemapsforms">23.4. Quan les llistes no són suficients: mapes d'imatge i formularis</h2>
+  
+  <p>En el 99% dels casos, les llistes ordenades o desordenades són opcions de l'HTML suficients per crear menús, especialment perquè l'ordre lògic i la imbricació també permeten aplicar uns estils molt interessants amb el CSS. Hi ha algunes situacions, però, que poden exigir algunes tècniques de disseny diferents.</p>
+                                
+
+  <h3 id="hotspots">23.4.1. Definir zones sensibles amb mapes d'imatge</h3>
+  
+  <p>Una de les tècniques són els mapes d'imatge del client. Els mapes d'imatge converteixen una imatge en un menú convertint seccions d'una imatge en àrees interactives que es poden enllaçar amb diferents documents. L'<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/imagemap.html" hreflang="en">exemple de mapa d'imatge</a> associat a aquesta secció converteix una imatge en un menú que es pot clicar. Proveu-ho seguint l'enllaç anterior i clicant les diferents seccions del triangle de la imatge que apareix a la figura 3.</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_17.gif" alt="Captura de pantalla d'una imatge amb zones sensibles" />
+		<p>Figura 3. Definint un mapa amb elements d'àrea podeu convertir parts d'una imatge en elements interactius.</p>
+	</div>
+ 
+<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/imagemap.html" hreflang="en">imagemap.html</a>"</p>
+  
+  <p>Podeu convertir una imatge en un menú definint un mapa amb àrees diferents (també conegudes com a <em>zones sensibles</em>). Haureu de donar al mapa un atribut <code>name</code> i connectar la imatge i el mapa amb l'atribut  <code>usemap</code> de l'element <code>img</code>. Observeu que això funciona exactament igual que els enllaços a la mateixa pàgina, la qual cosa significa que el valor de l'atribut <code>usemap</code> haurà d'anar precedit d'un coixinet.</p>
+  
+  <p>Cadascuna de les àrees ha de tenir diversos atributs:</p>
+  
+  <dl>
+  <dt><code>href</code></dt>
+  <dd>Defineix la URL a la qual enllaça l'àrea (que també podria ser un destí en el mateix document).</dd>
+  
+  <dt><code>alt</code></dt>
+  <dd>Defineix un text alternatiu per si no es pot trobar la imatge o si l'agent d'usuari no accepta imatges.</dd>
+  
+  <dt><code>shape</code></dt>
+  <dd>Defineix la forma de l'àrea. Pot ser <code>rect</code> per a rectangles, <code>circle</code> per a cercles o <code>poly</code> per a formes irregulars definides mitjançant polígons.</dd>
+  
+  <dt><code>coords</code></dt>
+  <dd>Defineix les coordenades en la imatge que s'han de convertir en zones sensibles; aquests valors es mesuren des del vèrtex superior esquerre de la imatge i es poden mesurar en píxels o percentatges. Per a les àrees rectangulars només cal definir el vèrtex superior esquerre i l'inferior dret; per als cercles haureu de definir-ne el centre i el radi; per als polígons haureu d'oferir una llista de tots els punts de vèrtex.</dd>
+  </dl>
+  <p>Els mapes d'imatge no són tan divertits de definir i escriure com l'HTML, i és per això que hi ha eines de manipulació d'imatges, com ara Adobe Image Ready o Fireworks, que ofereixen una opció per crear-los visualment (generen automàticament l'HTML).</p>                        
+
+  <h3 id="forms">23.4.2. Estalviar espai de pantalla i evitar la sobrecàrrega d'enllaços amb formularis</h3>
+  
+  <p>Una altra tècnica que podeu utilitzar és crear un formulari amb l'element <code>select</code>. Podeu definir les diferents pàgines com a opcions de l'element <code>select</code>, i així els visitants podran escollir una opció i trametre el formulari per passar a altres pàgines. Trobareu un exemple de menú de formulari a l'arxiu "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/selectnavigation.html" hreflang="en">selectnavigation.html</a>"</p>  
+
+  <p>L'avantatge més obvi de l'ús d'aquest tipus de menú és que podeu oferir un munt d'opcions sense ocupar molt d'espai de la pantalla, ja que els navegadors mostren el menú en una línia; vegeu la figura 4.</p>
+                         
+	<div class="imagen">
+		<img src="06510_m4_18.gif" alt="Captura de pantalla d'un menú creat amb un quadre de selecció obert i tancat" />
+		<p>Figura 4. Els menús de selecció ocupen només una línia a la pantalla.</p>
+		<p class="font"><strong>Arxiu font:</strong> "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/selectnavigationoptgroup.html" hreflang="en">selectnavigationoptgroup.html</a>"</p>
+	</div>                                                                                                    
+  
+  
+  <p>Podeu anar més lluny i agrupar les diferents opcions del menú amb l'element <code>optgroup</code>, tal com podeu veure a l'exemple de l'arxiu "<a href="http://dev.opera.com/articles/view/23-creating-multiple-pages-with-navigat/selectnavigationoptgroup.html" hreflang="en">selectnavigationoptgroup.html</a>"</p>
+  
+  <p>Llavors apareixerà un menú amb opcions que no es podran seleccionar (són els noms dels grups), tal com es mostra a la figura 5.</p>
+                         
+	<p>Aquesta tècnica té l'avantatge que ocupa molt poc espai, però també us obliga a tenir un script del servidor per enviar els visitants a les pàgines que han escollit. Per fer que els enllaços funcionin també podeu utilitzar JavaScript, però no us podeu refiar que el JavaScript estigui disponible; haureu de comprovar que els vostres usuaris puguin utilitzar els menús fins i tot amb el JavaScript desactivat.</p>
+	
+	<div class="imagen">
+		<img src="06510_m4_19.gif" alt="Captura de pantalla d'un menú creat amb un quadre de selecció que inclou grups d'opcions" />
+		<p>Figura 5. Els menús de selecció poden incorporar grups d'opcions que us permetran dir als visitants quines opcions estan relacionades entre elles. Així és tal com apareix a l'Opera 9.5.</p>
+	</div>
+ 
+  <p>Un altre avantatge, tot i que menys evident, és que d'aquesta manera no oferiu un excés d'enllaços en el mateix document. Això significa que no atabalareu els usuaris de tecnologies d'assistència (que normalment solen trobar tots els enllaços en una llista molt llarga). I també significa que els motors de cerca no consideraran els enllaços de la vostra pàgina com una cosa inútil, ja que la relació entre enllaços i text fa que el document sembli un mapa de lloc. No obstant això, moltes tecnologies d'assistència poden generar un mapa dels enllaços de les vostres pàgines; si tots els vostres enllaços importants es troben en un menú de selecció, hi ha la possibilitat que un visitant no els arribi a trobar mai. Així, doncs, és una bona idea oferir enllaços d'àncora cap a les pàgines de destí principals i els menús de l'element <code>select</code> per oferir més opcions. Els visitants els podran utilitzar, però les màquines com els robots dels motors de cerca no caldrà que sàpiguen que existeixen.</p>
+
+
+  <h2 id="skiplinks">23.5. On posar el menú, i oferir opcions per saltar-se'l</h2>
+  
+  <p>Una última cosa que cal mencionar sobre els menús HTML és que la situació del menú és molt important. Penseu en els visitants que no tenen cap mecanisme de desplaçament o que no poden veure-s'hi i que, per tant, es refien de la navegació amb el teclat per moure's pel lloc. La primera cosa amb què es trobaran quan carreguin el document és la seva ubicació i el títol, i a continuació el document es llegirà de principi a fi aturant-se en cadascun dels enllaços per demanar al visitant si el volen seguir o no. Altres opcions poden ser una llista de tots els enllaços o passar de títol a títol. Si el menú es troba a la part superior del document, serà la primera cosa que trobarà l'usuari. El fet d'haver de passar per 15 o 20 enllaços abans d'arribar al contingut pot ser una tas

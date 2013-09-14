@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El text central d'HTML - Etiquetar contingut textual en HTML</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">El text central d'HTML</div>
+	<div id="subtitulo">Etiquetar contingut textual en HTML</div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../../m3/ud3/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud2/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+  
+  <h1>15. Etiquetar contingut textual en HTML</h1>
+  
+  <p class="by"><a href="../../index.html#francis">Mark Norman Francis</a>. 8 de juliol del 2008. Publicat a: paràgraf, text, èmfasi, cita, pre </p>
+  
+  <p>En aquest apartat explicaré els conceptes bàsics de l'ús de l'HTML per a descriure el significat del contingut dins el cos del vostre document.</p>
+  
+  <p>Veurem elements estructurals generals com ara els títols i els paràgrafs i la incrustació de cites i codi. Després també veurem el contingut en línia, com ara les cites curtes i l'èmfasi, i acabarem amb una anàlisi ràpida del contingut presentacional antiquat. </p>
+  
+  <div class="note">
+  <h3>Nota</h3>
+  
+  <p>Després de cada exemple de codi hi ha un enllaç "Vegeu exemples reals" que us portarà a la visualització del resultat d'aquest codi font en un arxiu diferent; d'aquesta manera podreu veure exemples reals de com es veu realment aquest codi font en el navegador, a banda del codi en si.</p>
+  </div>
+  
+  <p>Els continguts d'aquest apartat són els següents:</p>
+  
+  <ul class="index">
+	<li>15.1. <a href="#whitespace" accesskey="1">L'espai: l'última frontera</a></li>
+  <li>15.2. <a href="#block" accesskey="2">Elements de bloc</a>
+  <ul class="index">
+	<li>15.2.1. <a href="#headings">Títols de secció de pàgina</a></li>
+  <li>15.2.2. <a href="#paragraphs">Paràgrafs genèrics</a></li>
+  <li>15.2.3. <a href="#cite">Citar altres fonts</a></li>
+  <li>15.2.4. <a href="#preformatted">Text preformatat</a></li>
+	</ul></li>
+  <li>15.3. <a href="#inline" accesskey="3">Elements en línia</a>
+  <ul class="index">
+	<li>15.3.1. <a href="#quotations">Cites curtes</a></li>
+  <li>15.3.2. <a href="#emphasis">Èmfasi</a></li>
+  <li>15.3.3. <a href="#italics">Text en cursiva</a></li>
+  </ul></li>
+	<li>15.4. <a href="#presentational" accesskey="4">Elements presentacionals: no els heu de fer servir mai</a></li>     
+	 <li class="especial"><a href="#summary">Resum</a></li>
+	</ul>
+  
+  <h2 id="whitespace">15.1. L'espai: l'última frontera</h2>
+  
+  <p>Una qüestió molt important que vull tractar abans de començar a parlar sobre el text és la de l'espai, i concretament la de l'<strong>espai entre paraules</strong>. Quan s'escriu l'HTML, el document font contindrà el que es coneix com "espais en blanc", que són els caràcters de l'arxiu que serveixen per a separar el text. El caràcter d'espai més habitual és el que s'obté en prémer la barra espaiadora, però n'hi ha d'altres, com el tabulador i la marca entre dues línies independents d'un document (conegut com a retorn o línia nova).</p>
+  
+  <div class="text-clau">
+  <p>En l'HTML, quan un caràcter d'aquests apareix diverses vegades seguides es considera (quasi) sempre com un únic caràcter d'espai. </p>
+  </div>
+  
+  <p>Per exemple, un navegador interpretaria el següent:</p>
+  
+  <pre><code>&lt;h3&gt;In the
+            beginning&lt;/h3&gt;</code></pre>
+ 
+
+	<p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#whitespace" hreflang="en">Whitespace example</a>"</p>
+  
+  <p>com a equivalent a:</p>
+
+  <pre><code>&lt;h3&gt;In the beginning&lt;/h3&gt;</code></pre>
+  
+  <p>L'únic cas en el qual això no és així és l'element <code>pre</code>, del qual parlarem en detall més endavant en aquest mateix apartat.</p>
+  
+  <p>Això pot provocar algunes confusions per als autors que escriuen per primera vegada un document en HTML i que intenten introduir espais addicionals dins el text per a aconseguir el sagnat desitjat, deixar més espai després d'un punt entre frases o afegir més espai vertical entre paràgrafs. El disseny visual dels documents no s'ha de definir en el codi font HTML, sinó que s'ha de fer a través dels fulls d'estils, dels quals parlarem més endavant en aquesta sèrie d'apartats.</p>
+
+  <h2 id="block">15.2. Elements de bloc</h2>
+  
+  <p>En aquest subapartat explicaré la sintaxi i l'ús dels <a href="http://mosaic.uoc.edu/ac/le/ca/m3/ud1/index.html#blockinline" hreflang="en">elements de bloc més freqüents </a>utilitzats per formatar text.</p>
+
+  <h3 id="headings">15.2.1. Títols de secció de pàgina</h3>
+  
+  <p>Una vegada hàgiu dividit la pàgina en seccions lògiques, cadascuna d'aquestes seccions hauria d'anar introduïda per un títol adequat. D'això es parla en més detall a l'apartat <em>Què necessita una bona pàgina web</em>.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'apartat 7 del mòdul "Conceptes de disseny web".</p>
+  </div>
+  
+  <div class="text-clau">
+  <p>L'HTML defineix sis nivells de títols: <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code> i <code>h6</code> (des del més fins al menys important). Parlant en general, <code>h1</code> seria el títol principal de tota la pàgina que introduiria el tema. <code>h2</code> s'utilitzaria per a dividir la pàgina en seccions, <code>h3</code> en subseccions i així successivament.</p>
+  </div>
+  
+  <p>És molt important utilitzar els nivells de títols per a descriure el document pel que fa a les seccions, subseccions, subsubseccions..., ja que això fa que el document sigui més <a href="http://www.accessibilitytips.com/2008/03/10/avoid-skipping-header-levels/" hreflang="en">comprensible per als lectors de pantalla</a> i per als processos automatitzats (com els robots d'indexació de Google).</p>
+  
+  <p>Un bon exemple d'una estructura de títols, fent servir aquest document com a plantilla, podria ser el següent:</p>
+
+  <pre><code>&lt;h1&gt;Etiquetar contingut textual en HTML&lt;/h1&gt;
+&lt;h2&gt;Introducció&lt;/h2&gt;
+&lt;h2&gt;L'espai: l'última frontera&lt;/h2&gt;
+&lt;h2&gt;Elements de bloc&lt;/h2&gt;
+&lt;h3&gt;Títols de secció de pàgina&lt;/h3&gt;
+&lt;h3&gt;Paràgrafs genèrics&lt;/h3&gt;
+&lt;h3&gt;Citar altres fonts&lt;/h3&gt;
+&lt;h3&gt;Text preformatat&lt;/h3&gt;
+&lt;h2&gt;Elements en línia&lt;/h2&gt;</code></pre>
+  
+  <p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#headings" hreflang="en">Headings example</a>"</p>
+  
+  <p>[...i així successivament...]</p>
+
+  <h3 id="paragraphs">15.2.2. Paràgrafs genèrics</h3>
+  
+  <div class="text-clau">
+  <p>El paràgraf és el component bàsic de la majoria dels documents. En l'HTML, un paràgraf es representa amb l'element
+<code>p</code>, que no té cap atribut especial.</p>
+</div>
+  
+  <p>Per exemple:</p>
+                     
+  <pre><code>&lt;p&gt;This is a very short paragraph. It only has two sentences.&lt;/p&gt;</code></pre>
+  
+  <p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#paragraph" hreflang="en">Paragraph example</a>"</p>
+  
+  <p>En molts articles i llibres, un paràgraf pot contenir només una frase. Tot i que el significat (pel que fa a la prosa escrita) de "paràgraf" és bastant clar, al web hi ha àrees de text molt més curtes que sovint apareixen entre elements de paràgrafs pel simple fet que l'autor creu que és més "semàntic" que utilitzar un element <code>div</code> (en parlarem en un altre apartat titulat "Contenidors genèrics").</p>
+  
+  <div class="exemple">
+  <h3>Exemple</h3>
+  <p>Un paràgraf és un conjunt d'una o més frases, igual que en els diaris i llibres. Al web és una bona idea utilitzar l'element de paràgraf per a aquests conjunts de frases i no per a qualsevol part aleatòria de text de la pàgina. Si són només unes quantes paraules i no una frase pròpiament dita, llavors potser seria millor no etiquetar-ho com un paràgraf.</p>
+  </div>            
+
+  <h3 id="cite">15.2.3. Citar altres fonts</h3>
+  
+  <div class="text-clau">
+  <p>Sovint, els articles, els apunts de blocs i els documents de referència citen totalment o parcialment algun altre document. En l'HTML, aquestes cites es marquen amb l'element <code>blockquote</code> per a cites llargues, com ara frases senceres, paràgrafs, llistes o similars.</p>
+  </div>
+  
+  <p>Un element <code>blockquote</code> no pot contenir text, sinó que ha de tenir en el seu interior un altre element de bloc. Hauríeu de fer servir el mateix element de bloc que en el document original. Si citeu un paràgraf de text, utilitzeu un paràgraf; quan citeu una llista, utilitzeu els elements per a llistes; i així successivament.</p>
+  <p>Si la cita és d'una altra pàgina web, podeu indicar-ho utilitzant l'atribut <code>cite</code>.</p>
+  
+  <p>Com en l'exemple següent:</p>
+
+  <pre><code>&lt;p&gt;HTML 4.01 is the only version of HTML that you should use
+ when creating a new web page, as, according to the 
+ specification:&lt;/p&gt;
+&lt;blockquote cite="http://www.w3.org/TR/html401/"&gt;
+&lt;p&gt;This document obsoletes previous versions of HTML 4.0,
+ although W3C will continue to make those specifications and
+ their DTDs available at the W3C Web site.&lt;/p&gt;
+&lt;/blockquote&gt;</code></pre>
+  
+  <p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#cite" hreflang="en">Quoting other sources example</a>"</p>
+  
+  <p>L'atribut <code>cite</code> no és necessari en el cas que la cita s'agafi d'una novel·la, una revista o d'alguna altra forma de contingut fora de línia.</p>
+  
+  <h3 id="preformatted">15.2.4. Text preformatat</h3>
+  
+  <div class="text-clau">
+  <p>Qualsevol text en el qual el format i l'espai en blanc (vegeu més amunt) siguin importants s'haurien d'etiquetar amb l'element<code>pre</code>.</p>
+  </div>
+  
+  <p>En la majoria dels navegadors web, el text marcat com a preformatat es mostrarà a l'usuari tal com aparegui en el codi font, algunes vegades fent servir un tipus de lletra d'amplada fixa, la qual cosa dóna al text l'aspecte d'haver estat escrit amb una màquina d'escriure. Aquest ús de tipus de lletres d'amplada fixa és un dels primers recursos que van fer servir els programadors per al text preformatat.</p>
+  
+  <p>En aquest podeu veure un fragment de codi escrit en el llenguatge de programació Perl:</p>
+                      
+  <pre><code>&lt;pre&gt;&lt;code class="language-perl"&gt;
+# read in the named file in its entirety
+sub slurp {
+  my $filename = shift;
+  my $file     = new FileHandle $filename;
+
+  if ( defined $file ) {
+    local $/;
+    return &lt;$file&gt;;
+  }
+  return undef;
+};
+&lt;/code&gt;&lt;/pre&gt;</code></pre>
+  
+  <p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#preformatted" hreflang="en">Preformatted example</a>"</p>
+  
+  <p>L'ús de <code>code</code> que es fa en aquest exemple s'explicarà a l'apartat sobre els elements semàntics menys coneguts més endavant en aquest mòdul.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'apartat 21 d'aquest mòdul.</p>
+  </div>
+                      
+  <h2 id="inline">15.3. Elements en línia</h2>
+  
+  <p>En aquest subapartat explicaré la sintaxi i l'ús dels elements en línia més freqüents utilitzats per a formatar text.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'apartat 12 del mòdul "Fonaments d'HTML".</p>
+  </div>
+                           
+  <h3 id="quotations">15.3.1. Cites curtes</h3>
+  
+  <div class="text-clau">
+  <p>Les cites curtes que s'utilitzen en una frase o paràgraf normal es posen a l'element
+<code>q</code>. Igual que l'element <code>blockquote</code>, aquest pot contenir un atribut
+<code>cite</code>, que indica la pàgina d'Internet a la qual es pot trobar la cita.</p>
+  </div>
+  
+  <p>Una cita curta apareix normalment entre cometes. Segons l'<a href="http://www.w3.org/TR/html401/struct/text.html#h-9.2.2" hreflang="en">especificació HTML</a>, aquestes cites les ha d'inserir l'agent usuari per tal de poder-les imbricar correctament i que sàpiguen l'idioma que s'utilitza en el document. Es pot utilitzar el CSS per a controlar les cometes utilitzades; aquest aspecte es tractarà a l'apartat sobre "estils de text".</p>
+
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'apartat 29 del mòdul "Conceptes bàsics de CSS".</p>
+  </div>
+  
+  <p>Un exemple de <code>q</code> en acció:</p>
+                     
+  <pre><code>&lt;p&gt;This did not end well for me. Oh well,
+    &lt;q lang="fr"&gt;c'est la vie&lt;/q&gt; as the French say.&lt;/p&gt;</code></pre>
+  
+	<p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#q" hreflang="en">Inline quote example</a>"</p>
+	
+  <h3 id="emphasis">15.3.2. Èmfasi</h3>
+  
+  <p>L'HTML conté dos mètodes per a indicar que el text del seu interior ha d'aparèixer emfasitzat davant l'usuari, com per exemple els missatges d'error, les advertències o les notes. </p>
+  
+  <div class="text-clau">
+  <p>En els navegadors visuals això significa normalment l'aplicació d'un color o un tipus de lletra diferent o la visualització del text en negreta o cursiva. Per als usuaris de lectors de pantalla, el resultat pot ser una veu diferent o algun altre efecte acústic. Per a presentar text amb èmfasi cal utilitzar l'element <code>em</code>.</p>
+  </div>
+  
+  <p>Com l'exemple següent:</p>
+                              
+  <pre><code>&lt;p&gt;&lt;em&gt;Please note:&lt;/em&gt; the kettle is to be unplugged at night.&lt;/p&gt;</code></pre>
+
+  <p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#em" hreflang="en">Emphasis example</a>"</p>
+  
+  <p>Si cal emfasitzar tota una frase però una part concreta d'aquesta s'ha d'emfasitzar d'una manera encara més important, s'ha d'utilitzar l'element <code>strong</code> per a indicar un èmfasi més fort del normal com en l'exemple següent:</p>
+                      
+  <pre><code>&lt;p&gt;&lt;em&gt;Please note: the kettle &lt;strong&gt;must&lt;/strong&gt; be unplugged every evening,
+ otherwise it will explode - &lt;strong&gt;killing us all&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;</code></pre>  
+
+  <p class="font"><strong>Vegeu exemples reals a:</strong> "<a href="http://dev.opera.com/articles/view/15-marking-up-textual-content-in-html/HTMLtext_examples.html#emstrong" hreflang="en">Emphasis and strong example</a>"</p>
+
+  <h3 id="italics">15.3.3. Text en cursiva</h3>
+  
+  <p>Normalment es creu que "cursiva" no descriu el significat i que, per tant, l'element <code>i</code> no s'ha d'utilitzar (igual que molts altres elements presentacionals descrits al subapartat següent).</p>
+  
+  <div class="text-clau">
+  <p>Hi ha un parell de casos en els quals és correcte descriure el contingut com a cursiva. Ja s'ha comentat que alguns conceptes es descriuen millor com a "cursiva" en lloc d'haver de crear alguns elements molt específics i no utilitzats. Aquests inclouen coses com ara el noms de vaixells, els títols de sèries de televisió, pel·lícules i llibres, alguns termes tècnics i altres designacions taxonòmiques.</p>
+  </div>
+  
+  <p>La raó és que la cursiva indica que el text és especial i el context indica en quin sentit ho és, d'especial. </p>
+  
+  <blockquote>
+  <p>De fet, això ja queda reflectit a l'esborrany de l'especificació de l'HTML 5:</p>
+  
+  <p>"L'element i representa un text en una veu o un mode alternatiu, o que d'alguna manera queda fora de la prosa normal [...] L'element i s'ha d'utilitzar com a últim recurs quan no hi ha cap altre element que sigui més apropiat."</p>
+  </blockquote>
+  
+  <p>Com que el CSS pot modificar l'element i per tal que no sigui cursiva, en aquest context cal interpretar el significat de "cursiva" fonamentalment com a "alguna cosa una mica diferent". Jo no ho trobo correcte, personalment parlant, però hi ha precedents suficients per a utilitzar-ho d'aquesta manera.</p>
+                       
+  <h2 id="presentational">15.4. Elements presentacionals: no els heu de fer servir mai</h2>
+  
+  <p>L'especificació de l'HTML inclou diversos elements que es descriuen de manera general com a "presentacionals", ja que només especifiquen quin aspecte ha de tenir el text que contenen però no el que signifiquen.</p>
+  
+  <p>L'especificació ha etiquetat alguns d'aquests elements com a desaprovats. Això significa que han estat substituïts per un mètode més nou que permet aconseguir els mateixos resultats.</p>
+  
+  <p>Jo aquí els descriuré breument, però cal tenir en compte que aquesta explicació té quasi exclusivament un interès purament històric; aquests elements no s'han d'utilitzar mai en cap pàgina web moderna. L'efecte de tots aquests elements s'ha d'aconseguir d'alguna altra manera, que es descriurà en dos altres apartats: "estils de text amb el CSS" i elements semàntics menys coneguts.
+</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu l'apartat 29 del mòdul "CSS" i l'apartat 21 d'aquest mòdul.</p>
+  </div>
+  
+  <ul>
+		<li><p><code>font face="..." size="..."</code>. El navegador mostrarà el text en aquests elements utilitzant un tipus de lletra diferent del tipus per defecte; els tipus de lletra, però, s'han de definir amb el CSS.</p></li>
+  
+  <li><p>b. El text apareix en negreta; gairebé sempre significa que el text té algun tipus d'èmfasi, i per tant caldria utilitzar <code>em</code> o <code>strong</code> tal com s'ha explicat abans.</p>
+  </li>
+  
+  <li><p><code>s</code> i <code>strike</code>. El text apareix ratllat amb una línia que el travessa; si és només un efecte presentacional, aquest efecte s'hauria d'aconseguir amb el CSS. També, si el text es vol marcar com a suprimit o no desitjat, s'hauria d'etiquetar amb l'element del que es descriu més endavant.</p>
+  </li>
+  
+  <li><p>u. El text es subratlla; és quasi sempre un efecte visual i s'hauria d'aconseguir amb el CSS.</p>
+  </li>
+  
+  <li><p>tt. El text es presenta en un tipus de lletra de "teletip" o d'amplada fixa; aquest efecte s'hauria d'aconseguir amb el CSS o amb algun element semàntic més apropiat com per exemple pre, tal com s'ha vist anteriorment.</p>
+  </li>
+  
+  <li><p><code>big</code> i <code>small</code>. S'ajusta la mida del text; s'hauria d'aconseguir amb el CSS.</p>
+  </li>
+	</ul>
+	
+  <h2 id="summary">Resum</h2> 
+  
+  <p>En aquest apartat he parlat d'alguns dels elements més comuns que es fan servir per etiquetar contingut textual. En el següent apartat parlarem d'un altre tipus de contingut: les llistes.</p>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../../m3/ud3/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+		<a rel="next" href="../ud2/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>

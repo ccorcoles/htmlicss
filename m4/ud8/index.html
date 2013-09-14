@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta http-equiv="Content-Language" content="ca" />
+<meta name="language" content="ca" />
+<meta name="author" content="Universitat Oberta de Catalunya" />
+<meta name="description" content="FALTA CONTENIDO" />
+<meta name="title" content="FALTA CONTENIDO" />
+<meta name="keywords" content="FALTA CONTENIDO" />
+
+<title>El text central d'HTML - Contenidors genèrics: els elements div i span</title>
+<link type="text/css" href="../../css/normal.css" rel="stylesheet" media="all" title="Estil normal" />
+</head>
+
+<body>
+<div id="cabecera">
+	<img id="logo" src="../../img/logo.gif" alt="Universitat Oberta de Catalunya" />
+    <a href="http://mosaic.uoc.edu/" hreflang="es"><img id="logomosaic" src="../../img/logo-mosaic.gif" alt="Logo de Mosaic" title="Obre la pàgina web de Mosaic" /></a>
+	<div id="titulo">El text central d'HTML</div>
+	<div id="subtitulo">Contenidors genèrics: els elements <code>div</code> i <code>span</code></div>
+<div id="cierre"></div>
+	<div id="navegador">
+		<a href="../../m0/accessibilitat.html" id="accesibilidad">Accessibilitat</a> <strong>:</strong> 
+		<a rel="prev" href="../ud7/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong> 
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice.gif" alt="Anar a l'índex" /></a> <strong>:</strong> 
+		<a rel="next" href="../ud9/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der.gif" alt="Anar a l'article següent" /></a>
+	</div>
+</div>
+	
+<div id="main">
+	<h1>22. Contenidors genèrics: els elements <code>div</code> i <code>span</code></h1>
+  
+  <p class="by"><a href="../../index.html#francis">Mark Norman Francis</a> 26 de setembre del 2008. Publicat a: div, span, agrupar, lligams, semàntic</p>
+
+  
+  <p>En aquest apartat explicaré com i quan utilitzar els dos elements de l'HTML que <em>no</em> s'utilitzen per a descriure el contingut. Els elements <code>span</code> i <code>div</code> no confereixen en realitat cap significat al contingut que envolten; de fet són un mecanisme genèric que permet crear una estructura i uns agrupaments personalitzats d'elements en els llocs on no hi ha cap altre element de l'HTML que resulti realment adequat, als quals llavors es poden aplicar estils amb CSS o manipular amb JavaScript. Tot i que els elements <code>div</code> no afegeixen cap significat semàntic, es pot considerar que aquests representen una divisió estructural de l'etiquetatge juntament amb la classe semàntica o el nom d'ID adequats.</p>
+  
+  <p>Són "l'últim recurs" i només s'han d'utilitzar quan no hi ha cap altre element de l'HTML que compleixi els requisits necessaris, ja que no tenen cap significat per a les tecnologies d'assistència, els motors de cerca, etc.</p>
+  
+  <p>Els continguts d'aquest apartat són els següents:</p>
+  
+ 	<ul class="index">
+	<li>22.1. <a href="#semanticallyneutral" accesskey="1">Semànticament neutres</a></li>
+  <li>22.2. <a href="#inlineblock" accesskey="2">En línia i de bloc</a></li>
+  <li>22.3. <a href="#groupingcontent" accesskey="3">Més explicacions sobre l'agrupament del contingut</a></li>
+  <li>22.4. <a href="#extrainformation" accesskey="4">Informació addicional</a></li>
+  <li>22.5. <a href="#hooks" accesskey="5">Lligams per a JavaScript, i també CSS</a></li>
+  <li>22.6. <a href="#divitis" accesskey="6">"div-itis"</a></li>
+  <li>22.7. <a href="#inappropriatesemantics" accesskey="7">Semàntica inadequada</a>
+	<ul class="index">
+  <li>22.7.1. <a href="#genericparagraphs">"Paràgrafs" genèrics</a></li>
+  <li>22.7.2. <a href="#presentationalelements">Elements presentacionals</a></li>
+  </ul></li>
+  <li class="especial"><a href="#summary">Resum</a></li> 
+  <li class="especial"><a href="#exercises">Preguntes de repàs</a></li> 
+  </ul>
+                              
+  <h2 id="semanticallyneutral">22.1. Semànticament neutres</h2>
+  
+  <p>La majoria dels elements d'HTML existeixen per a descriure el contingut, com per exemple les imatges, les llistes o els títols, o per  a ajudar a compondre el document, com per exemple head, body, link, meta, etc. Hi ha dos elements, però, que no tenen cap significat assignat. </p>
+  
+  <blockquote>
+  <p>De l'especificació de l'HTML:</p>
+  
+  <p>Els elements<code> div</code> i <code>span</code>, juntament amb els atributs <code>id</code> i <code>class</code>, ofereixen un mecanisme genèric per a afegir estructura als documents.</p>
+  </blockquote>
+  
+  <p>Aquests dos elements es poden considerar com la bastida d'HTML. Donen la possibilitat d'agrupar el contingut i d'afegir informació addicional relativa al contingut i lligams per a incorporar-hi estils i interactivitat. Però no afegeixen cap significat semàntic nou al document, ni en si mateixos ni d'ells mateixos.</p>
+
+  <h2 id="inlineblock">22.2. En línia i de bloc</h2>
+  
+  <p>Tal com ja heu après, els elements de bloc són elements que ajuden a informar sobre l'estructura d'un document. L'element
+<code>div</code>, que és l'abreviatura de divisió, és el contenidor genèric dels blocs. Normalment es fa servir per envoltar altres elements de bloc amb l'objectiu d'agrupar-los. També es pot utilitzar per a reunir una colla d'elements inserits i/o text que no encaixen de manera lògica sota cap altre element de bloc, però això hauria de ser l'últim recurs.</p>
+  
+  <div class="vegeu_tambe">
+  <h3>Vegeu també</h3>
+  <p>Vegeu el subapartat següent, on trobareu una explicació més detallada sobre l'agrupament del contingut.</p>
+  </div>
+  
+  <div class="text-clau">
+  <p>L'element <code>span</code> és el contenidor genèric per als elements en línia. També ajuda a informar sobre l'estructura del document, però s'utilitza per a agrupar o envoltar altres elements inserits i/o text més que elements de bloc.</p>
+  </div>
+  
+  <p>En un primer moment, la línia de separació entre aquests dos tipus diferents podria semblar arbitrària. La diferència que cal tenir en compte és el tipus de contingut i la manera en què hauria d'aparèixer en escriure'l sense cap estil. Un element <code>div</code> es posa al voltant d'un grup d'elements de bloc; per exemple, per envoltar un títol i una llista d'enllaços per a crear un menú de navegació. Un element span envolta un grup d'elements en línia o bé (la majoria de les vegades) text net. La paraula clau és "grup"; si un element <code>div</code> envolta només un element de bloc, o un element <code>span</code> només un element en línia, llavors el seu ús és innecessari. </p>
+  
+  <p>Per exemple, observeu l'ús que es fa dels elements <code>div</code> i <code>span</code> en el següent etiquetatge, que és molt simple:</p>
+                       
+  <pre><code>&lt;body&gt;
+  &lt;div id="mainContent"&gt;
+    &lt;h1&gt;Títol de la pàgina&lt;/h1&gt;
+    &lt;p&gt;Aquest és el primer paràgraf de contingut de la meva pàgina d'exemple.&lt;/p&gt;
+    &lt;img src="example.gif" alt="Aquesta imatge és només un exemple, no té res
+     d'especial"&gt;
+    &lt;p&gt;Aquest és el segon paràgraf de contingut de la meva pàgina d'exemple.
+     És molt semblant al primer, però aquí hi ha una &lt;span id="specialAlert"&gt;alerta
+     especial que volem colorejar i augmentar-li la mida del text mitjançant
+     CSS&lt;/span&gt;. No es tracta d'un èmfasi estàndard, sinó més aviat un estil, de 
+     manera que &lt;em&gt; i &lt;strong&gt; no són del tot adients.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre> 
+
+  
+  <p>Ara podeu seleccionar el contingut de l'interior dels elements <code>div</code> i <code>span</code> utilitzant els seus atributs <code>id</code> i aplicar-los estils i posicionaments especials amb el CSS.</p>    
+
+  <h2 id="groupingcontent">22.3. Més explicacions sobre l'agrupament del contingut</h2>
+  
+  <p>Si observem el codi font de moltes pàgines d'Internet hi veurem molts elements <code>div</code> imbricats que inclouen algunes metàfores habituals a <code>class</code> i/o <code>id</code> dels elements; per exemple, <code>header</code>, <code>footer</code>, <code>content</code>, <code>sidebar</code>, etc.</p>
+  
+  <p>Els vostres noms de <code>class</code> i <code>id</code> han de ser sempre <em>semàntics</em>, la qual cosa vol dir que haurien de remetre al significat/paper del contingut i no limitar-se a fer referència al seu aspecte visual. Així, doncs, per exemple, <code>barraLateral</code> i <code>missatgeAlerta</code> són uns bons noms per a <code>class</code>, mentre que <code>columnaEsquerraVermella</code> i <code>textBlauIntermitent</code> no. Què passaria si després volguéssiu canviar el color de la barra lateral de vermell a blau, o la seva posició en el lloc web de l'esquerra a la dreta? I si volguéssiu canviar els vostres missatges d'alerta de blaus intermitents a verd sense intermitència?</p>
+
+  <p>Aquestes divisions aporten predictibilitat a l'hora de crear estructures de pàgina i, segurament molt més important, quan es torna a revisar l'HTML més endavant ofereixen pistes sobre la part de la pàgina en la qual us trobeu. Una pàgina ben dividida es documenta pràcticament a si mateixa pel que fa a les seves intencions i al seu contingut.</p>
+  
+  <p>Amb la bona intenció de deixar-ho tot una mica més clar, ara veurem una estructura de <code>div</code> d'un lloc web real, concretament la pàgina d'inici de <a href="http://dev.opera.com" hreflang="en">dev.opera.com</a>. Tingueu en compte que aquest exemple de codi no inclou cap contingut, si deixem de banda alguns altres elements que hi he posat perquè són importants per a l'estructura del lloc. Bàsicament el que vull és únicament reproduir l'estructura real del lloc tal com està definida amb els elements <code>div</code>. En el codi següent, llegiu amb atenció els comentaris HTML; els hi he posat per a explicar l'estructura del lloc. Mentre aneu revisant aquest codi, obriu la <a href="http://dev.opera.com" hreflang="en">pàgina principal de dev.opera.com</a> en una nova pestanya o finestra del navegador per tal de poder veure l'aspecte del lloc mentre exploreu la seva estructura.</p>
+
+  <pre><code>&lt;body&gt;
+&lt;!-- En primer lloc tenim un element div "wrap", que envolta tota la pàgina i
+ permet un control més precís de tot ell en general --&gt;
+  &lt;div id="wrap"&gt;
+  &lt;!-- Aquesta llista desordenada conté la llista d'enllaços de tots els llocs
+   diferents d'Opera, que podeu veure a la part superior de la pàgina --&gt;
+    &lt;ul id="sitenav" class="hidemobile"&gt;
+      ...
+    &lt;/ul&gt;
+      ...
+    &lt;!-- Aquest és el formulari de cerca - el quadre de cerca que podeu veure
+     a la part superior dreta de la pàgina --&gt;
+    &lt;form action="/search/" method="get" id="search"&gt;
+      &lt;div&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;!-- Aquesta llista desordenada conté el menú de navegació principal del
+     lloc - el menú horitzontal de pestanyes que hi ha just a sota del gràfic del
+     títol principal --&gt;
+    &lt;ul id="menu"&gt;
+      ...
+    &lt;/ul&gt;
+    &lt;!-- Aquest element div imbricat forma l'estructura del quadre d'inici de
+     sessió, en el qual introduireu el nom d'usuari i la contrasenya per accedir al
+     lloc. Només el veureu si encara no heu iniciat cap sessió. --&gt;
+    &lt;div id="loginbox"&gt;
+      &lt;div id="login"&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Aquesta sèrie d'elements div imbricats és on hi ha el contingut principal
+     de la pàgina - tots els resums dels articles que formen el gruix del contingut
+     de la pàgina --&gt;
+    &lt;div id="content2"&gt;
+      &lt;div id="main"&gt;  
+        ...
+        &lt;div class="major"&gt;
+          ...
+        &lt;/div&gt;
+        &lt;div class="major"&gt;
+          ...
+        &lt;/div&gt;
+        ...
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Aquest element div conté la barra lateral de la pàgina - les categories
+     d'articles, els últims comentaris, etc --&gt;
+    &lt;div id="side"&gt;
+      ...
+    &lt;/div&gt;
+    &lt;!-- Aquest element div conté el peu de pàgina, que és on veureu el missatge
+     de copyright i diversos enllaços a la part inferior de la pàgina. --&gt;
+    &lt;div id="footer"&gt;
+      ...
+    &lt;/div&gt;
+  &lt;!-- El final de la pàgina - és l'etiqueta de tancament per a l'element div
+   "wrap" --&gt;  
+  &lt;/div&gt;
+&lt;/body&gt;</code></pre>  
+                              
+
+  <h2 id="extrainformation">22.4. Informació addicional</h2>
+  
+  <p>Part del contingut té informació addicional, que és d'utilitat per als agents d'usuari i per a altres analitzadors, i aquesta s'ha de comunicar a través d'un atribut. Els elements <code>span</code> són sovint una bona manera d'adjuntar aquesta informació al contingut d'una pàgina web, tal com veureu a continuació.</p>
+  
+  <p>Un bon exemple és un idioma diferent que apareix en un document. Per exemple:</p>
+
+  <pre><code>&lt;p&gt;&lt;q&gt;Plus ça change, plus c'est la même chose&lt;/q&gt; she said.&lt;/p&gt;</code></pre>
+  
+  <p>Tot i que l'idioma del document principal és l'anglès, la cita és en francès. Això s'indicaria mitjançant l'ús de l'atribut
+<code>lang</code>, de la següent manera:</p>
+                                                                                                                           
+  <pre><code>&lt;p&gt;&lt;q lang='fr'&gt;Plus ça change, plus c'est la même chose&lt;/q&gt; she said.&lt;/p&gt;</code></pre>
+  
+  <p>En aquest exemple era molt fàcil indicar aquest canvi d'idioma, ja que apareixia només en una cita, amb la qual cosa l'element <code>q</code> era perfecte per a envoltar el contingut. Hi ha alguns casos, però, en què no hi ha cap element semàntic adequat fàcilment disponible, amb la qual cosa hauríeu de recórrer a <code>span</code> o <code>div</code>. Per exemple:</p>
+  
+  <pre><code>&lt;p&gt;A screen reader will read the French word chat (cat) as chat (to talk
+ informally) unless it is properly marked up.&lt;/p&gt;</code></pre>     
+  
+  <p>En aquest exemple, la primera aparició de la paraula <em>chat</em>, que és una paraula en francès en un document en anglès, hauria de tenir aquesta diferència indicada per tal que no es pogués interpretar com la paraula anglesa <em>chat</em>. En aquest cas, la manera correcta de fer-ho és amb un element <code>span</code> al voltant de la paraula <em>chat</em>, ja que no hi ha cap altre element HTML adequat per a envoltar la paraula francesa (no volem afegir cap èmfasi a la paraula, no és un cita, no és un codi, etc.). Com que és una única paraula dintre d'una frase, estarem treballant amb un element inserit. Per tant, aquest exemple s'hauria d'escriure de la manera següent:</p>
+                                                                    
+  <pre><code>&lt;p&gt; A screen reader will read the French word &lt;span lang='fr'&gt;chat&lt;/span&gt;
+ (cat) as chat (to talk informally) unless it is properly marked up.&lt;/p&gt;</code></pre>
+  
+  <p>Aquesta és la mateixa tècnica que la utilitzada en els <a href="http://microformats.org/about/" hreflang="en">microformats</a> per etiquetar formats de dades comuns en pàgines web. Podeu trobar molta més informació sobre els microformats en alguns del apartats més avançats sobre l'HTML a <a href="http://dev.opera.com/articles/html/" hreflang="en">dev.opera.com</a>.</p>
+                              
+  <h2 id="hooks">22.5. Lligams per a JavaScript, i també CSS</h2>
+  
+  <p>Abans ja he parlat de com es poden utilitzar <code>div</code> i <code>span</code> juntament amb els atributs
+<code>id</code> i <code>class</code> per oferir lligams amb els quals aplicar estils CSS i el posicionament a certes parts del vostre contingut. El mateix també es pot fer per a aplicar JavaScript al vostre document.</p>
+  
+  <p>Si el JavaScript ha de trobar i manipular un element concret, el més habitual és aplicar-li un
+<code>id</code> i llavors utilitzar la funció <code>getElementById</code> per a trobar-lo. A l'última part d'aquest curs aprendreu moltes més coses sobre el JavaScript.</p>                   
+
+  <h2 id="divitis">22.6. "div-itis"</h2>
+  
+  <p>Una de les coses que cal tenir en compte és un efecte que, entre la comunitat de desenvolupadors de webs, es coneix normalment com a "div-itis".</p>
+  
+  <p>És molt fàcil afegir estils mitjançant molts elements <code>div</code> o <code>span</code> imbricats, però és una temptació en la qual hauríem d'evitar caure sempre que fos possible. En la majoria dels casos es poden afegir estils o funcions JavaScript als elements ja existents del document. L'ús d'un contenidor genèric hauria de ser l'últim recurs; és millor intentar escriure pàgines web començant només amb els elements semàntics i afegir-hi contenidors només quan sigui necessari.</p>        
+
+  <h2 id="inappropriatesemantics">22.7. Semàntica inadequada</h2>
+  
+  <p>En aquesta secció exploro algunes de les errades més habituals que cal tenir en compte a l'hora d'etiquetar el contingut amb HTML i que cal evitar sempre que sigui possible.</p>
+                                
+  <h3 id="genericparagraphs">22.7.1. "Paràgrafs" genèrics</h3>
+  
+  <p>Algunes vegades és molt temptador utilitzar un element <code>p</code> (paràgraf) al voltant de qualsevol bloc de text, però això no és massa correcte. Tal com ja he explicat en el meu apartat anterior sobre l'etiquetatge del contingut:</p>
+  
+  <blockquote>
+    <p>"Si són només unes quantes paraules i no una frase pròpiament dita, llavors potser seria millor no etiquetar-ho com un paràgraf."</p>
+  </blockquote>
+  
+  <p>L'element correcte per a envoltar el contingut textual inconnex que no té cap altra relació semàntica coberta per altres elements de l'HTML és <code>div</code> o <code>span</code> (segons la posició exacta).</p>
+
+  <h3 id="presentationalelements">22.7.2. Elements presentacionals</h3>
+  
+  <p>Un consell especialment dolent que es pot trobar algunes vegades a Internet és el d'utilitzar elements presentacionals curts, com <code>b</code> o <code>i</code>, com a contenidors genèrics en lloc de <code>span</code>. La raó aportada és normalment una de les dues següents:</p>
+       
+	<ul>
+  <li><p>Els elements són tres bytes més curts, amb la qual cosa estalvien amplada de banda tant en l'HTML com el CSS.</p>
+  </li>
+  
+  <li><p>Els estils necessaris són només per a l'aspecte, i per tant l'ús d'elements "presentacionals" és correcte en aquestes circumstàncies.</p></li>
+	</ul>
+  
+  <p>La primera raó és correcta, però l'estalvi és pràcticament insignificant (si no és que utilitzeu una quantitat increïble d'efectes presentacionals), especialment si tenim en compte la compressió moderna aplicada pels servidors web als documents abans d'enviar-los a través d'Internet al navegador. Això fa que els documents siguin molt més curts del que pot aconseguir qualsevol sistema de taquigrafia humana.</p>
+  
+  <p>La segona raó revela una manca de comprensió del que significa realment "presentacional" en el context de l'HTML. Els elements presentacionals descriuen l'aspecte que ha de tenir el seu contingut (<code>b</code> significa simplement "el text de l'interior és en negreta"). No representen cap lligam genèric per a l'estil del seu interior.</p>
+  
+  <p>Si s'ha d'aplicar un estil a una secció petita de text dintre d'un paràgraf, o si el JavaScript l'ha de definir com un destí i no hi ha cap element semàntic aplicable per a envoltar-la, l'únic element correcte que es pot utilitzar és
+<code>span</code>.</p>
+  
+  
+        <h2 id="summary">Resum</h2> 
+  
+  <p>Aquí acaben les meves explicacions sobre els elements <code>span</code> i <code>div</code>; ara ja hauríeu d'entendre molt millor quina és la seva finalitat i ser capaços d'utilitzar-los amb tota confiança. Els apartats del mòdul "Conceptes bàsics de CSS" aprofundiran molt més en el seu ús per crear maquetacions de pàgina i per a altres finalitats.</p>
+  
+  
+  
+        <h2 id="exercises">Preguntes de repàs</h2> 
+  
+  <ol>
+		<li><p>Quina és la diferència entre <code>div</code> i <code>span</code>?</p></li>
+    <li><p>Digueu dos dels usos principals d'aquests elements a les pàgines web.</p></li>
+    <li><p>Observeu el codi font d'una de les pàgines del vostre lloc web preferit. Mireu quina estructura té. Utilitza molt elements <code>div</code> i <code>span</code>? Podeu veure alguna cosa dolenta o inadequada en la manera d'utilitzar-los? Com es podria millorar?</p></li>
+  </ol>
+
+</div>
+<div><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca"><img src="../../m0/creative_commons.gif" id="logo_cc" alt="Logo Creative Commons" /></a></div>
+<div id="logo_text">Els continguts recollits en aquest article estan subjectes a una llicència <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.ca">Creative <br />Commons Reconeixement, No comercial - Compartir Igual 3.0 No adaptada</a>.
+</div>
+<div id="cierre_autor"></div>
+<div id="peu">
+		<a rel="prev" href="../ud7/index.html" title="Anar a l'article anterior" accesskey="8"><img src="../../img/fletxa_izq_inv.gif" alt="Anar a l'article anterior" /></a> <strong>:</strong>
+		<a rel="index" href="../../index.html" title="Anar a l'índex" accesskey="0"><img src="../../img/indice_inv.gif" alt="Anar a l'índex" /></a> <strong>:</strong>
+		<a rel="next" href="../ud9/index.html" title="Anar a l'article següent" accesskey="9"><img src="../../img/fletxa_der_inv.gif" alt="Anar a l'article següent" /></a>
+</div>
+</body>
+</html>
